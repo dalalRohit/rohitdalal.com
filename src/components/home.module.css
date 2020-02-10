@@ -1,5 +1,35 @@
-/* Home COMPONENT */
+.Container{
+  font-family: Poppins;
+  height: 100vh;
+  /* background-image: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80'); */
+  color: black;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 .Home{
+  box-sizing: border-box;
   width: 100%;
   max-width: 100%;
+  height: 100%;
+  display: flex;
+  border: 1px solid black;
+  padding: .2rem;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: aliceblue;
+  height: 92vh;
+}
+
+.Arrow{
+  box-sizing: border-box;
+  width: 5%;
+  height: 4vh;
+  font-size:1.1rem ;
+  text-align: center;
+  cursor: pointer;
+  margin: .6rem 45% 0 45%;
+  position: absolute;
+  bottom: 2rem;
 }

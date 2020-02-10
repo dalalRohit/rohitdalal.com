@@ -1,8 +1,21 @@
+
+ @font-face { font-family: Poppins; src: url('./../fonts/Poppins/Poppins-Regular.ttf'); } 
+ /* @font-face { font-family: Delicious; font-weight: bold; src: url('Delicious-Bold.otf');} */
+
+ 
 *{
   margin: 0;
   padding: 0;
-  font-family: 'Lato', sans-serif;
+  box-sizing: border-box;
 }
+
+html,body{
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+
+
 
 
 

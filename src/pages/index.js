@@ -2,19 +2,13 @@ import React from "react"
 
 import Home from './../components/Home';
 import About from './../components/About';
-
-import './../components/style.css';
+import Layout from './../components/layout';
 
 const IndexPage = () => (
-  <>
+  <Layout>
     <Home />
     <About />
-    {/* 
-      <Projects />
-      <Contact />
-      
-    */}
-  </>
+  </Layout>
 
 )
 
