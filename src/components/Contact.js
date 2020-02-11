@@ -17,13 +17,18 @@ export default class Contact extends Component {
     render() {
         const name = "Contact";
         return (
-            <div >
-                <div
-                    id={name}
-                    title={name}
-                    className={classes.Contact}>
-                    <h1>Contact</h1>
+            <div id={name} className={classes.Wrapper}>
+
+                <div className={classes.Contact}>
+                    <div className={classes.Form}>
+                        FORM
+                    </div>
+
+                    <div className={classes.Social}>
+                        SOCIAL
+                    </div>
                 </div>
+
                 <Footer >
                     Designed and coded with <IoMdHeart />
                 </Footer>

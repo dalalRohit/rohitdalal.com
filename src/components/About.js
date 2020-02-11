@@ -4,9 +4,19 @@ class About extends Component {
     render() {
         const name = 'About';
         return (
-            <div title={name} id={name} className={classes.About}>
-                <h1>About</h1>
-            </div>
+            <>
+                <div id={name} className={classes.About}>
+                    <div className={classes.MainAbout}>
+                        <div className={classes.Photo}>IMAGE</div>
+
+                        <div className={classes.Desc}>DESCRIPTION</div>
+                    </div>
+                    <div className={classes.Skills}>
+                        <div>SKILLS</div>
+                    </div>
+                </div>
+            </>
+
         )
     }
 };

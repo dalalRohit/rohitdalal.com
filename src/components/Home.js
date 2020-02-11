@@ -11,8 +11,9 @@ class Home extends Component {
         const Bounce = styled.div`
             animation: 5s ${bounceAnimation} infinite;
         `
+        const name = "Home";
         return (
-            <div className={classes.Container}>
+            <div className={classes.Container} id={name} >
                 <Header />
 
                 <div className={classes.Home}>
