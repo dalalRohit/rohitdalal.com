@@ -13,7 +13,7 @@ class Home extends Component {
         `
         const name = "Home";
         return (
-            <div className={classes.Container} id={name} >
+            <div className={classes.Wrapper} id={name} >
                 <Header />
 
                 <div className={classes.Home}>

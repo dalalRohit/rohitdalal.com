@@ -3,7 +3,7 @@ import React from "react"
 import Layout from './../components/layout';
 
 import Home from './../components/Home';
-
+import About from './../components/About';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AOS from 'aos';
@@ -13,6 +13,7 @@ AOS.init();
 const IndexPage = () => (
   <Layout>
     <Home />
+    <About />
   </Layout>
 
 )
