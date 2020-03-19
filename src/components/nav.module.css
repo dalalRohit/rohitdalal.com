@@ -1,0 +1,43 @@
+.Wrapper{
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: space-between;
+}
+.Brand{
+    padding: .5rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.Scrolled{
+    position: fixed;
+    border: 1px solid gray;
+    z-index: 1000;;
+}
+
+.Nav{
+    padding: .5rem;
+    display: flex;
+    align-items: center;
+}
+.Nav ul{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+
+}
+.Nav ul li a{
+    cursor: pointer;
+    margin: .5rem;
+}
+.Nav ul li a:hover{
+    border-bottom: 2px solid gray;
+}
+
+

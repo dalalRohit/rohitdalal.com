@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components';
 import Pic from './../../images/COLOR_POP.jpg'
 const Photo=styled.div`
-    width:50%;
-    margin:1em 25% .5em 25%;
+    width:70%;
+    margin:1em 15% .5em 15%;
     height:380px;
     border:2px solid black;
     padding:.3em;

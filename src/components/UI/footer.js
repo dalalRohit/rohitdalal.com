@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {Link} from 'react-scroll';
 import {IoMdHeart} from 'react-icons/io'
 import {MdKeyboardArrowUp} from 'react-icons/md'
-import {FaRegCopyright} from 'react-icons/fa'
+
 const Footer=styled.footer`
     width:100%;
     max-width:100%;
@@ -18,7 +18,6 @@ const Footer=styled.footer`
 export default function footer() {
     return (
         <Footer>
-            <p>Copyright <FaRegCopyright size={"20px"} /> </p>
 
             <p>Designed and coded with <IoMdHeart /> </p>
             

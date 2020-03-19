@@ -5,7 +5,9 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@material-ui/core": "^4.9.2",
     "aos": "^3.0.0-beta.6",
+    "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "gatsby": "^2.19.7",
     "gatsby-image": "^2.2.39",
@@ -18,7 +20,6 @@
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-animations": "^1.0.0",
-    "react-bootstrap": "^1.0.0-beta.16",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
     "react-icons": "^3.9.0",

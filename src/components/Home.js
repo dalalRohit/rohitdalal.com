@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { IoIosArrowDown } from 'react-icons/io'
 import classes from './home.module.css';
-import Header from './Header';
 import { Link, animateScroll as scroll } from "react-scroll";
 import styled from 'styled-components';
 import { bounceAnimation } from './animations';
 
+import Nav from './Nav';
+
 class Home extends Component {
+
     render() {
         const Bounce = styled.div`
             animation: 5s ${bounceAnimation} infinite;
@@ -14,8 +16,10 @@ class Home extends Component {
         const name = "Home";
         return (
             <div className={classes.Wrapper} id={name} >
-                <Header />
 
+                <>
+                    <Nav />
+                </>
                 <div className={classes.Home}>
 
                     <div className={classes.Name}>
@@ -36,7 +40,8 @@ class Home extends Component {
                     <Link
                         to={"About"}
                         smooth={true}
-                        duration={500}>
+                        duration={500}
+                        >
                         <Bounce><IoIosArrowDown size={'30px'} /></Bounce>
                     </Link>
                 </div>
