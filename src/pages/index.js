@@ -16,6 +16,7 @@ AOS.init();
 
 const IndexPage = () => (
   <Layout>
+    
     <Home />
     <About />
     <Projects />

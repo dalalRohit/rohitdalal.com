@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import classes from './about.module.css';
 import Photo from './UI/image';
+import Skills from './UI/skills';
 
 export default class About extends Component {
     render() {
@@ -22,17 +23,7 @@ export default class About extends Component {
 
                     <div className={classes.Skills}>
                         <h2>Skills</h2>
-                        <ul>
-                            <li>Skill-1</li>
-                            <li>Skill-1</li>
-                            <li>Skill-1</li>
-                            <li>Skill-1</li>
-                            <li>Skill-1</li>
-                            <li>Skill-1</li>
-                            <li>Skill-1</li>
-                            <li>Skill-1</li>
-                            <li>Skill-1</li>
-                        </ul>
+                        <Skills  />
                     </div>
 
                 </main>

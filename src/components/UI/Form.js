@@ -45,7 +45,8 @@ class Form extends Component{
         const data=[
             {label:"Name",name:"name",helper:"How may I call you?"},
             {label:"Email",name:"email" ,helper:"Email won't be used anywhere ;)"},
-            {label:"Contact",name:"contact",helper:"Mobile number"}
+            {label:"Contact",name:"contact",helper:"Mobile number"},
+            {label:"Message",name:"message",helper:"Write ur message..",multiline:true}
         ]
         return (
             <FormDiv>
@@ -58,10 +59,11 @@ class Form extends Component{
                                     margin={"normal"}
                                     key={Math.random()}
                                     variant={"outlined"}
-                                    required onChange={(e) => this.onTextInput(e)} 
+                                    required 
                                     name={input.name} 
                                     label={input.label}
-                                    helperText={input.helper} />
+                                    helperText={input.helper}
+                                    multiline={input.multiline ? true : false} />
                             )
                         })
                     }

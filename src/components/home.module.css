@@ -16,8 +16,7 @@
   width: 100%;
   max-width: 100%;
   display: flex;
-  /* padding: .2rem; */
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   background-color: aliceblue;
   height: 100%;
@@ -35,6 +34,11 @@
   bottom: 1.12em;
 }
 
+.Name{
+  box-sizing: border-box;
+  padding: 5rem;
+  border: 1px solid violet;
+}
 /*  */
 .Brand h1{
   font-size: 4rem;
