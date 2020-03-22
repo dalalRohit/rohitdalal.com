@@ -1,37 +1,56 @@
-/* About COMPONENT */
+.Wrapper{
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    /* border: 1px solid green; */
+    background-color: aliceblue;
+    font-family: Poppins;
+    padding: .3em;
+}
+
 .About{
-  box-sizing: border-box;
-  width: 100%;
-  height: 100vh;
-  background-color: aliceblue;
-  padding: .3rem;
-  border: 2px solid rebeccapurple;
-  font-family: Poppins;;
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  grid-auto-rows: minmax(1fr,auto);
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    /* border: 1px solid green; */
+    padding: .3em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap: 1em;
+
 }
 
-.MainAbout{
-  box-sizing: border-box;
-  width: 100%;
-  max-width: 100%;
-  padding: .3rem;
-  display: grid;
-  grid-template-rows: 2fr 1fr;
-  row-gap: .2em;
+.Info{
+    box-sizing: border-box;
+    width: 100%;
+    /* border: 1px solid red; */
+    display: grid;
+    grid-template-rows: repeat(auto-fit,minmax(50%,1fr));
+    gap: 1em;
+    padding: 1em;
+}
+.Photo{
+    box-sizing: border-box;
+    width: 100%;
+    padding: .7em;
+    /* border: 1px solid gray; */
+    height: 100%;
 }
 
+.Desc{
+    box-sizing: border-box;
+    width: 100%;
+    padding: .7em;
+    /* border: 1px solid gray; */
+    height: 100%;
+}
 .Skills{
-  width: 100%;
-  max-width: 100%;
-  padding: .3rem;
-  border: 1px solid rebeccapurple;
-}
-
-.Photo,.Desc{
-  width: 100%;
-  max-width: 100%;
-  border: 1px solid tan;
-  padding: .3rem;
+    box-sizing: border-box;
+    width: 100%;
+    padding: .7em;
+    /* border: 1px solid navy; */
+    height: 100%;
+    list-style-type: none;
 }

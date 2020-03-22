@@ -1,37 +1,35 @@
 import React, { Component } from 'react'
 import classes from './contact.module.css';
-import styled from 'styled-components';
-import { IoMdHeart } from 'react-icons/io'
-const Footer = styled.footer`
-    width:100%;
-    max-width:100%;
-    border:1px solid black;
-    background-color:black;
-    color:white;
-    box-sizing:border-box;
-    padding:.3rem;
-    font-family:Poppins;
-    text-align:center;
-`
+import Form from './UI/Form';
+import {FaInstagram,FaLinkedinIn,FaTwitter,FaMediumM} from 'react-icons/fa'
 export default class Contact extends Component {
+
     render() {
-        const name = "Contact";
+        const name="Contact";
         return (
             <div id={name} className={classes.Wrapper}>
+                <h1>#Contact</h1>
 
-                <div className={classes.Contact}>
+                <main className={classes.Contact}>
                     <div className={classes.Form}>
-                        FORM
+                        <p>Let's have a cup of coffee ;)</p>
+                        <Form  />
                     </div>
 
                     <div className={classes.Social}>
-                        SOCIAL
+                        <h2>Social</h2>
+                        <p>You can reach to me here</p>
+                        <div className={classes.Icons}>
+                            <li>
+                                <FaInstagram size={"30px"} /> 
+                            </li>
+                            <li><FaLinkedinIn size={"30px"} /></li>
+                            <li><FaTwitter size={"30px"} /></li>
+                            <li><FaMediumM size={"30px"} /></li>
+                        </div>
                     </div>
-                </div>
-
-                <Footer >
-                    Designed and coded with <IoMdHeart />
-                </Footer>
+                </main>
+            
             </div>
         )
     }
