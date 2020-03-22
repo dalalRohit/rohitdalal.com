@@ -3,7 +3,12 @@
  /* @font-face { font-family: Quicksand; src: url('./../fonts/Quicksand/Quicksand-VariableFont_wght.ttf'); }  */
  /* @font-face { font-family: Delicious; font-weight: bold; src: url('Delicious-Bold.otf');} */
 
- 
+ :root{
+   --landing-bg: #8EC5FC;
+   --landing-gradient: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+   --hover-color:#8EC5FC;
+   
+ }
 *{
   margin: 0;
   padding: 0;

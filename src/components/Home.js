@@ -34,17 +34,20 @@ class Home extends Component {
                         </div>
 
                     </div>
+
+                    <div className={classes.Arrow} >
+                        <Link
+                            to={"About"}
+                            smooth={true}
+                            duration={500}
+                            >
+                            <Bounce><IoIosArrowDown size={'30px'} /></Bounce>
+                        </Link>
+                </div>
+                
                 </div>
 
-                <div className={classes.Arrow} >
-                    <Link
-                        to={"About"}
-                        smooth={true}
-                        duration={500}
-                        >
-                        <Bounce><IoIosArrowDown size={'30px'} /></Bounce>
-                    </Link>
-                </div>
+
             </div>
         )
     }
