@@ -1,23 +1,34 @@
 
- @font-face { font-family: Poppins; src: url('./../fonts/Poppins/Poppins-Regular.ttf'); } 
- /* @font-face { font-family: Quicksand; src: url('./../fonts/Quicksand/Quicksand-VariableFont_wght.ttf'); }  */
- /* @font-face { font-family: Delicious; font-weight: bold; src: url('Delicious-Bold.otf');} */
+/* Declare all fonts */
+@font-face {
+  font-family: "Poppins";
+  src: url('./../fonts/Poppins/Poppins-Regular.ttf');
+}
+@font-face {
+  font-family: "Roboto";
+  src: url('./../fonts/Roboto/Roboto-Regular.ttf');
+}
 
+
+/* Css variables */
  :root{
    --landing-bg: #8EC5FC;
    --landing-gradient: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
    --hover-color:#8EC5FC;
-   
  }
+
+ /* Global styles */
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* font-family: "Poppins"; */
 }
 
 html,body{
   box-sizing: border-box;
   height: 100%;
+  
 }
 
 

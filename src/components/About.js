@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {useStaticQuery,graphql} from 'gatsby';
 import classes from './about.module.css';
 import Photo from './UI/image';
 import Skills from './UI/skills';
@@ -6,9 +7,11 @@ import Skills from './UI/skills';
 export default class About extends Component {
     render() {
         const name="About";
+
         return (
             <div id={name} className={classes.Wrapper} >
-                <h1>#About</h1>
+                <h1 className={classes.about}>/about</h1>
+                
                 <main className={classes.About}>
 
                     <div className={classes.Info}>
