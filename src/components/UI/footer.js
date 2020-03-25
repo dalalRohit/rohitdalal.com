@@ -25,7 +25,7 @@ export default function footer() {
                 to={"Home"}
                 smooth={true}
                 duration={500}>
-                <MdKeyboardArrowUp size={'30px'} />
+                <MdKeyboardArrowUp  size={'30px'} />
             </Link>
         </Footer>
     )

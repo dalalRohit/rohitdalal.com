@@ -4,6 +4,7 @@
     height: 100%;
     max-width: 100%;
     background-color: aliceblue;
+    /* background-image: var(--contact-gradient); */
     font-family: Poppins;
     padding: .3em;
 }
