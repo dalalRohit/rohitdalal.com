@@ -2,10 +2,11 @@
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
-    padding: 0;
+    /* padding: 0.45rem; */
     margin: 0;
     display: flex;
     justify-content: space-between;
+    border: 2px solid white;
 }
 .Brand{
     padding: .5rem;
@@ -37,6 +38,37 @@
 }
 .Nav ul li a:hover{
     border-bottom: 2px solid white;
+}
+
+.Menu{
+    padding: .3rem;
+    margin: .3rem;
+    display: none;
+    cursor: pointer;
+}
+
+.Mobile{
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #eee;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-rows: repeat(3,1fr);
+    position: absolute;
+}
+.Mobile ul li {
+    gap: 1rem;
+    padding: .7rem;
+
+}
+@media only screen and (max-width:699px){
+    .Nav ul{
+        display: none;
+    }
+    .Menu{
+        display: block;
+    }
 }
 
 

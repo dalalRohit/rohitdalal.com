@@ -1,27 +1,24 @@
 import React from 'react'
 import styled from 'styled-components';
 
-const ProgressBar=styled.div`
-    position:relative;
-    height:20px;
-    width:400px;
-    border-radius:50px;
-    border:1px solid #333;
-    margin:10px;
-`;
 
-const Filler=styled.div`
-    background:red;
-    height:100%;
-    border-radius:inherit;
-    transition:width .2s ease-in;
-`
 export default function Bar(props) {
+    const progressStyle={
+        height:"30px",
+        margin:"18px",
+        lineHeight:"1.5rem",
+        fontSize:"1.2rem"
+    }
     return (
-        <ProgressBar >
-            <Filler style={{width:`${props.percentage}%`}} >
-                {props.text}
-            </Filler>
-        </ProgressBar>
-    )
+    <div className="progress" style={progressStyle}>
+        <div 
+            className="progress-bar"
+            role="progressbar"
+            style={{width:props.width}}
+            aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+                {props.skill}
+                
+        </div>
+    </div>
+    );
 }

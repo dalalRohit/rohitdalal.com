@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { bounceAnimation } from './animations';
 
 import Nav from './Nav';
+import Navbar from './Navbar';
 
 class Home extends Component {
 
@@ -18,7 +19,7 @@ class Home extends Component {
             <div className={classes.Wrapper} id={name} >
 
                 <>
-                    <Nav />
+                    <Navbar />
                 </>
                 <div className={classes.Home}>
 
