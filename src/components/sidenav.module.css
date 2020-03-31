@@ -1,0 +1,56 @@
+.Sidenav{
+    width: 60%;
+    max-width: 100%;
+    background-color:aliceblue;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    z-index:999999;
+    transition: transform 0.3s ease-out;
+}
+.Sidenav a{
+    color: inherit;
+    text-decoration: none;
+    text-transform: none;
+}
+.Items{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+    top: 15%;
+    left: 0;;
+}
+.Links{
+    display:flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+
+}
+.Links li{
+    box-sizing: border-box;
+    padding: 8px;
+    margin: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.Open {
+    transform: translateX(0);
+}
+
+.Close {
+    transform: translateX(-100%);
+}
+
+.Logo{
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+}

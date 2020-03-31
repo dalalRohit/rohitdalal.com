@@ -1,0 +1,28 @@
+.Wrapper{
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.Menu{
+    display: none;
+    cursor: pointer;
+}
+.Nav{
+    box-sizing: border-box;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+@media(max-width:900px){
+    .Menu{
+        display: block;
+    }
+    .Nav{
+        display: none;
+    }
+}
