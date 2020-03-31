@@ -13,12 +13,10 @@
 /* Css variables */
  :root{
    --landing-bg: #8EC5FC;
-   /* --landing-gradient: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%); */
    --landing-gradient:linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
-   --about-gradient: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
-   --projects-gradient: linear-gradient(120deg, #5ee7df 0%, #b490ca 100%);
-   --contact-gradient: linear-gradient(120deg, #ebc0fd 0%, #d9ded8 100%);
    --hover-color:#8EC5FC;
+   --dark-background:#121212;
+   --dark-text:#FFFFFF;
  }
 
  /* Global styles */

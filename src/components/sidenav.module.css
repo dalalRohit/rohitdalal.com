@@ -9,8 +9,9 @@
     padding: 0;
     box-sizing: border-box;
     height: 100vh;
-    z-index:999999;
+    z-index:1000;
     transition: transform 0.3s ease-out;
+    border-right: 1px solid rgba(0, 0, 0, 0.25);
 }
 .Sidenav a{
     color: inherit;
@@ -53,4 +54,26 @@
     text-align: center;
     margin: 10px;
     padding: 10px;
+}
+
+
+.NavItems{
+    /* border: 1px solid red; */
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 15vh;
+    padding: 1.5em;
+}
+
+.Info{
+    box-sizing: border-box;
+    width: 100%;
+    position: fixed;
+    bottom: 2%;
+    left: 0;
+    text-align: center;
+    font-size: 1.12em;
 }

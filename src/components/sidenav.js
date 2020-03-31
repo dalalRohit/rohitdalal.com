@@ -2,16 +2,8 @@ import React from 'react'
 import Backdrop from './UI/backdrop';
 import classes from './sidenav.module.css';
 import Logo from './UI/logo';
-import styled from 'styled-components';
-import { Link, animateScroll as scroll } from "react-scroll";
-
-const Li=styled.li`
-    cursor:pointer;
-
-    a:hover{
-        border-bottom:1px solid white;
-    }
-`
+import NavItems from './nav_items';
+import {FaHeart} from 'react-icons/fa';
 
 export default function Sidenav(props) {
     let attachedClasses = [classes.Sidenav, classes.Close];
@@ -27,39 +19,17 @@ export default function Sidenav(props) {
 
             <div className={attachedClasses.join(' ')}>
                 
-                <div className={classes.Logo}>
+                <div className={classes.Logo} >
                     <Logo />
                 </div>
+  
+                <div className={classes.NavItems}>
+                    <NavItems click={props.click} offset={-58.49}/>
+                </div>
 
-                <nav className={classes.Items}>
-                    <ul className={classes.Links}>
-                        <Li >
-                            <Link
-                                onClick={props.click}
-                                to={"About"}
-                                smooth={true}
-                                duration={500}
-                                >/about</Link>
-                        </Li>
-                        <Li >
-                            <Link
-                                onClick={props.click}
-                                to={"Projects"}
-                                smooth={true}
-                                duration={500}
-                                >/projects</Link>
-                        </Li>
-                        <Li >
-                            <Link
-                                onClick={props.click}
-                                to={"Contact"}
-                                smooth={true}
-                                duration={500}
-                                >/contact</Link>
-                        </Li>
-                    </ul>
-                </nav>
-
+                <div className={classes.Info}>
+                    <p>Designed and coded with <FaHeart /> </p>
+                </div>
             </div>
         </div>
     )

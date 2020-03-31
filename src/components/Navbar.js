@@ -1,23 +1,29 @@
 import React, { Component } from 'react'
-import { Link, animateScroll as scroll } from "react-scroll";
+
 import classes from './navbar.module.css';
-import styled from 'styled-components';
 import {MdMenu} from 'react-icons/md';
 import Logo from './UI/logo';
 import Sidenav from './sidenav';
+import NavItems from './nav_items';
 
-const Li=styled.li`
-    cursor:pointer;
 
-    a:hover{
-        border-bottom:1px solid white;
-    }
-`
 export default class Navbar extends Component {
     state={
         show:false,
+        dark:false
     }
-
+    componentDidMount(){
+        window.addEventListener('scroll',() => {
+            const top=window.scrollY > 450 ;
+            console.log(top);
+            if(top === true){
+                this.setState({scrolled:true})
+            }
+            else{
+                this.setState({scrolled:false})
+            }
+        })
+    }
     handleSideNav=() => {
 
         this.setState({
@@ -25,47 +31,29 @@ export default class Navbar extends Component {
         })
     }
     render() {
-
+        let navClass=[classes.Wrapper]
+        if(this.state.scrolled){
+            navClass.push(classes.Scrolled);
+        }
+        
         return (
             <div > 
                 <Sidenav show={this.state.show} click={this.handleSideNav} />
-                <div className={classes.Wrapper}>
+                <div className={navClass.join(" ")}>
                         <div onClick={this.handleSideNav} className={classes.Menu} >
                             <MdMenu size={30} />
                         </div>
 
-                        <div className={classes.Logo}>
+                        <div style={{display:this.state.show ? 'none' :'block'}} >
                             <Logo />
                         </div>
+                        
                         <div className={classes.Nav}>
                             <nav className="navbar navbar-expand-lg navbar-light ">
                             
                             <div className="collapse navbar-collapse" id="navbarNav">
                                 <div className="mr-auto"></div>
-
-                                <ul className="navbar-nav">
-                                    <Li className="nav-item nav-link" >
-                                        <Link
-                                            to={"About"}
-                                            smooth={true}
-                                            duration={500}
-                                            >/about</Link>
-                                    </Li>
-                                    <Li className="nav-item nav-link">
-                                        <Link
-                                            to={"Projects"}
-                                            smooth={true}
-                                            duration={500}
-                                            >/projects</Link>
-                                    </Li>
-                                    <Li className="nav-item nav-link">
-                                        <Link
-                                            to={"Contact"}
-                                            smooth={true}
-                                            duration={500}
-                                            >/contact</Link>
-                                    </Li>
-                                </ul>
+                                <NavItems offset={this.props.offset} />
                             </div>
                         </nav>
                         </div>

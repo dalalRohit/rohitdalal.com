@@ -15,11 +15,12 @@ class Home extends Component {
             animation: 5s ${bounceAnimation} infinite;
         `
         const name = "Home";
+        let offset=-58.49;
         return (
             <div className={classes.Wrapper} id={name} >
 
                 <>
-                    <Navbar />
+                    <Navbar offset={offset}/>
                 </>
                 <div className={classes.Home}>
 
@@ -41,6 +42,7 @@ class Home extends Component {
                             to={"About"}
                             smooth={true}
                             duration={500}
+                            offset={offset}
                             >
                             <Bounce><IoIosArrowDown size={'30px'} /></Bounce>
                         </Link>

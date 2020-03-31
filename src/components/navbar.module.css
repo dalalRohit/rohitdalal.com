@@ -6,16 +6,26 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    /* border: 1px solid white; */
+    min-height: 8vh;
+    transition: all 0.6s ease-out;
 }
 .Menu{
     display: none;
     cursor: pointer;
 }
+
 .Nav{
     box-sizing: border-box;
     max-width: 100%;
     margin: 0;
     padding: 0;
+}
+.Scrolled{
+    position: fixed;
+    background-color:aliceblue;
+    z-index: 100;
+    border-bottom: 1px solid rgba(0,0,0,.25);
 }
 
 @media(max-width:900px){
