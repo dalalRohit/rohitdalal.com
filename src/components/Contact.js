@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import classes from './contact.module.css';
 import Form from './UI/Form';
-import {FaInstagram,FaLinkedinIn,FaTwitter,FaMediumM} from 'react-icons/fa'
+import {FaInstagram,FaLinkedinIn,FaTwitter,FaMediumM,FaGithub} from 'react-icons/fa'
 export default class Contact extends Component {
 
     render() {
@@ -45,6 +45,11 @@ export default class Contact extends Component {
                             <li>
                                 <a title="Medium" alt="Medium" href="https://medium.com/@rohit_dalal" target="_blank" style={linkStyles}>
                                      <FaMediumM size={"40px"} />
+                                 </a>
+                            </li>
+                            <li>
+                                <a title="GitHub" alt="GitHub" href="https://github.com/dalalRohit" target="_blank" style={linkStyles}>
+                                     <FaGithub size={"40px"} />
                                  </a>
                             </li>
                         </div>

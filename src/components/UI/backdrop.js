@@ -11,12 +11,19 @@ const BackdropDiv=styled.div`
     background-color: rgba(0, 0, 0, 0.35);
     z-index:1000;
 `
+// const Text=styled.div`
+//     border:1px solid white;
+//     text-align:center;
+//     padding:2em;
+// `
 export default function Backdrop(props) {
     return (
         <BackdropDiv onClick={props.click}
             style={{ display: props.show ? 'block' : 'none' }}
             >
-
+            {/* <Text>
+                <p>Click anywhere to exit</p>
+            </Text> */}
         </BackdropDiv>
     )
 }

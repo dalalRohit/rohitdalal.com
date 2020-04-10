@@ -24,7 +24,7 @@ export default function Sidenav(props) {
                 </div>
   
                 <div className={classes.NavItems}>
-                    <NavItems click={props.click} offset={-58.49}/>
+                    <NavItems click={props.click} offset={props.offset}/>
                 </div>
 
                 <div className={classes.Info}>
