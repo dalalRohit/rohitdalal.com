@@ -2,6 +2,7 @@ import React from "react"
 
 import Layout from './../components/layout';
 
+import Head from './../components/head';
 import Home from './../components/Home';
 import About from './../components/About';
 import Projects from './../components/Projects';
@@ -16,6 +17,7 @@ AOS.init();
 const IndexPage = () => (
   <Layout>
     
+    <Head info="MERN Stack Developer"/>
     <Home />
     <About />
     <Projects />

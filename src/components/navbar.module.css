@@ -1,0 +1,41 @@
+.Wrapper{
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid white; */
+    height: 8vh;
+    min-height: 8vh;
+    transition: all 0.6s ease-out;
+}
+.Menu{
+    display: none;
+    cursor: pointer;
+}
+
+.Nav{
+    box-sizing: border-box;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.Scrolled{
+    position: fixed;
+    background-color:aliceblue;
+    z-index: 100;
+    /* border-bottom: 1px solid rgba(0,0,0,.25); */
+    box-shadow: 0 3px 8px #bbb;
+    height: 8vh;
+}
+
+@media(max-width:900px){
+    .Menu{
+        display: block;
+    }
+    .Nav{
+        display: none;
+    }
+}

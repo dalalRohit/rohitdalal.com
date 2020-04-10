@@ -3,7 +3,8 @@
     width: 100%;
     height: 100%;
     max-width: 100%;
-    background-color: aliceblue;
+    background-color:aliceblue;
+    /* color: var(--dark-text); */
     /* background-image: var(--about-gradient); */
     font-family: Poppins;
     padding: .3em;
@@ -17,7 +18,7 @@
     height: 100%;
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(49%,1fr));
     gap: 1em;
 
 }
@@ -46,6 +47,12 @@
     padding: .7em;
     /* border: 1px solid gray; */
     height: 100%;
+    writing-mode: horizontal-tb;
+}
+.Desc p{
+    line-height: 1.2rem;
+    font-size: 1.2rem;
+    line-height: 1.2rem;
 }
 .Skills{
     box-sizing: border-box;

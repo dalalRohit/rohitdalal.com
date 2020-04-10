@@ -18,6 +18,6 @@
     padding: .5em;
     /* border: 1px solid red; */
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(1fr,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(49%,1fr));
     gap: 1em;
 }

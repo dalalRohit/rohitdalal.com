@@ -44,11 +44,23 @@
 
 .Brand p{
   text-align: center;
+  font-size: 1.2em;
+  line-height: 1.2em;
 }
 .Intro{
   box-sizing: border-box;
   width: 100%;
-  padding: .3rem;
+  padding: 1.2rem;
   border: 1px solid black;
-  text-align: center;
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+.Intro:hover{
+  border: 1px solid white;
+}
+.Intro p{
+  font-size: 1.2em;
+  line-height: 1.2em;
+} 

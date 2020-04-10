@@ -1,0 +1,62 @@
+import React, { Component } from 'react'
+import styled from 'styled-components';
+import {MdClose} from 'react-icons/md';
+import Backdrop from './backdrop';
+
+const ModalDiv=styled.div`
+    box-sizing:border-box;
+    width:80%;
+    height:70%;
+    max-width:100%;
+    margin:0 10% 0 10%;
+    background-color: #f9f7f8;
+    position:fixed;
+    top:15%;
+    left:0;
+    z-index:1000;
+    overflow:auto;
+    display:none;
+    transition: all 2s ease-out;
+    @media (max-width:768px){
+        width:96%;
+        margin:0 2% 0 2%;
+    }
+
+`
+const ModalWrapper=styled.div`
+    width:100%;
+    display:flex;
+`
+
+const ModalHeader=styled.div`
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1.4px solid gray;
+`
+
+const ModalContent=styled.main`
+    box-sizing:border-box;
+    width:100%;
+    padding:1.2em;
+`
+export default class Modal extends Component {
+    render() {
+        return (
+            <ModalWrapper>
+                <Backdrop show={this.props.show} click={this.props.click}/>
+
+                <ModalDiv style={{display:this.props.show ? 'block' : 'none'}}>
+                    <ModalHeader>
+                        <h4>{this.props.header}</h4>
+                        <MdClose size={20} style={{margin:'10px',cursor:'pointer'}} onClick={this.props.click}/>
+                    </ModalHeader>
+                    <ModalContent>
+                        {this.props.children}
+                    </ModalContent>
+                </ModalDiv>
+            
+            </ModalWrapper>
+        )
+    }
+}
