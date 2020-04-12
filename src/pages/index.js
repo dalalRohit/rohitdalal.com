@@ -1,5 +1,6 @@
 import React from "react"
-
+import {ThemeProvider} from 'styled-components';
+import GlobalStyles from './../Global';
 import Layout from './../components/layout';
 
 import Head from './../components/head';
@@ -14,16 +15,24 @@ import AOS from 'aos';
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 AOS.init();
 
+
+
 const IndexPage = () => (
-  <Layout>
-    
-    <Head info="MERN Stack Developer"/>
-    <Home />
-    <About />
-    <Projects />
-    <Contact />
-    <Footer />
-  </Layout>
+  <ThemeProvider theme={{mode:'light'}}>
+    <>
+    <GlobalStyles />
+      <Layout>
+        
+        <Head info="MERN Stack Developer"/>
+        <Home />
+        <About />
+        <Projects />
+        <Contact />
+        <Footer />
+
+      </Layout>
+    </>
+  </ThemeProvider>
 
 )
 

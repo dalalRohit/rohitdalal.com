@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import { bounceAnimation } from './animations';
 import {graphql,useStaticQuery} from 'gatsby';
 
-import Nav from './Nav';
 import Navbar from './Navbar';
 
 const Home=() => {

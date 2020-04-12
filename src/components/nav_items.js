@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-
+import {FaToggleOn} from 'react-icons/fa';
 import { Link, animateScroll as scroll } from "react-scroll";
 const Li=styled.li`
     cursor:pointer;
@@ -41,6 +41,7 @@ export default function NavItems(props) {
                     offset={offset}
                     >/contact</Link>
             </Li>
+
         </ul>
     )
 }

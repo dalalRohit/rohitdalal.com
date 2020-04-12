@@ -5,6 +5,7 @@
   max-width: 100%;
   font-family: Poppins;
   background-image: var(--landing-gradient);
+  color: black;
 }
 
 @media (max-width:699px){

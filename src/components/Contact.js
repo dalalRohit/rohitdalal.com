@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import classes from './contact.module.css';
+
 import Form from './UI/Form';
 import {FaInstagram,FaLinkedinIn,FaTwitter,FaMediumM,FaGithub} from 'react-icons/fa'
 export default class Contact extends Component {

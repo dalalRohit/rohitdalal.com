@@ -15,8 +15,12 @@
    --landing-bg: #8EC5FC;
    --landing-gradient:linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
    --hover-color:#8EC5FC;
-   --dark-background:#121212;
-   --dark-text:#FFFFFF;
+
+   --normal-background:aliceblue;
+   --normal-text:black;
+
+   --dark-background:#2d2d2d;
+   --dark-text: 	#bdbdbd;
  }
 
  /* Global styles */
@@ -24,7 +28,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* font-family: "Poppins"; */
 }
 
 html,body{

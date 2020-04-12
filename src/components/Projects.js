@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import classes from './projects.module.css';
 import Card from './UI/card';
 import {graphql,useStaticQuery} from 'gatsby';
+import fm from 'front-matter';
 
 const Projects=() => {
     const name="Projects";
-
     const projects=useStaticQuery(graphql`
         query{
             allMarkdownRemark{
@@ -13,7 +13,7 @@ const Projects=() => {
                     node{
                         frontmatter{
                             title,
-                            date
+                            date,
                         },
                         html,
                         excerpt
@@ -28,7 +28,7 @@ const Projects=() => {
             <h1>/projects</h1>
             <main className={classes.Projects}>
 
-                {projects.allMarkdownRemark.edges.map( (project) => {
+                {projects.allMarkdownRemark.edges.map( (project,i) => {
                     return (
                             <Card 
                                 key={Math.random()}

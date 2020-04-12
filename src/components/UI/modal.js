@@ -6,7 +6,6 @@ import Backdrop from './backdrop';
 const ModalDiv=styled.div`
     box-sizing:border-box;
     width:80%;
-    height:70%;
     max-width:100%;
     margin:0 10% 0 10%;
     background-color: #f9f7f8;
@@ -46,7 +45,7 @@ export default class Modal extends Component {
             <ModalWrapper>
                 <Backdrop show={this.props.show} click={this.props.click}/>
 
-                <ModalDiv style={{display:this.props.show ? 'block' : 'none'}}>
+                <ModalDiv style={{display:this.props.show ? 'block' : 'none',height:this.props.height}}>
                     <ModalHeader>
                         <h4>{this.props.header}</h4>
                         <MdClose size={20} style={{margin:'10px',cursor:'pointer'}} onClick={this.props.click}/>
