@@ -1,6 +1,5 @@
 import React,{Component} from 'react'
 import styled from 'styled-components';
-import sample from './../../posts/proj-1.png';
 import Button from '@material-ui/core/Button';
 import Modal from './modal';
 
