@@ -19,6 +19,7 @@ const MainForm=styled.form`
     padding:1.4em;
     display:flex;
     flex-flow:column;
+    color:#eee;
 `
 const FormBtn=styled.div`
     margin-top:10px;
@@ -95,10 +96,10 @@ class Form extends Component{
                             return (
                                 <TextField 
                                     value={this.state[input.name]}
-                                    margin={"normal"}
+                                    margin="normal"
                                     // Don't use Math.random() : https://stackoverflow.com/questions/42573017/in-react-es6-why-does-the-input-field-lose-focus-after-typing-a-character
                                     // key={Math.random()}
-                                    variant={"outlined"}
+                                    variant="outlined"
                                     required 
                                     error={input.error ? true : false}
                                     name={input.name} 

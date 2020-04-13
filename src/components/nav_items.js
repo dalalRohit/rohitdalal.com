@@ -1,47 +1,83 @@
 import React from 'react'
 import styled from 'styled-components';
-import {FaToggleOn} from 'react-icons/fa';
+import {IoMdMoon,IoMdSunny} from 'react-icons/io';
 import { Link, animateScroll as scroll } from "react-scroll";
+
 const Li=styled.li`
+    box-sizing:border-box;
+    margin:0;
+    font-size:1.23em;
     cursor:pointer;
     text-decoration:none;
     a:hover{
         border-bottom:1.4px solid purple;
     }
 `
+const Ul=styled.ul`
+    width:100%;
+    box-sizing:border-box;
+    margin-top:15px;
+    height:8vh;
+    min-height:8vh;
+    display:flex;
+    align-items:center;
+    // background-color:pink;
+    color:#454545;
+    li{
+        list-style-type:none;
+        padding:.4em;
+        margin:.4em;
+    }
+
+    @media(max-width:699px){
+        flex-flow:column;
+        margin:0;
+        li{
+            margin:.5em;
+        }
+    }
+`
 
 export default function NavItems(props) {
     let offset=props.offset;
+
     return (
-        <ul className="navbar-nav">
-            <Li className="nav-item nav-link" >
+        <Ul>
+
+            <Li>
                 <Link
                     onClick={props.click}
                     to={"About"}
                     smooth={true}
                     duration={500}
+                    activeClass="active"
                     offset={offset}
                     >/about</Link>
             </Li>
-            <Li className="nav-item nav-link">
+            <Li>
                 <Link
                     onClick={props.click}
                     to={"Projects"}
                     smooth={true}
                     duration={500}
                     offset={offset}
+                    activeClass="rohit"
                     >/projects</Link>
             </Li>
-            <Li className="nav-item nav-link">
+            <Li >
                 <Link
                     onClick={props.click}
                     to={"Contact"}
                     smooth={true}
                     duration={500}
+                    activeClass="active"
                     offset={offset}
                     >/contact</Link>
             </Li>
+            {/* <Li onClick={props.changeTheme}>
+                <IoMdSunny size={25} />
+            </Li> */}
 
-        </ul>
+        </Ul>
     )
 }

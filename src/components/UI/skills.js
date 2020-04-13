@@ -16,7 +16,10 @@ export default function skills() {
             {
                 skills.map( (skill) => {
                     return (
-                        <Bar key={skill.key} width={skill.width} skill={skill.skill} />
+                        <Bar 
+                            key={skill.key}
+                            width={skill.width}
+                            skill={skill.skill} />
                     )
                 })
             }

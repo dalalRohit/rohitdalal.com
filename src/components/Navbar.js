@@ -39,7 +39,9 @@ export default class Navbar extends Component {
         
         return (
             <div > 
+                
                 <Sidenav show={this.state.show} click={this.handleSideNav} offset={this.props.offset} />
+
                 <div className={navClass.join(" ")}>
                         <div onClick={this.handleSideNav} className={classes.Menu} >
                             <MdMenu size={30} />
@@ -50,13 +52,11 @@ export default class Navbar extends Component {
                         </div>
                         
                         <div className={classes.Nav}>
-                            <nav className="navbar navbar-expand-lg navbar-light ">
                             
-                            <div className="collapse navbar-collapse" id="navbarNav">
-                                <div className="mr-auto"></div>
-                                <NavItems offset={this.props.offset} modalClick={this.modalClickHandler}/>
-                            </div>
-                        </nav>
+                            <NavItems 
+                                offset={this.props.offset}
+                                modalClick={this.modalClickHandler}
+                                />
                         </div>
                 </div>
             </div>

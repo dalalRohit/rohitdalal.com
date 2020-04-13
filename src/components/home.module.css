@@ -3,9 +3,9 @@
   width: 100%;
   height: 100vh;
   max-width: 100%;
-  font-family: Poppins;
   background-image: var(--landing-gradient);
-  color: black;
+  min-height: calc(100vh - 360px);
+
 }
 
 @media (max-width:699px){
@@ -45,8 +45,8 @@
 
 .Brand p{
   text-align: center;
-  font-size: 1.2em;
-  line-height: 1.2em;
+  font-size: 1.1em;
+  line-height: 1.1em;
 }
 .Intro{
   box-sizing: border-box;

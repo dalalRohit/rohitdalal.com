@@ -1,6 +1,4 @@
 import React from "react"
-import {ThemeProvider} from 'styled-components';
-import GlobalStyles from './../Global';
 import Layout from './../components/layout';
 
 import Head from './../components/head';
@@ -18,9 +16,6 @@ AOS.init();
 
 
 const IndexPage = () => (
-  <ThemeProvider theme={{mode:'light'}}>
-    <>
-    <GlobalStyles />
       <Layout>
         
         <Head info="MERN Stack Developer"/>
@@ -31,8 +26,6 @@ const IndexPage = () => (
         <Footer />
 
       </Layout>
-    </>
-  </ThemeProvider>
 
 )
 

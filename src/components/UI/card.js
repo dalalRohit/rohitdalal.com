@@ -15,7 +15,6 @@ const CardDiv=styled.div`
     background-size:cover;
     background-repeat:no-repeat;
     background-position: center center;
-    background-color: #464646;
     display:flex;
     flex-flow:column;
     justify-content:space-between;
@@ -23,7 +22,7 @@ const CardDiv=styled.div`
     cursor:pointer;
     outline:solid 2px gray;
     &:hover{
-        outline-width:3px;
+        outline-width:5px;
     }
 
     @media(max-width:699px){

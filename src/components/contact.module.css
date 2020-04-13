@@ -3,10 +3,11 @@
     width: 100%;
     height: 100%;
     max-width: 100%;
-    /* background-color: aliceblue; */
-    /* background-image: var(--contact-gradient); */
-    font-family: Poppins;
     padding: .3em;
+    min-height: calc(100vh - 360px);
+    /* background-color: #202020; */
+    /* color: #eee; */
+
 }
 
 .Contact{

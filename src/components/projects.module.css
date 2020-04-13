@@ -3,11 +3,8 @@
     width: 100%;
     height: 100%;
     max-width: 100%;
-    /* border: 1px solid green; */
-    /* background-color: aliceblue; */
-    /* background-image: var(--projects-gradient); */
-    font-family: Poppins;
     padding: .3em;
+    min-height: calc(100vh - 360px);
 }
 
 .Projects{
@@ -16,7 +13,6 @@
     height: 100%;
     box-sizing: border-box;
     padding: .5em;
-    /* border: 1px solid red; */
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(49%,1fr));
     gap: 1em;

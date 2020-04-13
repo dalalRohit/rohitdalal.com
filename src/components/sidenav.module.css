@@ -1,15 +1,15 @@
 .Sidenav{
     width: 60%;
     max-width: 100%;
-    background-color:aliceblue;
     position: fixed;
     top: 0;
     left: 0;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: #fff;
     height: 100vh;
-    z-index:1000;
+    z-index:100;
     transition: transform 0.3s ease-out;
     border-right: 1px solid rgba(0, 0, 0, 0.25);
 }

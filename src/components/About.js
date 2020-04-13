@@ -4,8 +4,13 @@ import React, { Component } from 'react'
 import classes from './about.module.css';
 import Photo from './UI/image';
 import Skills from './UI/skills';
-import Modal from './UI/modal';
+import styled from 'styled-components';
 
+const Header=styled.h1`
+    font-size:3.1rem;
+    font-weight:400;
+    margin-top:0;
+`
 export default class About extends Component {
 
     render() {
@@ -14,7 +19,7 @@ export default class About extends Component {
         return (
             <div id={name} className={classes.Wrapper} >
 
-                <h1 >/about</h1>
+                <Header>/about</Header>
                 
                 <main className={classes.About}>
 
