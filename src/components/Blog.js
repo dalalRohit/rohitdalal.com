@@ -2,7 +2,6 @@ import React from 'react'
 import classes from './blog.module.css';
 import {Link,graphql,useStaticQuery} from 'gatsby';
 import {IoIosArrowForward} from 'react-icons/io';
-import sample from './../images/code.jpg';
 
 export default function Blog() {
     const data=useStaticQuery(graphql`
@@ -34,7 +33,7 @@ export default function Blog() {
                     data.allMarkdownRemark.edges.map( (edge) =>{
                         return (
                             <div className={classes.Blog}>
-                                <img src={sample} />
+                                <img src={"https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"} />
                                 <Link to={`/blogs/${edge.node.fields.slug}`}><p>{edge.node.frontmatter.title}</p></Link>
                             </div>
                         )

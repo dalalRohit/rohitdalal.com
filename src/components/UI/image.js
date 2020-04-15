@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components';
-import Pic from './../../images/sample.jpg'
 const Photo=styled.div`
 
     width:70%;
