@@ -3,17 +3,17 @@ import { IoIosArrowDown } from 'react-icons/io'
 import classes from './home.module.css';
 import { Link, animateScroll as scroll } from "react-scroll";
 import styled from 'styled-components';
-import { bounceAnimation } from './animations';
+import { bounceAnimation } from './helpers/animations';
 import {graphql,useStaticQuery} from 'gatsby';
-
 import Navbar from './Navbar';
+
 
 const Home=() => {
     const Bounce = styled.div`
-        animation: 5s ${bounceAnimation} infinite;
+        animation: 5s ${bounceAnimation};
     `
     const name = "Home";
-    let offset=-52;
+    const offset=-52;
     const data = useStaticQuery(graphql`
         query  {
             site {
@@ -28,7 +28,6 @@ const Home=() => {
     `)
     return (
         <div className={classes.Wrapper} id={name} >
-
             <>
                 <Navbar offset={offset}/>
             </>
@@ -52,11 +51,11 @@ const Home=() => {
                         to={"About"}
                         smooth={true}
                         duration={500}
-                        offset={offset}
+                        offset={-52}
                         >
                         <Bounce><IoIosArrowDown size={'30px'} /></Bounce>
                     </Link>
-            </div>
+                </div>
             
             </div>
 

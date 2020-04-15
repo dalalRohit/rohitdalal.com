@@ -4,8 +4,7 @@ import classes from './navbar.module.css';
 import {MdMenu} from 'react-icons/md';
 import Logo from './UI/logo';
 import Sidenav from './sidenav';
-import NavItems from './nav_items';
-import Modal from './UI/modal';
+import NavItems from './helpers/nav_items';
 
 
 export default class Navbar extends Component {

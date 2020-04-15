@@ -2,7 +2,7 @@ import React from 'react'
 import Backdrop from './UI/backdrop';
 import classes from './sidenav.module.css';
 import Logo from './UI/logo';
-import NavItems from './nav_items';
+import NavItems from './helpers/nav_items';
 import {FaHeart} from 'react-icons/fa';
 
 export default function Sidenav(props) {
@@ -23,9 +23,11 @@ export default function Sidenav(props) {
                     <Logo />
                 </div>
   
-                <div className={classes.NavItems}>
-                    <NavItems click={props.click} offset={props.offset}/>
-                </div>
+                <>
+                    <NavItems 
+                        click={props.click}
+                        offset={props.offset}/>
+                </>
 
                 <div className={classes.Info}>
                     <p>Designed and coded with <FaHeart /> </p>
