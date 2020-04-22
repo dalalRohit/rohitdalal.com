@@ -25,23 +25,21 @@ module.exports.onCreateNode = ({ node, actions }) => {
     const blogTemp=path.resolve('./src/templates/blog-template.js')
     const response=await graphql(`
         query{
-            allMarkdownRemark{
+            allContentfulBlogPost{
                 edges{
                     node{
-                        fields{
-                            slug
-                        }
+                        slug
                     }
                 }
             }
         }
     `);
-    response.data.allMarkdownRemark.edges.forEach( (edge) => {
+    response.data.allContentfulBlogPost.edges.forEach( (edge) => {
         createPage({
             component:blogTemp,
-            path:`/blogs/${edge.node.fields.slug}`,
+            path:`/blogs/${edge.node.slug}`,
             context:{
-                slug:edge.node.fields.slug
+                slug:edge.node.slug
             }
         })
     })

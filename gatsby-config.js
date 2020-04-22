@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path:`.env`
+});
+
 module.exports = {
   proxy:{
       prefix:'/api',
@@ -10,6 +14,13 @@ module.exports = {
     intro:`Programmer | Developer | Thinker`
   },
   plugins: [
+    {
+      resolve:'gatsby-source-contentful',
+      options:{
+        spaceId:process.env.CONTENTFUL_SPACE_ID,
+        accessToken:process.env.CONTENTFUL_ACCESS_TOEKN
+      }
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -57,8 +68,9 @@ module.exports = {
             {
               resolve:'gatsby-remark-images',
               options:{
-                maxWidth:700,
-                linkImagesToOriginal:true
+                maxWidth:900,
+                linkImagesToOriginal:false,
+
               }
             }
         ],

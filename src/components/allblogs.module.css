@@ -2,8 +2,24 @@
     box-sizing: border-box;
     width: 100%;
     height: 100%;
+    min-width: 100%;
     max-width: 100%;
-    padding: .3em;
     min-height: calc(100vh - 360px);
-    margin-top: 8vh;
+    padding: .6em;
+}
+.Wrapper a{
+    text-decoration:none;
+    text-transform:none;
+    margin:0;
+    padding:0;
+}
+.Blogs{
+    box-sizing: border-box;
+    display: grid;
+    width: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
+    gap: 1em;
+    margin: 0;
 }

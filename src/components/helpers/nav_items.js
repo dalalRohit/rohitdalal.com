@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components';
 import {IoMdMoon,IoMdSunny} from 'react-icons/io';
 import {Link}  from "react-scroll";
-import {Link as LinkItem} from 'gatsby';
 
 const Li=styled.li`
     box-sizing:border-box;
