@@ -10,7 +10,7 @@ import Navbar from './Navbar';
 
 const Home=() => {
     const Bounce = styled.div`
-        animation: 5s ${bounceAnimation};
+        animation: 5s ${bounceAnimation} once;
     `
     const name = "Home";
     const offset=-52;
