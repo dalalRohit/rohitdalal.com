@@ -46,7 +46,8 @@ export default function AllBlogs(props) {
                 {
                         data['contentful'].edges.map( (edge,i) =>{
                             return (
-                                <BlogCard 
+                                <BlogCard
+                                    change={props.change}
                                     key={Math.random()}
                                     date={edge.node.publishedDate}
                                     slug={edge.node.slug}

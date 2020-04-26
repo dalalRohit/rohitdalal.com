@@ -5,19 +5,23 @@ import {Link} from 'gatsby';
 // import sample from './../../images/sample.jpg';
 
 const Blog=styled.div`
-    width:100%;
+    width:90%;
+    margin:0 5% 0 5%;
     max-width:100%;
     display:flex;
     flex-flow:column;
     background-color:#eee;
+    min-height:50%;
 
     &:hover{
         background-color:#e5e5e5;
     }
 
     @media(max-width:699px){
-        flex-flow:row;
-
+        flex-flow:${props => props.change ? 'column' : 'row'};
+        width:95%;
+        margin:0 2.5% 0 2.5%;
+        
         main{
             width:100%;
         }
@@ -30,15 +34,18 @@ const Image=styled.div`
     img{
         box-sizing:border-box;
         cursor:pointer;
-        width:100%;
+        width:${props => props.change ? '85%' : '85%'};
+        margin:${props => props.change ? '0 7.5% 0 7.5%' : '0 7.5% 0 7.5%'};
         height:300px;
         padding:1.1em;
     }
 
     @media(max-width:699px){        
         img{
-            width:170px;
-            height:170px;
+            width:${props => props.change ? '85%' : '180px'};
+            height:${props => props.change ? '80%' : '180px'};
+            margin:${props => props.change ? '0 7.5% 0 7.5%' : '0%'};
+
         }
     }
 `
@@ -77,11 +84,11 @@ const Info=styled.div`
 
 
 export default function BlogCard(props) {
-    const {title,date,img,slug}=props;
+    const {title,date,img,slug,change}=props;
     return (
-        <Blog>
+        <Blog change={change}>
 
-            <Image>
+            <Image change={change}>
                 <Link to={`/blogs/${slug}`}>
                     <img 
                         alt={title}

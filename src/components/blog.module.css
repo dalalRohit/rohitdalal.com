@@ -33,7 +33,7 @@ footer a{
 footer a:hover{
     text-transform: none;
     text-decoration: none;
-    border: 1px solid pink;
+    border-bottom: 2px solid gray;
 }
 
 

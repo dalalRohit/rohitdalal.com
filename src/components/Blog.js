@@ -76,6 +76,7 @@ export default function Blog() {
                             console.log(edge);
                             return (
                                 <BlogCard
+                                    change={true}
                                     key={Math.random()}
                                     title={edge.node.title}
                                     slug={edge.node.slug}
