@@ -38,6 +38,7 @@ export default function AllBlogs(props) {
 
     return (
         <div className={classes.Wrapper}>
+
             <main 
                 className={classes.Blogs} 
                 style={{marginTop:props.margin ? '8vh' : '0'}}

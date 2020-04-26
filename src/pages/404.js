@@ -1,12 +1,20 @@
 import React from "react"
+import Head from './../components/helpers/head';
 
-import Layout from "../components/helpers/layout"
 import SEO from "../components/seo"
+import {Link} from 'gatsby';
 
 const NotFoundPage = () => (
-  <Layout>
-    <h1>404</h1>
-  </Layout>
+  <>
+    <Head title={404} info={"Rohit Dalal"} />
+    <div style={{display:'flex',flexFlow:'column',justifyContent:'center',alignItems:'center',backgroundColor:'#feded1',height:'100vh'}}>
+        <h1 style={{fontSize:'10em'}}>404</h1>
+
+        <Link to='/'>
+          <h3>Go to see Rohit Dalal's portfolio instead ;) </h3>
+        </Link>
+    </div>
+  </>
 )
 
 export default NotFoundPage

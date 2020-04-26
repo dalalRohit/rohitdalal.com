@@ -12,6 +12,14 @@
     font-size: 1.15rem;
 }
 
+.BlogCarousel{
+    box-sizing: border-box;
+    min-height: 100%;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+
+}
 footer{
     margin: .56em;
     text-align: center;

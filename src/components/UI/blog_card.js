@@ -6,29 +6,44 @@ import {Link} from 'gatsby';
 
 const Blog=styled.div`
     width:100%;
-    height:100%;
-    min-height:100%;
     max-width:100%;
-    box-sizing:border-box;
     display:flex;
     flex-flow:column;
-    justicy-content:space-between;
-    align-items:center;
-    padding:.4em;
     background-color:#eee;
-    img{
-        cursor:pointer;
-        width:100%;
-        height:100%;
-        padding:1em;
-    }
 
     &:hover{
-        background-color:#e0e0e0;
+        background-color:#e5e5e5;
+    }
+
+    @media(max-width:699px){
+        flex-flow:row;
+
+        main{
+            width:100%;
+        }
+    }
+    
+
+`
+
+const Image=styled.div`
+    img{
+        box-sizing:border-box;
+        cursor:pointer;
+        width:100%;
+        height:300px;
+        padding:1.1em;
+    }
+
+    @media(max-width:699px){        
+        img{
+            width:170px;
+            height:170px;
+        }
     }
 `
 
-const Desc=styled.main`
+const Desc=styled.div`
     width:100%;
     box-sizing:border-box;
     margin-top:1em;
@@ -59,34 +74,35 @@ const Info=styled.div`
     }
 `
 
-const Tag=styled.div`
-    border:1px solid green;
-    display:flex;
 
-`
+
 export default function BlogCard(props) {
     const {title,date,img,slug}=props;
     return (
         <Blog>
-            <div>
+
+            <Image>
                 <Link to={`/blogs/${slug}`}>
                     <img 
                         alt={title}
                         title={title}
                         src={img}/>
                 </Link>
-                
-            </div>
-            
-            <Desc>
-                <Link to={`/blogs/${slug}`}><h5>{title}</h5></Link>
-            </Desc>
+            </Image>
 
-            <Info>
-                <p>{date}</p>
-                <p>javaScript</p>
-                <p>2 mins read</p>
-            </Info>
+            <main>
+                <Desc>
+                    <Link to={`/blogs/${slug}`}><h5>{title}</h5></Link>
+                </Desc>
+
+                <p>This is the description of this post</p>
+
+                <Info>
+                    <p>{date}</p>
+                    <p>2 mins read</p>
+                </Info>
+            </main>
+
         </Blog>
     )
 }

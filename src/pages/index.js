@@ -15,7 +15,7 @@ import './../components/animate.css';
 const IndexPage = () => (
       <Layout>
         
-        <Head info="MERN Stack Developer"/>
+        <Head title={"Rohit Dalal"} info="MERN Stack Developer"/>
 
         <Home />
         <About />

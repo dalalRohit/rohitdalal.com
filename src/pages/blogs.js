@@ -4,12 +4,11 @@ import BlogHeader from '../components/helpers/blog-header';
 import AllBlogs from './../components/AllBlogs';
 import Head from './../components/helpers/head';
 
-
-
 const Blogs=() => {
     return (
         <Layout>
-            <Head info="Blogs" />
+            <Head title="Blogs" info="Rohit Dalal" />
+
             <BlogHeader 
                 location="portfolio"
                 path="/#Blog" />
