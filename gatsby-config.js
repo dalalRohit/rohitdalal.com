@@ -76,7 +76,21 @@ module.exports = {
         ],
       },
     },
-
+    //https://www.gatsbyjs.org/docs/add-a-manifest-file/
+    {
+      resolve:`gatsby-plugin-manifest`,
+      options:{
+        name:"Rohit Dalal | MERN Stack Devloper",
+        short_name:"Rohit Dalal",
+        description:"Hello, myself Rohit Dalal. Nice to see you with this PWA ;)",
+        lang:'en',
+        start_url:"/",
+        background_color:"#b1cfff",
+        display:"standalone",
+        icon:"src/images/gatsby-icon.png",
+        crossOrigin:`use-credentials`
+      }
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,
