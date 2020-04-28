@@ -5,13 +5,14 @@ import {MdMenu} from 'react-icons/md';
 import Logo from './UI/logo';
 import Sidenav from './sidenav';
 import NavItems from './helpers/nav_items';
+import {IoMdMoon,IoMdSunny} from 'react-icons/io';
 
 
 export default class Navbar extends Component {
     state={
         show:false,
-        dark:false,
     }
+    
     componentDidMount(){
         window.addEventListener('scroll',() => {
             const top=window.scrollY > 450 ;
@@ -35,13 +36,26 @@ export default class Navbar extends Component {
         if(this.state.scrolled){
             navClass.push(classes.Scrolled);
         }
-        
-        return (
-            <div > 
-                
-                <Sidenav show={this.state.show} click={this.handleSideNav} offset={this.props.offset} />
+        const color=this.props.theme==='light' ?  'black' : '#eee';
+        const bgcolor=this.props.theme==='light' ?  '#eee' : '#131313';
 
-                <div className={navClass.join(" ")}>
+        return (
+            <> 
+                
+                <Sidenav 
+                    color={color}
+                    bgcolor={bgcolor}
+
+                    show={this.state.show}
+                    click={this.handleSideNav} 
+                    offset={this.props.offset} />
+
+                <div 
+                    className={navClass.join(" ")}
+                    style={{
+                        color,
+                        backgroundColor:navClass.length===1 ? 'inherit' : bgcolor
+                    }}>
                         <div onClick={this.handleSideNav} className={classes.Menu} >
                             <MdMenu size={30} />
                         </div>
@@ -50,15 +64,21 @@ export default class Navbar extends Component {
                             <Logo />
                         </div>
                         
+                        {/* Theme icon */}
+                        <div>
+                             { this.props.theme==='light' ? <IoMdMoon size={30} onClick={this.props.click} /> : <IoMdSunny size={30} onClick={this.props.click} />}
+                        </div>
+                        
                         <div className={classes.Nav}>
                             
                             <NavItems 
                                 offset={this.props.offset}
                                 modalClick={this.modalClickHandler}
                                 />
+                            
                         </div>
                 </div>
-            </div>
+            </>
         )
     }
 }

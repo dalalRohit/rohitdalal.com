@@ -11,13 +11,13 @@ export default function Sidenav(props) {
         attachedClasses = [classes.Sidenav, classes.Open];
     }
     return (
-        <div>
+        <div >
             <Backdrop  
                 show={props.show}
                 click={props.click}
                 />
 
-            <div className={attachedClasses.join(' ')}>
+            <div className={attachedClasses.join(' ')} style={{color:props.color,backgroundColor:props.bgcolor}}>
                 
                 <div className={classes.Logo} >
                     <Logo />

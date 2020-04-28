@@ -16,6 +16,14 @@
    --landing-gradient:linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
    --hover-color:#8EC5FC;
 
+   --dark-landing: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+   --second-dark-landing:linear-gradient(to right, #485563, #29323c);
+   --third-dark-landing:linear-gradient(to right, #606c88, #3f4c6b); /*ash https://uigradients.com/#Ash */
+   --fourth-dark-landing:linear-gradient(to right, #232526, #414345); /* https://uigradients.com/#MidnightCity  */
+
+
+  
+
    --normal-background:aliceblue;
    --normal-text:black;
 
@@ -39,6 +47,7 @@ html,body{
   width: 100%;
   font-family: Roboto;
 }
+
 
 
 

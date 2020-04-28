@@ -3,22 +3,23 @@
     max-width: 100%;
     min-height: 100%;
     box-sizing: border-box;
-    background-color: #191b1f;;
-    color: #eee;
+    /* background-color: #191b1f; */
+    /* color: #eee; */
 }
 
+/* Content starts here */
 .Content{
     box-sizing: border-box;
-    width: 80%;
-    margin: 8vh 10% 0 10%;
+    width: 85%;
+    margin: 8vh 7.5% 0 7.5%;
     max-width: 100%;
     min-height: 100%;
     padding: 2rem;
     box-sizing: border-box;
-    display: grid;
 }
 .Content h1{
-    font-size: 3rem;
+    font-size: 2.5rem;
+    font-weight: 700;
 }
 .Content a:hover{
     text-decoration: none;
@@ -26,13 +27,54 @@
     text-align: center;
 }
 .Content p{
-    font-size: 1.2rem;
+    font-size: 1.25rem;
 }
 .Content img{
-    width: 100%;
-    height: 100%;
+    width: 50%;
+    margin: 0 25% 0 25%;
+    height: 390px;
 }
 
+/* Content ends here */
+
+/* Blog Info */
+.Info{
+    box-sizing: border-box;
+    padding: 1rem;
+    margin: 2.5% 0 2.5% 0;
+}
+
+time{
+    margin-right: .5rem;
+}
+
+/* Tags here */
+.Tags{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 1em;
+    margin-top: 10px;
+}
+.Tags span{
+    color: #b3b9c5;
+    background: rgba(124, 118, 118, 0.2);
+    font-size: .9rem;
+    font-weight: 500;
+    padding: .3rem .8rem;
+    margin: 0 15px 0 0;
+}
+.Tags span:hover{
+    cursor: pointer;
+    border: none;
+    background: #111;
+    color: #fff;
+}
+
+/* code */
+code{
+    color:yellow;
+}
+/* Media queries */
 @media (max-width:900px){
     .Content{
         width: 100%;
@@ -40,13 +82,15 @@
         margin-top: 8vh;
     }
     .Content h1{
-        font-size: 3rem;
+        font-size: 1.95rem;
     }
     .Content p{
-        font-size: 1rem;
+        font-size: 1.15rem;
     }
-    img{
+
+    .Content img{
         width: 100%;
+        margin: 0;
         height: 100%;
     }
 }

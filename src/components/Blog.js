@@ -73,7 +73,6 @@ export default function Blog() {
                 >
                     {
                         data['contentful'].edges.map( (edge,i) => {
-                            console.log(edge);
                             return (
                                 <BlogCard
                                     change={true}

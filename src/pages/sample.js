@@ -1,11 +1,11 @@
 import React from 'react';
-import Carousel from './../components/helpers/Carousel';
+import Input from './../components/UI/Input';
 
 const Sample=() => {
     return(
-        <Carousel>
-
-        </Carousel>
+        <>
+            <Input />
+        </>
     )
 }
 

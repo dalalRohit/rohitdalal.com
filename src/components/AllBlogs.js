@@ -41,7 +41,6 @@ export default function AllBlogs(props) {
 
             <main 
                 className={classes.Blogs} 
-                style={{marginTop:props.margin ? '8vh' : '0'}}
                  >
                 {
                         data['contentful'].edges.map( (edge,i) =>{

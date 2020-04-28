@@ -8,22 +8,39 @@ import Projects from './../components/Projects';
 import Contact from './../components/Contact';
 import Blog from './../components/Blog';
 
+import { ThemeProvider } from 'styled-components';
+import {GlobalStyles,lightTheme,darkTheme} from './../components/global';
+import { useDarkMode } from './../components/helpers/useDarkmode';
+
 import 'bootstrap/dist/css/bootstrap.css';
 
 
-const IndexPage = () => (
-      <Layout>
-        
+const IndexPage = () => {
+  //https://css-tricks.com/a-dark-mode-toggle-with-react-and-themeprovider/
+  const [theme, toggleTheme,componentMounted] = useDarkMode();
+  if (!componentMounted) {
+      return <div />
+    };
+  const themeMode = theme === 'light' ? lightTheme : darkTheme;
+
+  return (
+      <ThemeProvider theme={themeMode}>
+        <GlobalStyles />
+
+        <>
         <Head title={"Rohit Dalal"} info="MERN Stack Developer"/>
 
-        <Home />
+        <Home theme={theme} click={toggleTheme} />
         <About />
         <Blog/>
         <Projects />
-        <Contact />
-        
-      </Layout>
+        <Contact theme={theme} />
 
-)
+        </>
+        
+      </ThemeProvider>
+    )
+
+}
 
 export default IndexPage

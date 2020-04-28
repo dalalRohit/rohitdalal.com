@@ -10,12 +10,8 @@ const Blog=styled.div`
     max-width:100%;
     display:flex;
     flex-flow:column;
-    background-color:#eee;
     min-height:50%;
-
-    &:hover{
-        background-color:#e5e5e5;
-    }
+    border:1px solid gray;
 
     @media(max-width:699px){
         flex-flow:${props => props.change ? 'column' : 'row'};

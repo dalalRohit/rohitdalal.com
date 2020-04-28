@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import TextField from '@material-ui/core/TextField';
+import Input from './Input';
 import {Button} from '@material-ui/core'
 import styled from 'styled-components';
 import axios from 'axios';
@@ -7,9 +7,9 @@ import Modal from './modal';
 
 const FormDiv=styled.div`
     box-sizing:border-box;
-    width:90%;
+    width:100%;
     max-width:100%;
-    margin:0 5% 0 5%;
+    // margin:0 5% 0 5%;
 `
 
 const MainForm=styled.form`
@@ -75,11 +75,13 @@ class Form extends Component{
             {label:"Email",name:"email" ,type:"email",helper:"Email won't be used anywhere ;)"},
             {label:"Contact",name:"contact",type:"text",helper:"Mobile number"},
             {label:"Message",name:"message",type:"text",helper:"Write ur message..",multiline:true}
-        ]
+        ];
+
         return (
             <FormDiv>
                 <MainForm onSubmit={this.onButtonClick}>
                     <Modal
+                        theme={this.props.theme}
                         header={this.state.status ? "Mail sent succesfully!" : "Mail failed to deliver ;("}
                         height='20%'
                         show={this.state.status}
@@ -91,36 +93,38 @@ class Form extends Component{
                     }   
 
                     </Modal>
-                    {
-                        data.map( (input) => {
-                            return (
-                                <TextField 
-                                    value={this.state[input.name]}
-                                    margin="normal"
-                                    // Don't use Math.random() : https://stackoverflow.com/questions/42573017/in-react-es6-why-does-the-input-field-lose-focus-after-typing-a-character
-                                    // key={Math.random()}
-                                    variant="outlined"
-                                    required 
-                                    error={input.error ? true : false}
-                                    name={input.name} 
-                                    label={input.label}
-                                    type={input.type}
-                                    helperText={input.helper}
-                                    onChange={this.onTextInput}
-                                    multiline={input.multiline ? true : false} />
-                            )
-                        })
-                    }
-    
-                    <FormBtn>
-                        <Button 
-                            type="submit"
-                            variant="contained"
-                            color="primary"
-                            onClick={this.onButtonClick}
-                            disabled={this.state.process ? true : false}
-                            >Shoot Mail</Button>
-                    </FormBtn>
+                    
+                    <div style={{textAlign:'center'}} >
+                        {
+        
+                            data.map( (input) => {
+                                return (
+                                    <Input 
+                                        theme={this.props.theme}
+                                        value={this.state[input.name]}
+                                        error={input.error}
+                                        name={input.name}
+                                        label={input.label}
+                                        type={input.type}
+                                        helper={input.helper}
+                                        inputChange={this.onTextInput}
+                                        multiline={input.multiline}
+
+                                        />
+                                )
+                            })
+                        }
+        
+                        <FormBtn>
+                            <Button 
+                                type="submit"
+                                variant="contained"
+                                color="primary"
+                                onClick={this.onButtonClick}
+                                disabled={this.state.process ? true : false}
+                                >Shoot Mail</Button>
+                        </FormBtn>
+                    </div>
     
                 </MainForm>
             </FormDiv>

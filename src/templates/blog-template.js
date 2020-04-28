@@ -4,8 +4,13 @@ import BlogHeader from './../components/helpers/blog-header';
 import BlogFooter from './blog-footer';
 
 import classes from './blogtemplate.module.css';
-import {graphql} from 'gatsby';
+import {graphql,Link} from 'gatsby';
 import {documentToReactComponents} from '@contentful/rich-text-react-renderer'
+
+// Dark theme settings
+import {ThemeProvider} from 'styled-components';
+import {GlobalStyles,lightTheme,darkTheme} from './../components/global';
+import {useDarkMode} from './../components/helpers/useDarkmode';
 
 export const query=graphql`
   query($slug:String) {
@@ -22,6 +27,11 @@ export const query=graphql`
   }
 `
 export default function BlogTemplate(props) {
+  const [theme,toggleTheme, componentMounted]=useDarkMode();
+  if (!componentMounted) {
+    return <div />
+  };
+  const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
   const options={
       renderNode:{
@@ -36,26 +46,41 @@ export default function BlogTemplate(props) {
       }
   }
     return (
-      <>
-        <Head title={props.data.contentfulBlogPost.title}  />
-        <div className={classes.Wrapper}>
+      <ThemeProvider theme={themeMode}>
+          <GlobalStyles />
+          <>
+            <Head title={props.data.contentfulBlogPost.title} info={"Rohit Dalal"} />
+            <div className={classes.Wrapper}>
 
-            <BlogHeader location="all blogs" path="/blogs"/>
+                <BlogHeader location="all blogs" path="/blogs" theme={theme} click={toggleTheme} />
 
-            {/* Contentful post render */}
-            <main className={classes.Content}>
+                {/* Contentful post render */}
+                <article className={classes.Content}>
+                  
+                  <div className={classes.Info}>
+                    <h1>{props.data.contentfulBlogPost.title}</h1>
+                    <time> {props.data.contentfulBlogPost.publishedDate}   </time>
 
-              <h1>{props.data.contentfulBlogPost.title}</h1>
-              <p> {props.data.contentfulBlogPost.publishedDate} |  </p>
-              {
-                documentToReactComponents(props.data.contentfulBlogPost.body.json,options)
-              }
-            
-            </main>
+                    <div className={classes.Tags}>
+                      <Link to={`/tags/`} ><span>javascript</span></Link>
 
-            <BlogFooter />
-            
-        </div>
-      </>
+                      <Link to={`/tags/`} ><span>react</span></Link>
+
+                      <Link to={`/tags/`} ><span>mongodb</span></Link>
+                    </div>
+
+                  </div>
+
+                  {
+                    documentToReactComponents(props.data.contentfulBlogPost.body.json,options)
+                  }
+                
+                </article>
+
+                <BlogFooter />
+                
+            </div>
+          </>
+      </ThemeProvider>
     )
 }

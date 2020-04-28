@@ -21,7 +21,7 @@ export default class Contact extends Component {
                             <p>Can discuss work,football,coffee ;)</p>
                             <p>Wanna colaborate?</p>
                         </div>
-                        <Form  />
+                        <Form  theme={this.props.theme}/>
                     </div>
 
                     <div className={classes.Social}>

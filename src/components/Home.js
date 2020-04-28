@@ -8,7 +8,7 @@ import {graphql,useStaticQuery} from 'gatsby';
 import Navbar from './Navbar';
 
 
-const Home=() => {
+const Home=(props) => {
     const Bounce = styled.div`
         animation: 5s ${bounceAnimation} once;
     `
@@ -27,9 +27,22 @@ const Home=() => {
         }
     `)
     return (
-        <div className={classes.Wrapper} id={name} >
+        <div 
+            className={classes.Wrapper} 
+            id={name}
+            style={
+                {
+                    backgroundImage:props.theme==='light' ? 'linear-gradient(120deg, #a6c0fe 0%, #f68084 100%)' : 'linear-gradient(to right, #606c88, #3f4c6b)',
+                    color:props.theme==='light' ? '#202020' : '#eee'
+                }
+            
+            }
+            >
             <>
-                <Navbar offset={offset}/>
+                <Navbar 
+                    offset={offset}
+                    theme={props.theme}
+                    click={props.click}/>
             </>
             <div className={classes.Home}>
 

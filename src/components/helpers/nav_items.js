@@ -1,7 +1,6 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import styled from 'styled-components';
-import {IoMdMoon,IoMdSunny} from 'react-icons/io';
-import {Link}  from "react-scroll";
+import {Link,scrollSpy}  from "react-scroll";
 
 const Li=styled.li`
     box-sizing:border-box;
@@ -12,6 +11,8 @@ const Li=styled.li`
     a:hover{
         border-bottom:1.4px solid purple;
     }
+
+
 `
 const Ul=styled.ul`
     width:100%;
@@ -21,7 +22,6 @@ const Ul=styled.ul`
     min-height:8vh;
     display:flex;
     align-items:center;
-    color:#454545;
     li{
         list-style-type:none;
         padding:.4em;
@@ -41,9 +41,11 @@ const Ul=styled.ul`
 
 export default function NavItems(props) {
     let offset=props.offset;
-    console.log(offset);
     let links=['About','Blog','Projects','Contact']
 
+    useEffect( () => {
+        scrollSpy.update();
+    })
     return (
         <Ul>
             {
@@ -53,6 +55,7 @@ export default function NavItems(props) {
                             <Link
                                 onClick={props.click}
                                 to={link}
+                                isDynamic
                                 smooth={true}
                                 duration={500}
                                 offset={offset}
