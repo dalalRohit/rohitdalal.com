@@ -1,12 +1,17 @@
 import { useEffect, useState } from 'react';
 
+import {window} from 'browser-monads';
+
 export const useDarkMode = () => {
   let [theme, setTheme] = useState('light');
-  if(window.localStorage.getItem('theme')!==''){
-    theme=window.localStorage.getItem('theme');
-  }
-  // console.log('Theme :',theme);
   
+  // const windowObj=typeof window==='undefined' ? null :window;
+
+  
+  if(window.localStorage.getItem('theme')!==''){
+      theme=window.localStorage.getItem('theme');
+  }
+
   const [componentMounted, setComponentMounted] = useState(false);
 
 
@@ -35,4 +40,7 @@ export const useDarkMode = () => {
   }, []);
 
   return [theme, toggleTheme, componentMounted];
+
+
+
 };
