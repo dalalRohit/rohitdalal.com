@@ -5,28 +5,32 @@ import {Link} from 'gatsby';
 const Name=styled.div`
     box-sizing:border-box;
     padding:.25em;
+    display:flex;
+    align-items:center;
     cursor:pointer;
     letter-spacing:5px;
     margin-right:5px;
 
     a{
+        font-size:1.5rem;
+        font-weight:500;
         color:inherit;
         text-decoration:none;
     }
 
-    &:hover{
-        color:red;
+    @media(max-width:700px){
+        a{
+            font-size:1.2rem;
+        }
     }
 `
 export default function Logo() {
     return (
         <Name>
-            <h3 >
               <Link 
                 to="/"
 
                 >  Rohit Dalal </Link>
-            </h3>
         </Name>
     )
 }

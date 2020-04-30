@@ -75,6 +75,7 @@ export default function NavItems(props) {
                     )
                 })
             }
+            <Li>Dark</Li>
             
         </Ul>
     )

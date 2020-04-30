@@ -6,6 +6,7 @@ import Logo from './UI/logo';
 import Sidenav from './sidenav';
 import NavItems from './helpers/nav_items';
 import {IoMdMoon,IoMdSunny} from 'react-icons/io';
+import Bottom from './UI/Bottom';
 
 
 export default class Navbar extends Component {
@@ -56,19 +57,11 @@ export default class Navbar extends Component {
                         color,
                         backgroundColor:navClass.length===1 ? 'inherit' : bgcolor
                     }}>
-                        <div onClick={this.handleSideNav} className={classes.Menu} >
-                            <MdMenu size={30} />
-                        </div>
+                        <Bottom 
+                            theme={this.props.theme} />
+ 
+                        <Logo />
 
-                        <div style={{display:this.state.show ? 'none' :'block'}} >
-                            <Logo />
-                        </div>
-                        
-                        {/* Theme icon */}
-                        <div>
-                             { this.props.theme==='light' ? <IoMdMoon size={30} onClick={this.props.click} /> : <IoMdSunny size={30} onClick={this.props.click} />}
-                        </div>
-                        
                         <div className={classes.Nav}>
                             
                             <NavItems 
@@ -78,6 +71,8 @@ export default class Navbar extends Component {
                                 />
                             
                         </div>
+                         
+                
                 </div>
             </>
         )

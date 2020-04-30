@@ -16,7 +16,6 @@
 }
 
 .Nav{
-    height: 8vh;
     box-sizing: border-box;
     display: flex;
     justify-content: center;
@@ -28,19 +27,22 @@
 }
 
 .Scrolled{
-    position: fixed;
     z-index: 1000000000;
     box-shadow: 1px 2px 18px rgba(0,0,0,.25);
-    height: 8vh;
-    top: 0;
+    position: fixed;
+    height: 5vh;
     left: 0;
+    top: 0;
 }
 
-@media(max-width:900px){
-    .Menu{
-        display: block;
-    }
+@media(max-width:700px){
+
     .Nav{
         display: none;
+    }
+
+    .Wrapper{
+        min-height: 5vh;
+        height: 5vh;
     }
 }

@@ -1,10 +1,10 @@
 import React from 'react';
-import Input from './../components/UI/Input';
+import Bottom from './../components/UI/Bottom';
 
 const Sample=() => {
     return(
         <>
-            <Input />
+            <Bottom />
         </>
     )
 }

@@ -61,17 +61,10 @@ const Home=(props) => {
 
                 </div>
 
-                <div className={classes.Arrow} >
-                    <Link
-                        to={"About"}
-                        smooth={true}
-                        duration={500}
-                        >
-                        <Bounce><IoIosArrowDown size={'30px'} /></Bounce>
-                    </Link>
-                </div>
+
             
             </div>
+
 
 
         </div>

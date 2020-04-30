@@ -1,7 +1,7 @@
 .Wrapper{
     box-sizing: border-box;
-    width: 85%;
-    margin:0 7.5% 8vh 7.5%;
+    width: 90%;
+    margin:0 5% 8vh 5%;
     height: 100%;
     max-width: 100%;
     padding-top: 8vh;
@@ -65,5 +65,6 @@
     .Wrapper{
         width: 100%;
         margin: 0;
+        padding-top: 5vh;
     }
 }
