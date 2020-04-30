@@ -4,13 +4,8 @@ import React, { Component } from 'react'
 import classes from './about.module.css';
 import Photo from './UI/image';
 import Skills from './UI/skills';
-import styled from 'styled-components';
+import Title from './UI/title';
 
-const Header=styled.h1`
-    font-size:3.1rem;
-    font-weight:400;
-    margin-top:0;
-`
 export default class About extends Component {
 
     render() {
@@ -19,7 +14,7 @@ export default class About extends Component {
         return (
             <div id={name} className={classes.Wrapper} >
 
-                <Header>/about</Header>
+                <Title path={name}>/about</Title>
                 
                 <main className={classes.About}>
 

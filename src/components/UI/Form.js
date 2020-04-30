@@ -4,6 +4,7 @@ import {Button} from '@material-ui/core'
 import styled from 'styled-components';
 import axios from 'axios';
 import Modal from './modal';
+import uuid from 'uuid/v4';
 
 const FormDiv=styled.div`
     box-sizing:border-box;
@@ -71,10 +72,10 @@ class Form extends Component{
     }
     render(){
         const data=[
-            {label:"Name",name:"name",type:"text",helper:"How may I call you?"},
-            {label:"Email",name:"email" ,type:"email",helper:"Email won't be used anywhere ;)"},
-            {label:"Contact",name:"contact",type:"text",helper:"Mobile number"},
-            {label:"Message",name:"message",type:"text",helper:"Write ur message..",multiline:true}
+            {id:uuid(),label:"Your Name",name:"name",type:"text",helper:"How may I call you?"},
+            {id:uuid(),label:"Your Email",name:"email" ,type:"email",helper:"Email won't be used anywhere ;)"},
+            {id:uuid(),label:"Your Contact",name:"contact",type:"text",helper:"Mobile number"},
+            {id:uuid(),label:"Your Message",name:"message",type:"text",helper:"Write ur message..",multiline:true}
         ];
 
         return (
@@ -99,7 +100,8 @@ class Form extends Component{
         
                             data.map( (input) => {
                                 return (
-                                    <Input 
+                                    <Input
+                                        key={input.id} 
                                         theme={this.props.theme}
                                         value={this.state[input.name]}
                                         error={input.error}

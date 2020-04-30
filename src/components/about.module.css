@@ -1,10 +1,12 @@
 .Wrapper{
     box-sizing: border-box;
-    width: 100%;
+    width: 85%;
+    margin:0 7.5% 8vh 7.5%;
     height: 100%;
     max-width: 100%;
-    padding: .3em;
+    padding-top: 8vh;
     min-height: calc(100vh - 360px);
+
 }
 
 .About{
@@ -57,4 +59,11 @@
     /* border: 1px solid navy; */
     height: 100%;
     list-style-type: none;
+}
+
+@media (max-width:700px){
+    .Wrapper{
+        width: 100%;
+        margin: 0;
+    }
 }

@@ -72,6 +72,7 @@ export default class Navbar extends Component {
                         <div className={classes.Nav}>
                             
                             <NavItems 
+                                theme={this.props.theme}
                                 offset={this.props.offset}
                                 modalClick={this.modalClickHandler}
                                 />

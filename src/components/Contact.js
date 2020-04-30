@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import classes from './contact.module.css';
+import Title from './UI/title';
 
 import Form from './UI/Form';
 import {FaInstagram,FaLinkedinIn,FaTwitter,FaMediumM,FaGithub} from 'react-icons/fa'
@@ -13,7 +14,7 @@ export default class Contact extends Component {
         }
         return (
             <div id={name} className={classes.Wrapper}>
-                <h1>/contact</h1>
+                <Title path={name}>/contact</Title>
 
                 <main className={classes.Contact}>
                     <div className={classes.Form}>
@@ -57,6 +58,7 @@ export default class Contact extends Component {
                     </div>
                 
                 </main>
+
 
             </div>  
         )

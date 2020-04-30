@@ -1,10 +1,11 @@
 import React from 'react'
 import classes from './blog.module.css';
 import {Link,graphql,useStaticQuery} from 'gatsby';
-import AllBlogs from './AllBlogs';
 import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
 import BlogCard from './UI/blog_card';
+import Title from './UI/title';
+
+import "react-multi-carousel/lib/styles.css";
 
 export default function Blog() {
     const data=useStaticQuery(graphql`
@@ -60,7 +61,7 @@ export default function Blog() {
 
     return (
         <div id={name} className={classes.Wrapper}>
-            <h1>/blog</h1>
+            <Title path={`${name}`}>/blog</Title>
             <p>Recently published blogs..</p>            
 
             <div className={classes.BlogCarousel}>

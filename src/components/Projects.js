@@ -3,6 +3,7 @@ import classes from './projects.module.css';
 import Card from './UI/card';
 import {graphql,useStaticQuery} from 'gatsby';
 import fm from 'front-matter';
+import Title from './UI/title';
 
 const Projects=() => {
     const name="Projects";
@@ -25,7 +26,7 @@ const Projects=() => {
 
     return (
         <div id={name} className={classes.Wrapper}>
-            <h1>/projects</h1>
+            <Title path={name}>/projects</Title>
             <main className={classes.Projects}>
 
                 {projects.allMarkdownRemark.edges.map( (project,i) => {

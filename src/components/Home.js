@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React,{Fragment} from 'react';
 import { IoIosArrowDown } from 'react-icons/io'
 import classes from './home.module.css';
 import { Link, animateScroll as scroll } from "react-scroll";
@@ -7,13 +7,14 @@ import { bounceAnimation } from './helpers/animations';
 import {graphql,useStaticQuery} from 'gatsby';
 import Navbar from './Navbar';
 
+const Bounce = styled.div`
+    animation: 5s ${bounceAnimation} once;
+`
 
 const Home=(props) => {
-    const Bounce = styled.div`
-        animation: 5s ${bounceAnimation} once;
-    `
+
     const name = "Home";
-    const offset=-52;
+    const offset=-60.8;
     const data = useStaticQuery(graphql`
         query  {
             site {
@@ -38,12 +39,13 @@ const Home=(props) => {
             
             }
             >
-            <>
+            <Fragment>
                 <Navbar 
                     offset={offset}
                     theme={props.theme}
                     click={props.click}/>
-            </>
+            </Fragment>
+
             <div className={classes.Home}>
 
                 <div className={classes.Name}>
@@ -64,7 +66,6 @@ const Home=(props) => {
                         to={"About"}
                         smooth={true}
                         duration={500}
-                        offset={-52}
                         >
                         <Bounce><IoIosArrowDown size={'30px'} /></Bounce>
                     </Link>

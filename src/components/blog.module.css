@@ -1,10 +1,12 @@
 .Wrapper{
     box-sizing: border-box;
-    width: 100%;
+    width: 85%;
+    margin:0 7.5% 8vh 7.5%;
     height: 100%;
-    min-height: 100%;
     max-width: 100%;
+    padding-top: 8vh;
     min-height: calc(100vh - 360px);
+
 }
 
 .Wrapper p{
@@ -36,6 +38,12 @@ footer a:hover{
     border-bottom: 2px solid gray;
 }
 
+@media (max-width:700px){
+    .Wrapper{
+        width: 100%;
+        margin: 0;
+    }
+}
 
 
 
