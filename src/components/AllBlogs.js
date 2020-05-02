@@ -1,7 +1,8 @@
 import React from 'react'
-import classes from './allblogs.module.css';
+import classes from './../styles/allblogs.module.css';
 import {Link,graphql,useStaticQuery} from 'gatsby';
 import BlogCard from './UI/blog_card';
+import PropTypes from 'prop-types';
 
 export default function AllBlogs(props) {
 
@@ -11,7 +12,9 @@ export default function AllBlogs(props) {
                 sort:{
                     fields:publishedDate,
                     order:DESC
-            })
+                },
+                
+            )
             {
                 edges{
                     node{
@@ -37,11 +40,10 @@ export default function AllBlogs(props) {
     `)
 
     return (
-        <div className={classes.Wrapper}>
-
             <main 
-                className={classes.Blogs} 
-                 >
+                className={classes.Blogs}
+                style={{marginTop:props.margin ? '8.5vh' : '0'}}
+                >
                 {
                         data['contentful'].edges.map( (edge,i) =>{
                             return (
@@ -53,11 +55,15 @@ export default function AllBlogs(props) {
                                     title={edge.node.title}
                                     excerpt={edge.node.excerpt}
                                     img={data.assets.nodes[i].file.url}
+                                    time={'2 min read'}
                                     />
                             )
                         })
                 }
             </main> 
-        </div>
     )
+}
+
+AllBlogs.propTypes={
+    margin:PropTypes.bool
 }

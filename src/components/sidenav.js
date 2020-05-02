@@ -1,6 +1,6 @@
 import React from 'react'
 import Backdrop from './UI/backdrop';
-import classes from './sidenav.module.css';
+import classes from './../styles/sidenav.module.css';
 import Logo from './UI/logo';
 import NavItems from './helpers/nav_items';
 import {FaHeart} from 'react-icons/fa';

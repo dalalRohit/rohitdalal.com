@@ -1,7 +1,9 @@
-import React,{useRef} from 'react'
+import React from 'react'
 import styled from 'styled-components';
-// import {Link, scrollSpy}  from "react-scroll";
+import {Link as LinkItem}  from "react-scroll";
 import {Link} from 'gatsby';
+import PropTypes from 'prop-types';
+
 
 const Li=styled.li`
     box-sizing:border-box;
@@ -11,10 +13,10 @@ const Li=styled.li`
     a{
         padding:.2em;
         text-decoration:none,
+    }
+    a:hover{
         color:inherit;
     }
-
-
 
 `
 const Ul=styled.ul`
@@ -24,6 +26,7 @@ const Ul=styled.ul`
     height:8vh;
     min-height:8vh;
     display:flex;
+    justify-content:center;
     align-items:center;
     li{
         list-style-type:none;
@@ -31,7 +34,7 @@ const Ul=styled.ul`
     }
 
     @media(max-width:699px){
-        flex-flow:column;
+        flex-flow:${ props => props.display };
         margin:0;
         height:100%;
         margin-top:0;
@@ -41,62 +44,46 @@ const Ul=styled.ul`
     }
 `
 export default function NavItems(props) {
-    let offset=props.offset;
     let links=['About','Blog','Projects','Contact']
 
-
-    const activeStyles={
-        color:props.theme==='light' ? 'black' : 'white',
-        background: props.theme==='light' ? '#b86b77' : '#b86b77'
+    const scrollProps={
+        smooth:true,
+        hashSpy:true,
+        duration:400,
+        dynamic:true
     }
+
+
     return (
         <Ul>
             {
                 links.map( (link) => {
                     return (
-                        <Li>
-                            <Link
-                                key={Math.random()}
-                                onClick={props.click}
-                                to={`/#${link}`}
-                                getProps={ (obj) => {
-                                    // console.log(obj);
-                                    return {
-                                        style:{
-                                            color:obj.location.hash===`#${link}`? activeStyles.color : 'inherit',
-                                            background:obj.location.hash===`#${link}`? activeStyles.background : 'inherit'
-                                        }
-                                    }
-                                }}
+                        <Li key={Math.random()}>
+                            {
+                                props.scroll ?
+                               
+                                <LinkItem 
 
-                            >
-                            {link}</Link>
+                                    {...scrollProps}
+                                    to={`${link}`}
+                                    > {link} </LinkItem> :
+                            
+                                <Link  to={`/#${link}`}  >  {link} </Link>
+                            }
                         </Li>
                     )
                 })
             }
-            <Li>Dark</Li>
             
         </Ul>
     )
 }
 
-/*
-https://stackoverflow.com/questions/47488747/react-router-v4-active-anchor-link
-https://reach.tech/router/example/active-links
-<Link
-    onClick={props.click}
-    to={`/#${link}`}
-    getProps={ (obj) => {
-        console.log(obj);
-        return {
-            style:{
-                color:obj.location.hash===`#${link}`? 'gray' : 'black',
-                background:obj.location.hash===`#${link}`? 'white' : '#eee'
-            }
-        }
-    }}
+NavItems.propTypes={
+    display:PropTypes.string, //to spread Links horizontally or column wise
+    scroll:PropTypes.bool, //To check if to use 'react-scroll' or normal Link
 
->
-{link}</Link>
-*/
+}
+
+

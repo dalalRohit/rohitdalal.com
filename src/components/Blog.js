@@ -1,11 +1,12 @@
 import React from 'react'
-import classes from './blog.module.css';
+import classes from './../styles/blog.module.css';
 import {Link,graphql,useStaticQuery} from 'gatsby';
-import Carousel from "react-multi-carousel";
 import BlogCard from './UI/blog_card';
 import Title from './UI/title';
+import Layout from './Layout';
+import AllBlogs from './AllBlogs';
 
-import "react-multi-carousel/lib/styles.css";
+
 
 export default function Blog() {
     const data=useStaticQuery(graphql`
@@ -39,61 +40,25 @@ export default function Blog() {
 
 `)
     const name="Blog";
-    const responsive = {
-        superLargeDesktop: {
-          // the naming can be any, depends on you.
-          breakpoint: { max: 4000, min: 3000 },
-          items: 3
-        },
-        desktop: {
-          breakpoint: { max: 3000, min: 1024 },
-          items: 3
-        },
-        tablet: {
-          breakpoint: { max: 1024, min: 464 },
-          items: 2
-        },
-        mobile: {
-          breakpoint: { max: 464, min: 0 },
-          items: 1
-        }
-    };
+
 
     return (
-        <div id={name} className={classes.Wrapper}>
-            <Title path={`${name}`}>/blog</Title>
-            <p>Recently published blogs..</p>            
+        <Layout name={name} id={name}  >
+            <div  className={classes.Wrapper}>
+                <Title path={`${name}`}>/blog</Title>
+                <p>Recently published blogs..</p>            
 
-            <div className={classes.BlogCarousel}>
-                <Carousel 
-                    responsive={responsive}
-                    arrows
-                    showDots
-                    swipeable
+                <div className={classes.Blogs}>
+                    <AllBlogs />
+                </div>
 
-                >
-                    {
-                        data['contentful'].edges.map( (edge,i) => {
-                            return (
-                                <BlogCard
-                                    change={true}
-                                    key={Math.random()}
-                                    title={edge.node.title}
-                                    slug={edge.node.slug}
-                                    date={edge.node.publishedDate}
-                                    img={data.assets.nodes[i].file.url}
-                                />
-                            )
-                        })
-                    }
-                </Carousel>
+                <footer>
+                    <Link to={`/blogs`}>
+                        See all blogs
+                    </Link>
+                </footer>
             </div>
-
-            <footer>
-                <Link to={`/blogs`}>
-                    See all blogs
-                </Link>
-            </footer>
-        </div>
+            
+        </Layout>
     )
 }

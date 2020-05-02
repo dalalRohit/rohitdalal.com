@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 
-import classes from './footer.module.css';
+import classes from './../styles/footer.module.css';
 
 export default class Footer extends Component {
     render() {
         return (
             <div className={classes.Wrapper}>
-                Footer
+                <h1>Rohit Dalal</h1>
             </div>
         )
     }

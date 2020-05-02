@@ -1,29 +1,13 @@
 import React,{Fragment} from 'react'
+import {Element} from 'react-scroll';
+import './../styles/style.css';
 
-import { ThemeProvider } from 'styled-components';
-import {GlobalStyles,lightTheme,darkTheme} from './global';
-import { useDarkMode } from './helpers/useDarkmode';
 
 export default function Layout(props) {
 
-    console.log(lightTheme,darkTheme);
-    //https://css-tricks.com/a-dark-mode-toggle-with-react-and-themeprovider/
-    const [theme, toggleTheme,componentMounted] = useDarkMode();
-    if (!componentMounted) {
-        return <div />
-        };
-    const themeMode = theme === 'light' ? lightTheme : darkTheme;
-
     return (
-        <>
-            <ThemeProvider theme={themeMode}>
-                {/* <GlobalStyles > */}
-
-                {props.children}
-
-                {/* </GlobalStyles> */}
-
-            </ThemeProvider>
-        </>
+        <Element name={props.name} id={props.name} className="Wrapper" >
+            {props.children}
+        </Element>
     )
 }

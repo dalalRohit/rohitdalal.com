@@ -1,15 +1,11 @@
 import React,{Fragment} from 'react';
-import { IoIosArrowDown } from 'react-icons/io'
-import classes from './home.module.css';
-import { Link, animateScroll as scroll } from "react-scroll";
-import styled from 'styled-components';
-import { bounceAnimation } from './helpers/animations';
+
+import classes from './../styles/home.module.css';
+import { Element } from "react-scroll";
 import {graphql,useStaticQuery} from 'gatsby';
 import Navbar from './Navbar';
 
-const Bounce = styled.div`
-    animation: 5s ${bounceAnimation} once;
-`
+
 
 const Home=(props) => {
 
@@ -28,17 +24,9 @@ const Home=(props) => {
         }
     `)
     return (
-        <div 
-            className={classes.Wrapper} 
-            id={name}
-            style={
-                {
-                    backgroundImage:props.theme==='light' ? 'linear-gradient(120deg, #a6c0fe 0%, #f68084 100%)' : 'linear-gradient(to right, #606c88, #3f4c6b)',
-                    color:props.theme==='light' ? '#202020' : '#eee'
-                }
-            
-            }
-            >
+        <Element name={name} id={name} >
+            <div className={classes.Wrapper} >
+                
             <Fragment>
                 <Navbar 
                     offset={offset}
@@ -68,6 +56,7 @@ const Home=(props) => {
 
 
         </div>
+        </Element>
     )
 }
 

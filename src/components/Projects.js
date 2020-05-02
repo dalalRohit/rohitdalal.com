@@ -1,12 +1,15 @@
-import React, { Component } from 'react'
-import classes from './projects.module.css';
-import Card from './UI/card';
+import React from 'react'
 import {graphql,useStaticQuery} from 'gatsby';
-import fm from 'front-matter';
+
+import Card from './UI/card';
 import Title from './UI/title';
+import Layout from './Layout';
+
+import classes from './../styles/projects.module.css';
 
 const Projects=() => {
     const name="Projects";
+
     const projects=useStaticQuery(graphql`
         query{
             allMarkdownRemark{
@@ -17,7 +20,8 @@ const Projects=() => {
                             date,
                         },
                         html,
-                        excerpt
+                        excerpt,
+                        timeToRead
                     }
                 }
             }
@@ -25,23 +29,27 @@ const Projects=() => {
     `)
 
     return (
-        <div id={name} className={classes.Wrapper}>
-            <Title path={name}>/projects</Title>
-            <main className={classes.Projects}>
+        <Layout name={name} id={name}  >  
+            <div  className={classes.Wrapper}>
+                <Title >/projects</Title>
 
-                {projects.allMarkdownRemark.edges.map( (project,i) => {
-                    return (
-                            <Card 
-                                key={Math.random()}
-                                title={project.node.frontmatter.title}
-                                content={project.node.excerpt}
-                                html={project.node.html}
-                            />
-                    );
-                })}
-            
-            </main>
-        </div>
+                <p>This section is for my projects</p>
+                <main className={classes.Projects}>
+
+                    {projects.allMarkdownRemark.edges.map( (project,i) => {
+                        return (
+                                <Card 
+                                    key={Math.random()}
+                                    title={project.node.frontmatter.title}
+                                    excerpt={project.node.excerpt}
+                                    html={project.node.html}
+                                />
+                        );
+                    })}
+                
+                </main>
+            </div>
+        </Layout>
     )
 }
 

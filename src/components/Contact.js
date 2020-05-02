@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import classes from './contact.module.css';
+import classes from './../styles/contact.module.css';
 import Title from './UI/title';
-
+import Layout from './Layout';
 import Form from './UI/Form';
 import {FaInstagram,FaLinkedinIn,FaTwitter,FaMediumM,FaGithub} from 'react-icons/fa'
 export default class Contact extends Component {
@@ -13,7 +13,9 @@ export default class Contact extends Component {
             color:"inherit"
         }
         return (
-            <div id={name} className={classes.Wrapper}>
+            <Layout name={name} id={name} >
+
+                <div  className={classes.Wrapper}>
                 <Title path={name}>/contact</Title>
 
                 <main className={classes.Contact}>
@@ -61,6 +63,8 @@ export default class Contact extends Component {
 
 
             </div>  
+
+            </Layout>
         )
     }
 }

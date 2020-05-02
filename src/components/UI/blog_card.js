@@ -1,8 +1,7 @@
-import React from 'react'
-import styled from 'styled-components';
-import {Link} from 'gatsby';
+
 
 // import sample from './../../images/sample.jpg';
+/*
 
 const Blog=styled.div`
     width:90%;
@@ -11,7 +10,15 @@ const Blog=styled.div`
     display:flex;
     flex-flow:column;
     min-height:50%;
-    border:1px solid gray;
+    border:1px solid lightgray;
+    main{
+        p{
+            font-size:.98em;
+        }
+    }
+    &:hover{
+        background:lightgray;
+    }
 
     @media(max-width:699px){
         flex-flow:${props => props.change ? 'column' : 'row'};
@@ -109,3 +116,41 @@ export default function BlogCard(props) {
         </Blog>
     )
 }
+
+*/
+
+import {Link} from 'gatsby';
+import PropTypes from 'prop-types';
+import React from 'react'
+import classes from './../../styles/blogcard.module.css';
+
+export default function BlogCard(props) {
+    return (
+        <div className={classes.Wrapper} title={props.title} >
+            <Link to={`/blogs/${props.slug}`} >
+                <main className={classes.Blog}>
+                    <header className={classes.BlogHeader}>
+                        <h5>{props.title}</h5>
+                    </header>
+
+                    <section>
+                        <span>This is blog excerpt</span>
+                    </section>
+
+                    <footer className={classes.BlogFooter}>
+                        <span>{props.date}</span>
+                        <span>{props.time}</span>
+                    </footer>
+                </main>
+            </Link>
+        </div>
+    )
+}
+
+BlogCard.propTypes={
+    title:PropTypes.string,
+    date:PropTypes.string,
+    time:PropTypes.string,
+    slug:PropTypes.string
+}
+

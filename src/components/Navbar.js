@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 
-import classes from './navbar.module.css';
-import {MdMenu} from 'react-icons/md';
+import classes from './../styles/navbar.module.css';
 import Logo from './UI/logo';
 import Sidenav from './sidenav';
 import NavItems from './helpers/nav_items';
-import {IoMdMoon,IoMdSunny} from 'react-icons/io';
-import Bottom from './UI/Bottom';
+
+import Bottom from './helpers/Bottom';
 
 
 export default class Navbar extends Component {
@@ -42,21 +41,7 @@ export default class Navbar extends Component {
 
         return (
             <> 
-                
-                <Sidenav 
-                    color={color}
-                    bgcolor={bgcolor}
-
-                    show={this.state.show}
-                    click={this.handleSideNav} 
-                    offset={this.props.offset} />
-
-                <div 
-                    className={navClass.join(" ")}
-                    style={{
-                        color,
-                        backgroundColor:navClass.length===1 ? 'inherit' : bgcolor
-                    }}>
+                <div className={navClass.join(" ")}>
                         <Bottom 
                             theme={this.props.theme} />
  
@@ -64,10 +49,9 @@ export default class Navbar extends Component {
 
                         <div className={classes.Nav}>
                             
-                            <NavItems 
-                                theme={this.props.theme}
-                                offset={this.props.offset}
-                                modalClick={this.modalClickHandler}
+                            <NavItems
+                                display={"row"}
+                                scroll={true}
                                 />
                             
                         </div>

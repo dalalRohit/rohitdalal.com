@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
+import Layout from './Layout';
 
-
-import classes from './about.module.css';
+import classes from './../styles/about.module.css';
 import Photo from './UI/image';
 import Skills from './UI/skills';
 import Title from './UI/title';
@@ -12,7 +12,9 @@ export default class About extends Component {
         const name="About";
 
         return (
-            <div id={name} className={classes.Wrapper} >
+            <Layout name={name} id={name}>
+
+                <div className={classes.Wrapper} >
 
                 <Title path={name}>/about</Title>
                 
@@ -42,6 +44,8 @@ export default class About extends Component {
 
                 </main>
             </div>
+            
+            </Layout>
         )
     }
 }

@@ -22,6 +22,8 @@
    --fourth-dark-landing:linear-gradient(to right, #232526, #414345); /* https://uigradients.com/#MidnightCity  */
 
 
+   --transition-time: 0.5s;
+   --bg-blog:url('./../images/sample.jpg');
   
 
    --normal-background:aliceblue;
@@ -48,6 +50,21 @@ html,body{
   font-family: Roboto;
 }
 
+.active{
+  color:red
+}
+
+.Wrapper{
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  border: 2px dashed black;
+  margin-bottom: 2%;
+}
+.Wrapper:last-child{
+  margin-bottom: 0;
+}
 
 
 

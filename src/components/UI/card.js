@@ -6,29 +6,26 @@ import Modal from './modal';
 const CardDiv=styled.div`
     width:90%;
     margin:0 5% 0 5%;
-    height:350px;
     max-width:100%;
+    height:180px;
     box-sizing:border-box;
-    border:1px solid purple;
+    border:1px solid lightgray;
     padding:1em;
-    background-size:cover;
-    background-repeat:no-repeat;
-    background-position: center center;
+
     display:flex;
     flex-flow:column;
-    justify-content:space-between;
     align-items:center;
+    justify-content:space-around;
     cursor:pointer;
-    outline:solid 2px gray;
+
+    h4{
+        border-bottom:1px solid plum;
+    }
     &:hover{
-        outline-width:5px;
+        border:1px solid gray;
     }
 
-    @media(max-width:699px){
-        width:100%;
-        margin:0;
-        height:300px;
-    }
+
 `
  class Card extends Component 
 {
@@ -56,9 +53,14 @@ const CardDiv=styled.div`
                     </div>
                 </Modal>
 
-                <CardDiv onClick={this.modalHandler} style={{backgroundImage:this.props.image}}>
-                    <p>{this.props.title}</p>
-                    <Button  onClick={this.modalHandler} disableElevation variant="contained">See more</Button>
+                <CardDiv onClick={this.modalHandler} >
+                    <h4>{this.props.title}</h4>
+                    <p dangerouslySetInnerHTML={{__html:this.props.excerpt}} ></p>
+
+                    <div style={{display:'flex',}}>
+                        <Button  onClick={this.modalHandler} disableElevation variant="contained">See more</Button>
+                        
+                    </div>
                 </CardDiv>
 
             </div>

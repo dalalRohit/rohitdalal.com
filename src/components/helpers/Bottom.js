@@ -1,6 +1,7 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import styled from 'styled-components';
-import {Link} from 'gatsby';
+import NavItems from './nav_items';
+
 
 const Nav=styled.div`
     box-sizing:border-box;
@@ -16,6 +17,7 @@ const Nav=styled.div`
     z-index:100;
     background-color:#eee;
     border-top:1.2px solid gray;
+    box-shadow:1px 2px 18px rgba(0,0,0,.25);
 
     a{
         text-decoration:none;
@@ -23,21 +25,23 @@ const Nav=styled.div`
         text-align:center;
         width:100%;
         padding:1em;
-        // border:1px solid gray;
+        font-size:1.1rem;
     }
 
     @media(min-width:700px){
         display:none;
     }
 `
+
+
+
 export default function Bottom(props) {
+
     return (
-        <Nav style={{color:props.theme==='light' ? 'black' : '#eee',backgroundColor:props.theme==='light' ?  '#eee' : '#131313'}} >
-            <Link to={`/#About`} >/about</Link>
-            <Link to={`/#Blog`} >/blog</Link>
-            <Link to={'/'} > /home </Link>
-            <Link to={`/#Projects`} >/projects</Link>
-            <Link to={`/#Contact`} >/contact</Link>
+        <Nav >
+            <NavItems 
+                display={"row"}
+                scroll={true} />
         </Nav>
     )
 }

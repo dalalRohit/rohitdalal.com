@@ -1,11 +1,11 @@
 .Wrapper{
     box-sizing: border-box;
     width: 90%;
-    margin:0 5% 8vh 5%;
+    margin: 5%;
     height: 100%;
     max-width: 100%;
-    padding-top: 8vh;
     min-height: calc(100vh - 360px);
+    border:2px solid purple;
 
 }
 

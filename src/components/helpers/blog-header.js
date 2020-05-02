@@ -1,17 +1,14 @@
 import React from 'react'
-import {Link} from 'gatsby';
-import classes from './blog-header.module.css';
-import {IoMdSunny,IoMdMoon} from 'react-icons/io';
-
+import classes from './../../styles/blog-header.module.css';
+import NavItems from './nav_items';
 
 export default function BlogHeader(props) {
     return (
         <div className={classes.Header}>
-            <Link 
-                to={`/${props.path}`} replace  > back to {props.location} 
-            </Link>
 
-            { props.theme==='light' ? <IoMdMoon size={30} onClick={props.click} /> : <IoMdSunny size={30} onClick={props.click} /> }
+            <NavItems display="row" scroll={false} />
+            <p>Blog title</p>
+
         </div>
     )
 }

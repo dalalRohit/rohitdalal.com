@@ -10,7 +10,7 @@ const InputWrapper=styled.div`
 `
 const Label=styled.label`
     box-sizing:border-box;
-    // border:1px solid blue;
+    color:black;
     width:30%;
     margin-right:15px;
     padding:.5em;
@@ -37,7 +37,7 @@ function Input(props) {
 
     return (
         <InputWrapper>
-            <Label style={{color:theme==='light' ? 'black' : "#eee"}}>{label ? label : 'label'}</Label>
+            <Label >{label ? label : 'label'}</Label>
             <InputBox
                 required
                 autoComplete="off"
