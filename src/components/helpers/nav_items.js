@@ -44,13 +44,17 @@ const Ul=styled.ul`
     }
 `
 export default function NavItems(props) {
-    let links=['About','Blog','Projects','Contact']
 
+    let links=['About',props.changeBlog ? 'blogs' : 'Blog','Projects','Contact']
+    
     const scrollProps={
         smooth:true,
-        hashSpy:true,
+        // hashSpy:true,
+        scrollSpy:true,
         duration:400,
-        dynamic:true
+        dynamic:true,
+        spy:true,
+        offset:-59
     }
 
 
@@ -69,7 +73,7 @@ export default function NavItems(props) {
                                     to={`${link}`}
                                     > {link} </LinkItem> :
                             
-                                <Link  to={`/#${link}`}  >  {link} </Link>
+                                <Link  to={link==='blogs' ? `/${link}` : `/#${link}` } >  {link} </Link>
                             }
                         </Li>
                     )

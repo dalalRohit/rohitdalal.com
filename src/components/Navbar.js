@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 
 import classes from './../styles/navbar.module.css';
 import Logo from './UI/logo';
-import Sidenav from './sidenav';
 import NavItems from './helpers/nav_items';
 
 import Bottom from './helpers/Bottom';
@@ -24,41 +24,56 @@ export default class Navbar extends Component {
             }
         })
     }
-    handleSideNav=() => {
 
-        this.setState({
-            show:!this.state.show
-        })
-    }
 
     render() {
+        const {display,scroll,changeBlog,gradient}=this.props;
+
         let navClass=[classes.Wrapper]
         if(this.state.scrolled){
             navClass.push(classes.Scrolled);
         }
-        const color=this.props.theme==='light' ?  'black' : '#eee';
-        const bgcolor=this.props.theme==='light' ?  '#eee' : '#131313';
+        var x='linear-gradient(120deg, #a6c0fe 0%, #f68084 100%)';
+        var style={
+            linearGradient:x,
+            backgroundImage:navClass.length===1 && gradient ? x : "none",
+            backgroundColor:'#eee'
+        }
 
         return (
             <> 
-                <div className={navClass.join(" ")}>
-                        <Bottom 
-                            theme={this.props.theme} />
- 
+                <div 
+                    className={navClass.join(" ")} 
+                    style={style} >
+
                         <Logo />
 
                         <div className={classes.Nav}>
                             
                             <NavItems
-                                display={"row"}
-                                scroll={true}
+                                display={display}
+                                scroll={scroll}
+                                changeBlog={changeBlog}
                                 />
-                            
+
                         </div>
-                         
-                
+
+                        <Bottom 
+                            display={display} 
+                            scroll={scroll} 
+                            changeBlog={changeBlog}
+                        
+                        />
+               
                 </div>
             </>
         )
     }
+}
+
+Navbar.propTypes={
+    display:PropTypes.string, //how to display nav-items . "row"
+    scroll:PropTypes.bool,  //whether to use 'react-scroll' or 'gatsby-link',
+    changeBlog:PropTypes.string,
+    gradient:PropTypes.bool
 }

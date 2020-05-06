@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react'
+import React from 'react'
 import styled from 'styled-components';
 import NavItems from './nav_items';
 
@@ -15,7 +15,7 @@ const Nav=styled.div`
     justify-content:space-around;
     align-items:center;
     z-index:100;
-    background-color:#eee;
+    background-color:#fcfcff;
     border-top:1.2px solid gray;
     box-shadow:1px 2px 18px rgba(0,0,0,.25);
 
@@ -40,8 +40,10 @@ export default function Bottom(props) {
     return (
         <Nav >
             <NavItems 
-                display={"row"}
-                scroll={true} />
+                display={props.display}
+                scroll={props.scroll}
+                changeBlog={props.changeBlog}
+                />
         </Nav>
     )
 }

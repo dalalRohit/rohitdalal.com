@@ -72,7 +72,16 @@ module.exports = {
                 linkImagesToOriginal:false,
 
               }
+            },
+            {
+              resolve: `gatsby-remark-images-contentful`,
+              options:{
+                maxWidth:750,
+                showCaptions:true,
+                
+              }
             }
+            
         ],
       },
     },

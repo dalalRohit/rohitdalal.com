@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Layout from './Layout';
 
 import classes from './../styles/about.module.css';
+
 import Photo from './UI/image';
 import Skills from './UI/skills';
 import Title from './UI/title';
@@ -38,8 +39,27 @@ export default class About extends Component {
                     </div>
 
                     <div className={classes.Skills}>
-                        <h2>Skills</h2>
-                        <Skills  />
+                        <div>
+                            <h3>What I do?</h3>
+                            <ul>
+                                <li>Web devlopement</li>
+                                <li>Competetive Programming</li>
+                                <li>Front end</li>
+                                <li>Back end</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3>What I use? </h3>
+                            <ul>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+  
+                        </div>
                     </div>
 
                 </main>

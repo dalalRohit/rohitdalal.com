@@ -1,78 +1,86 @@
 import React from 'react'
 import Head from './../components/helpers/head';
-import BlogHeader from './../components/helpers/blog-header';
+import Navbar from './../components/Navbar';
 import BlogFooter from './blog-footer';
 
 import classes from './blogtemplate.module.css';
 import {graphql,Link} from 'gatsby';
+
+import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import {documentToReactComponents} from '@contentful/rich-text-react-renderer'
 
-// Dark theme settings
-import {ThemeProvider} from 'styled-components';
-import {GlobalStyles,lightTheme,darkTheme} from './../components/global';
-import {useDarkMode} from './../components/helpers/useDarkmode';
+
 
 export const query=graphql`
   query($slug:String) {
-    contentfulBlogPost(slug:{eq:$slug}){
+    contentfulBlogs(slug:{eq:$slug}){
       title,
       publishedDate (formatString:"MMMM Do, YYYY"),
-      description{
+      description
+      content{
         json
       },
-      body{
-        json
+      tags,
+      image{
+        title,
+        file{
+          url
+        },
+        description
       }
     }
   }
 `
 export default function BlogTemplate(props) {
-  const [theme,toggleTheme, componentMounted]=useDarkMode();
-  if (!componentMounted) {
-    return <div />
-  };
-  const themeMode = theme === 'light' ? lightTheme : darkTheme;
+
 
   const options={
       renderNode:{
-        "embedded-asset-block" : (node) => {
+        //embedded-asset-block contains images
+        [BLOCKS.EMBEDDED_ASSET] : (node) => {
           // console.log(JSON.stringify(node,undefined,4));
           const alt=node.data.target.fields.title['en-US'];
           const url=node.data.target.fields.file['en-US'].url;
           const details=node.data.target.fields.file['en-US'].details;
           const {width,height}=details.image;
-          return <img alt={alt} src={url} width={"40%"} />
-        }
+          return <img alt={alt} src={url}  />
+        },
       }
   }
     return (
-      <ThemeProvider theme={themeMode}>
-          <GlobalStyles />
+
           <>
-            <Head title={props.data.contentfulBlogPost.title} info={"Rohit Dalal"} />
+            <Head title={props.data.contentfulBlogs.title} info={"Rohit Dalal"} />
+
             <div className={classes.Wrapper}>
 
-                <BlogHeader location="all blogs" path="/blogs" theme={theme} click={toggleTheme} />
+                <Navbar
+                  gradient={false}  
+                  display="row"
+                  scroll={false} 
+                  changeBlog={true} />
 
                 {/* Contentful post render */}
                 <article className={classes.Content}>
                   
                   <div className={classes.Info}>
-                    <h1>{props.data.contentfulBlogPost.title}</h1>
-                    <time> {props.data.contentfulBlogPost.publishedDate}   </time>
+                    <h1>{props.data.contentfulBlogs.title}</h1>
+                    <time> {props.data.contentfulBlogs.publishedDate}   </time>
 
                     <div className={classes.Tags}>
-                      <Link to={`/tags/`} ><span>javascript</span></Link>
-
-                      <Link to={`/tags/`} ><span>react</span></Link>
-
-                      <Link to={`/tags/`} ><span>mongodb</span></Link>
+                        {props.data.contentfulBlogs.tags.map( (tag) => {
+                          return (
+                            <span>
+                              <Link  to={`/tags/`} key={Math.random()} >{tag}</Link>
+                            </span>
+                          )
+                        })}
                     </div>
 
                   </div>
 
                   {
-                    documentToReactComponents(props.data.contentfulBlogPost.body.json,options)
+                    documentToReactComponents(props.data.contentfulBlogs.content.json,options)
                   }
                 
                 </article>
@@ -81,6 +89,6 @@ export default function BlogTemplate(props) {
                 
             </div>
           </>
-      </ThemeProvider>
+
     )
 }

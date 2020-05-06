@@ -5,8 +5,12 @@ import classes from './../styles/footer.module.css';
 export default class Footer extends Component {
     render() {
         return (
-            <div className={classes.Wrapper}>
-                <h1>Rohit Dalal</h1>
+            <div 
+                className={classes.Wrapper}
+            >
+                <p>Rohit Dalal &copy; 2020</p>
+
+                <p>Scroll to top</p>
             </div>
         )
     }

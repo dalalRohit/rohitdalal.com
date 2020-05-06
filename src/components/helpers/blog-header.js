@@ -7,7 +7,6 @@ export default function BlogHeader(props) {
         <div className={classes.Header}>
 
             <NavItems display="row" scroll={false} />
-            <p>Blog title</p>
 
         </div>
     )

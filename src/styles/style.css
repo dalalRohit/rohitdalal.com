@@ -59,7 +59,6 @@ html,body{
   width: 100%;
   max-width: 100%;
   min-height: 100%;
-  border: 2px dashed black;
   margin-bottom: 2%;
 }
 .Wrapper:last-child{

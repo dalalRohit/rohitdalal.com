@@ -8,7 +8,7 @@ export default function AllBlogs(props) {
 
     const data=useStaticQuery(graphql`
         {
-            contentful:allContentfulBlogPost (
+            contentful:allContentfulBlogs (
                 sort:{
                     fields:publishedDate,
                     order:DESC
@@ -20,21 +20,30 @@ export default function AllBlogs(props) {
                     node{
                         title,
                         slug,
-                        publishedDate (formatString:"MMMM Do, YYYY")
+                        tags,
+                        description,
+                        publishedDate (formatString:"MMMM Do, YYYY"),
+                        image{
+                            fixed{
+                                src,
+                                width,
+                                height
+                                srcSet
+                            },
+                            fluid(maxWidth:500){
+                                sizes,
+                                src,
+                                srcSet
+                            },
+                            file{
+                                url
+                            }
+                        }
+
                     }
                 }
             },
-            assets:allContentfulAsset (sort:{
-                fields:title,
-                order:DESC
-                })
-                {
-                    nodes{
-                        file{
-                        url
-                    }
-                }
-            }
+
         }
 
     `)
@@ -54,8 +63,10 @@ export default function AllBlogs(props) {
                                     slug={edge.node.slug}
                                     title={edge.node.title}
                                     excerpt={edge.node.excerpt}
-                                    img={data.assets.nodes[i].file.url}
+                                    img={edge.node.image.fixed.src}
+                                    srcset={edge.node.image.fluid.srcSet}
                                     time={'2 min read'}
+                                    tags={edge.node.tags}
                                     />
                             )
                         })

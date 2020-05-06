@@ -1,16 +1,14 @@
-import React,{Fragment} from 'react';
+import React from 'react';
 
 import classes from './../styles/home.module.css';
 import { Element } from "react-scroll";
 import {graphql,useStaticQuery} from 'gatsby';
-import Navbar from './Navbar';
 
 
 
 const Home=(props) => {
 
     const name = "Home";
-    const offset=-60.8;
     const data = useStaticQuery(graphql`
         query  {
             site {
@@ -27,12 +25,12 @@ const Home=(props) => {
         <Element name={name} id={name} >
             <div className={classes.Wrapper} >
                 
-            <Fragment>
+            {/* <Fragment>
                 <Navbar 
                     offset={offset}
                     theme={props.theme}
                     click={props.click}/>
-            </Fragment>
+            </Fragment> */}
 
             <div className={classes.Home}>
 

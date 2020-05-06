@@ -31,7 +31,7 @@ const Projects=() => {
     return (
         <Layout name={name} id={name}  >  
             <div  className={classes.Wrapper}>
-                <Title >/projects</Title>
+                <Title path={name} >/projects</Title>
 
                 <p>This section is for my projects</p>
                 <main className={classes.Projects}>

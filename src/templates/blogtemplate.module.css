@@ -11,10 +11,10 @@
 .Content{
     box-sizing: border-box;
     width: 85%;
-    margin: 8vh 7.5% 0 7.5%;
+    margin: 0 7.5% 0 7.5%;
     max-width: 100%;
     min-height: 100%;
-    padding: 2rem;
+    padding: 1rem;
     box-sizing: border-box;
 }
 .Content h1{
@@ -41,7 +41,7 @@
 .Info{
     box-sizing: border-box;
     padding: 1rem;
-    margin: 2.5% 0 2.5% 0;
+    margin: 0 0 2.5% 0;
 }
 
 time{
@@ -70,10 +70,7 @@ time{
     color: #fff;
 }
 
-/* code */
-code{
-    color:yellow;
-}
+
 /* Media queries */
 @media (max-width:900px){
     .Content{
