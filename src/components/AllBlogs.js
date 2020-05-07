@@ -1,5 +1,5 @@
 import React from 'react'
-import classes from './../styles/allblogs.module.css';
+import classes from './../styles/allblogs.module.scss';
 import {Link,graphql,useStaticQuery} from 'gatsby';
 import BlogCard from './UI/blog_card';
 import PropTypes from 'prop-types';

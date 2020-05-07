@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import classes from './../styles/contact.module.css';
+import classes from './../styles/contact.module.scss';
 import Title from './UI/title';
 import Layout from './Layout';
 import Form from './UI/Form';
@@ -15,7 +15,7 @@ export default class Contact extends Component {
         return (
             <Layout name={name} id={name} >
 
-                <div  className={classes.Wrapper}>
+                <div  className={"Wrapper"}>
                 <Title path={name}>/contact</Title>
 
                 <main className={classes.Contact}>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Layout from './Layout';
 
-import classes from './../styles/about.module.css';
+import classes from './../styles/about.module.scss';
 
 import Photo from './UI/image';
 import Skills from './UI/skills';
@@ -15,7 +15,7 @@ export default class About extends Component {
         return (
             <Layout name={name} id={name}>
 
-                <div className={classes.Wrapper} >
+                <div className={"Wrapper"} >
 
                 <Title path={name}>/about</Title>
                 

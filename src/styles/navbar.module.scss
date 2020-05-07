@@ -26,12 +26,14 @@
     max-width: 100%;
     margin: 0;
     padding: 0;
+
+    a{
+        text-decoration: none;
+        color: inherit;
+    }
 }
 
-.Nav a{
-    text-decoration: none;
-    color: inherit;
-} 
+
 
 .Scrolled{
     z-index: 1000000000;

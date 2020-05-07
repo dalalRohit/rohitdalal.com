@@ -1,21 +1,17 @@
 import React from 'react';
 
 import AllBlogs from './../components/AllBlogs';
-import Navbar from './../components/Navbar';
-
-
+import PageLayout from './../components/pageLayout';
 import Head from './../components/helpers/head';
 
 
 const Blogs=() => {
     return (
-            <>
+            <PageLayout scroll={false} gradient={false}>
                 <Head title="Blogs" info="Rohit Dalal" />
-                
-                <Navbar display="row" scroll={false}  />
-                
+                                
                 <AllBlogs  margin={true} />
-            </>
+            </PageLayout>
     )
 };
 

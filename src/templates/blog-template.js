@@ -1,7 +1,7 @@
 import React from 'react'
 import Head from './../components/helpers/head';
-import Navbar from './../components/Navbar';
-import BlogFooter from './blog-footer';
+
+import PageLayout from './../components/pageLayout';
 
 import classes from './blogtemplate.module.css';
 import {graphql,Link} from 'gatsby';
@@ -49,16 +49,11 @@ export default function BlogTemplate(props) {
   }
     return (
 
-          <>
+          <PageLayout scroll={false} gradient={false} >
+
             <Head title={props.data.contentfulBlogs.title} info={"Rohit Dalal"} />
 
             <div className={classes.Wrapper}>
-
-                <Navbar
-                  gradient={false}  
-                  display="row"
-                  scroll={false} 
-                  changeBlog={true} />
 
                 {/* Contentful post render */}
                 <article className={classes.Content}>
@@ -85,10 +80,10 @@ export default function BlogTemplate(props) {
                 
                 </article>
 
-                <BlogFooter />
                 
             </div>
-          </>
+          
+          </PageLayout>
 
     )
 }

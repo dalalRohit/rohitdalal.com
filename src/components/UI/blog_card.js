@@ -1,7 +1,7 @@
 import {Link} from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react'
-import classes from './../../styles/blogcard.module.css';
+import classes from  './../../styles/blogcard.module.scss';
 import sample from './../../images/sample.jpg';
 import Img from "gatsby-image"
 

@@ -14,6 +14,7 @@ module.exports = {
     intro:`Programmer | Developer | Thinker`
   },
   plugins: [
+    'gatsby-plugin-sass',
     {
       resolve:'gatsby-source-contentful',
       options:{

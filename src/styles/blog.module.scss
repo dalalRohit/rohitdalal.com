@@ -1,0 +1,29 @@
+.Blogs{
+    width: 100%;
+    box-sizing: border-box;
+    height: 100%;
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
+    gap: 1em;
+}
+
+.Note{
+    width: 40%;
+    margin: 0 30% 0 30%;
+    text-align: center;
+    padding: .1em;
+
+    a{
+        text-transform: none;
+        border: 2px transparent white;
+        color: inherit;
+    }
+    a:hover{
+        text-decoration: none;
+        color: teal;
+    }
+}
+
+
+
+

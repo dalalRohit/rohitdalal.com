@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 
-import classes from './../styles/navbar.module.css';
+import classes from './../styles/navbar.module.scss';
 import Logo from './UI/logo';
 import NavItems from './helpers/nav_items';
 
@@ -36,8 +36,8 @@ export default class Navbar extends Component {
         var x='linear-gradient(120deg, #a6c0fe 0%, #f68084 100%)';
         var style={
             linearGradient:x,
-            backgroundImage:navClass.length===1 && gradient ? x : "none",
-            backgroundColor:'#eee'
+            // backgroundImage:navClass.length===1 && gradient ? x : "none",
+            backgroundColor:'#F4F6F6'
         }
 
         return (

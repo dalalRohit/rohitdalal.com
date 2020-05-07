@@ -36,13 +36,21 @@
  /* Global styles */
  h1,h2,h3,h4,h5,h6{
    margin: 0;
+   padding: 0;
  }
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+a{
+  text-decoration:none;
+  text-transform:none;
+  margin:0;
+  padding:0;
+}
 html,body{
   box-sizing: border-box;
   height: 100%;
@@ -50,19 +58,36 @@ html,body{
   font-family: Roboto;
 }
 
-.active{
-  color:red
-}
 
-.Wrapper{
+.Container{
   box-sizing: border-box;
   width: 100%;
   max-width: 100%;
   min-height: 100%;
   margin-bottom: 2%;
 }
-.Wrapper:last-child{
+.Container:last-child{
   margin-bottom: 0;
+}
+
+
+
+.Wrapper{
+  box-sizing: border-box;
+  width: 90%;
+  margin: 5%;
+  height: 100%;
+  max-width: 100%;
+  min-height: calc(100vh - 360px);
+  border: 1px solid lightgray;
+}
+
+@media (max-width:700px){
+  .Wrapper{
+      width: 100%;
+      margin: 0;
+      padding-top: 5vh;
+  }
 }
 
 

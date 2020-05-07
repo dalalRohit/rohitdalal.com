@@ -1,5 +1,5 @@
 import React from 'react'
-import classes from './../styles/blog.module.css';
+import classes from './../styles/blog.module.scss';
 import {Link} from 'gatsby';
 import Title from './UI/title';
 import Layout from './Layout';
@@ -10,22 +10,27 @@ export default function Blog() {
 
     const name="Blog";
 
+    const x=(
+        <div className={classes.Note}>
+            <Link>
+                <h4>See all blogs</h4>
+            </Link>
+         </div>
+    );
 
     return (
         <Layout name={name} id={name}  >
-            <div  className={classes.Wrapper}>
+            <div  className={"Wrapper"}>
                 <Title path={`${name}`}>/blog</Title>
-                <p>Recently published blogs..</p>          
+                <p>These are my recently published blogs. Check them out ...</p>          
+                
+                {x}
 
                 <div className={classes.Blogs}>
                     <AllBlogs />
                 </div>
 
-                <footer>
-                    <Link to={`/blogs`}>
-                        See all blogs
-                    </Link>
-                </footer>
+                {x}
             </div>
             
         </Layout>

@@ -7,7 +7,7 @@ export default function Layout(props) {
 
     return (
         <React.StrictMode>
-            <Element name={props.name} id={props.name} className="Wrapper" >
+            <Element name={props.name} id={props.name} className="Container" >
                 {props.children}
             </Element>
         </React.StrictMode>

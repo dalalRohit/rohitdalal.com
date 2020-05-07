@@ -5,7 +5,7 @@ import Card from './UI/card';
 import Title from './UI/title';
 import Layout from './Layout';
 
-import classes from './../styles/projects.module.css';
+import classes from './../styles/projects.module.scss';
 
 const Projects=() => {
     const name="Projects";
@@ -30,7 +30,7 @@ const Projects=() => {
 
     return (
         <Layout name={name} id={name}  >  
-            <div  className={classes.Wrapper}>
+            <div  className={"Wrapper"}>
                 <Title path={name} >/projects</Title>
 
                 <p>This section is for my projects</p>

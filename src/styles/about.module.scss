@@ -1,13 +1,3 @@
-.Wrapper{
-    box-sizing: border-box;
-    width: 90%;
-    margin: 5%;
-    height: 100%;
-    max-width: 100%;
-    min-height: calc(100vh - 360px);
-    border: 1px solid lightgray;
-}
-
 .About{
     box-sizing: border-box;
     width: 96%;
@@ -17,9 +7,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(49%,1fr));
     gap: 1em;
-
 }
-
 
 .Info{
     box-sizing: border-box;
@@ -45,12 +33,14 @@
     /* border: 1px solid gray; */
     height: 100%;
     writing-mode: horizontal-tb;
+
+    p{
+        line-height: 1.2rem;
+        font-size: 1.2rem;
+        line-height: 1.2rem;
+    }
 }
-.Desc p{
-    line-height: 1.2rem;
-    font-size: 1.2rem;
-    line-height: 1.2rem;
-}
+
 .Skills{
     width: 100%;
     display: flex;
