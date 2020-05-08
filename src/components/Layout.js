@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useRef} from 'react'
 import {Element} from 'react-scroll';
 import './../styles/style.css';
 import PropTypes from 'prop-types';
@@ -6,11 +6,9 @@ import PropTypes from 'prop-types';
 export default function Layout(props) {
 
     return (
-        <React.StrictMode>
-            <Element name={props.name} id={props.name} className="Container" >
-                {props.children}
-            </Element>
-        </React.StrictMode>
+        <Element name={props.name} id={props.name} className="Container" ref={useRef()} >
+            {props.children}
+        </Element>
     )
 }
 

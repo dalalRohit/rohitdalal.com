@@ -6,6 +6,7 @@ import Title from './UI/title';
 import Layout from './Layout';
 
 import classes from './../styles/projects.module.scss';
+import {ProjectInfo} from './../static/projects';
 
 const Projects=() => {
     const name="Projects";
@@ -33,7 +34,7 @@ const Projects=() => {
             <div  className={"Wrapper"}>
                 <Title path={name} >/projects</Title>
 
-                <p>This section is for my projects</p>
+                <p className={classes.ProjNote}>This section is for my projects</p>
                 <main className={classes.Projects}>
 
                     {projects.allMarkdownRemark.edges.map( (project,i) => {

@@ -9,7 +9,7 @@ const Blogs=() => {
     return (
             <PageLayout scroll={false} gradient={false}>
                 <Head title="Blogs" info="Rohit Dalal" />
-                                
+                <h1>All blogs </h1>                   
                 <AllBlogs  margin={true} />
             </PageLayout>
     )

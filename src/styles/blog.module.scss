@@ -7,20 +7,27 @@
     gap: 1em;
 }
 
+.BlogText{
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+}
 .Note{
-    width: 40%;
-    margin: 0 30% 0 30%;
+    width: 20%;
+    margin: 0 40% 0 40%;
     text-align: center;
     padding: .1em;
 
     a{
         text-transform: none;
-        border: 2px transparent white;
         color: inherit;
+        h4:hover{
+            outline: 2px solid plum;
+        }
     }
     a:hover{
+        color: #131313;
         text-decoration: none;
-        color: teal;
+        
     }
 }
 

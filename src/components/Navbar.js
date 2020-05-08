@@ -6,6 +6,7 @@ import Logo from './UI/logo';
 import NavItems from './helpers/nav_items';
 
 import Bottom from './helpers/Bottom';
+import {IoIosMoon,IoIosSunny} from 'react-icons';
 
 
 export default class Navbar extends Component {
@@ -15,7 +16,7 @@ export default class Navbar extends Component {
     
     componentDidMount(){
         window.addEventListener('scroll',() => {
-            const top=window.scrollY > 450 ;
+            const top=window.scrollY > 400 ;
             if(top === true){
                 this.setState({scrolled:true})
             }
@@ -27,7 +28,7 @@ export default class Navbar extends Component {
 
 
     render() {
-        const {display,scroll,changeBlog,gradient}=this.props;
+        const {display,scroll,changeBlog,offset}=this.props;
 
         let navClass=[classes.Wrapper]
         if(this.state.scrolled){
@@ -36,37 +37,37 @@ export default class Navbar extends Component {
         var x='linear-gradient(120deg, #a6c0fe 0%, #f68084 100%)';
         var style={
             linearGradient:x,
-            // backgroundImage:navClass.length===1 && gradient ? x : "none",
-            backgroundColor:'#F4F6F6'
+            // backgroundColor:'#F4F6F6'
         }
 
         return (
-            <> 
                 <div 
                     className={navClass.join(" ")} 
                     style={style} >
 
-                        <Logo />
+                    <Logo scroll={scroll} />
 
-                        <div className={classes.Nav}>
-                            
-                            <NavItems
-                                display={display}
-                                scroll={scroll}
-                                changeBlog={changeBlog}
-                                />
-
-                        </div>
-
-                        <Bottom 
-                            display={display} 
-                            scroll={scroll} 
-                            changeBlog={changeBlog}
+                    <div className={classes.Nav}>
                         
-                        />
-               
+                        <NavItems
+                            display={display}
+                            scroll={scroll}
+                            changeBlog={changeBlog}
+                            offset={offset}
+                            />
+                        
+
+                    </div>
+
+                    <Bottom 
+                        display={display} 
+                        scroll={scroll} 
+                        changeBlog={changeBlog}
+                        offset={offset}
+                    
+                    />
+            
                 </div>
-            </>
         )
     }
 }
@@ -75,5 +76,6 @@ Navbar.propTypes={
     display:PropTypes.string, //how to display nav-items . "row"
     scroll:PropTypes.bool,  //whether to use 'react-scroll' or 'gatsby-link',
     changeBlog:PropTypes.string,
-    gradient:PropTypes.bool
+    gradient:PropTypes.bool,
+    offset:PropTypes.number.isRequired
 }

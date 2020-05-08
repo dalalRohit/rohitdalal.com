@@ -7,11 +7,10 @@ const CardDiv=styled.div`
     width:90%;
     margin:0 5% 0 5%;
     max-width:100%;
-    height:180px;
     box-sizing:border-box;
     border:1px solid lightgray;
     padding:1em;
-
+    font-size:1.2rem;
     display:flex;
     flex-flow:column;
     align-items:center;
@@ -19,10 +18,10 @@ const CardDiv=styled.div`
     cursor:pointer;
 
     h4{
-        border-bottom:1px solid plum;
+        border-bottom:2px solid plum;
     }
     &:hover{
-        border:1px solid gray;
+        outline:2px solid gray;
     }
 
 

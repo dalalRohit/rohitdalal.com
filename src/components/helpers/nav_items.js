@@ -16,6 +16,7 @@ const Li=styled.li`
     }
     a:hover{
         color:inherit;
+        border-bottom:2px solid plum;
     }
 
 `
@@ -48,13 +49,13 @@ export default function NavItems(props) {
     let links=['About',props.changeBlog ? 'blogs' : 'Blog','Projects','Contact']
     
     const scrollProps={
+        offset:props.offset,
         smooth:true,
+        spy:true,
         // hashSpy:true,
         scrollSpy:true,
-        duration:400,
-        dynamic:true,
-        spy:true,
-        offset:-59
+        duration:500,
+        isDynamic:true,
     }
 
 

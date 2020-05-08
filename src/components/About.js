@@ -4,7 +4,6 @@ import Layout from './Layout';
 import classes from './../styles/about.module.scss';
 
 import Photo from './UI/image';
-import Skills from './UI/skills';
 import Title from './UI/title';
 
 export default class About extends Component {
@@ -22,18 +21,18 @@ export default class About extends Component {
                 <main className={classes.About}>
 
                     <div className={classes.Info}>
+                        
                         <div className={classes.Photo}>
                             <Photo />
                         </div>
+                        
                         <div className={classes.Desc}>
                             <p> 
-                                Hey, there <br/>
-                                Full Stack developer with expertise in backend tech and a competetive programmer 
-                                with interest in machine learning
-                                Hey, there <br/>
-                                Full Stack developer with expertise in backend tech and a competetive programmer 
-                                with interest in machine learning
-                                  
+                                Hello people, myself Rohit Dalal. Nice to see you here <br/>
+                                I do <code>WebDev</code> projects in <code>Node.js</code>, <code>React.js</code>, <code>MongoDB </code> 
+                                <br/>
+                                I also love Competetive Programming, which I do in <code>C++</code>. <br/> 
+                                I like                   
                             </p>
                         </div>
                     </div>

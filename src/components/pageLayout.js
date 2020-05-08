@@ -5,19 +5,21 @@ import Footer from './../components/Footer';
 import './../styles/style.css';
 import PropTypes from 'prop-types';
 
-export default function PageLayout(props) {
+
+function PageLayout(props) {
     return (
-        <React.Fragment>
+        <>
             <Navbar 
                 display="row"
                 scroll={props.scroll} 
                 gradient={props.gradient}
-                />
-
+                offset={-60}
+            />
+            
             {props.children}
             
             <Footer />
-        </React.Fragment>
+        </>
     )
 }
 
@@ -26,3 +28,7 @@ PageLayout.propTypes={
     gradient:PropTypes.bool,
     children:PropTypes.node.isRequired
 }
+
+
+export default PageLayout; 
+

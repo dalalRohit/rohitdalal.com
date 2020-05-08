@@ -43,6 +43,7 @@ export default function Bottom(props) {
                 display={props.display}
                 scroll={props.scroll}
                 changeBlog={props.changeBlog}
+                offset={-37}
                 />
         </Nav>
     )

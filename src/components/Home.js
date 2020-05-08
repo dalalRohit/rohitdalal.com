@@ -5,7 +5,6 @@ import { Element } from "react-scroll";
 import {graphql,useStaticQuery} from 'gatsby';
 
 
-
 const Home=(props) => {
 
     const name = "Home";
@@ -24,14 +23,14 @@ const Home=(props) => {
     return (
         <Element name={name} id={name} >
             <div className={classes.Wrapper} >
-
+                
                 <div className={classes.Home}>
 
-                    <div className={classes.Name}>
+                    <div className={classes.Info}>
 
                         <div className={classes.Brand}>
-                            <h1> {data.site.siteMetadata.author} </h1>
-                            <p> {data.site.siteMetadata.description} </p>
+                            <h1> Namaste, I'm Rohit 👋 </h1>
+                            <p> I develop websites,full stack web-apps  </p>
                         </div>
 
                         <div className={classes.Intro}>

@@ -7,6 +7,10 @@
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(49%,1fr));
     gap: 1em;
+
+    p{
+        font-size: 1.5rem;
+    }
 }
 
 .Form{

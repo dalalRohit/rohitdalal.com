@@ -11,7 +11,7 @@ module.exports = {
     title: `Rohit Dalal | MERN Stack Developer`,
     description: `FullStack JavaScript developer`,
     author: `Rohit Dalal`,
-    intro:`Programmer | Developer | Thinker`
+    intro:`Programmer | Developer | Thinker`,
   },
   plugins: [
     'gatsby-plugin-sass',
@@ -30,8 +30,8 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -51,7 +51,6 @@ module.exports = {
         path:`${__dirname}/src/`
       }
     },
-    'gatsby-plugin-sharp',
     {
       resolve: `gatsby-transformer-remark`,
       options: {

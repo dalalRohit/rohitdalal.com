@@ -8,7 +8,7 @@ export default class Footer extends Component {
             <div 
                 className={classes.Wrapper}
             >
-                <p>Rohit Dalal &copy; 2020</p>
+                <p>Rohit Dalal &copy; {new Date().getFullYear()} </p>
 
                 <p>Scroll to top</p>
             </div>

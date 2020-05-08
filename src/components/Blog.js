@@ -12,7 +12,7 @@ export default function Blog() {
 
     const x=(
         <div className={classes.Note}>
-            <Link>
+            <Link to={`/blogs/`} >
                 <h4>See all blogs</h4>
             </Link>
          </div>
@@ -22,15 +22,13 @@ export default function Blog() {
         <Layout name={name} id={name}  >
             <div  className={"Wrapper"}>
                 <Title path={`${name}`}>/blog</Title>
-                <p>These are my recently published blogs. Check them out ...</p>          
+                <p className={classes.BlogText}>These are my recently published blogs. Check them out ...</p>          
                 
                 {x}
 
                 <div className={classes.Blogs}>
                     <AllBlogs />
                 </div>
-
-                {x}
             </div>
             
         </Layout>

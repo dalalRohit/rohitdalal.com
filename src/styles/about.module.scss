@@ -7,6 +7,13 @@
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(49%,1fr));
     gap: 1em;
+
+    p,li{
+        line-height: 1.4rem;
+        font-size: 1.4rem;
+        font-weight: lighter;
+    }
+
 }
 
 .Info{
@@ -34,11 +41,7 @@
     height: 100%;
     writing-mode: horizontal-tb;
 
-    p{
-        line-height: 1.2rem;
-        font-size: 1.2rem;
-        line-height: 1.2rem;
-    }
+
 }
 
 .Skills{
