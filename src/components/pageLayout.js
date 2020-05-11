@@ -1,19 +1,24 @@
-import React from 'react'
-
+import React,{useState} from 'react'
 import Navbar from './../components/Navbar';
 import Footer from './../components/Footer';
+import 'bootstrap/dist/css/bootstrap.css';
 import './../styles/style.css';
 import PropTypes from 'prop-types';
 
 
 function PageLayout(props) {
+    
+    const {scroll,gradient,changeBlog}=props;
+
+
     return (
         <>
             <Navbar 
                 display="row"
-                scroll={props.scroll} 
-                gradient={props.gradient}
+                scroll={scroll} 
+                gradient={gradient}
                 offset={-60}
+                changeBlog={changeBlog}
             />
             
             {props.children}

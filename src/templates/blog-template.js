@@ -3,7 +3,7 @@ import Head from './../components/helpers/head';
 
 import PageLayout from './../components/pageLayout';
 
-import classes from './blogtemplate.module.css';
+import classes from './blogtemplate.module.scss';
 import {graphql,Link} from 'gatsby';
 
 import { BLOCKS, MARKS } from '@contentful/rich-text-types';
@@ -49,7 +49,11 @@ export default function BlogTemplate(props) {
   }
     return (
 
-          <PageLayout scroll={false} gradient={false} >
+          <PageLayout 
+            scroll={false}
+            gradient={false}
+            changeBlog={true}
+            >
 
             <Head title={props.data.contentfulBlogs.title} info={"Rohit Dalal"} />
 
@@ -66,17 +70,19 @@ export default function BlogTemplate(props) {
                         {props.data.contentfulBlogs.tags.map( (tag) => {
                           return (
                             <span>
-                              <Link  to={`/tags/`} key={Math.random()} >{tag}</Link>
+                              <Link  to={`/tags/${tag}`} key={Math.random()} >{tag}</Link>
                             </span>
                           )
                         })}
                     </div>
 
                   </div>
-
+                  
+                  <main className={classes.Data}>
                   {
                     documentToReactComponents(props.data.contentfulBlogs.content.json,options)
                   }
+                  </main>
                 
                 </article>
 

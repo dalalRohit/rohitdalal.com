@@ -9,7 +9,7 @@ export default function BlogCard(props) {
     const {title,date,img,slug,time,tags}=props;
 
     const tag=tags.map( (t) => {
-         return <Link to={`/tags/`} ><span>{t}</span></Link>
+         return <Link to={`/tags/${t}`} ><span>{t}</span></Link>
     })
     return (
         <div className={classes.Wrapper} title={title} >

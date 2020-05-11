@@ -40,6 +40,7 @@ export default class Navbar extends Component {
             // backgroundColor:'#F4F6F6'
         }
 
+
         return (
                 <div 
                     className={navClass.join(" ")} 
@@ -55,8 +56,6 @@ export default class Navbar extends Component {
                             changeBlog={changeBlog}
                             offset={offset}
                             />
-                        
-
                     </div>
 
                     <Bottom 
@@ -75,7 +74,7 @@ export default class Navbar extends Component {
 Navbar.propTypes={
     display:PropTypes.string, //how to display nav-items . "row"
     scroll:PropTypes.bool,  //whether to use 'react-scroll' or 'gatsby-link',
-    changeBlog:PropTypes.string,
+    changeBlog:PropTypes.bool,
     gradient:PropTypes.bool,
     offset:PropTypes.number.isRequired
 }

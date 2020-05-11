@@ -5,6 +5,7 @@
     box-sizing: border-box;
     /* background-color: #191b1f; */
     /* color: #eee; */
+    background-color: #eee;
 }
 
 /* Content starts here */
@@ -70,7 +71,13 @@ time{
     color: #fff;
 }
 
+.Data{
+    width: 100%;
+    max-width: 100%;
 
+    padding: 1.67em;
+    border: 1px solid red;
+}
 /* Media queries */
 @media (max-width:900px){
     .Content{

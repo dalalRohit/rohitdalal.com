@@ -1,0 +1,36 @@
+.Filter{
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    background-color:lightcyan;
+    padding: .8em;
+    margin-top: 1rem;
+}
+
+.Form{
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: .8em;
+}
+
+.Input{
+    width: 70%;
+    margin: 0 30% 0 0;
+}
+.Tags{
+    box-sizing: border-box;
+    width: 60%;
+    margin: 0 40% 0 0;
+    max-width: 100%;
+    padding: .6em;
+    // border: 1px dashed lawngreen;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(70px,1fr));
+    gap: .8em;
+}
+
+
+.BlogCount{
+    color: blue;
+    font-size: .89em;
+}

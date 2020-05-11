@@ -3,9 +3,7 @@ import classes from './../styles/allblogs.module.scss';
 import {Link,graphql,useStaticQuery} from 'gatsby';
 import BlogCard from './UI/blog_card';
 import PropTypes from 'prop-types';
-
 export default function AllBlogs(props) {
-
     const data=useStaticQuery(graphql`
         {
             contentful:allContentfulBlogs (

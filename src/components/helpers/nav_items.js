@@ -24,8 +24,8 @@ const Ul=styled.ul`
     width:100%;
     box-sizing:border-box;
     margin-top:15px;
-    height:8vh;
-    min-height:8vh;
+    height:5vh;
+    min-height:5vh;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -53,7 +53,7 @@ export default function NavItems(props) {
         smooth:true,
         spy:true,
         // hashSpy:true,
-        scrollSpy:true,
+        // scrollSpy:true,
         duration:500,
         isDynamic:true,
     }

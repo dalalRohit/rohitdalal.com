@@ -22,6 +22,7 @@ export default function Blog() {
         <Layout name={name} id={name}  >
             <div  className={"Wrapper"}>
                 <Title path={`${name}`}>/blog</Title>
+                
                 <p className={classes.BlogText}>These are my recently published blogs. Check them out ...</p>          
                 
                 {x}

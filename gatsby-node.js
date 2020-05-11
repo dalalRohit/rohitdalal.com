@@ -3,6 +3,8 @@
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
+const {getAllTags}=require('./src/static/data')
+
 const path=require('path');
 // You can delete this file if you're not using it
 module.exports.onCreateNode = ({ node, actions }) => {
@@ -20,20 +22,37 @@ module.exports.onCreateNode = ({ node, actions }) => {
   }
 
   module.exports.createPages= async ({graphql,actions}) => {
+
     const {createPage}=actions;
 
-    const blogTemp=path.resolve('./src/templates/blog-template.js')
+    const blogTemp=path.resolve('./src/templates/blog-template.js');
+    const tagTemp=path.resolve('./src/templates/tag-template.js');
+
     const response=await graphql(`
         query{
             allContentfulBlogs{
                 edges{
                     node{
-                        slug
+                        slug,
+                        tags
                     }
                 }
             }
         }
     `);
+
+    let allTags=getAllTags(response.data);
+    Object.keys(allTags)
+        .forEach( (tag) => {
+            createPage({
+                component:tagTemp,
+                path:`/tags/${tag}`,
+                context:{
+                    tag:tag
+                }
+            })
+        })
+        
     response.data.allContentfulBlogs.edges.forEach( (edge) => {
         createPage({
             component:blogTemp,
@@ -42,5 +61,6 @@ module.exports.onCreateNode = ({ node, actions }) => {
                 slug:edge.node.slug
             }
         })
+
     })
   }

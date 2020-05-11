@@ -10,12 +10,12 @@ const Nav=styled.div`
     right:0rem;
     left:0rem;
     bottom:0rem;
-    min-height:8vh;
+    min-height:6vh;
     display:flex;
     justify-content:space-around;
     align-items:center;
     z-index:100;
-    background-color:#fcfcff;
+    background-color:#eee;
     border-top:1.2px solid gray;
     box-shadow:1px 2px 18px rgba(0,0,0,.25);
 
@@ -36,13 +36,13 @@ const Nav=styled.div`
 
 
 export default function Bottom(props) {
-
+    const {scroll,display,changeBlog}=props;
     return (
         <Nav >
             <NavItems 
-                display={props.display}
-                scroll={props.scroll}
-                changeBlog={props.changeBlog}
+                display={display}
+                scroll={scroll}
+                changeBlog={changeBlog}
                 offset={-37}
                 />
         </Nav>

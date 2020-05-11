@@ -1,13 +1,13 @@
 
 /* Declare all fonts */
-@font-face {
+/* @font-face {
   font-family: "Poppins";
   src: url('./../fonts/Poppins/Poppins-Regular.ttf');
 }
 @font-face {
   font-family: "Roboto";
   src: url('./../fonts/Roboto/Roboto-Regular.ttf');
-}
+} */
 
 @font-face {
   font-family: "Jost";
@@ -33,7 +33,6 @@
 margin: 0;
 padding: 0;
 box-sizing: border-box;
-font-family: "Jost";
 }
 
  /* Global styles */
@@ -61,8 +60,9 @@ html,body{
   max-width: 100%;
   min-height: 100%;
   font-size: inherit;
-}
+  font-family: "Jost";
 
+}
 
 .Container{
   box-sizing: border-box;
@@ -73,7 +73,7 @@ html,body{
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-
+  /* background-attachment: fixed; */
 }
 
 
@@ -87,6 +87,7 @@ html,body{
   padding: 6vh 0 6vh 0;
 }
 
+
 @media (max-width:700px){
   .Container{
     background-position: left top;
@@ -96,6 +97,19 @@ html,body{
       margin: 0;
 
   }
+}
+
+.Tag{
+  width:100%;
+  text-align: center;
+  box-sizing: border-box;
+  padding: .35em;
+  cursor: pointer;
+  background: plum;
+  border-radius: 7px;
+}
+.Tag:hover{
+  background: lightpink;
 }
 
 

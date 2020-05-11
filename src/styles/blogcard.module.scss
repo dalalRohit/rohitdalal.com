@@ -1,6 +1,5 @@
 .Wrapper{
     box-sizing: border-box;
-    padding: .5rem;
     height: 100%;
     outline: 1px lightgray solid;
 }
@@ -82,7 +81,7 @@
     align-items: center;
 
     span{
-        background-color: lightpink;
+        background-color: lightgoldenrodyellow;
         padding: .12em;
     }
 
@@ -95,8 +94,6 @@
         width: 100%;
         padding: 0;
         margin: 0;
-        height: 9em;
-        max-height: 10em;
     }
     .BlogContent{
         p{

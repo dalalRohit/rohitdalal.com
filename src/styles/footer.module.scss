@@ -4,18 +4,19 @@
     height: 100%;
     max-width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center; 
     margin-top: 0;
-    border-top: 1px solid lightgray;
+    border-top: 1px solid lightgrey;
     padding: 1em;
     background-color: #eee;
 
-    font-size: 1.3rem;
+    font-size: 1.1rem;
 }
 
 @media(max-width:700px){
     .Wrapper{
-        margin-bottom: 8vh;
+        margin-bottom: 5vh;
+        justify-content: space-between;
     }
 }

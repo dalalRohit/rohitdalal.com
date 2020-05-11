@@ -10,14 +10,18 @@ import Contact from './../components/Contact';
 import Blog from './../components/Blog';
 
 
-import 'bootstrap/dist/css/bootstrap.css';
 
 
 
 const IndexPage = () => {
 
   return (
-            <PageLayout scroll={true} gradient={true}>
+            <PageLayout 
+                scroll={true}
+                gradient={true}
+                changeBlog={false}
+                
+                >
                 <Head title={"Rohit Dalal"} info="MERN Stack Developer"/>
 
                 <Home  />
