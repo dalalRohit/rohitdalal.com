@@ -11,23 +11,23 @@ import {ProjectInfo} from './../static/projects';
 const Projects=() => {
     const name="Projects";
 
-    const projects=useStaticQuery(graphql`
-        query{
-            allMarkdownRemark{
-                edges{
-                    node{
-                        frontmatter{
-                            title,
-                            date,
-                        },
-                        html,
-                        excerpt,
-                        timeToRead
-                    }
-                }
-            }
-        }
-    `)
+    // const projects=useStaticQuery(graphql`
+    //     query{
+    //         allMarkdownRemark{
+    //             edges{
+    //                 node{
+    //                     frontmatter{
+    //                         title,
+    //                         date,
+    //                     },
+    //                     html,
+    //                     excerpt,
+    //                     timeToRead
+    //                 }
+    //             }
+    //         }
+    //     }
+    // `)
 
     return (
         <Layout name={name} id={name}  >  
@@ -36,7 +36,7 @@ const Projects=() => {
 
                 <p className={classes.ProjNote}>This section is for my projects</p>
                 <main className={classes.Projects}>
-
+                    {/*  
                     {projects.allMarkdownRemark.edges.map( (project,i) => {
                         return (
                                 <Card 
@@ -47,6 +47,7 @@ const Projects=() => {
                                 />
                         );
                     })}
+                    */}
                 
                 </main>
             </div>

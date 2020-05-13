@@ -112,6 +112,18 @@ html,body{
   background: lightpink;
 }
 
+em{
+  text-align: center;
+}
+
+pre{
+  background-color: lightslategray;
+  color: #eee;
+  padding: .4em;
+  box-sizing: border-box;
+  font-size: .9em;
+}
+
 
 
 

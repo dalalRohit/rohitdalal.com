@@ -6,8 +6,7 @@ import Layout from './Layout';
 import AllBlogs from './AllBlogs';
  
 
-export default function Blog() {
-
+export default function Blog(props) {
     const name="Blog";
 
     const x=(
@@ -20,7 +19,7 @@ export default function Blog() {
 
     return (
         <Layout name={name} id={name}  >
-            <div  className={"Wrapper"}>
+            <div className={"Wrapper"}>
                 <Title path={`${name}`}>/blog</Title>
                 
                 <p className={classes.BlogText}>These are my recently published blogs. Check them out ...</p>          
@@ -28,10 +27,14 @@ export default function Blog() {
                 {x}
 
                 <div className={classes.Blogs}>
-                    <AllBlogs />
+
+                    <AllBlogs
+                        blogs={props.blogs}
+                    />
                 </div>
             </div>
             
         </Layout>
     )
 }
+

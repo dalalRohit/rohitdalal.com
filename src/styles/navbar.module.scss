@@ -47,6 +47,21 @@
     background-image: none;
 }
 
+
+.BlogTitle{
+    text-align: center;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+
+    p{
+        margin: 0;
+        padding: 0;
+        font-size: 1.4em;
+    }
+}
 @media(max-width:700px){
 
     .Nav{
@@ -56,5 +71,12 @@
     .Wrapper{
         min-height: 5vh;
         height: 5vh;
+    }
+
+    .BlogTitle{
+        width: 60%;
+        p{
+            font-size: 1em;
+        }
     }
 }

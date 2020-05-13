@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 
 function PageLayout(props) {
     
-    const {scroll,gradient,changeBlog}=props;
+    const {scroll,gradient,changeBlog,blogTitle}=props;
 
 
     return (
@@ -19,6 +19,7 @@ function PageLayout(props) {
                 gradient={gradient}
                 offset={-60}
                 changeBlog={changeBlog}
+                blogTitle={blogTitle}
             />
             
             {props.children}

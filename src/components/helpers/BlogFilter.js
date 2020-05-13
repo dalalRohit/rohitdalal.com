@@ -11,17 +11,26 @@ export default function BlogFilter() {
 
     const data=useStaticQuery(graphql`
         query{
-            allContentfulBlogs{
+            allMdx{
                 edges{
                     node{
-                        title,
-                        slug,
-                        tags,
-                        publishedDate,
-                        description,
-                        content{
-                            json
+                        frontmatter{
+                            title,
+                            slug,
+                            tags,
+                            date,
+                            featuredImage{
+                                childImageSharp{
+                                    fluid(maxWidth:600){
+                                        src
+                                    }
+                                }
+                                
+                            }
+
                         }
+                        excerpt,
+                        body
                     }
                 }
             },
@@ -42,7 +51,7 @@ export default function BlogFilter() {
 
     return (
         <div className={classes.Filter}>
-            <h1>BlogFilter</h1>
+            <h3>Filter blogs by categories</h3>
 
             <div className={classes.Tags}>
                 {Object.keys(allTags).map( (tag) => {
@@ -56,7 +65,7 @@ export default function BlogFilter() {
                 })}
             </div>
 
-            <div className={classes.Form}>
+            {/* <div className={classes.Form}>
                 <TextField
                     className={classes.Input}
                     label="Filter blogs"
@@ -68,7 +77,7 @@ export default function BlogFilter() {
                         shrink: true,
                     }}
                 />
-            </div>
+            </div> */}
         </div>
     )
 }

@@ -3,87 +3,111 @@
     max-width: 100%;
     min-height: 100%;
     box-sizing: border-box;
-    /* background-color: #191b1f; */
-    /* color: #eee; */
-    background-color: #eee;
 }
 
 /* Content starts here */
 .Content{
     box-sizing: border-box;
-    width: 85%;
-    margin: 0 7.5% 0 7.5%;
+    width: 70%;
+    margin: 0 15% 0 15%;
     max-width: 100%;
     min-height: 100%;
     padding: 1rem;
-    box-sizing: border-box;
+
+    p{
+        font-size: 1.35vw;
+        // line-height: 1.5rem;
+    }
+
+    img{
+        box-sizing: border-box;
+        width: 100%;
+        height: 100%;
+    }
 }
-.Content h1{
-    font-size: 2.5rem;
-    font-weight: 700;
-}
-.Content a:hover{
-    text-decoration: none;
-    color: inherit;
-    text-align: center;
-}
-.Content p{
-    font-size: 1.25rem;
-}
-.Content img{
-    width: 50%;
-    margin: 0 25% 0 25%;
-    height: 390px;
-}
+
 
 /* Content ends here */
+.Tags{
+    margin: .5rem;
+    padding: .5rem;
 
+    span{
+        margin: .4rem;
+    }
+}
 /* Blog Info */
 .Info{
     box-sizing: border-box;
     padding: 1rem;
-    margin: 0 0 2.5% 0;
+    width: 100%;
+    border: 1px solid red;
+    margin: 0 0 2.5rem 0;
+    
 }
 
 time{
     margin-right: .5rem;
 }
 
-/* Tags here */
-.Tags{
+.Data{
     box-sizing: border-box;
     width: 100%;
-    padding: 1em;
-    margin-top: 10px;
-}
-.Tags span{
-    color: #b3b9c5;
-    background: rgba(124, 118, 118, 0.2);
-    font-size: .9rem;
-    font-weight: 500;
-    padding: .3rem .8rem;
-    margin: 0 15px 0 0;
-}
-.Tags span:hover{
-    cursor: pointer;
-    border: none;
-    background: #111;
-    color: #fff;
-}
-
-.Data{
-    width: 100%;
     max-width: 100%;
-
     padding: 1.67em;
+    // border: 1px solid red;
+}
+
+.BlogShare{
+    box-sizing: border-box;
+    width: 40%;
+    max-width: 100%;
+    margin: 1em 60% 1em 0;
+    padding: .8em;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    a{
+        margin: .8em;
+    }
+}
+
+/*
+.BlogNav{
+    box-sizing: border-box;
+    width: 15%;
+    margin: 0 0 0 85%;
     border: 1px solid red;
+    position: fixed;
+    right: 0;
+    top: 40vh;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+*/
+
+
+@media(max-width:700px){
+    .BlogShare{
+        width: 80%;
+        margin: 1em 20% 1em 0;
+    }
+
+    .BlogNav{
+        display: none;
+    }
 }
 /* Media queries */
 @media (max-width:900px){
     .Content{
+        box-sizing: border-box;
+        max-width: 100%;
         width: 100%;
         margin: 0;
-        margin-top: 8vh;
+        padding: .6rem;
     }
     .Content h1{
         font-size: 1.95rem;
@@ -96,5 +120,9 @@ time{
         width: 100%;
         margin: 0;
         height: 100%;
+    }
+
+    .Data{
+        padding: 0;
     }
 }

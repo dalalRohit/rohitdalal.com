@@ -28,27 +28,27 @@ export default class Navbar extends Component {
 
 
     render() {
-        const {display,scroll,changeBlog,offset}=this.props;
+        const {display,scroll,changeBlog,offset,blogTitle}=this.props;
 
         let navClass=[classes.Wrapper]
         if(this.state.scrolled){
             navClass.push(classes.Scrolled);
         }
-        var x='linear-gradient(120deg, #a6c0fe 0%, #f68084 100%)';
-        var style={
-            linearGradient:x,
-            // backgroundColor:'#F4F6F6'
-        }
 
 
         return (
                 <div 
-                    className={navClass.join(" ")} 
-                    style={style} >
+                    className={navClass.join(" ")}  >
 
                     <Logo scroll={scroll} />
-
-                    <div className={classes.Nav}>
+                    
+                    <div className={classes.BlogTitle} style={{display:navClass.length===1 ? 'none' : 'block'}}>
+                        <p>
+                            {blogTitle}
+                        </p>
+                    </div>
+                    
+                        <div className={classes.Nav}>
                         
                         <NavItems
                             display={display}

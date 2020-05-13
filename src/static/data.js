@@ -1,8 +1,8 @@
 const getAllTags=(data) => 
 {
     const allTags={};
-    data.allContentfulBlogs.edges.filter( (edge) => {
-        let tags=edge.node.tags;
+    data.allMdx.edges.filter( (edge) => {
+        let tags=edge.node.frontmatter.tags;
 
         tags.forEach( (tag) => {
             if(tag in allTags){
@@ -16,6 +16,12 @@ const getAllTags=(data) =>
     return allTags;
 }
 
+
+const getBlogsByTag=(data,tag) => {
+
+}
+
 module.exports={
-    getAllTags
+    getAllTags,
+    getBlogsByTag
 }

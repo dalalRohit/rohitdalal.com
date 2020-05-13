@@ -10,10 +10,7 @@ import Contact from './../components/Contact';
 import Blog from './../components/Blog';
 
 
-
-
-
-const IndexPage = () => {
+const IndexPage = (props) => {
 
   return (
             <PageLayout 
@@ -26,7 +23,9 @@ const IndexPage = () => {
 
                 <Home  />
                 <About />
-                <Blog/>
+                <Blog 
+                    blogs={props.data}
+                    />
                 <Projects />
                 <Contact  />
 
@@ -36,5 +35,35 @@ const IndexPage = () => {
     )
 
 }
+
+export const blogQuery=graphql`
+query {
+    allMdx(limit:3,sort:{
+      fields:[frontmatter___date],order:DESC
+    }) {
+      edges {
+        node {
+          frontmatter {
+            title
+            published
+            date(formatString: "MMM Do YYYY")
+            slug
+            featuredImage {
+              childImageSharp {
+                fluid(maxWidth: 600) {
+                  src
+                }
+              }
+            }
+            tags
+          }
+        excerpt
+        body
+        timeToRead
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage

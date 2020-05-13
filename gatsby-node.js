@@ -11,7 +11,7 @@ module.exports.onCreateNode = ({ node, actions }) => {
     const {  createNodeField } = actions
     // Transform the new node here and create a new node or
     // create a new node field.
-    if(node.internal.type==='MarkdownRemark'){
+    if(node.internal.type==='Mdx'){
         const slug=path.basename(node. fileAbsolutePath,'.md');
         createNodeField({
             node,
@@ -30,37 +30,43 @@ module.exports.onCreateNode = ({ node, actions }) => {
 
     const response=await graphql(`
         query{
-            allContentfulBlogs{
+            allMdx{
                 edges{
                     node{
-                        slug,
-                        tags
+                        frontmatter{
+                            slug,
+                            tags
+                        }
                     }
                 }
             }
         }
     `);
 
-    let allTags=getAllTags(response.data);
+    //Create /tags/${tag} pages
+    const allTags=getAllTags(response.data);
     Object.keys(allTags)
-        .forEach( (tag) => {
+        .map( (tag) => {
             createPage({
                 component:tagTemp,
                 path:`/tags/${tag}`,
                 context:{
-                    tag:tag
+                    tag
                 }
             })
         })
+
         
-    response.data.allContentfulBlogs.edges.forEach( (edge) => {
+    //Create /blogs/${slug} pages
+    response.data.allMdx.edges.forEach( (edge) => {
         createPage({
             component:blogTemp,
-            path:`/blogs/${edge.node.slug}`,
+            path:`/blogs/${edge.node.frontmatter.slug}`,
             context:{
-                slug:edge.node.slug
+                slug:edge.node.frontmatter.slug
             }
         })
-
     })
-  }
+
+
+}

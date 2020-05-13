@@ -1,71 +1,28 @@
 import React from 'react'
 import classes from './../styles/allblogs.module.scss';
-import {Link,graphql,useStaticQuery} from 'gatsby';
 import BlogCard from './UI/blog_card';
 import PropTypes from 'prop-types';
 export default function AllBlogs(props) {
-    const data=useStaticQuery(graphql`
-        {
-            contentful:allContentfulBlogs (
-                sort:{
-                    fields:publishedDate,
-                    order:DESC
-                },
-                
-            )
-            {
-                edges{
-                    node{
-                        title,
-                        slug,
-                        tags,
-                        description,
-                        publishedDate (formatString:"MMMM Do, YYYY"),
-                        image{
-                            fixed{
-                                src,
-                                width,
-                                height
-                                srcSet
-                            },
-                            fluid(maxWidth:500){
-                                sizes,
-                                src,
-                                srcSet
-                            },
-                            file{
-                                url
-                            }
-                        }
-
-                    }
-                }
-            },
-
-        }
-
-    `)
-
+        
     return (
             <main 
                 className={classes.Blogs}
                 style={{marginTop:props.margin ? '8.5vh' : '0'}}
                 >
                 {
-                        data['contentful'].edges.map( (edge,i) =>{
+                        props.blogs.allMdx.edges.map( (edge) => {
                             return (
                                 <BlogCard
-                                    change={props.change}
-                                    key={Math.random()}
-                                    date={edge.node.publishedDate}
-                                    slug={edge.node.slug}
-                                    title={edge.node.title}
-                                    excerpt={edge.node.excerpt}
-                                    img={edge.node.image.fixed.src}
-                                    srcset={edge.node.image.fluid.srcSet}
-                                    time={'2 min read'}
-                                    tags={edge.node.tags}
-                                    />
+                                change={props.change}
+                                key={Math.random()}
+                                date={edge.node.frontmatter.date}
+                                slug={edge.node.frontmatter.slug}
+                                title={edge.node.frontmatter.title}
+                                excerpt={edge.node.excerpt}
+                                img={edge.node.frontmatter.featuredImage.childImageSharp.fluid.src}
+                                time={`${edge.node.timeToRead} min read`}
+                                tags={edge.node.frontmatter.tags}
+                                />
                             )
                         })
                 }
