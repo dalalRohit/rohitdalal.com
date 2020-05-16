@@ -4,7 +4,6 @@ import Footer from './../components/Footer';
 import 'bootstrap/dist/css/bootstrap.css';
 import './../styles/style.css';
 import PropTypes from 'prop-types';
-import {BrowserRouter} from 'react-router-dom';
 
 
 function PageLayout(props) {

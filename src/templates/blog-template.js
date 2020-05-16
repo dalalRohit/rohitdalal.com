@@ -2,7 +2,7 @@ import React from 'react'
 import Head from './../components/helpers/head';
 
 import PageLayout from './../components/pageLayout';
-
+import { window } from 'browser-monads';
 import classes from './../styles/templates/blogtemplate.module.scss';
 import {graphql,Link} from 'gatsby';
 import {FaTwitter} from 'react-icons/fa';
