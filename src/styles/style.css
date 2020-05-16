@@ -1,38 +1,23 @@
 
-/* Declare all fonts */
-/* @font-face {
-  font-family: "Poppins";
-  src: url('./../fonts/Poppins/Poppins-Regular.ttf');
-}
-@font-face {
-  font-family: "Roboto";
-  src: url('./../fonts/Roboto/Roboto-Regular.ttf');
-} */
-
 @font-face {
   font-family: "Jost";
   src: url('./../fonts/Jost/Jost-VariableFont_ital\,wght.ttf');
 }
 
 
-/* Css variables */
-:root{
-  --landing-bg: #8EC5FC;
-  --landing-gradient:linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
-  --hover-color:#8EC5FC;
-
-  --dark-landing: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  --second-dark-landing:linear-gradient(to right, #485563, #29323c);
-  --third-dark-landing:linear-gradient(to right, #606c88, #3f4c6b); /*ash https://uigradients.com/#Ash */
-  --fourth-dark-landing:linear-gradient(to right, #232526, #414345); /* https://uigradients.com/#MidnightCity  */
-
-
-}
-
 *{
 margin: 0;
 padding: 0;
 box-sizing: border-box;
+font-family: "Jost";
+
+}
+html,body{
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100%;
 }
 
  /* Global styles */
@@ -53,16 +38,7 @@ a:hover{
   text-decoration: none;
 }
 
-html,body{
-  box-sizing: border-box;
-  height: 100%;
-  width: 100%;
-  max-width: 100%;
-  min-height: 100%;
-  font-size: inherit;
-  font-family: "Jost";
 
-}
 
 .Container{
   box-sizing: border-box;
@@ -79,12 +55,12 @@ html,body{
 
 .Wrapper{
   box-sizing: border-box;
-  width: 95%;
-  margin: 0 2.5% 0 2.5%;
+  width: 85%;
+  margin: 0 7.5% 0 7.5%;
   height: 100%;
   max-width: 100%;
   min-height: calc(100vh - 360px);
-  padding: 6vh 0 6vh 0;
+  padding: 59px 0 6vh 0;
 }
 
 
@@ -100,29 +76,25 @@ html,body{
 }
 
 .Tag{
-  width:100%;
+  max-width: 120px;
   text-align: center;
-  box-sizing: border-box;
-  padding: .35em;
-  cursor: pointer;
-  background: plum;
-  border-radius: 7px;
+  background: lightblue;
+  padding: .12em;
 }
 .Tag:hover{
-  background: lightpink;
+  outline: 1px solid black;
 }
 
 em{
   text-align: center;
 }
 
-pre{
-  background-color: lightslategray;
-  color: #eee;
-  padding: .4em;
-  box-sizing: border-box;
-  font-size: .9em;
+.actve{
+  color: gold;
+  outline: 1px solid plum;
 }
+
+
 
 
 

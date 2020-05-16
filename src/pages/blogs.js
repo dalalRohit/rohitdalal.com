@@ -18,37 +18,42 @@ const Blogs=(props) => {
                 <BlogFilter />                 
                 <AllBlogs  
                     margin={true}
-                    blogs={props.data} />
+                    blogs={props.data.blogsQuery} />
             </PageLayout>
     )
 };
 
-export const blogQuery=graphql`
-    query{
-        allMdx{
-            edges{
-                node{
-                    frontmatter{
-                        title,
-                        published,
-                        date(formatString: "MMM Do YYYY"),
-                        slug,
-                        featuredImage{
-                            childImageSharp {
-                                fluid(maxWidth: 600) {
-                                    src,
-                                    srcSet
-                                }
-                            }
-                        }
-                        tags
-                    },
-                    excerpt,
-                    body,
-                    timeToRead
+export const blogsQuery=graphql`
+    {
+        blogsQuery:allMdx(sort:{
+            fields:[frontmatter___date],order:DESC
+          }) {
+            edges {
+              node {
+                frontmatter {
+                  title
+                  published
+                  date(formatString: "MMM Do YYYY")
+                  slug
+                  featuredImage {
+                    publicURL,
+                    childImageSharp {
+                      fluid{
+                        ...GatsbyImageSharpFluid_tracedSVG
+                      },
+                      fixed(width:290,height:200){
+                        ...GatsbyImageSharpFixed_tracedSVG
+                      }
+                    }
+                  }
+                  tags
                 }
+              excerpt
+              body
+              timeToRead
+              }
             }
-        }
+          },
     }
 `
 

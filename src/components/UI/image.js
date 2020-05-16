@@ -1,14 +1,11 @@
 import React from 'react'
 import styled from 'styled-components';
-import Pic from './../../images/me.jpg';
+import Img from 'gatsby-image';
 
 const Photo=styled.div`
 
-    width:70%;
+    width:60%;
     margin:1em 15% .5em 15%;
-    height:400px;
-    border:1px solid black;
-    padding:.3em;
 
     @media(max-width:700px){
         width:98%;
@@ -21,22 +18,26 @@ const Me=styled.div`
     width:80%;
     margin:0 10% 0 10%;
     height:100%;
-    
-    img{
-        height:100%;
-        width:100%;
-    }
 
     @media(max-width:700px){
         width:100%;
         margin:0;
     }
 `
-export default function Image() {
+export default function Image(props) {
     return (
         <Photo>
             <Me>
-                <img src={Pic}  />
+                <Img
+                    alt={"Rohit Dalal"}
+                    title={"Rohit Dalal"}
+                    style={
+                        {margin: '.54rem',
+                        maxWidth:"100%",
+                        maxHeight: 'calc(65vh - 4rem)', }
+                    }
+                    imgStyle={{objectFit:"contain"}} 
+                    fluid={props.fluid}  />
             </Me>
         </Photo>
     )

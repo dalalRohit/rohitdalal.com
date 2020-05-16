@@ -1,14 +1,13 @@
-import React,{useRef} from 'react'
-import {Element} from 'react-scroll';
+import React from 'react'
 import './../styles/style.css';
 import PropTypes from 'prop-types';
 
 export default function Layout(props) {
 
     return (
-        <Element name={props.name} id={props.name} className="Container" ref={useRef()} >
+        <div  name={props.name} id={props.name} className="Container" >
             {props.children}
-        </Element>
+        </div>
     )
 }
 

@@ -1,55 +1,52 @@
 import {Link} from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react'
-import classes from  './../../styles/blogcard.module.scss';
-import sample from './../../images/sample.jpg';
+import classes from './../../styles/helpers/blogcard.module.scss';
 import Img from "gatsby-image"
 
 export default function BlogCard(props) {
-    const {title,date,img,slug,time,tags}=props;
+    const {title,date,fluid,fixed,slug,time,tags}=props;
 
-    const tag=tags.map( (t) => {
+    const blogTags=tags.map( (t) => {
          return (
              <span className="Tag" key={Math.random()}>
-                 <Link to={`/tags/${t}`} >{t}</Link>
+                 <Link to={`/tags/${t}`}>
+                     {t}
+                </Link>
              </span>
          )
     })
     return (
-        <div className={classes.Wrapper} title={title} >
+      <div className={classes.blogCard}>
 
-                <main className={classes.Blog}>
-                    
-                    <div className={classes.BlogImg}>
-                        <Link to={`/blogs/${slug}`} > 
-                            <img src={img}   /> 
-                        </Link>
-                    </div>
+          <div className={classes.blogImg}>
+              <Link to={`/blogs/${slug}`}>
+                <Img 
+                    fluid={fluid}
+                    alt={title}
+                    title={title}
+                    // fixed={fixed}
+                    style={{ margin: '.54rem', maxHeight: 'calc(50vh - 4rem)' }}
+                    imgStyle={{objectFit:"contain"}}
+                    />
+              </Link>
 
-                    <div className={classes.BlogContent}>
+          </div>
 
-                        <header className={classes.BlogTitle}>
-                            <div className={classes.Tags}>
-                                {tag}
-                            </div>
-                            <Link to={`/blogs/${slug}`} ><p>{title}</p></Link>
-                        </header>
-
-                        <footer className={classes.BlogFooter}>
-                            <span>{date}</span>
-                            <span>{time}</span>
-                        </footer>
-
-                    </div>
-                </main>
+        <div className={classes.blogTags}>
+            {blogTags}
         </div>
-    )
-}
 
-BlogCard.propTypes={
-    title:PropTypes.string,
-    date:PropTypes.string,
-    time:PropTypes.string,
-    slug:PropTypes.string
+          <div className={classes.blogData}>
+                <p><Link to={`/blogs/${slug}`}>{title}</Link></p>
+
+                <div className={classes.dateTime}>
+                    <date>{date}</date>
+                    <span>{time}</span>
+                </div>
+          </div>
+
+      </div>  
+    )
 }
 

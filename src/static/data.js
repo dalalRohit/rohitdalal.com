@@ -17,11 +17,6 @@ const getAllTags=(data) =>
 }
 
 
-const getBlogsByTag=(data,tag) => {
-
-}
-
 module.exports={
     getAllTags,
-    getBlogsByTag
 }

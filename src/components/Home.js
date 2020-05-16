@@ -1,6 +1,6 @@
 import React from 'react';
 
-import classes from './../styles/home.module.scss';
+import classes from './../styles/components/home.module.scss';
 import { Element } from "react-scroll";
 import {graphql,useStaticQuery} from 'gatsby';
 

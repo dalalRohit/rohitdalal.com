@@ -4,7 +4,8 @@ date : 2020-05-12
 description: "Create a full screen responsive landing page from scratch using HTML, CSS and JS"
 slug : "full-screen-responsive-landing-page"
 tags : ["front-end"]
-featuredImage: ./thumbnail.png
+featuredImage: ./thumbnail.jpg
+published : true
 ---
 
 Hello geeks,
@@ -21,9 +22,7 @@ Today, in this “story” I’m going to demonstrate how to create a full scree
 
 <br/>
 
- ![Landing page illustration](./thumbnail.png)
-
-*this is image caption*
+ ![Landing page illustration](./thumbnail.jpg)
 
 ###### 		
 

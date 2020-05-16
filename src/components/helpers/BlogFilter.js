@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import TextField from '@material-ui/core/TextField';
-import classes from './../../styles/blogfilter.module.scss';
+import classes from './../../styles/helpers/blogfilter.module.scss';
 import {useStaticQuery,graphql,Link} from 'gatsby';
 
 import {getAllTags} from './../../static/data';

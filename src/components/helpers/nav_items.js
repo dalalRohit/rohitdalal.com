@@ -1,9 +1,8 @@
 import React from 'react'
 import styled from 'styled-components';
-import {Link as LinkItem}  from "react-scroll";
 import {Link} from 'gatsby';
 import PropTypes from 'prop-types';
-
+import {Link as ScrollLink} from 'react-scroll';
 
 const Li=styled.li`
     box-sizing:border-box;
@@ -52,8 +51,6 @@ export default function NavItems(props) {
         offset:props.offset,
         smooth:true,
         spy:true,
-        // hashSpy:true,
-        // scrollSpy:true,
         duration:500,
         isDynamic:true,
     }
@@ -68,11 +65,10 @@ export default function NavItems(props) {
                             {
                                 props.scroll ?
                                
-                                <LinkItem 
-
+                                <ScrollLink 
                                     {...scrollProps}
                                     to={`${link}`}
-                                    > {link} </LinkItem> :
+                                    > {link} </ScrollLink> :
                             
                                 <Link  to={link==='blogs' ? `/${link}` : `/#${link}` } >  {link} </Link>
                             }

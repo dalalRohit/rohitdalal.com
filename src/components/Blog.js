@@ -1,5 +1,5 @@
 import React from 'react'
-import classes from './../styles/blog.module.scss';
+import classes from './../styles/components/blog.module.scss';
 import {Link} from 'gatsby';
 import Title from './UI/title';
 import Layout from './Layout';
@@ -8,7 +8,6 @@ import AllBlogs from './AllBlogs';
 
 export default function Blog(props) {
     const name="Blog";
-
     const x=(
         <div className={classes.Note}>
             <Link to={`/blogs/`} >

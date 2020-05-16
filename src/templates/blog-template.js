@@ -3,14 +3,13 @@ import Head from './../components/helpers/head';
 
 import PageLayout from './../components/pageLayout';
 
-import classes from './blogtemplate.module.scss';
+import classes from './../styles/templates/blogtemplate.module.scss';
 import {graphql,Link} from 'gatsby';
-import {FaTwitter,FaLinkedinIn} from 'react-icons/fa';
+import {FaTwitter} from 'react-icons/fa';
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
-
 export default function BlogTemplate(props) {
-
+    const twitterShare=`https://www.twitter.com/intent/tweet?url=${window.location.href}&via=rohitdalal&text=${props.data.mdx.frontmatter.title}`
     return (
 
           <PageLayout 
@@ -23,34 +22,25 @@ export default function BlogTemplate(props) {
 
             <div className={classes.Wrapper}>
 
-                {/* Contentful post render */}
                 <article className={classes.Content}>
                   
                   <div className={classes.Info}>
-                    <h1>{props.data.mdx.frontmatter.title}</h1>
-                    <time> {props.data.mdx.frontmatter.date}   </time>
-                    <span>{props.data.mdx.timeToRead} mins read</span>
+
+                    <div className={classes.Metadata}>
+                      <h1>{props.data.mdx.frontmatter.title}</h1>
+                      <time> {props.data.mdx.frontmatter.date}   </time>
+                      <span>{props.data.mdx.timeToRead} mins read</span>
+                    </div>
+
 
                     <div className={classes.BlogShare}>
-
-                      <div className={classes.Twitter}>
                         <a className="twitter-share-button"
                         target="_blank"
                         rel="noopener noreferrer"
                         title="Share on twitter"
-                        href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(props.data.mdx.frontmatter.title)} this is new`}>
+                        href={twitterShare}>
                           <FaTwitter size={30}/>
                         </a>
-
-                        <a className="twitter-share-button"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        title="Share on LinkedIn"
-                        href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(props.data.mdx.frontmatter.title)} this is new`}>
-                          <FaLinkedinIn size={30}/>
-                        </a>
-                      </div>
-
                     </div>
 
                     <div className={classes.Tags}>
@@ -67,24 +57,13 @@ export default function BlogTemplate(props) {
                   
                   <main className={classes.Data}>
                     
-                    <MDXRenderer>
+                    <MDXRenderer  >
                       {props.data.mdx.body}
                     </MDXRenderer>
                   
                   </main>
                 
                 </article>
-
-                {/* <aside className={classes.BlogNav}>
-                  <p>Navigate</p>
-                  <ul>
-                  <li>Link 1</li>
-                    <li>Link 1</li>
-                    <li>Link 1</li>
-                    <li>Link 1</li>
-                    <li>Link 1</li>
-                  </ul>
-                </aside> */}
 
                 
             </div>
@@ -101,8 +80,15 @@ export const query=graphql`
           frontmatter {
             slug
             title
-            date(formatString: "MMM Do YY"),
-            tags
+            date(formatString: "MMM Do YYYY"),
+            tags,
+            featuredImage{
+              childImageSharp{
+                fluid{
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
           body,
           rawBody

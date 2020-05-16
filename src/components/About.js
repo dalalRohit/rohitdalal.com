@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Layout from './Layout';
 
-import classes from './../styles/about.module.scss';
+import classes from './../styles/components/about.module.scss';
 
 import Photo from './UI/image';
 import Title from './UI/title';
@@ -23,7 +23,8 @@ export default class About extends Component {
                     <div className={classes.Info}>
                         
                         <div className={classes.Photo}>
-                            <Photo />
+                            <Photo 
+                                fluid={this.props.fluid} />
                         </div>
                         
                         <div className={classes.Desc}>
@@ -42,7 +43,6 @@ export default class About extends Component {
                             <h3>What I do?</h3>
                             <ul>
                                 <li>Web devlopement</li>
-                                <li>Competetive Programming</li>
                                 <li>Front end</li>
                                 <li>Back end</li>
                             </ul>

@@ -5,6 +5,10 @@
  */
 const {getAllTags}=require('./src/static/data')
 
+if (process.env.NODE_ENV === 'development') {
+    process.env.GATSBY_WEBPACK_PUBLICPATH = '/'
+  }
+  
 const path=require('path');
 // You can delete this file if you're not using it
 module.exports.onCreateNode = ({ node, actions }) => {
