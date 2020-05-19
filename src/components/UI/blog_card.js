@@ -40,6 +40,10 @@ export default function BlogCard(props) {
           <div className={classes.blogData}>
                 <p><Link to={`/blogs/${slug}`}>{title}</Link></p>
 
+                <div className={classes.mobileTags}>
+                    {blogTags}
+                </div>
+                
                 <div className={classes.dateTime}>
                     <date>{date}</date>
                     <span>{time}</span>

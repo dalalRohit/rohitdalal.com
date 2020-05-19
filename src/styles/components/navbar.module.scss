@@ -1,6 +1,7 @@
 .Wrapper{
     box-sizing: border-box;
-    width: 100%;
+    width: 85%;
+    margin: 2em 7.5% 0 7.5%;
     max-width: 100%;
     padding: 0;
     display: flex;
@@ -8,17 +9,8 @@
     align-items: center;
     height: 8vh;
     min-height: 8vh;
-    transition: height 0.3s ease;
+    transition: all 0.3s ease-in-out;
     background-color: transparent;
-
-    a{
-        color: inherit;
-        text-decoration: none;
-    }
-    a:hover{
-        color: inherit;
-        text-decoration: none;
-    }
 
 }
 
@@ -27,7 +19,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    box-sizing: border-box;
     max-width: 100%;
     margin: 0;
     padding: 0;
@@ -41,10 +32,11 @@
     box-shadow: 1px 2px 18px rgba(0,0,0,.25);
     position: fixed;
     height: 5vh;
+    width: 100%;
+    margin: 0;
     left: 0;
     top: 0;
     background-color: #eee;
-    background-image: none;
 }
 
 
@@ -59,7 +51,6 @@
     p{
         margin: 0;
         padding: 0;
-        font-size: 1.4em;
     }
 }
 @media(max-width:700px){
@@ -71,12 +62,11 @@
     .Wrapper{
         min-height: 5vh;
         height: 5vh;
+        width: 100%;
+        margin: 0;
     }
 
     .BlogTitle{
         width: 60%;
-        p{
-            font-size: 1em;
-        }
     }
 }

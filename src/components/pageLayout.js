@@ -1,7 +1,6 @@
 import React,{useState} from 'react'
 import Navbar from './../components/Navbar';
 import Footer from './../components/Footer';
-import 'bootstrap/dist/css/bootstrap.css';
 import './../styles/style.css';
 import PropTypes from 'prop-types';
 

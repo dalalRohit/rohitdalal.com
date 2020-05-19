@@ -11,10 +11,8 @@ const Li=styled.li`
     cursor:pointer;
     a{
         padding:.2em;
-        text-decoration:none,
     }
     a:hover{
-        color:inherit;
         border-bottom:2px solid plum;
     }
 
@@ -22,7 +20,6 @@ const Li=styled.li`
 const Ul=styled.ul`
     width:100%;
     box-sizing:border-box;
-    margin-top:15px;
     height:5vh;
     min-height:5vh;
     display:flex;
@@ -53,6 +50,7 @@ export default function NavItems(props) {
         spy:true,
         duration:500,
         isDynamic:true,
+        activeClass:"active"
     }
 
 

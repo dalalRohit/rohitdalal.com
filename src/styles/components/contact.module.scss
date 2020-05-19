@@ -7,10 +7,6 @@
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(49%,1fr));
     gap: 1em;
-
-    p{
-        font-size: 1.5rem;
-    }
 }
 
 .Form{
@@ -21,7 +17,6 @@
 }
 .Msg{
     width: 100%;
-    font-size: 1.3rem;;
     padding: 1.2rem;
     line-height: 1.3rem;
     text-align: center;
