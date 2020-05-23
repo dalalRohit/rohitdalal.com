@@ -1,49 +1,53 @@
 import {Link} from 'gatsby';
 import PropTypes from 'prop-types';
 import React from 'react'
-import classes from  './../../styles/blogcard.module.scss';
-import sample from './../../images/sample.jpg';
+import  './../../styles/helpers/blogcard.scss';
 import Img from "gatsby-image"
 
 export default function BlogCard(props) {
-    const {title,date,img,slug,time,tags}=props;
+    const {title,date,fluid,slug,time,tags}=props;
 
-    const tag=tags.map( (t) => {
-         return <Link to={`/tags/${t}`} ><span>{t}</span></Link>
+    const blogTags=tags.map( (t) => {
+         return (
+             <span className="Tag" key={Math.random()}>
+                 <Link to={`/tags/${t}`}>
+                     {t}
+                </Link>
+             </span>
+         )
     })
     return (
-        <div className={classes.Wrapper} title={title} >
-                <main className={classes.Blog}>
-                    <div className={classes.BlogImg}>
-                        <Link to={`/blogs/${slug}`} > 
-                            <img src={img}   /> 
-                        </Link>
+        <section className="blogCard">
+
+            <header className="blogImg">
+                <Link to={`/blogs/${slug}`}>
+                    <Img 
+                        fluid={fluid}
+                        alt={title}
+                        title={title}
+                        />
+                </Link>
+
+            </header>
+
+            <div className="blogTags">
+                {blogTags}
+            </div>
+
+            <div className="blogData">
+                    <p><Link to={`/blogs/${slug}`}>{title}</Link></p>
+
+                    <div className="mobileTags">
+                        {blogTags}
                     </div>
-
-                    <div className={classes.BlogContent}>
-
-                        <header className={classes.BlogTitle}>
-                            <div className={classes.Tags}>
-                                {tag}
-                            </div>
-                            <Link to={`/blogs/${slug}`} ><p>{title}</p></Link>
-                        </header>
-
-                        <footer className={classes.BlogFooter}>
-                            <span>{date}</span>
-                            <span>{time}</span>
-                        </footer>
-
+                    
+                    <div className="dateTime">
+                        <date>{date}</date>
+                        <span>{time}</span>
                     </div>
-                </main>
-        </div>
+            </div>
+
+        </section>  
     )
-}
-
-BlogCard.propTypes={
-    title:PropTypes.string,
-    date:PropTypes.string,
-    time:PropTypes.string,
-    slug:PropTypes.string
 }
 

@@ -1,22 +1,31 @@
 import React, { Component } from 'react'
 
-import classes from './../styles/footer.module.scss';
+import  './../styles/components/footer.scss';
 import {IoMdHeart,IoIosArrowUp} from 'react-icons/io';
-import {Link} from 'react-scroll';
-
+import { Link , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 export default class Footer extends Component {
+
+    top=() =>{
+        scroll.scrollToTop();
+    }
     render() {
         return (
-            <div 
-                className={classes.Wrapper}
-            >
-                <p>Rohit Dalal &copy; {new Date().getFullYear()} </p>
-                <p>Designed and coded with  <IoMdHeart size={20}  /> </p>
-                <p style={{cursor:'pointer'}}> 
-                  <Link to="Navbar" smooth={true}  >  <IoIosArrowUp size={25} /> </Link>
-                </p>
-              
-            </div>
+            <footer className="footer">
+                
+                <div className="first">
+                    <p>Rohit Dalal &copy; {new Date().getFullYear()} </p>
+
+                    <Link onClick={this.top} alt="Go to top" title="Go to top">
+                         <IoIosArrowUp size={25}  />
+                    </Link>
+                </div>
+
+                <div className="second">
+                    <p>Designed and coded with <IoMdHeart color="#a83f39" size={20} /> </p>
+                </div>
+
+
+            </footer>
         )
     }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import classes from './../styles/home.module.scss';
+import classes from './../styles/components/home.module.scss';
 import { Element } from "react-scroll";
 import {graphql,useStaticQuery} from 'gatsby';
 
@@ -34,7 +34,7 @@ const Home=(props) => {
                         </div>
 
                         <div className={classes.Intro}>
-                            <p>{data.site.siteMetadata.intro}</p>
+                            <p>I like to build modern web apps</p>
                         </div>
 
                     </div>

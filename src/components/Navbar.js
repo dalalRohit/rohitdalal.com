@@ -1,54 +1,73 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 
-import classes from './../styles/navbar.module.scss';
+import classes from './../styles/components/navbar.module.scss';
 import Logo from './UI/logo';
 import NavItems from './helpers/nav_items';
 
 import Bottom from './helpers/Bottom';
 import {IoIosMoon,IoIosSunny} from 'react-icons';
+import Scroll from 'react-scroll';
 
+var Element = Scroll.Element;
+var Events = Scroll.Events;
+var scroll = Scroll.animateScroll;
+var scrollSpy = Scroll.scrollSpy;
 
 export default class Navbar extends Component {
     state={
-        show:false,
+        scrolled:false,
     }
+    componentDidMount() {
+        Events.scrollEvent.register('begin', function () {
+            console.log("begin", arguments);
+        });
     
-    componentDidMount(){
-        window.addEventListener('scroll',() => {
-            const top=window.scrollY > 400 ;
-            if(top === true){
-                this.setState({scrolled:true})
-            }
-            else{
-                this.setState({scrolled:false})
-            }
-        })
+        Events.scrollEvent.register('end', function () {
+            console.log("end", arguments);
+        });
+    
+        scrollSpy.update();
+        window.addEventListener('scroll', this.navOnScroll)
+      }
+    
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.navOnScroll)
+        Events.scrollEvent.remove('begin');
+        Events.scrollEvent.remove('end');
+    }
+    navOnScroll=() => {
+        const top=window.scrollY > 200 ;
+        if(top === true){
+            this.setState({scrolled:true})
+        }
+        else{
+            this.setState({scrolled:false})
+        }
     }
 
 
     render() {
-        const {display,scroll,changeBlog,offset}=this.props;
+        const {display,scroll,changeBlog,offset,blogTitle}=this.props;
 
         let navClass=[classes.Wrapper]
         if(this.state.scrolled){
             navClass.push(classes.Scrolled);
         }
-        var x='linear-gradient(120deg, #a6c0fe 0%, #f68084 100%)';
-        var style={
-            linearGradient:x,
-            // backgroundColor:'#F4F6F6'
-        }
 
 
         return (
-                <div 
-                    className={navClass.join(" ")} 
-                    style={style} >
+                <div className={navClass.join(" ")}  >
 
                     <Logo scroll={scroll} />
-
-                    <div className={classes.Nav}>
+                    
+                    <div className={classes.BlogTitle} style={{display:navClass.length===1 ? 'none' : 'block'}}>
+                        <p>
+                            {blogTitle}
+                        </p>
+                    </div>
+                    
+                    <nav className={classes.Nav}>
                         
                         <NavItems
                             display={display}
@@ -56,13 +75,14 @@ export default class Navbar extends Component {
                             changeBlog={changeBlog}
                             offset={offset}
                             />
-                    </div>
+
+                    </nav>
 
                     <Bottom 
                         display={display} 
                         scroll={scroll} 
                         changeBlog={changeBlog}
-                        offset={offset}
+                        offset={-38}
                     
                     />
             

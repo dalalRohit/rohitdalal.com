@@ -18,10 +18,12 @@ const TagsContainer=styled.div`
 const Tags=() => {
     const data=useStaticQuery(graphql`
         query{
-            allContentfulBlogs{
+            allMdx{
                 edges{
                     node{
-                        tags
+                        frontmatter{
+                            tags
+                        }
                     }
                 }
             }

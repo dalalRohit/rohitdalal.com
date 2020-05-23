@@ -1,3 +1,5 @@
+backend/*
+
 # Logs
 logs
 *.log
@@ -58,6 +60,7 @@ typings/
 # gatsby files
 .cache/
 public
+backend/
 
 # Mac files
 .DS_Store

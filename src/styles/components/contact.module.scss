@@ -1,0 +1,60 @@
+
+.Contact{
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(49%,1fr));
+    gap: 1em;
+
+}
+
+.Form{
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+}
+.Msg{
+    width: 100%;
+    padding: 1.2rem;
+    line-height: 1.3rem;
+    text-align: center;
+}
+/* SOCIAL */
+
+.Social{
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+}
+
+.Icons{
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    li{
+        cursor: pointer;
+        margin: 1em;;
+    }
+}
+
+
+
+@media (max-width:700px){
+    
+    .Wrapper{
+        width: 100%;
+        margin: 0;
+        padding-top: 5vh;
+    }
+
+    .Social{
+        margin-bottom: 6vh;
+    }
+}

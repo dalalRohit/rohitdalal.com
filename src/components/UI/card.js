@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 import styled from 'styled-components';
 import Button from '@material-ui/core/Button';
 import Modal from './modal';
+import PropTypes from 'prop-types';
 
 const CardDiv=styled.div`
     width:90%;
@@ -52,13 +53,14 @@ const CardDiv=styled.div`
                     </div>
                 </Modal>
 
-                <CardDiv onClick={this.modalHandler} >
-                    <h4>{this.props.title}</h4>
-                    <p dangerouslySetInnerHTML={{__html:this.props.excerpt}} ></p>
+                <CardDiv >
+                    <div>
+                        <h3>{this.props.title}</h3>
+                        <p>{this.props.desc}</p>
+                    </div>
 
                     <div style={{display:'flex',}}>
-                        <Button  onClick={this.modalHandler} disableElevation variant="contained">See more</Button>
-                        
+                        <Button disableElevation variant="contained">See more</Button>
                     </div>
                 </CardDiv>
 
@@ -68,3 +70,7 @@ const CardDiv=styled.div`
 
 }
 export default Card;
+
+// Card.PropTypes={
+//     title:PropTypes.string
+// }

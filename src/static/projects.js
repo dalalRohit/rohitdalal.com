@@ -11,7 +11,7 @@ const ProjectInfo=[
         github:null,
         link:"https://www.shreeji-bill-maker.herokuapp.com/",
         technologies:["Bootstrap","MongoDB","Express.js","Passport.js"],
-        desc:""
+        desc:"This project I made in my vacations to solve the problem of manually keeping hard copy of invoice bills"
     },
     {
         name:"Google News Clone",

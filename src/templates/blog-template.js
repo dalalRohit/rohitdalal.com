@@ -2,94 +2,100 @@ import React from 'react'
 import Head from './../components/helpers/head';
 
 import PageLayout from './../components/pageLayout';
-
-import classes from './blogtemplate.module.scss';
+import { window } from 'browser-monads';
+import './../styles/templates/blogtemplate.scss';
 import {graphql,Link} from 'gatsby';
+import {FaTwitter} from 'react-icons/fa';
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
-import { BLOCKS, MARKS } from '@contentful/rich-text-types';
-import {documentToReactComponents} from '@contentful/rich-text-react-renderer'
-
-
-
-export const query=graphql`
-  query($slug:String) {
-    contentfulBlogs(slug:{eq:$slug}){
-      title,
-      publishedDate (formatString:"MMMM Do, YYYY"),
-      description
-      content{
-        json
-      },
-      tags,
-      image{
-        title,
-        file{
-          url
-        },
-        description
-      }
-    }
-  }
-`
 export default function BlogTemplate(props) {
-
-
-  const options={
-      renderNode:{
-        //embedded-asset-block contains images
-        [BLOCKS.EMBEDDED_ASSET] : (node) => {
-          // console.log(JSON.stringify(node,undefined,4));
-          const alt=node.data.target.fields.title['en-US'];
-          const url=node.data.target.fields.file['en-US'].url;
-          const details=node.data.target.fields.file['en-US'].details;
-          const {width,height}=details.image;
-          return <img alt={alt} src={url}  />
-        },
-      }
-  }
+    const twitterShare=`https://www.twitter.com/intent/tweet?url=${window.location.href}&via=rohitdalal&text=${props.data.mdx.frontmatter.title}`
     return (
 
           <PageLayout 
             scroll={false}
-            gradient={false}
             changeBlog={true}
+            blogTitle={props.data.mdx.frontmatter.title}
             >
 
-            <Head title={props.data.contentfulBlogs.title} info={"Rohit Dalal"} />
+            <Head title={props.data.mdx.frontmatter.title} info={"Rohit Dalal"} />
 
-            <div className={classes.Wrapper}>
 
-                {/* Contentful post render */}
-                <article className={classes.Content}>
+            <main className="blog">
                   
-                  <div className={classes.Info}>
-                    <h1>{props.data.contentfulBlogs.title}</h1>
-                    <time> {props.data.contentfulBlogs.publishedDate}   </time>
+                  {/* blog metadata tags,title,date,share */}
+                  <div className="info">
 
-                    <div className={classes.Tags}>
-                        {props.data.contentfulBlogs.tags.map( (tag) => {
-                          return (
-                            <span>
-                              <Link  to={`/tags/${tag}`} key={Math.random()} >{tag}</Link>
-                            </span>
-                          )
-                        })}
+                    <div className="metadata">
+                       
+                      <h1>{props.data.mdx.frontmatter.title}</h1>
+                      <time> {props.data.mdx.frontmatter.date}   </time>
+                      <span>{props.data.mdx.timeToRead} mins read</span>
+                      
+                    </div>
+
+
+                    <div className="blogshare">
+                        <a className="twitter-share-button"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Share on twitter"
+                        href={twitterShare}>
+                          <FaTwitter size={30}/>
+                        </a>
+                    </div>
+
+                    <div className="tags">
+                          {props.data.mdx.frontmatter.tags.map( (tag) => {
+                            return (
+                              <span className={"Tag"} key={Math.random()}>
+                                <Link  to={`/tags/${tag}`} key={Math.random()} >{tag}</Link>
+                              </span>
+                            )
+                          })}
                     </div>
 
                   </div>
                   
-                  <main className={classes.Data}>
-                  {
-                    documentToReactComponents(props.data.contentfulBlogs.content.json,options)
-                  }
-                  </main>
+
+                  {/* Main blog content */}
+                  <article className="article">
+                    
+                    <MDXRenderer  >
+                      {props.data.mdx.body}
+                    </MDXRenderer>
+                  
+                  </article>
                 
-                </article>
+            </main>
 
                 
-            </div>
           
           </PageLayout>
 
     )
 }
+
+
+export const query=graphql`
+    query($slug: String) {
+      mdx(frontmatter: { slug: { eq: $slug } }) {
+          frontmatter {
+            slug
+            title
+            date(formatString: "MMM Do YYYY"),
+            tags,
+            featuredImage{
+              childImageSharp{
+                fluid{
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+          body,
+          rawBody
+          timeToRead
+      }
+    }
+`

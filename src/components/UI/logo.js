@@ -24,6 +24,7 @@ const Name=styled.div`
         a h4{
             font-size:1.5rem;
             font-weight:500;
+            letter-spacing:.7px;
         }
     }
 `

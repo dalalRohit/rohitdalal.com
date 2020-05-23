@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import classes from './../styles/contact.module.scss';
+import classes from './../styles/components/contact.module.scss';
 import Title from './UI/title';
 import Layout from './Layout';
 import Form from './UI/Form';
