@@ -34,7 +34,7 @@ const Home=(props) => {
                         </div>
 
                         <div className={classes.Intro}>
-                            <p>{data.site.siteMetadata.intro}</p>
+                            <p>I like to build modern web apps</p>
                         </div>
 
                     </div>

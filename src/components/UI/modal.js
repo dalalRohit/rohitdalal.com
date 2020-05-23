@@ -16,14 +16,13 @@ const ModalDiv=styled.div`
     max-width:100%;
     margin:0 10% 0 10%;
     position:fixed;
-    top:15%;
+    top:35%;
     left:0;
     z-index:1000000000000000000;
     background-color:#eee;
     display:none;
-    transition: all 2s ease-out;
+    transition: all .7ss ease-out;
     border-radius:18px;
-    overflow-y:scroll;
     @media (max-width:768px){
         width:96%;
         margin:0 2% 0 2%;
@@ -36,13 +35,14 @@ const ModalHeader=styled.div`
     justify-content:space-between;
     align-items:center;
     border-bottom:1.4px solid gray;
+    color:black;
 `
 
 const ModalContent=styled.main`
     box-sizing:border-box;
     width:100%;
     padding:1.2em;
-    overflow:scroll;
+    color:black;
 
 `
 export default class Modal extends Component {
@@ -56,7 +56,7 @@ export default class Modal extends Component {
                     }}>
 
                     <ModalHeader>
-                        <h4>{this.props.header}</h4>
+                        <h2>{this.props.header}</h2>
                         <MdClose size={20} style={{margin:'10px',cursor:'pointer'}} onClick={this.props.click}/>
                     </ModalHeader>
 

@@ -18,11 +18,13 @@ Today, in this “story” I’m going to demonstrate how to create a full scree
 
 
 
-~*It is a part of a website which serves as the entry point for your website. Your device’ full screen is taken by that page as soon as you load the website and afterwards you see the rest of the site.*
+It is a part of a website which serves as the entry point for your website. Your device’ full screen is taken by that page as soon as you load the website and afterwards you see the rest of the site.
 
 <br/>
 
  ![Landing page illustration](./thumbnail.jpg)
+
+*Photo by [Lauren Mancke](https://unsplash.com/@laurenmancke?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/landing-page?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)*
 
 ###### 		
 
@@ -42,9 +44,29 @@ I’ll be dividing this tutorial in 3 parts:
 
 <br/>
 
-![Setting up HTML](./setting-up-html.png)
+```html
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FullScreenLandingPage</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+
+	<header>
+		<h1>Welcome to my LandingPage</h1>
+		<p>How are you doing?</p>
+    	<span id="down">&#8595;</span>
+	</header>
+
+</body>
+```
 
 
+
+*Setting up basic HTML*
 
 <br/>
 

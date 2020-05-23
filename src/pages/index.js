@@ -16,15 +16,14 @@ const IndexPage = (props) => {
                 scroll={true}
                 gradient={true}
                 changeBlog={false}
+                offset={-60}
                 
                 >
                 <Head title={"Rohit Dalal"} info="MERN Stack Developer"/>
 
                 <Home  />
-                <About 
-                  fluid={props.data.imageQuery.fluid}/>
-                <Blog 
-                    blogs={props.data.indexBlogQuery} />
+                <About fluid={props.data.imageQuery.fluid}/>
+                <Blog blogs={props.data.indexBlogQuery} />
                 <Projects />
                 <Contact  />
 

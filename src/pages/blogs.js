@@ -11,7 +11,9 @@ const Blogs=(props) => {
             <PageLayout 
                 scroll={false}
                 gradient={false}
-                changeBlog={false}>
+                changeBlog={false}
+                
+                >
 
                 <Head title="Blogs" info="Rohit Dalal" />
                 <h1>All blogs </h1>  

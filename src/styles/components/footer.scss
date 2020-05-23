@@ -1,0 +1,39 @@
+.footer{
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    // border: 2px dashed red;
+    p{
+        font-size: 1.35rem;;
+    }
+    background-color: #f2f2f2;
+
+
+}
+
+.first{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 1em;
+    a{
+        cursor: pointer;
+    }
+}
+
+.second{
+    text-align: center;
+    margin: .8em;
+
+}
+
+@media screen and (max-width:700px) {
+    .footer{
+        margin-bottom: 5em;
+    }
+
+    .first{
+        justify-content: space-between;
+    }
+}

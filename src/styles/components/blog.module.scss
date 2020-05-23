@@ -5,19 +5,29 @@
     display:grid;
     grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
     gap: 1em;
+
+    p{
+        font-size: 1.3rem;
+    }
 }
 
 .Note{
-    width: 20%;
-    margin: 0 40% 0 40%;
+    width: 10%;
+    margin: 1.5em 45% 1.5em 45%;
     text-align: center;
     padding: .1em;
 
     a{
         text-transform: none;
         color: inherit;
-        h4:hover{
-            outline: 2px solid plum;
+        h3{
+            background: plum;
+            border-radius: 8px;
+            padding: .2rem;;
+
+            &:hover{
+                background: lightpink;
+            }
         }
     }
     a:hover{

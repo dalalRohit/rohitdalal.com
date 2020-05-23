@@ -1,20 +1,21 @@
 .blogCard{
     box-sizing: border-box;
-    width: calc(100vh-10rem);
+    width: 80%;
+    margin: 0 10% 0 10%;
     outline: 1px solid lightgray;
-    // padding: 1em 0 1em 0;
     display: flex;
     flex-flow: column;
     justify-content: space-evenly;
     align-items: center;
 
-    .blogCard:hover{
-        outline: 1px solid palevioletred;
+    &:hover{
+        outline: 2px solid palevioletred;
     }
     .blogImg{
         box-sizing: border-box;
         // border: 1px solid purple;
-        width: 80%;
+        width: 100%;
+
     }
 }
 .blogTags{
@@ -61,6 +62,7 @@
 @media (max-width:700px){
     .blogCard{
         width: 100%;
+        margin: 0;
         flex-flow: row;
         justify-content: space-between;
     }

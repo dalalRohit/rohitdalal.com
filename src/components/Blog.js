@@ -11,7 +11,7 @@ export default function Blog(props) {
     const x=(
         <div className={classes.Note}>
             <Link to={`/blogs/`} >
-                <h4>See all blogs</h4>
+                <h3>See all blogs</h3>
             </Link>
          </div>
     );
@@ -20,10 +20,12 @@ export default function Blog(props) {
         <Layout name={name} id={name}  >
             <div className={"Wrapper"}>
                 <Title path={`${name}`}>/blog</Title>
-                
-                <p className={classes.BlogText}>These are my recently published blogs. Check them out ...</p>          
-                
-                {x}
+
+                <div style={{margin:"1em 1em 0 1em"}}>
+                    <p>I like to write about javascript, web devlopement in general. <br/> Check out my blogs</p>          
+                    
+                    {x}
+                </div>
 
                 <div className={classes.Blogs}>
 

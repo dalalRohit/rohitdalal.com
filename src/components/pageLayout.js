@@ -1,13 +1,14 @@
-import React,{useState} from 'react'
+import React from 'react'
 import Navbar from './../components/Navbar';
 import Footer from './../components/Footer';
-import './../styles/style.css';
+import './../styles/style.scss';
 import PropTypes from 'prop-types';
+
 
 
 function PageLayout(props) {
     
-    const {scroll,changeBlog,blogTitle}=props;
+    const {scroll,changeBlog,blogTitle,offset}=props;
 
 
     return (
@@ -15,7 +16,7 @@ function PageLayout(props) {
             <Navbar 
                 display="row"
                 scroll={scroll} 
-                offset={-59}
+                offset={offset}
                 changeBlog={changeBlog}
                 blogTitle={blogTitle}
             />

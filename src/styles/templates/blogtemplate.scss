@@ -1,0 +1,189 @@
+// Body font
+$font-size: 1rem;
+$body-font-size: 1.25rem;
+$font-style: normal;
+$font-variant: normal;
+$font-weight: normal;
+$line-height: 2rem;
+
+// Headings
+$heading-font-color: rgb(0, 129, 189);
+$heading-font-weight: 500;
+$heading-line-height: 1.3;
+
+// Mobile heading font size
+$h1-mobile: 1.85rem;
+$h2-mobile: 1.7rem;
+$h3-mobile: 1.5rem;
+$h4-mobile: 1.3rem;
+$h5-mobile: 1.2rem;
+
+// Heading font size
+$h1: 2.5rem;
+$h2: 2.1rem;
+$h3: 1.85rem;
+$h4: 1.5rem;
+$h5: 1.4rem;
+
+
+
+/* Content starts here */
+.blog{
+    box-sizing: border-box;
+    width: 75%;
+    margin: 0 12.5% 0 12.5%;
+    max-width: 100%;
+    min-height: 100%;
+    padding: 1rem;
+    h2{font-size: $h2;margin-top: 20px;color: $heading-font-color;line-height: $heading-line-height;font-weight: lighter;}
+    h3{font-size: $h3;margin-top: 20px;color: $heading-font-color;line-height: $heading-line-height;font-weight: lighter;}
+    h4{font-size: $h4;margin-top: 20px;color: $heading-font-color;line-height: $heading-line-height;font-weight: lighter;}
+    h5{font-size: $h5;margin-top: 20px;color: $heading-font-color;line-height: $heading-line-height;font-weight: lighter;}
+
+    p,li{font-size: $body-font-size;line-height: $line-height;}
+
+}
+
+
+/* Content ends here */
+
+/* Blog Info */
+.info{
+    box-sizing: border-box;
+    padding: 1rem;
+    width: 100%;
+    border-bottom: 1px solid lightgray;
+    h1{font-size: $h1;}
+    .metadata{
+        box-sizing: border-box;
+        padding: .5rem;
+        time,span{
+            border-bottom: 1px solid plum;
+            margin: 7px;
+        }
+        time:hover{
+            background: plum;
+        }
+        span:hover{
+            background: plum;
+        }
+    }
+
+    .blogshare{
+        box-sizing: border-box;
+        width: 40%;
+        max-width: 100%;
+        margin: 0 60% 1em 0;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        a{
+            margin: .8em;
+        }
+        a:hover{
+            color: #00acee ;
+        }
+    }
+
+    .tags{
+        span{
+            margin: .4rem;
+        }
+    }
+    
+}
+
+
+// Blog article content
+
+.article{
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    padding: 1.67em;
+
+    p{
+        margin: 8px 0 8px 0 ;
+    }
+
+    hr{
+        width: 100%;
+        margin: 30px 0 30px 0 ;
+    }
+    a{
+        color: #1588ed;
+    }
+    a:hover{
+        background: #b960b2;
+        color: white;
+    }
+
+    //http://sparkandshine.net/en/insert-images-with-captions-in-markdown/
+    p em{
+        font-style: normal;
+        display: inherit;
+        text-align: center;
+        font-size: 90%;
+    }
+
+    pre{
+        font-size: $body-font-size;
+    }
+
+    ul{
+        box-sizing: border-box;
+        list-style-type: square;
+        list-style-position: inside;
+        border: 1px solid lightblue;
+        border-radius: 10px;
+        padding: .5rem;
+
+        li{
+            color: lightslategray;
+        }
+    }
+    ol{
+        box-sizing: border-box;
+        list-style-position: inside;
+        border: 1px solid darkslateblue;
+        border-radius: 10px;
+        padding: .5rem;
+
+        li{
+            color: lightslategray;
+        }
+    }
+
+    code{
+        box-sizing: border-box;
+        background-color: lightgray;
+        padding: .35rem;
+        opacity: .65;
+    }
+}
+
+
+/* Media queries */
+@media (max-width:900px){
+    .blogshare{
+        width: 80%;
+        margin: 1em 20% 1em 0;
+    }
+    .blog{
+        box-sizing: border-box;
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
+        padding: .6rem;
+    }
+
+    .blog img{
+        width: 100%;
+        margin: 0;
+        height: 100%;
+    }
+
+    .article{
+        padding: 0;
+    }
+}

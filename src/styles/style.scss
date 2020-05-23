@@ -94,12 +94,13 @@ a:hover{
   box-sizing: border-box;
   width: 100%;
   max-width: 100%;
-  border: 1px dashed blue;
-  margin:2em 0 2em 0;
-  height: 100%;
-  max-width: 100%;
+  // border: 1px dashed blue;
   min-height: calc(100vh - 360px);
-  padding: 59px 0 6vh 0;
+  padding: 6vh 0 6vh 0;
+  margin: 6vh 0 0 0;
+  p{
+    font-size: 1.3rem;
+  }
 }
 
 
@@ -137,10 +138,6 @@ a:hover{
 }
 .Tag:hover{
   outline: 1px solid black;
-}
-
-em{
-  text-align: center;
 }
 
 .active{

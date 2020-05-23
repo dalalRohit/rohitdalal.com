@@ -1,46 +1,50 @@
 import React from 'react'
 import styled from 'styled-components';
-
+    
 const InputWrapper=styled.div`
-    box-sizing:border-box;
-    width:100%;
-    max-width:100%;
-    // border:1px solid red;
-    padding:1em;
+box-sizing:border-box;
+width:100%;
+max-width:100%;
+padding:1em;
+display:flex;
+align-items:center;
 `
+
 const Label=styled.label`
-    box-sizing:border-box;
-    color:black;
-    width:30%;
-    margin-right:15px;
-    padding:.5em;
-    font-weight:600;
-    text-align:center;
+box-sizing:border-box;
+color:black;
+width:30%;
+padding:.5em;
+font-weight:550;
+font-size:1.2rem;
+text-align:center;
 `
 
 const InputBox=styled.input`
-    box-sizing:border-box;
-    border:none;
-    outline:none;
-    border-bottom:2px solid gray;  
-    width:65%;
-    padding:.5em;
-    line-height:1rem;
+box-sizing:border-box;
+border:none;
+border-bottom:2px solid plum;  
+width:65%;
+padding:.5em;
+line-height:1.5rem;
+transition: all 0.1s ease;
 
-    &:focus{
-        border:1px solid #555;
-    }
-
+&:focus{
+    outline:2px solid plum;  
+}
 `
+
 function Input(props) {
-    const { classes,value,error,name,label,type,helper,multiline,inputChange,theme} = props;
+
+
+    const { value,error,name,label,type,inputChange,theme} = props;
 
     return (
         <InputWrapper>
             <Label >{label ? label : 'label'}</Label>
             <InputBox
-                required
-                autoComplete="off"
+                required="Required"
+                autoComplete={"off"}
                 type={type}
                 value={value}
                 name={name}

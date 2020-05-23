@@ -16,7 +16,7 @@ var scrollSpy = Scroll.scrollSpy;
 
 export default class Navbar extends Component {
     state={
-        scrolled:false
+        scrolled:false,
     }
     componentDidMount() {
         Events.scrollEvent.register('begin', function () {
@@ -57,8 +57,7 @@ export default class Navbar extends Component {
 
 
         return (
-                <div 
-                    className={navClass.join(" ")}  >
+                <div className={navClass.join(" ")}  >
 
                     <Logo scroll={scroll} />
                     
@@ -76,6 +75,7 @@ export default class Navbar extends Component {
                             changeBlog={changeBlog}
                             offset={offset}
                             />
+
                     </nav>
 
                     <Bottom 

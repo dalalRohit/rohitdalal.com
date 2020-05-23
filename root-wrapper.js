@@ -1,12 +1,19 @@
 import { MDXProvider } from '@mdx-js/react';
 import Code from './src/components/helpers/code';
+import './src/styles/templates/elements.scss';
 
 import React from 'react';
 
 const components = {
-  'p.inlineCode': props => (
-    <code style={{ backgroundColor: 'lightgray' }} {...props} />
-  ),
+
+  aside:props => {
+    return (
+      <aside className="blog-note">
+        <h4>Note</h4>
+        {props.children}
+      </aside>
+    );
+  },
 
   pre: ( {children:{ props } } ) => {
     const className = props.className || '';

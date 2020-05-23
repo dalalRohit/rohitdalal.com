@@ -2,11 +2,14 @@
     box-sizing: border-box;
     display: grid;
     width: 100%;
-    margin: 0;
     padding: 0.4em;
     max-width: 100%;
-    grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(380px,1fr));
     gap: 1em;
     // margin-bottom: 8vh;
+    @media (max-width:700px){
+        width: 100%;
+        margin: 0;
+    }
 
 }

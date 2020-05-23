@@ -10,7 +10,6 @@ const FormDiv=styled.div`
     box-sizing:border-box;
     width:100%;
     max-width:100%;
-    // margin:0 5% 0 5%;
 `
 
 const MainForm=styled.form`
@@ -25,13 +24,13 @@ const MainForm=styled.form`
 const FormBtn=styled.div`
     margin-top:10px;
 `
-const mailApi='http://localhost:3000'
+const mailApi='http://localhost:5000'
 class Form extends Component{
     state={
-        name:'',
-        email:'',
-        contact:'',
-        message:'',
+        name:null,
+        email:null,
+        contact:null,
+        message:null,
         status:false,
         process:false
     }
@@ -48,12 +47,23 @@ class Form extends Component{
         })
         event.preventDefault();
         var {name,email,contact,message}=this.state;
-        axios.post(`${mailApi}/send`,{name,email,contact,message})
+
+        if(name===null || email===null || contact===null || message===null){
+            alert("Enter all data ;)");
+            this.setState({
+                process:false
+            })
+            return;
+        }
+        else{
+            console.log('Sending mail .....');
+            axios.post(`${mailApi}/send`,{name,email,contact,message})
             .then( (res) => {
                 this.setState({
                     status:true,
                     process:false
                 })
+                console.log(res.data);
             })
             .catch( (err) => {
                 this.setState({
@@ -63,6 +73,9 @@ class Form extends Component{
                 alert('Mail failed to deliver ;( Try again. Type correct mail.')
                 console.log(err);
             })
+        }
+        
+
     }
 
     modalHandler=() => {
@@ -82,14 +95,13 @@ class Form extends Component{
             <FormDiv>
                 <MainForm onSubmit={this.onButtonClick}>
                     <Modal
-                        theme={this.props.theme}
                         header={this.state.status ? "Mail sent succesfully!" : "Mail failed to deliver ;("}
                         height='20%'
                         show={this.state.status}
                         click={this.modalHandler}>
                     {
                     this.state.status ?
-                    <p>You will be contacted soon. <br/> I hope you've given your actual number ;)</p> :
+                    <p>You will be contacted soon. <br/> I hope you've given your actual number and mail  ;)</p> :
                     <p>Mail sending failed ;(</p>
                     }   
 
@@ -101,7 +113,6 @@ class Form extends Component{
                             data.map( (input) => {
                                 return (
                                     <Input
-                                        key={input.id} 
                                         theme={this.props.theme}
                                         value={this.state[input.name]}
                                         error={input.error}

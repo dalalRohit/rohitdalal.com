@@ -3,7 +3,7 @@ import Head from './../components/helpers/head';
 
 import PageLayout from './../components/pageLayout';
 import { window } from 'browser-monads';
-import classes from './../styles/templates/blogtemplate.module.scss';
+import './../styles/templates/blogtemplate.scss';
 import {graphql,Link} from 'gatsby';
 import {FaTwitter} from 'react-icons/fa';
 import { MDXRenderer } from "gatsby-plugin-mdx"
@@ -20,20 +20,22 @@ export default function BlogTemplate(props) {
 
             <Head title={props.data.mdx.frontmatter.title} info={"Rohit Dalal"} />
 
-            <div className={classes.Wrapper}>
 
-                <article className={classes.Content}>
+            <main className="blog">
                   
-                  <div className={classes.Info}>
+                  {/* blog metadata tags,title,date,share */}
+                  <div className="info">
 
-                    <div className={classes.Metadata}>
+                    <div className="metadata">
+                       
                       <h1>{props.data.mdx.frontmatter.title}</h1>
                       <time> {props.data.mdx.frontmatter.date}   </time>
                       <span>{props.data.mdx.timeToRead} mins read</span>
+                      
                     </div>
 
 
-                    <div className={classes.BlogShare}>
+                    <div className="blogshare">
                         <a className="twitter-share-button"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -43,7 +45,7 @@ export default function BlogTemplate(props) {
                         </a>
                     </div>
 
-                    <div className={classes.Tags}>
+                    <div className="tags">
                           {props.data.mdx.frontmatter.tags.map( (tag) => {
                             return (
                               <span className={"Tag"} key={Math.random()}>
@@ -55,18 +57,19 @@ export default function BlogTemplate(props) {
 
                   </div>
                   
-                  <main className={classes.Data}>
+
+                  {/* Main blog content */}
+                  <article className="article">
                     
                     <MDXRenderer  >
                       {props.data.mdx.body}
                     </MDXRenderer>
                   
-                  </main>
+                  </article>
                 
-                </article>
+            </main>
 
                 
-            </div>
           
           </PageLayout>
 
