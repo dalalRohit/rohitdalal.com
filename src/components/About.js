@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Layout from './Layout';
 
-import classes from './../styles/components/about.module.scss';
+import './../styles/components/about.scss';
 import {config} from './../static/data';
 import Photo from './UI/image';
 import Title from './UI/title';
@@ -14,24 +14,23 @@ export default class About extends Component {
         return (
             <Layout name={name} id={name}>
 
-                <div className="Wrapper" >
 
                 <Title path={name}>/about</Title>
                 
-                <section className={classes.About}>
+                <section className="about">
 
-                    <div className={classes.Info}>
+                    <div className="info">
                         
-                        <div className={classes.Photo}>
+                        <div className="my-photo">
                             <Photo fluid={this.props.fluid} />
                         </div>
                         
-                        <div className={classes.Desc}>
+                        <div className="my-desc">
                             <p dangerouslySetInnerHTML={{__html:config.about}}></p>
                         </div>
                     </div>
 
-                    <div className={classes.Skills}>
+                    <div className="my-skills">
                         <div>
                             <h2>What I do?</h2>
                             <ul>
@@ -62,7 +61,6 @@ export default class About extends Component {
                     </div>
 
                 </section>
-            </div>
             
             </Layout>
         )

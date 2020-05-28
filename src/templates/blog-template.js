@@ -16,12 +16,13 @@ export default function BlogTemplate(props) {
             scroll={false}
             changeBlog={true}
             blogTitle={props.data.mdx.frontmatter.title}
+            margin={true}
             >
 
             <Head title={props.data.mdx.frontmatter.title} info={"Rohit Dalal"} />
 
 
-            <main className="blog">
+            <div className="blog">
                   
                   {/* blog metadata tags,title,date,share */}
                   <div className="info">
@@ -57,7 +58,6 @@ export default function BlogTemplate(props) {
 
                   </div>
                   
-
                   {/* Main blog content */}
                   <article className="article">
                     
@@ -67,7 +67,7 @@ export default function BlogTemplate(props) {
                   
                   </article>
                 
-            </main>
+            </div>
 
                 
           

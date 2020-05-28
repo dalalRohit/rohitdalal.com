@@ -8,12 +8,7 @@ import {graphql} from 'gatsby';
 
 const Blogs=(props) => {
     return (
-            <PageLayout 
-                scroll={false}
-                gradient={false}
-                changeBlog={false}
-                
-                >
+            <PageLayout scroll={false} changeBlog={false} margin={true} >
 
                 <Head title="Blogs" info="Rohit Dalal" />
                 <h1>All blogs </h1>  
@@ -21,6 +16,7 @@ const Blogs=(props) => {
                 <AllBlogs  
                     margin={true}
                     blogs={props.data.blogsQuery} />
+                    
             </PageLayout>
     )
 };

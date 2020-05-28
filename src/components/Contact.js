@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import classes from './../styles/components/contact.module.scss';
+import  './../styles/components/contact.scss';
 import Title from './UI/title';
 import Layout from './Layout';
 import Form from './UI/Form';
@@ -15,22 +15,21 @@ export default class Contact extends Component {
         return (
             <Layout name={name} id={name} >
 
-                <div  className={"Wrapper"}>
                 <Title path={name}>/contact</Title>
 
-                <main className={classes.Contact}>
-                    <div className={classes.Form}>
-                        <div className={classes.Msg}>
+                <main className="contact">
+                    <div className="form">
+                        <div className="msg">
                             <p>Can discuss work,football,coffee ;)</p>
                             <p>Wanna colaborate?</p>
                         </div>
                         <Form  theme={this.props.theme}/>
                     </div>
 
-                    <div className={classes.Social}>
+                    <div className="social">
                         <h2>Social</h2>
                         <p>You can reach to me here</p>
-                        <div className={classes.Icons}>
+                        <div className="icons">
                             <li>
                                 <a title="Instagram" alt="Instagram" href="https://www.instagram.com/rohit__dalal/" target="_blank" style={linkStyles} >
                                     <FaInstagram size={"40px"} />
@@ -62,7 +61,6 @@ export default class Contact extends Component {
                 </main>
 
 
-            </div>  
 
             </Layout>
         )

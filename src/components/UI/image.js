@@ -6,7 +6,7 @@ const Photo=styled.div`
 
     width:60%;
     margin:1em 15% .5em 15%;
-
+    z-index:-1;
     @media(max-width:700px){
         width:98%;
         margin:1em 1% .5em 1%;

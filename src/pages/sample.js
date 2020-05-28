@@ -1,23 +1,16 @@
 import React from 'react';
 import {StaticQuery,graphql} from 'gatsby';
 import Img from 'gatsby-image';
-
+import Navbar from './../components/Navbar';
 
 const Sample=(props) => {
-
     return(
         <>
-        {props.data.allImageSharp.edges.map( (edge) => {
-            return (
-                <div key={Math.random()} style={{width:"400px", height:"400px",margin:"10px",border:"1px solid red"}}>
-                    <Img 
-                        fluid={edge.node.fluid}
-                        // fixed={edge.node.fixed}
-                        
-                        />
-                </div>
-            )
-        })}
+            <Navbar />
+
+            <div style={{height:"200vh",backgroundColor:"red"}}>
+
+            </div>
         </>
     )
 }

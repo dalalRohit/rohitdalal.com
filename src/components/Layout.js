@@ -1,13 +1,14 @@
 import React from 'react'
 import './../styles/style.scss';
 import PropTypes from 'prop-types';
-import {Element} from 'react-scroll';
 export default function Layout(props) {
 
     return (
-        <Element  name={props.name} id={props.name} className="Container" >
-            {props.children}
-        </Element>
+        <div id={props.name} className="Container" >
+            <div className="Wrapper">
+                {props.children}
+            </div>
+        </div>
     )
 }
 

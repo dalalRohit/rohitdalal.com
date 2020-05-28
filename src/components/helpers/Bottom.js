@@ -14,14 +14,11 @@ const Nav=styled.div`
     display:flex;
     justify-content:space-around;
     align-items:center;
-    z-index:100;
+    z-index:99999;
     background-color:#eee;
-    border-top:1.2px solid gray;
-    box-shadow:1px 2px 18px rgba(0,0,0,.25);
 
     a{
         text-decoration:none;
-        color:inherit;
         text-align:center;
         width:100%;
         padding:1em;
@@ -36,14 +33,14 @@ const Nav=styled.div`
 
 
 export default function Bottom(props) {
-    const {scroll,display,changeBlog}=props;
+    const {scroll,display,changeBlog,offset}=props;
     return (
         <Nav >
             <NavItems 
                 display={display}
                 scroll={scroll}
                 changeBlog={changeBlog}
-                offset={-37}
+                offset={offset}
                 />
         </Nav>
     )

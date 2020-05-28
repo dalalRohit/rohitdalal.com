@@ -1,32 +1,21 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 
-import classes from './../styles/components/navbar.module.scss';
+import './../styles/components/navbar.scss';
 import Logo from './UI/logo';
 import NavItems from './helpers/nav_items';
 
 import Bottom from './helpers/Bottom';
-import {IoIosMoon,IoIosSunny} from 'react-icons';
 import Scroll from 'react-scroll';
 
-var Element = Scroll.Element;
 var Events = Scroll.Events;
-var scroll = Scroll.animateScroll;
 var scrollSpy = Scroll.scrollSpy;
 
 export default class Navbar extends Component {
     state={
         scrolled:false,
     }
-    componentDidMount() {
-        Events.scrollEvent.register('begin', function () {
-            console.log("begin", arguments);
-        });
-    
-        Events.scrollEvent.register('end', function () {
-            console.log("end", arguments);
-        });
-    
+    componentDidMount() {    
         scrollSpy.update();
         window.addEventListener('scroll', this.navOnScroll)
       }
@@ -50,24 +39,24 @@ export default class Navbar extends Component {
     render() {
         const {display,scroll,changeBlog,offset,blogTitle}=this.props;
 
-        let navClass=[classes.Wrapper]
+        let navClass=["navbar"]
         if(this.state.scrolled){
-            navClass.push(classes.Scrolled);
+            navClass.push("scrolled");
         }
 
 
         return (
-                <div className={navClass.join(" ")}  >
+                <header className={navClass.join(" ")}  >
 
                     <Logo scroll={scroll} />
                     
-                    <div className={classes.BlogTitle} style={{display:navClass.length===1 ? 'none' : 'block'}}>
+                    <div className="blogTitle" style={{display:navClass.length===1 ? 'none' : 'block'}}>
                         <p>
                             {blogTitle}
                         </p>
                     </div>
                     
-                    <nav className={classes.Nav}>
+                    <nav className="navigation">
                         
                         <NavItems
                             display={display}
@@ -77,16 +66,18 @@ export default class Navbar extends Component {
                             />
 
                     </nav>
-
-                    <Bottom 
+                    {   
+                        <Bottom 
                         display={display} 
                         scroll={scroll} 
                         changeBlog={changeBlog}
-                        offset={-38}
+                        offset={offset}
                     
-                    />
+                        />
+                    }
+
             
-                </div>
+                </header>
         )
     }
 }

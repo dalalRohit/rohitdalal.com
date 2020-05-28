@@ -13,15 +13,15 @@ const Li=styled.li`
         padding:.2em;
     }
     a:hover{
-        border-bottom:2px solid plum;
+        color:#c79700;
     }
 
 `
 const Ul=styled.ul`
     width:100%;
     box-sizing:border-box;
-    height:5vh;
-    min-height:5vh;
+    height:6vh;
+    min-height:6vh;
     display:flex;
     justify-content:center;
     align-items:center;

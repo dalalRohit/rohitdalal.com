@@ -69,6 +69,10 @@ a:hover{
   height: 100%;
 }
 
+.main-content{
+  box-sizing: border-box;
+}
+
 // Page container
 .Container{
   box-sizing: border-box;
@@ -76,17 +80,14 @@ a:hover{
   margin: 0 7.5% 0 7.5%;
   max-width: 100%;
   height: auto;
-  // background-image: url(./../images/svg/Confetti-Doodles.svg);
   // background-color: #DCDCDC;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
 
   @media screen and (max-width:700px) {
     width: 100%;
     margin: 0;
   }
 }
+
 
 
 //Page component wrapper
@@ -97,10 +98,12 @@ a:hover{
   // border: 1px dashed blue;
   min-height: calc(100vh - 360px);
   padding: 6vh 0 6vh 0;
-  margin: 6vh 0 0 0;
   p{
     font-size: 1.3rem;
   }
+}
+.Wrapper:last-child{
+  margin-bottom: 3rem;
 }
 
 
@@ -112,7 +115,7 @@ a:hover{
   .Wrapper{
       width: 100%;
       margin: 0;
-      padding: 23px 0 6vh 0;
+      padding: 0 0 6vh 0;
 
   }
 }
@@ -131,18 +134,20 @@ a:hover{
 
 
 .Tag{
-  max-width: 120px;
+  max-width: 100px;
   text-align: center;
-  background: lightblue;
+  background: lightgrey;
+  border-radius: 10px;
   padding: .12em;
 }
 .Tag:hover{
-  outline: 1px solid black;
+  background: darkgray;
+  color: white;
 }
 
 .active{
-  color: darkmagenta;
-  border-bottom: 2px solid plum;
+  color: #c79700;
+  border-bottom: 2px solid black;
 }
 
 

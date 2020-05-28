@@ -4,18 +4,17 @@ import Card from './UI/card';
 import Title from './UI/title';
 import Layout from './Layout';
 
-import classes from './../styles/components/projects.module.scss';
+import'./../styles/components/projects.scss';
 import {ProjectInfo} from './../static/projects';
 
 const Projects=() => {
     const name="Projects";
     return (
         <Layout name={name} id={name}  >  
-            <div  className={"Wrapper"}>
                 <Title path={name} >/projects</Title>
 
-                <p className={classes.ProjNote}>This section is for my projects</p>
-                <main className={classes.Projects}>
+                <p className="projNote">This section is for my projects</p>
+                <main className="all-projects">
                     {ProjectInfo.map( (project) => {
                         return (
                             <Card 
@@ -25,7 +24,7 @@ const Projects=() => {
                         )
                     })}                
                 </main>
-            </div>
+
         </Layout>
     )
 }

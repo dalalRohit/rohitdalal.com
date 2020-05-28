@@ -61,7 +61,7 @@
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "dev-plugins": "watch 'kill-port --port 8000 && gatsby develop' plugins ",
-    "dev-clean": "concurrently \"npm run clean\" \"cross-env GATSBY_GRAPHQL_IDE=playground gatsby develop\" \" cd backend && npm run dev\""
+    "dev-clean": "concurrently \"npm run clean\" \"cross-env GATSBY_GRAPHQL_IDE=playground gatsby develop\" "
   },
   "repository": {
     "type": "git",

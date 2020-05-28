@@ -1,5 +1,5 @@
 import React from 'react'
-import classes from './../styles/components/blog.module.scss';
+import  './../styles/components/blog.scss';
 import {Link} from 'gatsby';
 import Title from './UI/title';
 import Layout from './Layout';
@@ -9,7 +9,7 @@ import AllBlogs from './AllBlogs';
 export default function Blog(props) {
     const name="Blog";
     const x=(
-        <div className={classes.Note}>
+        <div className="Note">
             <Link to={`/blogs/`} >
                 <h3>See all blogs</h3>
             </Link>
@@ -18,7 +18,6 @@ export default function Blog(props) {
 
     return (
         <Layout name={name} id={name}  >
-            <div className={"Wrapper"}>
                 <Title path={`${name}`}>/blog</Title>
 
                 <div style={{margin:"1em 1em 0 1em"}}>
@@ -27,13 +26,12 @@ export default function Blog(props) {
                     {x}
                 </div>
 
-                <div className={classes.Blogs}>
+                <div className="Blogs">
 
                     <AllBlogs
                         blogs={props.blogs}
                     />
                 </div>
-            </div>
             
         </Layout>
     )

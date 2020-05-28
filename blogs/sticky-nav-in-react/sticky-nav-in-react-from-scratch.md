@@ -77,9 +77,9 @@ export default App;
 
 ```
 
+Here we are rendering two functional components ***Navbar*** and ***Content***, their name clearly explains their purpose.
 
-
-This code fills up <code>Navbar.js</code>. Navbar component is basically a header section which consists of your website Logo and one navigation menu with 4/5 links
+This below code fills up <code>Navbar.js</code>. Navbar component is basically a header section which consists of your website Logo and one navigation menu with 4/5 links
 
 ```jsx
 //Navbar.js
@@ -111,5 +111,107 @@ export default Navbar;
 
 ```
 
+If you want to follow my styling
+
+```scss
+//navbar.scss
+
+.navbar{
+  width: 100%;
+  max-width: 100%;
+  min-height: 6vh;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #eee;
+  transition: all .7s ease-in;
+}
+
+.scrolled{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: lightblue;
+  width: 80%;
+  margin: 0 10% 0 10%;
+}
+.logo img{
+  width: 50px;
+}
+
+.navigation{
+  ul{
+    box-sizing: border-box;
+    list-style-type: none;
+    display: flex;
+    min-height: 6vh;
+    justify-content: flex-end;
+    align-items: center;
+
+    li{
+      text-align: center;
+      padding: .5em;
+      cursor: pointer;
+      &:hover{
+        background-color: plum;
+        color: white;
+      }
+    }
+
+    li a{
+      text-decoration: none;
+      color: inherit;
+    }
+
+  }
+}
+
+```
 
 
+
+Now, we may edit <code>Content.js</code> to add following code:
+
+```jsx
+//Content.js
+
+import React from 'react';
+import './content.scss';
+
+const Content=() => {
+  const data=`<replace-your-long-dummy-text/any content-here>`;
+
+  return (
+    <main className="content">
+      <p id="post1" >{data}</p>
+      <p id="post2" >{data}</p>
+      <p id="post3" >{data}</p>
+      <p id="post4" >{data}</p>
+    </main>
+  )
+}
+
+export default Content;
+
+```
+
+Style for Content.js
+
+```scss
+//content.scss
+
+.content{
+  width: 80%;
+  margin:2rem 10% 0 10%;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-height: 100vh;
+}
+```
+
+After all this setup, our page will look like this:
+
+![Complete layout](./complete-layout.PNG)
+
+*This is the visual after this much code*

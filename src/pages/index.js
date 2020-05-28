@@ -1,4 +1,4 @@
-import React from "react"
+import React,{useEffect,useState} from "react"
 
 import PageLayout from './../components/pageLayout';
 import {graphql} from 'gatsby';
@@ -11,13 +11,14 @@ import Blog from './../components/Blog';
 
 
 const IndexPage = (props) => {
+
+
+
   return (
             <PageLayout 
                 scroll={true}
-                gradient={true}
                 changeBlog={false}
-                offset={-60}
-                
+                margin={false}                
                 >
                 <Head title={"Rohit Dalal"} info="MERN Stack Developer"/>
 

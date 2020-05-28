@@ -1,6 +1,6 @@
 import React from 'react';
 
-import classes from './../styles/components/home.module.scss';
+import  './../styles/components/home.scss';
 import { Element } from "react-scroll";
 import {graphql,useStaticQuery} from 'gatsby';
 
@@ -22,18 +22,18 @@ const Home=(props) => {
     `)
     return (
         <Element name={name} id={name} >
-            <div className={classes.Wrapper} >
+            <div className="hero" >
                 
-                <div className={classes.Home}>
+                <div className="home">
 
-                    <div className={classes.Info}>
+                    <div className="my-info">
 
-                        <div className={classes.Brand}>
+                        <div className="brand">
                             <h1> Namaste, I'm Rohit 👋 </h1>
                             <p> I develop websites,full stack web-apps  </p>
                         </div>
 
-                        <div className={classes.Intro}>
+                        <div className="my-intro">
                             <p>I like to build modern web apps</p>
                         </div>
 

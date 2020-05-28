@@ -1,20 +1,19 @@
-.Wrapper{
+.hero{
   box-sizing: border-box;
   width: 85%;
   margin: 0 7.5% 0 7.5%;
   min-height: 100%;
-  height: 65vh;
+  height: 70vh;
   max-width: 100%;
   min-height: calc(100vh - 360px);
-
   @media(max-width: 700px){
     width: 100%;
     margin: 0;
-    height: 50vh;
+    height: 60vh;
   }
 }
 
-.Home{
+.home{
   box-sizing: border-box;
   width: 100%;
   max-width: 100%;
@@ -23,7 +22,7 @@
   align-items: center;
   height: 100%;
   @media (max-width:700px){
-    .Home{
+    .home{
       flex-flow: column;
     }
   }
@@ -31,10 +30,10 @@
 
 
 // Main content
-.Info{
+.my-info{
   box-sizing: border-box;
-  width: 50%;
-  margin: 0 25% 0 25%;
+  width: 70%;
+  margin: 0 15% 0 15%;
   text-align: center;
   h1{
     font-size: 3rem;
@@ -42,11 +41,9 @@
   }
   p{
     font-size: 1.5rem;
+    margin: 0 0 10px 0;
   }
 
-  .Intro{
-    margin-top: 2em;
-  }
   @media (max-width:700px) {
     width: 80%;
     margin: 0 10% 0 10%;
@@ -61,7 +58,7 @@
 
 
 
-.Intro{
+.my-intro{
   box-sizing: border-box;
   width: 60%;
   margin: 0 20% 0 20%;
@@ -78,6 +75,6 @@
     margin: 0;
   }
 }
-.Intro:hover{
+.my-intro:hover{
   outline: 2px solid plum;
 }

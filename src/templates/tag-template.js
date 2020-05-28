@@ -6,12 +6,13 @@ import { graphql } from 'gatsby';
 
 export default function Tag(props) {
     return (
-        <PageLayout scroll={false} changeBlog={true} >
+        <PageLayout scroll={false} changeBlog={true} margin={true}>
+            
             <Head  title={`Blogs of "${props.pageContext ? props.pageContext.tag : ''}" `} info={"Rohit Dalal"} />
             <h3>Showing all blogs with tag "{props.pageContext.tag}" </h3>
 
-                <AllBlogs 
-                    blogs={props.data.blogQuery}/>
+            <AllBlogs blogs={props.data.blogQuery}/>
+
         </PageLayout>
     )
 }

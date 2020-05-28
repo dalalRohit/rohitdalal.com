@@ -1,4 +1,4 @@
-.About{
+.about{
     box-sizing: border-box;
     width: 100%;
     max-width: 100%;
@@ -14,14 +14,14 @@
     }
 }
 
-.Info{
+.info{
     box-sizing: border-box;
     width: 100%;
     display: grid;
     grid-template-rows: repeat(auto-fit,minmax(50%,1fr));
     gap: 1em;
 }
-.Photo{
+.my-photo{
     box-sizing: border-box;
     width: 100%;
     padding: .7em;
@@ -29,7 +29,7 @@
     height: 100%;
 }
 
-.Desc{
+.my-desc{
     box-sizing: border-box;
     width: 100%;
     padding: .7em;
@@ -40,7 +40,7 @@
 
 }
 
-.Skills{
+.my-skills{
     width: 100%;
     display: flex;
     flex-flow: column;
@@ -55,13 +55,9 @@
 }
 
 @media (max-width:700px){
-    .Wrapper{
-        width: 100%;
-        margin: 0;
-        padding-top: 5vh;
-    }
 
-    .Skills{
+
+    .my-skills{
         padding: 2em;
     }
 }

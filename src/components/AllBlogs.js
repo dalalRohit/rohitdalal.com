@@ -1,12 +1,12 @@
 import React from 'react'
-import classes from './../styles/helpers/allblogs.module.scss';
+import './../styles/helpers/allblogs.scss';
 import BlogCard from './UI/blog_card';
 import PropTypes from 'prop-types';
 export default function AllBlogs(props) {
         
     return (
             <main 
-                className={classes.Blogs}
+                className="all-blogs"
                 style={{marginTop:props.margin ? '8.5vh' : '0'}}
                 >
                 {

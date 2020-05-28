@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import TextField from '@material-ui/core/TextField';
-import classes from './../../styles/helpers/blogfilter.module.scss';
+import './../../styles/helpers/blogfilter.scss';
 import {useStaticQuery,graphql,Link} from 'gatsby';
 
 import {getAllTags} from './../../static/data';
@@ -50,15 +50,15 @@ export default function BlogFilter() {
     
 
     return (
-        <div className={classes.Filter}>
+        <div className="filter">
             <h3>Filter blogs by categories</h3>
 
-            <div className={classes.Tags}>
+            <div className="tags">
                 {Object.keys(allTags).map( (tag) => {
                     return (
                         <span className={"Tag"} key={Math.random()}>
                             <Link to={`/tags/${tag}`}>
-                                {tag} <span className={classes.BlogCount}>{allTags[tag]}</span>
+                                {tag} <span className="blogcount">{allTags[tag]}</span>
                             </Link>
                         </span>
                     )
