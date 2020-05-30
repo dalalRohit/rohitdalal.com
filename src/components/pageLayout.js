@@ -4,10 +4,7 @@ import Navbar from './../components/Navbar';
 import Footer from './../components/Footer';
 import './../styles/style.scss';
 import PropTypes from 'prop-types';
-import smoothscroll from 'smoothscroll-polyfill';
 import ThemeContext from '../context/context'
-// kick off the polyfill!
-smoothscroll.polyfill();
 
 function PageLayout(props) {
     const [width,setWidth]=useState(window.innerWidth);
