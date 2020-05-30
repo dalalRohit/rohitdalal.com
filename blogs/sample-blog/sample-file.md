@@ -5,7 +5,8 @@ date : 2020-05-13
 published : true
 tags : ["sample"]
 description : "This is my new sample blog"
-featuredImage : ./thumbnail.jpg
+featuredImgUrl : https://images.unsplash.com/photo-1590784483120-bff33bff7107?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80
+featuredImgAlt : Sample blog
 ---
 
 ## This is my first heading
@@ -27,9 +28,9 @@ While many machine learning algorithms have been around for a long time, the abi
 
 <br/>
 
-![Machine Learning](./image-1.jpg)
+![Sample blog](https://images.unsplash.com/photo-1590784483120-bff33bff7107?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80)
 
-*Photo by xyx from Unsplash*
+*Photo by [Kristaps Ungurs](https://unsplash.com/@kristapsungurs?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)*
 
 <br/>
 

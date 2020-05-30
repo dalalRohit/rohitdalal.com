@@ -18,6 +18,7 @@ const Projects=() => {
                     {ProjectInfo.map( (project) => {
                         return (
                             <Card 
+                                key={Math.random()}
                                 title={project.name}
                                 desc={project.desc}
                                 />

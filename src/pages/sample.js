@@ -1,17 +1,19 @@
-import React from 'react';
+import React,{useRef} from 'react';
 import {StaticQuery,graphql} from 'gatsby';
-import Img from 'gatsby-image';
-import Navbar from './../components/Navbar';
+import './../styles/style.scss';
+
 
 const Sample=(props) => {
+    
     return(
-        <>
-            <Navbar />
+        <div className="layout">
+            <header style={{position:'fixed',top:'0',left:'0'}}> HEADER </header>
 
-            <div style={{height:"200vh",backgroundColor:"red"}}>
+            <main style={{position:'absolute',top:"20px"}}>MAIN</main>
 
-            </div>
-        </>
+
+            <footer style={{position:'absolute',bottom:'0'}}>FOOTER</footer>
+        </div>
     )
 }
 

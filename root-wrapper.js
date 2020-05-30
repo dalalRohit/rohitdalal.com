@@ -1,6 +1,7 @@
 import { MDXProvider } from '@mdx-js/react';
 import Code from './src/components/helpers/code';
 import './src/styles/templates/elements.scss';
+import { ThemeProvider } from "./src/context/context"
 
 import React from 'react';
 
@@ -27,6 +28,7 @@ const components = {
               props.className && props.className.replace('language-', '')
             }
             {...props}
+            
           />
         );
     }
@@ -34,6 +36,12 @@ const components = {
 }
 };
 
-export const wrapRootElement = ({ element }) => (
-    <MDXProvider components={components}>{element}</MDXProvider>
-);
+export const wrapRootElement = (obj) => {
+  return (
+    <ThemeProvider>
+        <MDXProvider components={components}>
+          {obj.element}
+        </MDXProvider>
+    </ThemeProvider>
+  )
+}

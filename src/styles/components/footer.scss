@@ -1,13 +1,17 @@
 .footer{
     width: 100%;
     max-width: 100%;
+    margin-top: auto;
     box-sizing: border-box;
     display: flex;
+    clear: both;
+    position: relative;
+    bottom: 0;
     flex-flow: column;
-    // border: 2px dashed red;
     p{
         font-size: 1.35rem;;
     }
+    border-top: 1px solid #dae4ee;
 
 
 }
@@ -29,7 +33,7 @@
 
 @media screen and (max-width:700px) {
     .footer{
-        margin-bottom: 3.8em;
+        margin-bottom: 3em;
     }
 
     .first{

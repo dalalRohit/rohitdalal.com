@@ -6,7 +6,12 @@ import { graphql } from 'gatsby';
 
 export default function Tag(props) {
     return (
-        <PageLayout scroll={false} changeBlog={true} margin={true}>
+        <PageLayout 
+            scroll={false} 
+            changeBlog={true} 
+            margin={true}
+            
+            >
             
             <Head  title={`Blogs of "${props.pageContext ? props.pageContext.tag : ''}" `} info={"Rohit Dalal"} />
             <h3>Showing all blogs with tag "{props.pageContext.tag}" </h3>
@@ -29,18 +34,18 @@ export const tagQuery=graphql`
                         title,
                         date(formatString: "YYYY MMMM Do"),
                         slug,
-                        featuredImage{
-                            childImageSharp {
-                                fluid(maxWidth: 600) {
-                                    ...GatsbyImageSharpFluid
-                                },
-                                fixed(width:290,height:170){
-                                    ...GatsbyImageSharpFixed
-                                }
-                            }
-                        }
                         tags
                     },
+                    featuredImg{
+                        childImageSharp {
+                            fluid(maxWidth: 600) {
+                                ...GatsbyImageSharpFluid
+                            },
+                            fixed(width:290,height:170){
+                                ...GatsbyImageSharpFixed
+                            }
+                        }
+                    }
                     excerpt,
                     body,
                     timeToRead

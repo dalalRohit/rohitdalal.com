@@ -4,7 +4,8 @@ date : 2020-05-12
 description: "Create a full screen responsive landing page from scratch using HTML, CSS and JS"
 slug : "full-screen-responsive-landing-page"
 tags : ["front-end"]
-featuredImage: ./thumbnail.jpg
+featuredImgUrl : https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80
+featuredImgAlt : Landing page
 published : true
 ---
 
@@ -22,7 +23,7 @@ It is a part of a website which serves as the entry point for your website. Your
 
 <br/>
 
- ![Landing page illustration](./thumbnail.jpg)
+ ![Landing Page](https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80)
 
 *Photo by [Lauren Mancke](https://unsplash.com/@laurenmancke?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/landing-page?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)*
 

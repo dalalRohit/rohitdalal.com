@@ -12,7 +12,6 @@ align-items:center;
 
 const Label=styled.label`
 box-sizing:border-box;
-color:black;
 width:30%;
 padding:.5em;
 font-weight:550;
@@ -23,21 +22,21 @@ text-align:center;
 const InputBox=styled.input`
 box-sizing:border-box;
 border:none;
-border-bottom:2px solid plum;  
+border-bottom:2px solid darkblue;  
 width:65%;
 padding:.5em;
 line-height:1.5rem;
 transition: all 0.1s ease;
 
 &:focus{
-    outline:2px solid plum;  
+    outline:2px solid darkblue;  
 }
 `
 
 function Input(props) {
 
 
-    const { value,error,name,label,type,inputChange,theme} = props;
+    const { value,name,label,type,inputChange} = props;
 
     return (
         <InputWrapper>

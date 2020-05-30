@@ -19,7 +19,6 @@ const MainForm=styled.form`
     padding:1.4em;
     display:flex;
     flex-flow:column;
-    color:#eee;
 `
 const FormBtn=styled.div`
     margin-top:10px;
@@ -27,10 +26,10 @@ const FormBtn=styled.div`
 const mailApi='http://localhost:5000'
 class Form extends Component{
     state={
-        name:null,
-        email:null,
-        contact:null,
-        message:null,
+        name:"",
+        email:"",
+        contact:"",
+        message:"",
         status:false,
         process:false
     }
@@ -48,7 +47,7 @@ class Form extends Component{
         event.preventDefault();
         var {name,email,contact,message}=this.state;
 
-        if(name===null || email===null || contact===null || message===null){
+        if(name==="" || email==="" || contact==="" || message===""){
             alert("Enter all data ;)");
             this.setState({
                 process:false
@@ -85,10 +84,10 @@ class Form extends Component{
     }
     render(){
         const data=[
-            {id:uuid(),label:"Your Name",name:"name",type:"text",helper:"How may I call you?"},
-            {id:uuid(),label:"Your Email",name:"email" ,type:"email",helper:"Email won't be used anywhere ;)"},
-            {id:uuid(),label:"Your Contact",name:"contact",type:"text",helper:"Mobile number"},
-            {id:uuid(),label:"Your Message",name:"message",type:"text",helper:"Write ur message..",multiline:true}
+            {id:1,label:"Your Name",name:"name",type:"text",helper:"How may I call you?"},
+            {id:2,label:"Your Email",name:"email" ,type:"email",helper:"Email won't be used anywhere ;)"},
+            {id:3,label:"Your Contact",name:"contact",type:"text",helper:"Mobile number"},
+            {id:4,label:"Your Message",name:"message",type:"text",helper:"Write ur message..",multiline:true}
         ];
 
         return (
@@ -113,7 +112,7 @@ class Form extends Component{
                             data.map( (input) => {
                                 return (
                                     <Input
-                                        theme={this.props.theme}
+                                        key={input.id}
                                         value={this.state[input.name]}
                                         error={input.error}
                                         name={input.name}

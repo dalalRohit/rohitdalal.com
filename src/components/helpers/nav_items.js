@@ -3,16 +3,19 @@ import styled from 'styled-components';
 import {Link} from 'gatsby';
 import PropTypes from 'prop-types';
 import {Link as ScrollLink} from 'react-scroll';
+import {IoIosMoon,IoIosSunny} from 'react-icons/io';
+
 
 const Li=styled.li`
     box-sizing:border-box;
     margin:0;
     font-size:1.23em;
     cursor:pointer;
+    color:inherit;
     a{
         padding:.2em;
     }
-    a:hover{
+    a:hover,a:active{
         color:#c79700;
     }
 
@@ -50,10 +53,13 @@ export default function NavItems(props) {
         spy:true,
         duration:500,
         isDynamic:true,
-        activeClass:"active"
+        // activeClass:"active"
     }
 
-
+    //https://stackoverflow.com/questions/44375093/handling-scroll-animation-in-react
+    const click=(link) => {
+        document.querySelector(`#${link}`).scrollIntoView({ behavior: 'smooth' });
+    }
     return (
         <Ul>
             {
@@ -64,9 +70,12 @@ export default function NavItems(props) {
                                 props.scroll ?
                                
                                 <ScrollLink 
+                                    onClick={() => click(link)}
                                     {...scrollProps}
-                                    to={`${link}`}
-                                    > {link} </ScrollLink> :
+                                    to={``}
+                                    > 
+                                    {link} 
+                                </ScrollLink> :
                             
                                 <Link  to={link==='blogs' ? `/${link}` : `/#${link}` } >  {link} </Link>
                             }

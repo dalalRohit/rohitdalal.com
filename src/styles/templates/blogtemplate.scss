@@ -162,6 +162,24 @@ $h5: 1.4rem;
     }
 }
 
+.reads{
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    padding: 1rem;
+    margin: 1rem 0 0 0;
+
+    a{
+        font-size: 1.1rem;
+        &:hover{
+            color: palevioletred;
+        }
+    }
+}
 
 /* Media queries */
 @media (max-width:900px){

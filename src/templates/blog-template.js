@@ -7,19 +7,25 @@ import './../styles/templates/blogtemplate.scss';
 import {graphql,Link} from 'gatsby';
 import {FaTwitter} from 'react-icons/fa';
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import {IoIosArrowForward,IoIosArrowBack} from 'react-icons/io';
 
 export default function BlogTemplate(props) {
     const twitterShare=`https://www.twitter.com/intent/tweet?url=${window.location.href}&via=rohitdalal&text=${props.data.mdx.frontmatter.title}`
+    
+    const {frontmatter,body,timeToRead}=props.data.mdx;
+    const {prevPost,nextPost}=props.pageContext;
     return (
 
           <PageLayout 
-            scroll={false}
-            changeBlog={true}
-            blogTitle={props.data.mdx.frontmatter.title}
-            margin={true}
+              scroll={false}
+              changeBlog={true}
+              blogTitle={frontmatter.title}
+              margin={true}
+              extraheight={true}
+              scrollHeight={20}
             >
 
-            <Head title={props.data.mdx.frontmatter.title} info={"Rohit Dalal"} />
+            <Head title={frontmatter.title} info={"Rohit Dalal"} />
 
 
             <div className="blog">
@@ -29,9 +35,9 @@ export default function BlogTemplate(props) {
 
                     <div className="metadata">
                        
-                      <h1>{props.data.mdx.frontmatter.title}</h1>
-                      <time> {props.data.mdx.frontmatter.date}   </time>
-                      <span>{props.data.mdx.timeToRead} mins read</span>
+                      <h1>{frontmatter.title}</h1>
+                      <time> {frontmatter.date}   </time>
+                      <span>{timeToRead} mins read</span>
                       
                     </div>
 
@@ -47,7 +53,7 @@ export default function BlogTemplate(props) {
                     </div>
 
                     <div className="tags">
-                          {props.data.mdx.frontmatter.tags.map( (tag) => {
+                          {frontmatter.tags.map( (tag) => {
                             return (
                               <span className={"Tag"} key={Math.random()}>
                                 <Link  to={`/tags/${tag}`} key={Math.random()} >{tag}</Link>
@@ -62,10 +68,41 @@ export default function BlogTemplate(props) {
                   <article className="article">
                     
                     <MDXRenderer  >
-                      {props.data.mdx.body}
+                      {body}
                     </MDXRenderer>
                   
                   </article>
+
+
+                  {/* Previous and next posts */}
+                  <section className="reads">
+                          {prevPost===null ? null : (
+                            <> 
+                              {prevPost && (<Link 
+                                alt={prevPost.node.frontmatter.title} 
+                                title={prevPost.node.frontmatter.title}
+                                to={`/blogs/${prevPost.node.frontmatter.slug}`}>
+
+                                  <IoIosArrowBack  size={20}/> {prevPost.node.frontmatter.title} 
+                              </Link>)
+                              }
+                            </>
+                          )}
+
+                          {nextPost===null ? null : (
+                            <>
+                              {nextPost && (<Link 
+                              alt={nextPost.node.frontmatter.title} 
+                              title={nextPost.node.frontmatter.title}
+                              to={`/blogs/${nextPost.node.frontmatter.slug}`}>
+
+                                {nextPost.node.frontmatter.title} <IoIosArrowForward  size={20}/>
+                              </Link>)
+                            }
+                            </>
+                          )}
+
+                  </section>
                 
             </div>
 
@@ -85,11 +122,11 @@ export const query=graphql`
             title
             date(formatString: "MMM Do YYYY"),
             tags,
-            featuredImage{
-              childImageSharp{
-                fluid{
-                  ...GatsbyImageSharpFluid
-                }
+          },
+          featuredImg{
+            childImageSharp{
+              fluid{
+                ...GatsbyImageSharpFluid
               }
             }
           }

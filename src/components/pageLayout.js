@@ -1,9 +1,13 @@
 import React,{useEffect,useState} from "react"
-
+import {window} from 'browser-monads';
 import Navbar from './../components/Navbar';
 import Footer from './../components/Footer';
 import './../styles/style.scss';
 import PropTypes from 'prop-types';
+import smoothscroll from 'smoothscroll-polyfill';
+import ThemeContext from '../context/context'
+// kick off the polyfill!
+smoothscroll.polyfill();
 
 function PageLayout(props) {
     const [width,setWidth]=useState(window.innerWidth);
@@ -22,25 +26,42 @@ function PageLayout(props) {
       })
     })
 
-    const {scroll,changeBlog,blogTitle,margin}=props;
-    console.log(props);
+    const {scroll,changeBlog,blogTitle,margin,extraheight,scrollHeight}=props;
 
     return (
-        <div className="layout">
-            <Navbar 
-                display="row"
-                scroll={scroll} 
-                offset={width < 700 ? -33 : -62}
-                changeBlog={changeBlog}
-                blogTitle={blogTitle}
-            />
-            
-            <main className="main-content" style={{marginTop:margin===true ? "8vh" : "0px"}} >
-              {props.children}
-            </main>
-            
-            <Footer />
-        </div>
+      <ThemeContext.Consumer>
+        {
+          (theme) => {
+            const x=['layout'];
+            theme.dark ? x.push('dark') : x.push('light');
+
+
+            return (
+            <div className={x.join(" ")} >
+
+              <Navbar 
+                  display="row"
+                  scroll={scroll} 
+                  offset={width < 700 ? -33 : -69}
+                  changeBlog={changeBlog}
+                  blogTitle={blogTitle}
+                  // height={extraheight}
+                  scrollHeight={scrollHeight}
+              />
+              
+              <main className="main-content" style={{marginTop:margin===true ? "7vh" : "0px"}} >
+                {props.children}
+              </main>
+              
+              <Footer />
+
+            </div>
+
+            )
+          }
+        }
+        
+      </ThemeContext.Consumer>
     )
 }
 

@@ -18,7 +18,9 @@ const IndexPage = (props) => {
             <PageLayout 
                 scroll={true}
                 changeBlog={false}
-                margin={false}                
+                margin={false}
+                scrollHeight={200}
+                extraheight={false}                
                 >
                 <Head title={"Rohit Dalal"} info="MERN Stack Developer"/>
 
@@ -47,22 +49,22 @@ export const indexBlogQuery=graphql`
               published
               date(formatString: "MMM Do YYYY")
               slug
-              featuredImage {
-                publicURL,
-                childImageSharp {
-                  fluid(maxWidth:300,maxHeight:200){
-                    ...GatsbyImageSharpFluid_tracedSVG
-                  },
-                  fixed(width:290,height:200){
-                    ...GatsbyImageSharpFixed_tracedSVG
-                  }
+              tags
+            },
+            featuredImg {
+              publicURL,
+              childImageSharp {
+                fluid(maxWidth:300,maxHeight:200){
+                  ...GatsbyImageSharpFluid_tracedSVG
+                },
+                fixed(width:290,height:200){
+                  ...GatsbyImageSharpFixed_tracedSVG
                 }
               }
-              tags
             }
-          excerpt
-          body
-          timeToRead
+            excerpt
+            body
+            timeToRead
           }
         }
       },

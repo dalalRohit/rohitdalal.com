@@ -21,12 +21,13 @@
         text-transform: none;
         color: inherit;
         h3{
-            background: plum;
+            background: slategrey;
             border-radius: 8px;
             padding: .2rem;;
+            color: inherit;
 
             &:hover{
-                background: lightpink;
+                background: darkgrey;
             }
         }
     }

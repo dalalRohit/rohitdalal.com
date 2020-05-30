@@ -3,8 +3,9 @@ title : "Hex clock using JavaScript"
 slug : "hex-clock-using-javascript"
 tags : ["javascript"]
 description: "Hex clock"
-date : 2020-14-05
-featuredImage: thumbnail.jpg
+date : 2020-05-14
+featuredImgUrl : https://images.unsplash.com/photo-1575203091586-611fe505bb0e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80
+featuredImgAlt: Mountains with a starry sky
 published : true
 ---
 
@@ -18,9 +19,9 @@ Once again in this article we’ll create a very simple web-page with minimal ht
 
 
 
-![Hex Clock Representation](./thumbnail.jpg)
+![Hex clock using JavaScript ](https://images.unsplash.com/photo-1575203091586-611fe505bb0e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80)
 
-​			                                                     *Photo by [Moritz Kindler](https://unsplash.com/@moritz_photography?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/clock?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)*
+*Photo by [Moritz Kindler](https://unsplash.com/@moritz_photography?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/clock?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)*
 
 ### What is Hex clock?
 

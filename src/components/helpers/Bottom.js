@@ -14,8 +14,7 @@ const Nav=styled.div`
     display:flex;
     justify-content:space-around;
     align-items:center;
-    z-index:99999;
-    background-color:#eee;
+    z-index:100;
 
     a{
         text-decoration:none;
@@ -33,9 +32,9 @@ const Nav=styled.div`
 
 
 export default function Bottom(props) {
-    const {scroll,display,changeBlog,offset}=props;
+    const {theme,scroll,display,changeBlog,offset}=props;
     return (
-        <Nav >
+        <Nav style={{backgroundColor:theme.dark ? '#202020' : "#e7e7e7"}}>
             <NavItems 
                 display={display}
                 scroll={scroll}

@@ -8,7 +8,11 @@ import {graphql} from 'gatsby';
 
 const Blogs=(props) => {
     return (
-            <PageLayout scroll={false} changeBlog={false} margin={true} >
+            <PageLayout 
+                scroll={false}
+                changeBlog={false}
+                margin={true} 
+                scrollHeight={20} >
 
                 <Head title="Blogs" info="Rohit Dalal" />
                 <h1>All blogs </h1>  
@@ -33,19 +37,19 @@ export const blogsQuery=graphql`
                   published
                   date(formatString: "MMM Do YYYY")
                   slug
-                  featuredImage {
-                    publicURL,
-                    childImageSharp {
-                      fluid{
-                        ...GatsbyImageSharpFluid_tracedSVG
-                      },
-                      fixed(width:290,height:200){
-                        ...GatsbyImageSharpFixed_tracedSVG
-                      }
-                    }
-                  }
                   tags
+                },
+              featuredImg {
+                publicURL,
+                childImageSharp {
+                  fluid{
+                    ...GatsbyImageSharpFluid_tracedSVG
+                  },
+                  fixed(width:290,height:200){
+                    ...GatsbyImageSharpFixed_tracedSVG
+                  }
                 }
+              }
               excerpt
               body
               timeToRead

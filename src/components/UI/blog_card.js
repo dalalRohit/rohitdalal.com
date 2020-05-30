@@ -42,7 +42,7 @@ export default function BlogCard(props) {
                     </div>
                     
                     <div className="dateTime">
-                        <date>{date}</date>
+                        <span>{date}</span>
                         <span>{time}</span>
                     </div>
             </div>

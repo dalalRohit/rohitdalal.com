@@ -2,15 +2,13 @@
     box-sizing: border-box;
     width: 80%;
     margin: 0 10% 0 10%;
-    outline: 1px solid lightgray;
     display: flex;
     flex-flow: column;
     justify-content: space-evenly;
     align-items: center;
+    max-width: 350px;
+    // max-height: 300px;
 
-    &:hover{
-        outline: 2px solid #794044;
-    }
     .blogImg{
         box-sizing: border-box;
         // border: 1px solid purple;

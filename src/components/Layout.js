@@ -1,10 +1,10 @@
-import React from 'react'
+import React,{useRef} from 'react'
 import './../styles/style.scss';
 import PropTypes from 'prop-types';
 export default function Layout(props) {
 
     return (
-        <div id={props.name} className="Container" >
+        <div id={props.name} className="Container" ref={useRef()} >
             <div className="Wrapper">
                 {props.children}
             </div>

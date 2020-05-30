@@ -9,7 +9,6 @@
     "@mdx-js/mdx": "^1.6.1",
     "@mdx-js/react": "^1.6.1",
     "axios": "^0.19.2",
-    "bootstrap": "^4.4.1",
     "browser-monads": "^1.0.0",
     "dotenv": "^8.2.0",
     "gatsby": "^2.21.27",
@@ -22,7 +21,6 @@
     "gatsby-plugin-react-helmet": "^3.3.0",
     "gatsby-plugin-sass": "^2.3.1",
     "gatsby-plugin-sharp": "^2.6.0",
-    "gatsby-remark-autolink-headers": "^2.3.1",
     "gatsby-remark-images": "^3.3.0",
     "gatsby-remark-relative-images": "^0.3.0",
     "gatsby-source-filesystem": "^2.3.0",
@@ -35,9 +33,8 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",
     "react-icons": "^3.10.0",
-    "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0",
     "react-scroll": "^1.7.16",
+    "smoothscroll-polyfill": "^0.4.4",
     "styled-components": "^5.1.0"
   },
   "devDependencies": {

@@ -1,52 +1,40 @@
 import React from 'react'
-import styled from 'styled-components';
 import {Link} from 'react-scroll';
 import {Link as LinkItem} from 'gatsby';
+import logo from './../../images/logo.svg';
 
 
-const Name=styled.div`
-    box-sizing:border-box;
-    padding:.25em;
-    display:flex;
-    align-items:center;
-    cursor:pointer;
-    letter-spacing:5px;
 
-    a h4{
-        font-size:1.5rem;
-        color:inherit;
-        text-decoration:none;
-        font-weight:480;
-
-    }
-
-    @media(max-width:700px){
-        a h4{
-            font-size:1.5rem;
-            font-weight:500;
-            letter-spacing:.7px;
-        }
-    }
-`
+const myLogo=(
+    <div className="logo">
+        <span>Rohit Dalal</span>
+        <img src={logo} />
+    </div>
+)
 export default function Logo(props) {
+
     return (
-        <Name>
+        <div className='logo-wrapper'>
             {
-                props.scroll ? 
+                props.scroll 
+                ? 
+                
                 <Link 
                     to="Home"
                     smooth
                     duration={300}
                 >
-                 <h4> Rohit Dalal </h4>
-                </Link> :
+                    {myLogo}
+                </Link> 
+
+                :
                 
                 <LinkItem to="/">
-                    <h4>Rohit Dalal</h4>
+                    {myLogo}
                 </LinkItem>
 
             }
 
-        </Name>
+        </div>
     )
 }

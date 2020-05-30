@@ -1,5 +1,4 @@
 import React,{useState} from 'react'
-import TextField from '@material-ui/core/TextField';
 import './../../styles/helpers/blogfilter.scss';
 import {useStaticQuery,graphql,Link} from 'gatsby';
 
@@ -19,15 +18,14 @@ export default function BlogFilter() {
                             slug,
                             tags,
                             date,
-                            featuredImage{
-                                childImageSharp{
-                                    fluid(maxWidth:600){
-                                        src
-                                    }
+                        },
+                        featuredImg{
+                            childImageSharp{
+                                fluid(maxWidth:600){
+                                    src
                                 }
-                                
                             }
-
+                            
                         }
                         excerpt,
                         body
@@ -65,19 +63,6 @@ export default function BlogFilter() {
                 })}
             </div>
 
-            {/* <div className={classes.Form}>
-                <TextField
-                    className={classes.Input}
-                    label="Filter blogs"
-                    placeholder="Type here to filter blogs.."
-                    variant="outlined"
-                    margin="normal"
-                    onChange={(event) => blogFilterHandler(event)}
-                    InputLabelProps={{
-                        shrink: true,
-                    }}
-                />
-            </div> */}
         </div>
     )
 }

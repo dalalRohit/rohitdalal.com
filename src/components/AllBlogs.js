@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 export default function AllBlogs(props) {
         
     return (
-            <main 
+            <div 
                 className="all-blogs"
                 style={{marginTop:props.margin ? '8.5vh' : '0'}}
                 >
@@ -19,15 +19,15 @@ export default function AllBlogs(props) {
                                     slug={edge.node.frontmatter.slug}
                                     title={edge.node.frontmatter.title}
                                     excerpt={edge.node.excerpt}
-                                    fluid={edge.node.frontmatter.featuredImage.childImageSharp.fluid}
-                                    fixed={edge.node.frontmatter.featuredImage.childImageSharp.fixed}
+                                    fluid={edge.node.featuredImg.childImageSharp.fluid}
+                                    fixed={edge.node.featuredImg.childImageSharp.fixed}
                                     time={`${edge.node.timeToRead} mins read`}
                                     tags={edge.node.frontmatter.tags}
                                 />
                             )
                         })
                 }
-            </main> 
+            </div> 
     )
 }
 
