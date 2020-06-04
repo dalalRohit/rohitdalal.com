@@ -49,6 +49,7 @@ export default function BlogFilter() {
 
     return (
         <div className="filter">
+            <h1>All blogs</h1>
             <h3>Filter blogs by categories</h3>
 
             <div className="tags">

@@ -31,27 +31,27 @@ export default class Contact extends Component {
                         <p>You can reach to me here</p>
                         <div className="icons">
                             <li>
-                                <a title="Instagram" alt="Instagram" href="https://www.instagram.com/rohit__dalal/" target="_blank" style={linkStyles} >
+                                <a rel="noopener noreferrer" title="Instagram" alt="Instagram" href="https://www.instagram.com/rohit__dalal/" target="_blank" style={linkStyles} >
                                     <FaInstagram size={"40px"} />
                                 </a> 
                             </li>
                             <li>
-                                <a title="LinkedIn" alt="LinkedIn" href="https://www.linkedin.com/in/rohit-dalal-61330116b/" target="_blank" style={linkStyles}>
+                                <a rel="noopener noreferrer" title="LinkedIn" alt="LinkedIn" href="https://www.linkedin.com/in/rohit-dalal-61330116b/" target="_blank" style={linkStyles}>
                                      <FaLinkedinIn size={"40px"} /> 
                                 </a>
                             </li>
                             <li>
-                                <a title="Twitter" alt="Twitter" href="https://twitter.com/dalal__rohit" target="_blank" style={linkStyles}> 
+                                <a rel="noopener noreferrer" title="Twitter" alt="Twitter" href="https://twitter.com/dalal__rohit" target="_blank" style={linkStyles}> 
                                     <FaTwitter size={"40px"} />
                                 </a>
                             </li>
                             <li>
-                                <a title="Medium" alt="Medium" href="https://medium.com/@rohit_dalal" target="_blank" style={linkStyles}>
+                                <a rel="noopener noreferrer" title="Medium" alt="Medium" href="https://medium.com/@rohit_dalal" target="_blank" style={linkStyles}>
                                      <FaMediumM size={"40px"} />
                                  </a>
                             </li>
                             <li>
-                                <a title="GitHub" alt="GitHub" href="https://github.com/dalalRohit" target="_blank" style={linkStyles}>
+                                <a rel="noopener noreferrer" title="GitHub" alt="GitHub" href="https://github.com/dalalRohit" target="_blank" style={linkStyles}>
                                      <FaGithub size={"40px"} />
                                  </a>
                             </li>

@@ -5,7 +5,7 @@ import PageLayout from './../components/pageLayout';
 import { window } from 'browser-monads';
 import './../styles/templates/blogtemplate.scss';
 import {graphql,Link} from 'gatsby';
-import {FaTwitter} from 'react-icons/fa';
+import {IoLogoTwitter} from 'react-icons/io';
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import {IoIosArrowForward,IoIosArrowBack} from 'react-icons/io';
 
@@ -14,6 +14,7 @@ export default function BlogTemplate(props) {
     
     const {frontmatter,body,timeToRead}=props.data.mdx;
     const {prevPost,nextPost}=props.pageContext;
+    console.log(props);
     return (
 
           <PageLayout 
@@ -38,19 +39,18 @@ export default function BlogTemplate(props) {
                       <h1>{frontmatter.title}</h1>
                       <time> {frontmatter.date}   </time>
                       <span>{timeToRead} mins read</span>
-                      
-                    </div>
-
-
-                    <div className="blogshare">
-                        <a className="twitter-share-button"
+                      <a
+                        className="twitter" 
                         target="_blank"
                         rel="noopener noreferrer"
                         title="Share on twitter"
                         href={twitterShare}>
-                          <FaTwitter size={30}/>
+                          <IoLogoTwitter size={25}/>
                         </a>
+                      
                     </div>
+
+
 
                     <div className="tags">
                           {frontmatter.tags.map( (tag) => {

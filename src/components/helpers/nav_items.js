@@ -3,20 +3,28 @@ import styled from 'styled-components';
 import {Link} from 'gatsby';
 import PropTypes from 'prop-types';
 import {Link as ScrollLink} from 'react-scroll';
-import {IoIosMoon,IoIosSunny} from 'react-icons/io';
 
 
 const Li=styled.li`
     box-sizing:border-box;
     margin:0;
-    font-size:1.23em;
     cursor:pointer;
+    font-size: 1.25rem;
     color:inherit;
+    border-radius:2px;
     a{
-        padding:.2em;
+        padding:.1em;
     }
-    a:hover,a:active{
-        color:#c79700;
+    a:hover{
+        color:#0ba4b8;
+    }
+
+    @media screen and (max-width:800px){
+        font-size:1.1rem;
+    }
+
+    @media screen and (max-width:620px){
+        font-size:1rem;
     }
 
 `
@@ -33,8 +41,7 @@ const Ul=styled.ul`
         margin:.4em;
     }
 
-    @media(max-width:699px){
-        flex-flow:${ props => props.display };
+    @media(max-width:700px){
         margin:0;
         height:100%;
         margin-top:0;
@@ -45,7 +52,7 @@ const Ul=styled.ul`
 `
 export default function NavItems(props) {
 
-    let links=['About',props.changeBlog ? 'blogs' : 'Blog','Projects','Contact']
+    let links=['About',props.changeBlog ? 'Blogs' : 'Blog','Projects','Contact']
     
     const scrollProps={
         offset:props.offset,
@@ -72,12 +79,12 @@ export default function NavItems(props) {
                                 <ScrollLink 
                                     onClick={() => click(link)}
                                     {...scrollProps}
-                                    to={``}
+                                    // to={`#`}
                                     > 
                                     {link} 
                                 </ScrollLink> :
                             
-                                <Link  to={link==='blogs' ? `/${link}` : `/#${link}` } >  {link} </Link>
+                                <Link  to={link==='Blogs' ? `/${link.toLowerCase()}` : `/#${link}` } >  {link} </Link>
                             }
                         </Li>
                     )

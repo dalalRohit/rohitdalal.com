@@ -49,7 +49,6 @@ module.exports.onCreateNode = async ({ node, actions,store,cache,createNodeId })
         
         if(filenode){
             node.featuredImg___NODE = filenode.id
-            console.log(filenode);
 
         }
     }

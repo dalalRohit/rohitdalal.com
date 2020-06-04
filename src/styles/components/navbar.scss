@@ -1,8 +1,10 @@
+@import './../helpers//variables.scss';
+
+
 .header{
     box-sizing: border-box;
     width: 100%;
     max-width: 100%;
-    margin: 0 0 10% 0;
     position: fixed;
     left: 0;
     top: 0;
@@ -15,7 +17,6 @@
 .navbar{
     width: 85%;
     margin: 0 7.5% 0 7.5%;
-    padding: .3em;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -30,6 +31,7 @@
     max-width: 100%;
     margin: 0;
     padding: 0;
+
 }
 
 
@@ -38,6 +40,7 @@
     z-index: 1000;
     box-shadow: 1px 2px 10px rgba(0,0,0,.25);
     width: 100%;
+    max-width: 100%;
     margin: 0;
     left: 0;
     top: 0;
@@ -45,19 +48,39 @@
 
 
 .blogTitle{
+    box-sizing: border-box;
     text-align: center;
-    width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 100%;
+
 
     p{
         margin: 0;
-        padding: 0;
+        padding: 0.5rem;
+        // font-size: 1.2rem;
     }
 }
-@media(max-width:700px){
+
+//tablet
+@media(max-width:$tablet)
+{
+    .navbar{
+        width: 100%;
+        margin: 10px 0 0 0;
+    }
+    .scrolled{
+        margin: 0;
+    }
+    .blogTitle{
+        p{
+            font-size: 14px;
+        }
+    }
+}
+
+// mobile
+@media(max-width:$mobile){
 
     .navigation{
         display: none;
@@ -70,12 +93,13 @@
         margin: 0;
     }
 
-
-
     .blogTitle{
-        width: 60%;
+        p{
+            font-size: 1rem;
+            padding: 0;
+        }
+   
     }
-
     .toggle{
         display: block;
     }

@@ -21,6 +21,7 @@ export const Pre = styled.pre`
 const CopyCode = styled.button`
   position: absolute;
   right: 0.25rem;
+  cursor:pointer;
   border: 0;
   border-radius: 3px;
   padding:.5rem;
@@ -28,7 +29,7 @@ const CopyCode = styled.button`
   &:hover {
     opacity: 1;
     color:plum;
-    background:black;
+    background:#f6e9d6;
   }
 `;
 
@@ -51,7 +52,7 @@ const Code = ({ codeString, language }) => {
         {...defaultProps}
         code={codeString}
         language={language}
-        theme={theme}
+        theme={dark}
         >
         {({
           className,

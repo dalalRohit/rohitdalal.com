@@ -10,9 +10,6 @@ const Name=styled.h1`
         color:inherit;
         text-decoration:none;
     }
-    a:hover{
-        color:darkmagenta;
-    }
 
 `
 export default function Title(props) {
@@ -22,7 +19,7 @@ export default function Title(props) {
                 to={`${props.path}`}
                 smooth={true}
                 duration={200}
-                offset={-60}
+                // offset={-60}
                 > {props.children} </Link>
         </Name>
     )

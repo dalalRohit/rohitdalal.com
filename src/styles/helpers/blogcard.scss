@@ -1,3 +1,6 @@
+@import './variables.scss';
+
+
 .blogCard{
     box-sizing: border-box;
     width: 80%;
@@ -7,8 +10,6 @@
     justify-content: space-evenly;
     align-items: center;
     max-width: 350px;
-    // max-height: 300px;
-
     .blogImg{
         box-sizing: border-box;
         // border: 1px solid purple;
@@ -29,16 +30,14 @@
     box-sizing: border-box;
     width: 80%;
     max-width: 100%;
-    // border: 1px olive solid;
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
     p{
-        font-size: 1.2rem;
-        padding: 0.3em;
         margin: 0;
-        color: darkgoldenrod;
+        color: rgb(11, 164, 184);
+        font-size: $body-font-size;
 
     }
 
@@ -57,12 +56,13 @@
 
 
 // Mobile setup
-@media (max-width:700px){
+@media (max-width:$mobile){
     .blogCard{
         width: 100%;
+        max-width: 100%;
         margin: 0;
         flex-flow: row;
-        justify-content: space-between;
+        justify-content: space-evenly;
     }
     .blogImg{
         width: 100%;
@@ -70,12 +70,14 @@
     }
     .blogData{
         width: 100%;
-        height: 160px;
         margin: 0;
+        min-height: 160px;
+
         flex-flow: column;
         justify-content: space-evenly;
         p{
             font-size: 1rem;
+            text-align: center;
         }
         .dateTime{
             width: 100%;

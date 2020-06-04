@@ -42,8 +42,8 @@ function Input(props) {
         <InputWrapper>
             <Label >{label ? label : 'label'}</Label>
             <InputBox
-                required="Required"
-                autoComplete={"off"}
+                required
+                autoComplete="off"
                 type={type}
                 value={value}
                 name={name}

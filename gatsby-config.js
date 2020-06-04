@@ -2,6 +2,16 @@ require('dotenv').config({
   path:`.env`
 });
 
+const siteMetaData={
+  title:"Rohit Dalal | FullStack Developer",
+  description: "This is my personal portfolio and blog page",
+  image:'./images/logo.png',
+  siteLanguage: `en-GB`,
+  siteLocale: `en_gb`,
+  twitterUsername: `@dalal_rohit`,
+  author: `Rohit Dalal`,
+  intro:''
+}
 module.exports = {
   proxy:{
       prefix:'/api',
@@ -9,12 +19,7 @@ module.exports = {
   },
 
   // SiteMetaData
-  siteMetadata: {
-    title: `Rohit Dalal | MERN Stack Developer`,
-    description: ``,
-    author: `Rohit Dalal`,
-    intro:``,
-  },
+  siteMetadata: siteMetaData,
 
   // Plugins array
   plugins: [
@@ -91,6 +96,15 @@ module.exports = {
               path:`${__dirname}/blogs/`
             }
           },
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              icon:`${__dirname}/src/images/paperclip.svg`,
+              maintainCase: false,
+              removeAccents: true,
+              elements: [`h1`, `h2`,`h3`],
+            },
+          },
         ],
         plugins:[
           `gatsby-plugin-sharp`,
@@ -110,6 +124,7 @@ module.exports = {
 
     // React helmet
     `gatsby-plugin-react-helmet`,
+
   
     // Manifest plugin
     {
@@ -121,7 +136,11 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/logo.png`, // This path is relative to the root of the site.
+        icon:`${__dirname}/src/images/logo.svg`,
+        crossOrigin:`use-credentials`,
+        display:"standalone",
+
+
       },
     },
 
@@ -134,21 +153,6 @@ module.exports = {
       }
     },
 
-    //https://www.gatsbyjs.org/docs/add-a-manifest-file/
-    {
-      resolve:`gatsby-plugin-manifest`,
-      options:{
-        name:"Rohit Dalal | MERN Stack Devloper",
-        short_name:"Rohit Dalal",
-        description:"Hello, myself Rohit Dalal. Nice to see you with this PWA ;)",
-        lang:'en',
-        start_url:"/",
-        background_color:"#b1cfff",
-        display:"standalone",
-        icon:"src/images/gatsby-icon.png",
-        crossOrigin:`use-credentials`
-      }
-    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,

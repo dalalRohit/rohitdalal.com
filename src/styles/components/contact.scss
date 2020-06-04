@@ -1,3 +1,4 @@
+@import './../helpers/variables.scss';
 
 .contact{
     box-sizing: border-box;
@@ -7,6 +8,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(49%,1fr));
     gap: 1em;
+    font-size: $body-font-size;
 
 }
 

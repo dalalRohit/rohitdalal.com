@@ -39,7 +39,7 @@ export default class Navbar extends Component {
 
 
     render() {
-        const {display,scroll,changeBlog,offset,blogTitle,height}=this.props;
+        const {scroll,changeBlog,offset,blogTitle,height}=this.props;
 
         let navClass=["navbar"]
         if(this.state.scrolled){
@@ -50,16 +50,20 @@ export default class Navbar extends Component {
             <ThemeContext.Consumer>
                 {
                     (theme) => {
+                        const getLogo=() => (theme.dark ? 
+                                <IoIosSunny size={30} onClick={theme.toggleDark}/> 
+                                :   <IoIosMoon size={30} onClick={theme.toggleDark}/>
+                        )
 
                         return (
                         <header 
                             className="header" 
-                            style={{background:navClass.length===1 ? 'inherit' : (theme.dark ? '#202020' : '#e7e7e7') }}>
+                            style={{background:navClass.length===1 ? 'inherit' : (theme.dark ? '#131313' : '#e7e7e7') }}>
                         <div className={navClass.join(" ")}  >
 
                             <Logo scroll={scroll} />
                             
-                            {   navClass.length===2 ?
+                            {  blogTitle && navClass.length===2 ?
                                     <div className="blogTitle">
                                         <p>
                                             {blogTitle}
@@ -71,29 +75,22 @@ export default class Navbar extends Component {
                             <nav className="navigation">
                                 
                                 <NavItems
-                                    display={display}
                                     scroll={scroll}
                                     changeBlog={changeBlog}
                                     offset={offset}
                                     theme={theme}
                                     />
                                 
-                                {   theme.dark ? 
-                                    <IoIosSunny size={30} onClick={theme.toggleDark}/> 
-                                    : <IoIosMoon size={30} onClick={theme.toggleDark}/>
-                                }
+                                {getLogo()}
 
                             </nav>
 
                             <div className="toggle">
-                                {theme.dark ? 
-                                    <IoIosSunny size={30} onClick={theme.toggleDark}/> 
-                                    : <IoIosMoon size={30} onClick={theme.toggleDark}/>}
+                                {getLogo()}
                             </div>
      
                             {   
                                 <Bottom 
-                                    display={display} 
                                     scroll={scroll} 
                                     changeBlog={changeBlog}
                                     offset={offset}

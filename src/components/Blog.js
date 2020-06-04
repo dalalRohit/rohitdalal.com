@@ -9,9 +9,9 @@ import AllBlogs from './AllBlogs';
 export default function Blog(props) {
     const name="Blog";
     const x=(
-        <div className="Note">
+        <div className="note">
             <Link to={`/blogs/`} >
-                <h3>See all blogs</h3>
+                <p>See all blogs</p>
             </Link>
          </div>
     );
@@ -20,7 +20,7 @@ export default function Blog(props) {
         <Layout name={name} id={name}  >
                 <Title path={`${name}`}>/blog</Title>
 
-                <div style={{margin:"1em 1em 0 1em"}}>
+                <div className="notice">
                     <p>I like to write about javascript, web devlopement in general. <br/> Check out my blogs</p>          
                     
                     {x}

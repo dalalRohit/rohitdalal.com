@@ -11,11 +11,11 @@ published : true
 
 Hello geeks,
 
-Today, in this “story” I’m going to demonstrate how to create a full screen responsive landing page for a website using pure HTML, CSS and bit jQuery
+Today, in this story I’m going to demonstrate how to create a full screen responsive landing page for a website using pure HTML, CSS and bit jQuery
 
 <br/>
 
-## ***What is landing  page?***
+## What is landing  page?
 
 
 
@@ -23,25 +23,25 @@ It is a part of a website which serves as the entry point for your website. Your
 
 <br/>
 
- ![Landing Page](https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80)
+ ![Landing Page](./thumbnail.jpg)
 
 *Photo by [Lauren Mancke](https://unsplash.com/@laurenmancke?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/s/photos/landing-page?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)*
 
 ###### 		
 
-------
+
 
 I’ll be dividing this tutorial in 3 parts:
 
-#### **1.Setting up HTML**
+#### 1.Setting up HTML
 
-#### **2.Adding CSS**
+#### 2.Adding CSS
 
-#### 3**.Little bit of jQuery(for click to scroll part)**
+#### 3.Little bit of jQuery(for click to scroll part)
 
 <br/>
 
-### **Section 1:Setting up HTML**
+### Section 1 :  Setting up HTML
 
 <br/>
 
@@ -81,7 +81,7 @@ If you save this much of code and open it in your browser it will look something
 
 <br/>
 
-### **Section 2:Styling the page**
+### Section 2: Styling the page
 
 
 
@@ -104,17 +104,17 @@ header
 
 <br/>
 
-In order for your background-image to take height of entire screen,you must add ***height:100vh;\*** rule*.* It’s telling the browser to take the entire 100% of available view-port height(vh = view-port height). Read about view-port [here](https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag).
+In order for your background-image to take height of entire screen,you must add **height:100vh;** rule*.* It’s telling the browser to take the entire 100% of available view-port height(vh = view-port height). Read about view-port [here](https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag).
 
-Now,in order for your text content to be in the middle of the background-image you’ll need to apply ***display:flex;\***
+Now,in order for your text content to be in the middle of the background-image you’ll need to apply **display:flex;**
 
 
 
-##### **flex-direction:column => this will take care to align text content inside ```<header>``` to be in vertical fashion.**
+##### flex-direction:column => this will take care to align text content inside ```<header>``` to be in vertical fashion.
 
-##### **align-items:center => this will center your text horizontally**
+##### align-items:center => this will center your text horizontally
 
-##### **justify-content:center => this will center your text vertically**
+##### justify-content:center => this will center your text vertically
 
 <br/>
 
@@ -165,9 +165,11 @@ We’re positioning that arrow “absolutely” 85% of view-port height from top
 
 Here ends our CSS section
 
-------
 
-### **Section 3: jQuery(for click to scroll down part)**
+
+
+
+### Section 3: jQuery(for click to scroll down part)
 
 <br/>
 
@@ -204,7 +206,7 @@ PART2 defines how you handle the ‘click’ event for that arrow and then scrol
 
 Here,ends our jQuery part also.
 
-------
+### Conclusion
 
 This is all about what we wanted to create in this post.
 
@@ -219,3 +221,4 @@ https://codepen.io/dalalRohit/pen/NzYMWP.
 > CLAP IT IF YOU LIKE IT!.
 
 Good bye ;)..
+

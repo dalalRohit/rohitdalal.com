@@ -37,7 +37,6 @@ function PageLayout(props) {
             <div className={x.join(" ")} >
 
               <Navbar 
-                  display="row"
                   scroll={scroll} 
                   offset={width < 700 ? -33 : -69}
                   changeBlog={changeBlog}

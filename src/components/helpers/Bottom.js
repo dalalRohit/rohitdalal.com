@@ -24,7 +24,7 @@ const Nav=styled.div`
         font-size:1.1rem;
     }
 
-    @media(min-width:700px){
+    @media(min-width:620px){
         display:none;
     }
 `
@@ -34,7 +34,7 @@ const Nav=styled.div`
 export default function Bottom(props) {
     const {theme,scroll,display,changeBlog,offset}=props;
     return (
-        <Nav style={{backgroundColor:theme.dark ? '#202020' : "#e7e7e7"}}>
+        <Nav style={{backgroundColor:theme.dark ? '#131313' : "#e7e7e7"}}>
             <NavItems 
                 display={display}
                 scroll={scroll}

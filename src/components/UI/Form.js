@@ -4,7 +4,7 @@ import {Button} from '@material-ui/core'
 import styled from 'styled-components';
 import axios from 'axios';
 import Modal from './modal';
-import uuid from 'uuid/v4';
+import { useForm } from "react-hook-form";
 
 const FormDiv=styled.div`
     box-sizing:border-box;
@@ -22,9 +22,25 @@ const MainForm=styled.form`
 `
 const FormBtn=styled.div`
     margin-top:10px;
+
+    button{
+        background:#0ba4b8;
+        color:white;
+        
+        &:hover{
+            background:#5a9aa3;
+            color:black;
+        }
+    }
+    button:disabled{
+        cursor:none;
+    }
+
 `
-const mailApi='http://localhost:5000'
+// const { register, handleSubmit, watch, errors } = useForm();
+const mailApi='https://rohitmailapi.herokuapp.com/'
 class Form extends Component{
+    
     state={
         name:"",
         email:"",
@@ -55,23 +71,23 @@ class Form extends Component{
             return;
         }
         else{
-            console.log('Sending mail .....');
-            axios.post(`${mailApi}/send`,{name,email,contact,message})
-            .then( (res) => {
-                this.setState({
-                    status:true,
-                    process:false
+            axios.post(`${mailApi}send`,{name,email,contact,message},{
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json',
+              })
+                .then( (res) => {
+                    this.setState({
+                        status:true,
+                        process:false
+                    })
                 })
-                console.log(res.data);
-            })
-            .catch( (err) => {
-                this.setState({
-                    status:false,
-                    process:false
+                .catch( (err) => {
+                    this.setState({
+                        status:false,
+                        process:false
+                    })
+                    alert('Type correct Mail address..')
                 })
-                alert('Mail failed to deliver ;( Try again. Type correct mail.')
-                console.log(err);
-            })
         }
         
 
@@ -84,10 +100,10 @@ class Form extends Component{
     }
     render(){
         const data=[
-            {id:1,label:"Your Name",name:"name",type:"text",helper:"How may I call you?"},
-            {id:2,label:"Your Email",name:"email" ,type:"email",helper:"Email won't be used anywhere ;)"},
-            {id:3,label:"Your Contact",name:"contact",type:"text",helper:"Mobile number"},
-            {id:4,label:"Your Message",name:"message",type:"text",helper:"Write ur message..",multiline:true}
+            {id:1,label:"Your Name",name:"name",type:"text"},
+            {id:2,label:"Your Email",name:"email" ,type:"email",},
+            {id:3,label:"Your Contact",name:"contact",type:"tel",},
+            {id:4,label:"Your Message",name:"message",type:"text",multiline:true}
         ];
 
         return (
@@ -107,6 +123,7 @@ class Form extends Component{
                     </Modal>
                     
                     <div style={{textAlign:'center'}} >
+                    <input type="hidden" value="something" />
                         {
         
                             data.map( (input) => {
@@ -118,7 +135,6 @@ class Form extends Component{
                                         name={input.name}
                                         label={input.label}
                                         type={input.type}
-                                        helper={input.helper}
                                         inputChange={this.onTextInput}
                                         multiline={input.multiline}
 
@@ -130,10 +146,8 @@ class Form extends Component{
                         <FormBtn>
                             <Button 
                                 type="submit"
-                                variant="contained"
-                                color="primary"
                                 onClick={this.onButtonClick}
-                                disabled={this.state.process ? true : false}
+                                disabled={this.state.process===true ? true : false }
                                 >Shoot Mail</Button>
                         </FormBtn>
                     </div>

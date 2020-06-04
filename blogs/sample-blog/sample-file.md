@@ -3,7 +3,7 @@ title : "Sample Blog"
 slug : "sample-blog"
 date : 2020-05-13
 published : true
-tags : ["sample"]
+tags : ["sample","react"]
 description : "This is my new sample blog"
 featuredImgUrl : https://images.unsplash.com/photo-1590784483120-bff33bff7107?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80
 featuredImgAlt : Sample blog
@@ -28,7 +28,7 @@ While many machine learning algorithms have been around for a long time, the abi
 
 <br/>
 
-![Sample blog](https://images.unsplash.com/photo-1590784483120-bff33bff7107?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80)
+![Sample blog](./thumbnail.jpg)
 
 *Photo by [Kristaps Ungurs](https://unsplash.com/@kristapsungurs?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)*
 

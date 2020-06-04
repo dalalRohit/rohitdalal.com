@@ -31,6 +31,9 @@ class ThemeProvider extends React.Component {
     } else if (supportsDarkMode()) {
       this.setState({ dark: true })
     }
+    else{
+      this.setState({dark:false})
+    }
   }
 
   render() {

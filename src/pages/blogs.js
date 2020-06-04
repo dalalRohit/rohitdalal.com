@@ -15,7 +15,6 @@ const Blogs=(props) => {
                 scrollHeight={20} >
 
                 <Head title="Blogs" info="Rohit Dalal" />
-                <h1>All blogs </h1>  
                 <BlogFilter />                 
                 <AllBlogs  
                     margin={true}

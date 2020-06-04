@@ -1,13 +1,6 @@
 
-$x-small: 720px;
-$small: 800px;
-$medium: 1200px;
-$large: 1300px;
+@import '/helpers/variables.scss' ;
 
-/* Breakpoints */
-$mobile: 620px;
-$tablet: $small;
-$desktop: $medium;
 
 @font-face {
   font-family: "Jost";
@@ -19,7 +12,7 @@ $desktop: $medium;
 }
 
 
-
+//Global
 *{
   margin: 0;
   padding: 0;
@@ -37,16 +30,18 @@ html,body{
   width: 100%;
   max-width: 100%;
   min-height: 100%;
-  font-family:Jost, Helvetica Neue, 'Inter', -apple-system, BlinkMacSystemFont, Helvetica, Arial,sans-serif;
+  font-family: Jost,Helvetica Neue, 'Inter', -apple-system, BlinkMacSystemFont, Helvetica, Arial,sans-serif;
 
 }
 
  /* Global styles */
  h1,h2,h3,h4,h5,h6{
+   box-sizing: border-box;
    margin: 0;
    padding: 0;
    font-weight: lighter;
  }
+
 
 a{
   text-decoration:none;
@@ -61,6 +56,8 @@ a:hover{
   text-transform: none;
 }
 
+
+// Layout
 .layout{
   width: 100%;
   max-width: 100%;
@@ -68,24 +65,28 @@ a:hover{
   box-sizing: border-box;
 }
 
+//main-content
 .main-content{
+  box-sizing: border-box;
   width: 100%;
   max-width: 100%;
   min-height: 100vh;
-  box-sizing: border-box;
   position: relative;
+  margin-top: 0;
 }
 
 // Page container
 .Container{
   box-sizing: border-box;
   width: 85%;
+  max-width: 100%;
   margin: 0 7.5% 0 7.5%;
   max-width: 100%;
-  height: auto;
+  height: 100%;
+  min-height:100% ;
   // background-color: #DCDCDC;
 
-  @media screen and (max-width:700px) {
+  @media screen and (max-width:$tablet) {
     width: 100%;
     margin: 0;
   }
@@ -101,96 +102,31 @@ a:hover{
   // border: 1px dashed blue;
   min-height: calc(100vh - 360px);
   padding: 8vh 0 6vh 0;
-  p{
-    font-size: 1.3rem;
-  }
 }
 .Wrapper:last-child{
   margin-bottom: 3rem;
 }
 
 
-@media (max-width:$mobile){
-  .Container{
-    width: 100%;
-    background-position: left top;
-  }
-  .Wrapper{
-      width: 100%;
-      margin: 0;
-      padding: 0 0 6vh 0;
 
-  }
-}
-
-@media (max-width:$tablet){
-  .Container{
-    background-position: left top;
-  }
-  .Wrapper{
-      width: 100%;
-      margin: 0;
-      padding: 23px 0 6vh 0;
-
-  }
-}
-
-
+// Tags
 .Tag{
-  max-width: 100px;
+  max-width: 150px;
   text-align: center;
   background: lightgrey;
   border-radius: 3px;
   padding: .2em;
   color: black;
+  margin: 7px;
 }
 .Tag:hover{
   background: darkgray;
   color: white;
 }
 
-.active{
-  color: #c79700;
-  border-bottom: 2px solid black;
-}
-
-.logo-wrapper{
-  width: 20%;
-}
-.logo{
-  width: 100%;
-  box-sizing: border-box;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  cursor: pointer;
-
-  span{
-    font-size: 1.54rem;
-  }
-  img{
-    width: 50px;
-    height: 50px;
-    margin: 0 0 0 10px;
-  }
-
-  @media(max-width: 700px){
-    span{
-      display: none;
-    }
-    img{
-      width: 40px;
-      height: 40px;
-      margin: 0;
-    }
-  }
-}
-
-
-
 // Themes
 .dark{
-  background-color: #2a2b2d;
+  background-color: #202020;
   color: #fff;
   transition: all 0.2s ease-in-out;
 }
