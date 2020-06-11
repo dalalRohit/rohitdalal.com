@@ -12,7 +12,8 @@ import {IoIosArrowForward,IoIosArrowBack} from 'react-icons/io';
 export default function BlogTemplate(props) {
     const twitterShare=`https://www.twitter.com/intent/tweet?url=${window.location.href}&via=rohitdalal&text=${props.data.mdx.frontmatter.title}`
     
-    const {frontmatter,body,timeToRead}=props.data.mdx;
+    const {frontmatter,body}=props.data.mdx;
+    const {text}=props.data.mdx.fields.readingTime; //reading time
     const {prevPost,nextPost}=props.pageContext;
     console.log(props);
     return (
@@ -38,7 +39,7 @@ export default function BlogTemplate(props) {
                        
                       <h1>{frontmatter.title}</h1>
                       <time> {frontmatter.date}   </time>
-                      <span>{timeToRead} mins read</span>
+                      <span>{text}</span>
                       <a
                         className="twitter" 
                         target="_blank"
@@ -74,35 +75,34 @@ export default function BlogTemplate(props) {
                   </article>
 
 
-                  {/* Previous and next posts */}
+                  {/* Previous and next posts 
                   <section className="reads">
-                          {prevPost===null ? null : (
-                            <> 
-                              {prevPost && (<Link 
-                                alt={prevPost.node.frontmatter.title} 
-                                title={prevPost.node.frontmatter.title}
-                                to={`/blogs/${prevPost.node.frontmatter.slug}`}>
+                          
+                  {prevPost && (<Link 
+                    alt={prevPost.node.frontmatter.title} 
+                    title={prevPost.node.frontmatter.title}
+                    to={`/blogs/${prevPost.node.frontmatter.slug}`}>
 
-                                  <IoIosArrowBack  size={20}/> {prevPost.node.frontmatter.title} 
-                              </Link>)
-                              }
-                            </>
-                          )}
+                      <IoIosArrowBack  size={20}/> {prevPost.node.frontmatter.title} 
+                  </Link>)
+                  }
 
-                          {nextPost===null ? null : (
-                            <>
-                              {nextPost && (<Link 
-                              alt={nextPost.node.frontmatter.title} 
-                              title={nextPost.node.frontmatter.title}
-                              to={`/blogs/${nextPost.node.frontmatter.slug}`}>
+                  {nextPost===null ? null : (
+                    <>
+                      {
+                        nextPost && (<Link 
+                        alt={nextPost.node.frontmatter.title} 
+                        title={nextPost.node.frontmatter.title}
+                        to={`/blogs/${nextPost.node.frontmatter.slug}`}>
 
-                                {nextPost.node.frontmatter.title} <IoIosArrowForward  size={20}/>
-                              </Link>)
-                            }
-                            </>
-                          )}
+                          {nextPost.node.frontmatter.title} <IoIosArrowForward  size={20}/>
+                        </Link>)
+                      }
+                    </>
+                  )}
 
                   </section>
+                  */}
                 
             </div>
 
@@ -132,7 +132,11 @@ export const query=graphql`
           }
           body,
           rawBody
-          timeToRead
+          fields{
+            readingTime{
+              text
+            }
+          }
       }
     }
 `

@@ -51,7 +51,11 @@ export const blogsQuery=graphql`
               }
               excerpt
               body
-              timeToRead
+              fields{
+                readingTime{
+                  text
+                }
+              }
               }
             }
           },

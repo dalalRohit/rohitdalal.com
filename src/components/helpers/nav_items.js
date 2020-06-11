@@ -60,7 +60,6 @@ export default function NavItems(props) {
         spy:true,
         duration:500,
         isDynamic:true,
-        // activeClass:"active"
     }
 
     //https://stackoverflow.com/questions/44375093/handling-scroll-animation-in-react
@@ -77,9 +76,9 @@ export default function NavItems(props) {
                                 props.scroll ?
                                
                                 <ScrollLink 
-                                    onClick={() => click(link)}
+                                    // onClick={() => click(link)}
                                     {...scrollProps}
-                                    // to={`#`}
+                                    to={link}
                                     > 
                                     {link} 
                                 </ScrollLink> :

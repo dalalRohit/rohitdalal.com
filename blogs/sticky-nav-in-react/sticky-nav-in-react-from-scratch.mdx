@@ -83,7 +83,7 @@ import Logo from './../img/logo.svg';
 
 const Navbar=() => {
   return (
-    <header className="navbar">
+    <header className={navbarClasses.join(" ")}>
         <div className="logo">
           <img src={Logo} alt="Logo" title="Logo" />
         </div>
@@ -105,7 +105,9 @@ export default Navbar;
 
 ```
 
-If you want to follow my styling
+Now, it's time to give some styling to the page. You can have your own set of styling or if you just wanna you use mine, copy below given styles to <code>navbar.scss</code>
+
+I'm using SASS here for styling. If you are not comfortable with SASS, you can use normal CSS3 syntax. Works same!
 
 ```scss
 //navbar.scss
@@ -165,7 +167,9 @@ If you want to follow my styling
 
 
 
-Now, we may edit <code>Content.js</code> to add following code:
+Now, we would fill up <code>Content.js</code> with some meat to add some content on the page along with the Navbar.
+
+This code fills up dummy boxes to take ample amount of height on page. You can use any real life content. This is just for demo
 
 ```jsx
 //Content.js
@@ -196,11 +200,17 @@ Style for Content.js
 //content.scss
 
 .content{
-  width: 80%;
-  margin:2rem 10% 0 10%;
-  max-width: 100%;
-  box-sizing: border-box;
-  min-height: 100vh;
+    width: 80%;
+    margin:2rem 10% 0 10%;
+    max-width: 100%;
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+.box{
+    width:80%;
+    margin:2rem 10% 0 10%;
+    height:100vh;
+    background-color:plum;
 }
 ```
 
@@ -209,3 +219,57 @@ After all this setup, our page will look like this:
 ![Complete layout](./complete-layout.PNG)
 
 *This is the visual after this much code*
+
+### Main Logic 
+
+Now that we have our meat setup for the Sticky navbar, we will add the main Logic to get the upper navbar stick to the top as you scroll down. For this we are going to do little bit of state-management using [React hooks](https://reactjs.org/docs/hooks-intro.html). If you are not aware of react-hooks, don't worry about it. You can use normal state management with classful component too. The logic remains the same. 
+
+So, the idea is as you scroll down, you check if the scrollTop (i.e. total height you have scrolled from the  top in pixels ) in <code>componentDidMount()</code> or <code>useEffect()</code> and based on some <b>fixed</b> value of that offset, you change the class of navbar to apply styles which hooks it up to the top. Here in my case, as you can see on line 10 of the below code, I'm checking if offset > 200. If that value is greater than 200, I'm setting <code>scrolled </code> to true. This 200px is some fixed offset, which changes according to your application. Now, whenever the user scrolls more than 200px from top, I'm adding "scrolled" to  navbarClasses.
+
+Confused ?
+
+```jsx
+import React,{useEffect} from 'react';
+import './navbar.scss';
+import Logo from './../img/logo.svg';
+
+const Navbar=() => {
+  const [scrolled,setScrolled]=React.useState(false);
+
+  const handleScroll=() => {
+    const offset=window.scrollY;
+    if(offset > 200 ){
+      setScrolled(true);
+    }
+    else{
+      setScrolled(false);
+    }
+  }
+  useEffect(() => {
+    window.addEventListener('scroll',handleScroll)
+  })
+
+  let navbarClasses=['navbar'];
+  if(scrolled){
+    navbarClasses.push('scrolled');
+  }
+  
+   /*rest remains the same*/
+};
+
+export default Navbar;
+
+```
+
+
+
+
+
+
+
+## Conclusion
+
+This was all for this simple demo application. I hope this post was helpful to you and I've solved your problem by explaining it in your words. If you have any queries regarding this post, feel free to ask me personally. I will be happy to answer those on individual level.
+
+Thank you. Have a nice day!
+

@@ -1,6 +1,5 @@
 @import './../helpers/variables.scss';
 
-
 .about{
     box-sizing: border-box;
     width: 100%;
@@ -12,9 +11,7 @@
     h1{
         font-size: $h1;
     }
-    p,li{
-        font-size: 1.3rem;
-    }
+
 
     //mobile
     @media screen and (max-width:$mobile) {
@@ -44,6 +41,14 @@
     /* border: 1px solid gray; */
     height: 100%;
     writing-mode: horizontal-tb;
+    font-size: 1.35rem;
+
+    // content
+    .rohit{
+        color: #0ba4b8;
+        font-size: 1.46rem;
+        font-weight: 500;
+    }
 
 
 }
@@ -54,10 +59,17 @@
     flex-flow: column;
     justify-content: space-evenly;
     box-sizing: border-box;
+    h2{
+        font-size: 1.35rem;
+        color: #0ba4b8;
+    }
     ul{
         list-style-position: inside;
         list-style-type: square;
         padding: 1rem;
+        li{
+            font-size: 1.35rem;
+        }
     }
 
 }

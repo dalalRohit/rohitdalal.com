@@ -23,7 +23,7 @@ export default function Image(props) {
                     {
                         margin: '2rem',
                         maxWidth:"100%",
-                        maxHeight: 'calc(65vh - 4rem)', 
+                        maxHeight: 'calc(65vh - 8rem)', 
                     }
                 }
                 imgStyle={{objectFit:"contain"}} 

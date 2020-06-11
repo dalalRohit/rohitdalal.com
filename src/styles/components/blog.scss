@@ -18,31 +18,21 @@
     margin: 2rem;
 }
 .note{
-    max-width: 15%;
-    margin: 1.5em 42.5% 1.5em 42.5%;
     text-align: center;
     padding: .1em;
 
-    a{
-        p{
-            background: #0ba4b8;
-            border-radius: 8px;
-            padding: .2rem;;
-        }
+    button{
+        background: #0ba4b8;
     }
-    a:hover{
-        color: #131313;
-        text-decoration: none;
-        
+    button:hover{
+        background: #0ba4b8;
+        color: black;
     }
-
     @media (max-width:800px) {
-        max-width: 200px;
         margin: 1.5rem 30% 1.5rem 30%;
 
     }
     @media(max-width:620px) {
-        max-width:150px;
         margin: 1.5rem 30% 1.5rem 30%;
     }
 }

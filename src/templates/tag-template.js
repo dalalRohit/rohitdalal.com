@@ -4,6 +4,7 @@ import PageLayout from './../components/pageLayout';
 import AllBlogs from './../components/AllBlogs';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
+
 const Note=styled.div`
     width:85%;
     max-width:100%;
@@ -66,7 +67,11 @@ export const tagQuery=graphql`
                     }
                     excerpt,
                     body,
-                    timeToRead
+                    fields{
+                        readingTime{
+                            text
+                        }
+                    }
                 }
             }
         }

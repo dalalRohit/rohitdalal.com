@@ -15,9 +15,9 @@ export default class Footer extends Component {
                 <div className="first">
                     <p>Rohit Dalal &copy; {new Date().getFullYear()} </p>
 
-                    <Link onClick={this.top} alt="Go to top" title="Go to top">
+                    <a onClick={this.top} alt="Go to top arrow" title="Go to top">
                          <IoIosArrowUp size={25}  />
-                    </Link>
+                    </a>
                 </div>
 
                 <div className="second">

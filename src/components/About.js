@@ -44,16 +44,17 @@ export default class About extends Component {
                             <h2>Tech Stack </h2>
                             <ul>
                                 <li>React</li>
-                                <li>Express</li>
-                                <li>MongoDB</li>
+                                <li>Node.js / Express</li>
+                                <li>MongoDB </li>
+                                <li>Gatsby </li>
                             </ul>
   
                         </div>
                         <div>
-                            <h2>What I use? </h2>
+                            <h2>Skills </h2>
                             <ul>
-                                <li>Web devlopement</li>
-                                <li>Front end</li>
+                                <li>Responsive web design</li>
+                                <li></li>
                                 <li>Back end</li>
                             </ul>
   

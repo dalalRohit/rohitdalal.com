@@ -4,17 +4,11 @@ import {Link} from 'gatsby';
 import Title from './UI/title';
 import Layout from './Layout';
 import AllBlogs from './AllBlogs';
- 
+import Button from '@material-ui/core/Button';
 
 export default function Blog(props) {
     const name="Blog";
-    const x=(
-        <div className="note">
-            <Link to={`/blogs/`} >
-                <p>See all blogs</p>
-            </Link>
-         </div>
-    );
+
 
     return (
         <Layout name={name} id={name}  >
@@ -23,14 +17,18 @@ export default function Blog(props) {
                 <div className="notice">
                     <p>I like to write about javascript, web devlopement in general. <br/> Check out my blogs</p>          
                     
-                    {x}
+                    <div className="note">
+                        <Button variant="contained" color="primary" disableElevation>
+                            <Link to={`/blogs/`} >
+                                See all blogs
+                            </Link>
+                        </Button>
+                    </div>
+
                 </div>
 
                 <div className="Blogs">
-
-                    <AllBlogs
-                        blogs={props.blogs}
-                    />
+                    <AllBlogs blogs={props.blogs}/>
                 </div>
             
         </Layout>

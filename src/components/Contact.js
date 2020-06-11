@@ -3,7 +3,9 @@ import  './../styles/components/contact.scss';
 import Title from './UI/title';
 import Layout from './Layout';
 import Form from './UI/Form';
-import {FaInstagram,FaLinkedinIn,FaTwitter,FaMediumM,FaGithub} from 'react-icons/fa'
+import {FaLinkedinIn,FaTwitter,FaMediumM,FaGithub} from 'react-icons/fa'
+import {IoLogoInstagram} from 'react-icons/io';
+
 export default class Contact extends Component {
 
     render() {
@@ -21,7 +23,7 @@ export default class Contact extends Component {
                     <div className="form">
                         <div className="msg">
                             <p>Can discuss work,football,coffee ;)</p>
-                            <p>Wanna colaborate?</p>
+                            <p>Shoot mail if you want to colaborate 🚀 </p>
                         </div>
                         <Form  theme={this.props.theme}/>
                     </div>
@@ -32,7 +34,7 @@ export default class Contact extends Component {
                         <div className="icons">
                             <li>
                                 <a rel="noopener noreferrer" title="Instagram" alt="Instagram" href="https://www.instagram.com/rohit__dalal/" target="_blank" style={linkStyles} >
-                                    <FaInstagram size={"40px"} />
+                                    <IoLogoInstagram size={"40px"} />
                                 </a> 
                             </li>
                             <li>

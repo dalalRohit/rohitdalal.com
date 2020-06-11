@@ -101,7 +101,7 @@ a:hover{
   max-width: 100%;
   // border: 1px dashed blue;
   min-height: calc(100vh - 360px);
-  padding: 8vh 0 6vh 0;
+  padding: 6vh 0 6vh 0;
 }
 .Wrapper:last-child{
   margin-bottom: 3rem;
@@ -128,12 +128,12 @@ a:hover{
 .dark{
   background-color: #202020;
   color: #fff;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease;
 }
 
 .light{
-  transition: all 0.2s ease-in-out;
-  background-color: #eee;
+  transition: all 0.2s ease;
+  background-color: rgb(236, 236, 236);
 }
 
 

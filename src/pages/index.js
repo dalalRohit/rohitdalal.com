@@ -8,6 +8,7 @@ import About from './../components/About';
 import Projects from './../components/Projects';
 import Contact from './../components/Contact';
 import Blog from './../components/Blog';
+import SEO from './../components/seo';
 
 
 const IndexPage = (props) => {
@@ -64,13 +65,17 @@ export const indexBlogQuery=graphql`
             }
             excerpt
             body
-            timeToRead
+            fields{
+              readingTime{
+                text
+              }
+            }
           }
         }
       },
 
-      imageQuery:imageSharp(fluid:{originalName:{eq:"me-cropped.jpg"}}){
-        fluid(maxWidth:1000,traceSVG:{color:"#eee"}){
+      imageQuery:imageSharp(fluid:{originalName:{eq:"rohit-og-min.png"}}){
+        fluid(maxWidth:300,traceSVG:{color:"#eee"}){
           ...GatsbyImageSharpFluid_tracedSVG
         },
         fixed{

@@ -12,30 +12,37 @@ const ModalWrapper=styled.div`
 const ModalDiv=styled.div`
     box-sizing:border-box;
     width:80%;
-    height:50%;
+    // height:50%;
     max-width:100%;
     margin:0 10% 0 10%;
     position:fixed;
-    top:35%;
+    top:15%;
     left:0;
     z-index:1000000000000000000;
     background-color:#eee;
     display:none;
-    transition: all .7ss ease-out;
-    border-radius:18px;
-    @media (max-width:768px){
+    transition: all .5s ease-out;
+    @media (max-width:620px){
         width:96%;
         margin:0 2% 0 2%;
     }
+    overflow-y:scroll;
 
 `
 
 const ModalHeader=styled.div`
     display:flex;
+    width:79%;
     justify-content:space-between;
     align-items:center;
-    border-bottom:1.4px solid gray;
     color:black;
+    position:fixed;
+    background-color:lightgray;
+    height:5vh;
+    z-index:100;
+    @media (max-width:620px){
+        width:95%;
+    }
 `
 
 const ModalContent=styled.main`
@@ -43,6 +50,34 @@ const ModalContent=styled.main`
     width:100%;
     padding:1.2em;
     color:black;
+    font-size:1.25rem;
+    position:relative;
+    top:5vh;
+    
+    //markdown post content styles
+    .website,.github{
+        box-sizing:border-box;
+        border:none;
+        background:plum;
+        padding:.8rem;
+        margin:10px;
+
+        &:hover{
+            background:pink;
+        }
+    }
+
+    ol{
+        width:80%;
+        box-sizing:border-box;
+        list-style-position:inside;
+        border-radius:7px;
+        padding:.8rem;
+    }
+
+    span{
+        margin:1rem;
+    }
 
 `
 export default class Modal extends Component {
@@ -52,7 +87,8 @@ export default class Modal extends Component {
                 <Backdrop show={this.props.show} click={this.props.click}/>
 
                 <ModalDiv style={{
-                    display:this.props.show ? 'block' : 'none',height:this.props.height,
+                        display:this.props.show ? 'block' : 'none',
+                        height:this.props.height,
                     }}>
 
                     <ModalHeader>

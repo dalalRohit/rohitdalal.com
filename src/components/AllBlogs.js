@@ -21,7 +21,7 @@ export default function AllBlogs(props) {
                                     excerpt={edge.node.excerpt}
                                     fluid={edge.node.featuredImg.childImageSharp.fluid}
                                     fixed={edge.node.featuredImg.childImageSharp.fixed}
-                                    time={`${edge.node.timeToRead} mins read`}
+                                    time={`${edge.node.fields.readingTime.text} `}
                                     tags={edge.node.frontmatter.tags}
                                 />
                             )

@@ -38,7 +38,7 @@ function PageLayout(props) {
 
               <Navbar 
                   scroll={scroll} 
-                  offset={width < 700 ? -33 : -69}
+                  offset={width < 700 ? -33 : -60}
                   changeBlog={changeBlog}
                   blogTitle={blogTitle}
                   // height={extraheight}

@@ -1,4 +1,4 @@
-@import './../helpers//variables.scss';
+@import './../helpers/variables.scss';
 
 
 .blog{
@@ -81,8 +81,12 @@
         }
     }
     h1 .anchor svg,h2 .anchor svg,h3 .anchor svg {
-        color: red;
-        margin: 0 5px 0 0;
+        fill: blueviolet;
+        margin:0 5px 0 0;
+
+        &:hover{
+            fill: darkgoldenrod;
+        }
     }
 
     p{
@@ -92,7 +96,6 @@
     }
 
     pre{
-        font-family: $code-font-family;
         font-size: $code-size;
     }
 
