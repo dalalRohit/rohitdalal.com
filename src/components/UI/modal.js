@@ -58,12 +58,16 @@ const ModalContent=styled.main`
     .website,.github{
         box-sizing:border-box;
         border:none;
-        background:plum;
-        padding:.8rem;
-        margin:10px;
+        background:#00adb5;
+        padding:.5rem;
+        margin:5px;
+        a{
+            font-size:1.1rem;
+        }
+        border-radius:5px;
 
         &:hover{
-            background:pink;
+            background:#08d9d6;
         }
     }
 

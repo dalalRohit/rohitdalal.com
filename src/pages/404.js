@@ -6,7 +6,8 @@ import {Link} from 'gatsby';
 
 const NotFoundPage = () => (
   <>
-    <Head title={404} info={"Rohit Dalal"} />
+    <Head title={"404"} info={"Rohit Dalal"} />
+    <SEO />
     <div style={{display:'flex',flexFlow:'column',justifyContent:'center',alignItems:'center',backgroundColor:'#feded1',height:'100vh'}}>
         <h1 style={{fontSize:'10em'}}>404</h1>
 

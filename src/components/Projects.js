@@ -4,7 +4,6 @@ import Card from './UI/card';
 import Title from './UI/title';
 import Layout from './Layout';
 
-import'./../styles/components/projects.scss';
 
 const Projects=() => {
     const name="Projects";
@@ -30,7 +29,7 @@ const Projects=() => {
         <Layout name={name} id={name}  >  
                 <Title path={name} >/projects</Title>
 
-                <p className="projNote">My recent work done ...</p>
+                <p className="projNote">My recent work done and many more coming ..</p>
                 <main className="all-projects">
                     {   
                         data.allMarkdownRemark.edges.map( (edge) => {

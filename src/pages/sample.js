@@ -1,5 +1,4 @@
-import React,{useRef} from 'react';
-import {StaticQuery,graphql} from 'gatsby';
+import React from 'react';
 import './../styles/style.scss';
 
 
@@ -18,20 +17,3 @@ const Sample=(props) => {
 }
 
 export default Sample;
-
-export const query=graphql`
-    query{
-        allImageSharp{
-            edges{
-                node{
-                    fluid(maxWidth:350,maxHeight:200){
-                        ...GatsbyImageSharpFluid_tracedSVG
-                    },
-                    fixed(width:400,height:200){
-                        ...GatsbyImageSharpFixed_tracedSVG
-                    }
-                }
-            }
-        }
-    }
-`

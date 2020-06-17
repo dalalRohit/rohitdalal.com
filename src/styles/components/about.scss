@@ -1,4 +1,4 @@
-@import './../helpers/variables.scss';
+// @import './../helpers/variables.scss';
 
 .about{
     box-sizing: border-box;
@@ -19,7 +19,7 @@
     }
 }
 
-.info{
+.myinfo{
     box-sizing: border-box;
     width: 100%;
     display: grid;
@@ -45,9 +45,10 @@
 
     // content
     .rohit{
-        color: #0ba4b8;
         font-size: 1.46rem;
         font-weight: 500;
+        color: $link;
+        text-decoration: underline;
     }
 
 
@@ -61,7 +62,6 @@
     box-sizing: border-box;
     h2{
         font-size: 1.35rem;
-        color: #0ba4b8;
     }
     ul{
         list-style-position: inside;

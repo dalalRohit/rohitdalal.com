@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from "react"
+import React from "react"
 
 import PageLayout from './../components/pageLayout';
 import {graphql} from 'gatsby';
@@ -8,32 +8,27 @@ import About from './../components/About';
 import Projects from './../components/Projects';
 import Contact from './../components/Contact';
 import Blog from './../components/Blog';
-import SEO from './../components/seo';
-
 
 const IndexPage = (props) => {
 
-
-
   return (
-            <PageLayout 
-                scroll={true}
-                changeBlog={false}
-                margin={false}
-                scrollHeight={200}
-                extraheight={false}                
-                >
-                <Head title={"Rohit Dalal"} info="MERN Stack Developer"/>
+      <PageLayout 
+          scroll={true}
+          changeBlog={false}
+          margin={false}
+          scrollHeight={200}
+          extraheight={false}                
+          >
+          <Head title={"Rohit Dalal"} info="Full Stack Web Developer"/>
 
-                <Home  />
-                <About fluid={props.data.imageQuery.fluid}/>
-                <Blog blogs={props.data.indexBlogQuery} />
-                <Projects />
-                <Contact  />
+          <Home  />
+          <About fluid={props.data.imageQuery.fluid}/>
+          <Blog blogs={props.data.indexBlogQuery} />
+          <Projects />
+          <Contact  />
 
-            </PageLayout>
+      </PageLayout>
 
-        
     )
 
 }

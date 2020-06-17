@@ -5,19 +5,16 @@ import PageLayout from './../components/pageLayout';
 import { window } from 'browser-monads';
 import './../styles/templates/blogtemplate.scss';
 import {graphql,Link} from 'gatsby';
-import {IoLogoTwitter} from 'react-icons/io';
+import {IoLogoTwitter,IoMdArrowBack} from 'react-icons/io';
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import {IoIosArrowForward,IoIosArrowBack} from 'react-icons/io';
 
 export default function BlogTemplate(props) {
     const twitterShare=`https://www.twitter.com/intent/tweet?url=${window.location.href}&via=rohitdalal&text=${props.data.mdx.frontmatter.title}`
     
     const {frontmatter,body}=props.data.mdx;
     const {text}=props.data.mdx.fields.readingTime; //reading time
-    const {prevPost,nextPost}=props.pageContext;
-    console.log(props);
+    // const {prevPost,nextPost}=props.pageContext;
     return (
-
           <PageLayout 
               scroll={false}
               changeBlog={true}
@@ -34,20 +31,28 @@ export default function BlogTemplate(props) {
                   
                   {/* blog metadata tags,title,date,share */}
                   <div className="info">
+                    
+                    <div className="back">
+                      <Link to={`/blogs/`}>
+                        <p> <IoMdArrowBack /> go to all blogs </p>
+                      </Link>
+                    </div>
 
                     <div className="metadata">
                        
                       <h1>{frontmatter.title}</h1>
-                      <time> {frontmatter.date}   </time>
-                      <span>{text}</span>
-                      <a
-                        className="twitter" 
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        title="Share on twitter"
-                        href={twitterShare}>
-                          <IoLogoTwitter size={25}/>
-                        </a>
+                      <span className="meta"> 
+                          <time> {frontmatter.date}   </time>
+                          <span>{text}</span>
+                          <a
+                          className="twitter" 
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          title="Share on twitter"
+                          href={twitterShare}>
+                            <IoLogoTwitter size={25}/>
+                          </a>
+                      </span>
                       
                     </div>
 

@@ -81,7 +81,7 @@ module.exports.onCreateNode = async ({ node, actions,store,cache,createNodeId })
     `);
 
     //Create /tags/${tag} pages
-    const allTags=getAllTags(response.data);
+    const allTags=getAllTags(response.data.allMdx);
     Object.keys(allTags)
         .map( (tag) => {
             createPage({

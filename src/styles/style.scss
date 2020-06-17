@@ -1,17 +1,6 @@
 
 @import '/helpers/variables.scss' ;
 
-
-@font-face {
-  font-family: "Jost";
-  src: url('./../fonts/Jost/Jost-VariableFont_ital\,wght.ttf');
-}
-@font-face {
-  font-family: "Roboto";
-  src: url('./../fonts/Roboto/Roboto-Regular.ttf');
-}
-
-
 //Global
 *{
   margin: 0;
@@ -28,9 +17,7 @@ html,body{
   box-sizing: border-box;
   height: 100%;
   width: 100%;
-  max-width: 100%;
-  min-height: 100%;
-  font-family: Jost,Helvetica Neue, 'Inter', -apple-system, BlinkMacSystemFont, Helvetica, Arial,sans-serif;
+  font-family: Jost,Roboto,Helvetica Neue, 'Inter', -apple-system, BlinkMacSystemFont, Helvetica, Arial,sans-serif;
 
 }
 
@@ -56,23 +43,27 @@ a:hover{
   text-transform: none;
 }
 
-
 // Layout
 .layout{
-  width: 100%;
-  max-width: 100%;
-  min-height: 100vh;
   box-sizing: border-box;
+  width: 100%;
+  min-height:100%;
+}
+
+.main{
+  overflow: auto;
+  padding-bottom: 15vh; /*height of footer IMP */
+  min-height:100vh;
+  // height: 100vh;
 }
 
 //main-content
 .main-content{
   box-sizing: border-box;
   width: 100%;
-  max-width: 100%;
-  min-height: 100vh;
+  height: 100%;
   position: relative;
-  margin-top: 0;
+  top: 6vh;
 }
 
 // Page container
@@ -102,6 +93,7 @@ a:hover{
   // border: 1px dashed blue;
   min-height: calc(100vh - 360px);
   padding: 6vh 0 6vh 0;
+
 }
 .Wrapper:last-child{
   margin-bottom: 3rem;
@@ -111,29 +103,36 @@ a:hover{
 
 // Tags
 .Tag{
-  max-width: 150px;
+  max-width: 90px;
   text-align: center;
-  background: lightgrey;
+  background: $tag;
   border-radius: 3px;
+
   padding: .2em;
   color: black;
-  margin: 7px;
+  margin: 1em;
 }
 .Tag:hover{
-  background: darkgray;
-  color: white;
+  outline: 1px solid black;
+  border-radius: 3px;
+
 }
 
 // Themes
 .dark{
   background-color: #202020;
-  color: #fff;
+  color: $dark-text;
   transition: all 0.2s ease;
+  height: 100%;
+  min-height: 100%;
 }
 
 .light{
   transition: all 0.2s ease;
+  color:$light-text;
   background-color: rgb(236, 236, 236);
+  height: 100%;
+  min-height: 100%;
 }
 
 

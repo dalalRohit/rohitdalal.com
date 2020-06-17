@@ -1,0 +1,36 @@
+
+@font-face {
+    font-family: "Jost";
+    src: url('./../fonts/Jost/Jost-VariableFont_ital\,wght.ttf');
+}
+
+@font-face {
+font-family: "Roboto";
+src: url('./../fonts/Roboto/Roboto-Regular.ttf');
+}
+
+
+//Variables
+@import './helpers/variables.scss';
+
+//style.css
+@import './style.scss';
+
+// Components
+@import './components/about.scss';
+@import './components/blog.scss';
+@import './components/contact.scss';
+@import './components/footer.scss';
+@import './components/home.scss';
+@import './components/navbar.scss';
+@import './components/projects.scss';
+
+//Helpers
+@import './helpers/allblogs.scss';
+@import './helpers/blogcard.scss';
+@import './helpers/blogfilter.scss';
+
+// Templates
+@import './templates/blogtemplate.scss';
+@import './templates/elements.scss';
+

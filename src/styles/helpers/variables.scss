@@ -1,3 +1,23 @@
+// Colors
+$light-text:#222831;
+$dark-text:#eeeeee;
+
+$button:#00adb5;
+$button-hover:#08d9d6;
+
+$link:#3d84a8;
+$link-hover:#fcbe37;
+
+$bloglink: #33a1de;
+
+$heading:#0eb4b8;
+$hover:#fc5185;
+
+$tag:#fce38a;
+$tag-hover:rgb(231, 231, 125);
+
+$paperclip:$heading;
+
 /* Containers */
 
 $x-small: 720px;
@@ -25,13 +45,14 @@ $font-family: Helvetica Neue, 'Inter', -apple-system, BlinkMacSystemFont, Helvet
 $line-height: 1.6;
 
 // Headings
-$heading-font-color: #73a99c;
+$heading-font-color: $heading;
 $heading-font-weight: 500;
 $heading-font-family: 'Inter', -apple-system, BlinkMacSystemFont, Helvetica, Arial,
   sans-serif;
 $heading-line-height: 1.3;
 
 // Mobile heading font size
+$hero-h1-mobile:2.2rem;
 $h1-mobile: 1.85rem;
 $h2-mobile: 1.7rem;
 $h3-mobile: 1.5rem;
@@ -39,6 +60,7 @@ $h4-mobile: 1.3rem;
 $h5-mobile: 1.2rem;
 
 // Heading font size
+$hero-h1:3rem;
 $h1: 2.5rem;
 $h2: 2.1rem;
 $h3: 1.85rem;
@@ -50,21 +72,7 @@ $h5: 1.4rem;
 
 $code-color: $font-color;
 $code-size: 14px;
-$code-family: Menlo, monospace;
+$code-family: Menlo,Roboto Mono,Courier New,monospace;
 $code-background: transparent;
 
-$code-font-family: Menlo, 'Roboto Mono', Courier New, monospace;
-$code-font-color: #b3b9c5;
-$string: #92d192;
-$variable: #f2777a;
-$property: #abb2bf;
-$number: #fca369;
-$operator: #ac8d58;
-$punctuation: #d5d8df;
-$comment: #848991;
-$function: #62cfcf;
-$keyword: #ffeead;
-$attribute: #ffd479;
-$class: #e1a6f2;
-$tag: #6ab0f3;
-$error: #f2777a;
+

@@ -5,37 +5,32 @@ import AllBlogs from './../components/AllBlogs';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
 
-const Note=styled.div`
-    width:85%;
-    max-width:100%;
-    box-sizing:border-box;
-    margin:55px 7.5% 1rem 7.5%;
+const X=styled.div`
+    .note{
+        width:85%;
+        margin:1rem 7.5% 0 7.5%;
+        font-size:1.4rem;
 
-    p{
-        font-size:1.25rem;
-    }
-
-    @media(max-width:700px){
-        margin-top:66px;
+        @media screen and (max-width:620px){
+            width:100%;
+            margin:0;
+        }
     }
 `
-
 export default function Tag(props) {
     return (
         <PageLayout 
             scroll={false} 
             changeBlog={true} 
-            margin={true}
-            
+            margin={false}
             >
             
             <Head  title={`Blogs of "${props.pageContext ? props.pageContext.tag : ''}" `} info={"Rohit Dalal"} />
-            
-            <Note>
-                <p>Showing all blogs with tag "{props.pageContext.tag}" </p>
-            </Note>
+            <X>
+                <p className="note">Showing all blogs tagged "{props.pageContext.tag}" </p>
 
-            <AllBlogs blogs={props.data.blogQuery}/>
+                <AllBlogs blogs={props.data.blogQuery}/>
+            </X>
 
         </PageLayout>
     )

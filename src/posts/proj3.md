@@ -20,3 +20,4 @@ This is a simple google news clone made using GoogleNews-API
 #### Tech stack
 1. React.js
 2. Bootstrap
+3. axios

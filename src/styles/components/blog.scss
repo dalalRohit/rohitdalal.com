@@ -1,4 +1,4 @@
-@import './../helpers/variables.scss';
+// @import './../helpers/variables.scss';
 
 .Blogs{
     width: 100%;
@@ -8,9 +8,7 @@
     grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
     gap: 1em;
 
-    p{
-        font-size: 1.3rem;
-    }
+
 }
 
 .notice{
@@ -20,19 +18,21 @@
 .note{
     text-align: center;
     padding: .1em;
-
+    p{
+        font-size: 1rem;
+    }
     button{
-        background: #0ba4b8;
-    }
-    button:hover{
-        background: #0ba4b8;
+        background: $button;
         color: black;
+        &:hover{
+            background: $button-hover;
+        }
     }
-    @media (max-width:800px) {
+    @media (max-width:$tablet) {
         margin: 1.5rem 30% 1.5rem 30%;
 
     }
-    @media(max-width:620px) {
+    @media(max-width:$mobile) {
         margin: 1.5rem 30% 1.5rem 30%;
     }
 }

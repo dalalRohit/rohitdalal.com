@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
-import './../styles/components/navbar.scss';
 import Logo from './UI/logo';
 import NavItems from './helpers/nav_items';
 
@@ -39,7 +38,7 @@ export default class Navbar extends Component {
 
 
     render() {
-        const {scroll,changeBlog,offset,blogTitle,height}=this.props;
+        const {scroll,changeBlog,offset,blogTitle}=this.props;
 
         let navClass=["navbar"]
         if(this.state.scrolled){
@@ -59,47 +58,49 @@ export default class Navbar extends Component {
                         <header 
                             className="header" 
                             style={{background:navClass.length===1 ? 'inherit' : (theme.dark ? '#131313' : '#e7e7e7') }}>
-                        <div className={navClass.join(" ")}  >
 
-                            <Logo scroll={scroll} />
-                            
-                            {  blogTitle && navClass.length===2 ?
-                                    <div className="blogTitle">
-                                        <p>
-                                            {blogTitle}
-                                        </p>
-                                    </div>
-                                :null
-                            }
-                            
-                            <nav className="navigation">
+                            <div className={navClass.join(" ")}  >
+
+                                <Logo scroll={scroll} />
                                 
-                                <NavItems
-                                    scroll={scroll}
-                                    changeBlog={changeBlog}
-                                    offset={offset}
-                                    theme={theme}
+                                {  
+                                    blogTitle && navClass.length===2 ?
+                                        <div className="blogTitle">
+                                            <p>
+                                                {blogTitle}
+                                            </p>
+                                        </div>
+                                    :null
+                                }
+                                
+                                <nav className="navigation">
+                                    
+                                    <NavItems
+                                        scroll={scroll}
+                                        changeBlog={changeBlog}
+                                        offset={offset}
+                                        theme={theme}
+                                        />
+                                    
+                                    {getLogo()}
+
+                                </nav>
+
+                                <div className="toggle">
+                                    {getLogo()}
+                                </div>
+        
+                                {   
+                                    <Bottom 
+                                        scroll={scroll} 
+                                        changeBlog={changeBlog}
+                                        offset={offset}
+                                        theme={theme}
                                     />
-                                
-                                {getLogo()}
+                                }
 
-                            </nav>
-
-                            <div className="toggle">
-                                {getLogo()}
+                        
                             </div>
-     
-                            {   
-                                <Bottom 
-                                    scroll={scroll} 
-                                    changeBlog={changeBlog}
-                                    offset={offset}
-                                    theme={theme}
-                                />
-                            }
-
-                    
-                        </div>
                         </header>
                         )
                     }
@@ -114,6 +115,5 @@ Navbar.propTypes={
     display:PropTypes.string, //how to display nav-items . "row"
     scroll:PropTypes.bool,  //whether to use 'react-scroll' or 'gatsby-link',
     changeBlog:PropTypes.bool,
-    gradient:PropTypes.bool,
     offset:PropTypes.number.isRequired
 }

@@ -1,5 +1,4 @@
 import React from 'react'
-import  './../styles/components/blog.scss';
 import {Link} from 'gatsby';
 import Title from './UI/title';
 import Layout from './Layout';
@@ -15,12 +14,12 @@ export default function Blog(props) {
                 <Title path={`${name}`}>/blog</Title>
 
                 <div className="notice">
-                    <p>I like to write about javascript, web devlopement in general. <br/> Check out my blogs</p>          
+                    <p>These are my collection of blogs. I like to write about web-dev and JavaScript in general.  <br/> Check out my blogs</p>          
                     
                     <div className="note">
                         <Button variant="contained" color="primary" disableElevation>
                             <Link to={`/blogs/`} >
-                                See all blogs
+                                <p>See all blogs</p>
                             </Link>
                         </Button>
                     </div>

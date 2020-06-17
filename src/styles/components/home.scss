@@ -1,68 +1,61 @@
-@import './../helpers/variables.scss';
+// @import './../helpers/variables.scss';
 
 
 .hero{
   box-sizing: border-box;
   width: 85%;
+  position: relative;
+  // top: 6vh;
   margin: 2rem 7.5% 0 7.5%;
-  min-height: 100%;
-  height: 70vh;
+  height: 40vh;
   max-width: 100%;
   min-height: calc(100vh - 360px);
   font-size: $body-font-size;
+  // border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   //tablet
   @media screen and (max-width:$tablet) {
     width: 100%;
     margin: 0;
+    height: 60vh;
   }
 
   //mobile
   @media screen and (max-width:$mobile) {
-    width: 100%;;
+    width: 100%;
+    // top: 6.1vh;
     margin: 0;
-    height: 55vh;
+    height: 50vh;
+
   }
 }
 
-.home{
-  box-sizing: border-box;
-  width: 100%;
-  max-width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  @media (max-width:$mobile){
-    flex-flow: column;
-  }
-}
 
 
 // Main content
 .my-info{
   box-sizing: border-box;
-  width: 70%;
-  margin: 0 15% 0 15%;
+  width: 100%;
+  // margin: 0 15% 0 15%;
+  padding: .5rem;
+  // border: 1px solid red;
   text-align: center;
+
   h1{
-    font-size: 2.5rem;
+    font-size: $hero-h1;
     font-weight: lighter;
     margin: 10px;
   }
-  p{
-    font-size: 1.3rem;
-    margin: 0 0 15px 0;
-  }
 
   @media (max-width:$mobile) {
-    width: 80%;
-    margin: 0 10% 0 10%;
+    text-align: unset;
+    width: 100%;
+    margin: 0;
     h1{
-      font-size: 2rem;
-    }
-    p{
-      font-size: 1.25rem;
+      font-size: $hero-h1-mobile;
     }
   }
 }
@@ -71,16 +64,29 @@
 
 .my-intro{
   box-sizing: border-box;
-  width: 60%;
-  margin: 0 20% 0 20%;
-  padding: 1.2rem;
-  border: 1px solid rgb(11, 143, 143);
+  width: 90%;
+  // margin: 1em 20% 0 20%;
   display: flex;
+  padding: .7em;
   justify-content: center;
   align-items: center;
+  p{
+    font-size: 1.35rem;
+    margin: 0 0 1.5rem 0;
+    line-height: 2rem;
+  }
+  button{
+    background: $button;
+    margin: 15px 0 15px 0;
+    a{
+      font-size: 1.1rem;
+    }
+    &:hover{
+      background: $button-hover;
+    }
 
-
-  @media (max-width:700px){
+  }
+  @media (max-width:$mobile){
     padding: .4em;
     width: 100%;
     margin: 0;

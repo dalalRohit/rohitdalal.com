@@ -1,3 +1,7 @@
+
+@import './variables.scss';
+
+
 .filter{
     box-sizing: border-box;
     width: 85%;
@@ -20,15 +24,18 @@
     width: 70%;
     margin: 0 30% 0 0;
 }
-.tags{
+.filtertags{
+    border: 1px solid lightgrey;
     box-sizing: border-box;
+    width: 60%;
     max-width: 100%;
-    padding: .6em;
+    padding: .1em;
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
-    gap: .8em;
 
-
+    @media screen and (max-width:$mobile) {
+        width: 100%;
+    }
 }
 
 

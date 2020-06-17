@@ -1,6 +1,5 @@
 @import './../helpers/variables.scss';
 
-
 .blog{
     box-sizing: border-box;
     width: 75%;
@@ -10,14 +9,22 @@
     padding: 1rem;
     font-size: $body-font-size;
     line-height: $line-height;
+
     h1{
-        font-size: $h1;font-weight: bold;
+        font-size: $h1;
+        font-weight: bold;
     }
     h2{
-        font-size: $h2;color:$heading-font-color;font-weight: bold;
+        font-size: $h2;
+        color:$heading-font-color;
+        font-weight: bold;
     }
 
-    h3{font-size: $h3;color:$heading-font-color;}
+    h3{
+        font-size: $h3;
+        color:$heading-font-color;
+        font-weight: bold;
+    }
     h4{font-size: $h4;} 
     h5{font-size: $h5;}
 
@@ -37,15 +44,30 @@
     padding: 1rem;
     width: 100%;
     border-bottom: 1px solid lightgray;
+    display: flex;
+    flex-flow: column;
+    .back{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: .5rem;
+        margin: 0 0 1em 0;
+    }
     .metadata{
         box-sizing: border-box;
         padding: .5rem;
-        time,span{
-            border-bottom: 1px solid plum;
-            margin: 7px;
+        
+        .meta{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            time,span{
+                border-bottom: 1px solid plum;
+                margin: 7px;
+            }
         }
         .twitter{
-            margin: 1rem;
+            margin: .5rem;
             &:hover{
                 color: #00acee ;
             }
@@ -53,8 +75,16 @@
     }
 
     .tags{
+        box-sizing: border-box;
+        width: 50%;
+        padding: .1em;
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(90px,1fr));
         span{
-            margin: .4rem;
+            font-size: 16px;
+        }
+        @media screen and (max-width:$mobile){
+            width: 100%;
         }
     }
     
@@ -69,6 +99,12 @@
     max-width: 100%;
     padding: 1.67em;
 
+    p a{
+        color: $bloglink;
+        &:hover{
+            border-bottom: 1px solid red;
+        }
+    }
     //autolink headers
     h1 .anchor,h2 .anchor ,h3 .anchor {
 
@@ -81,12 +117,8 @@
         }
     }
     h1 .anchor svg,h2 .anchor svg,h3 .anchor svg {
-        fill: blueviolet;
+        fill: $paperclip;
         margin:0 5px 0 0;
-
-        &:hover{
-            fill: darkgoldenrod;
-        }
     }
 
     p{
@@ -95,21 +127,11 @@
         line-height: $line-height;
     }
 
-    pre{
-        font-size: $code-size;
-    }
-
     hr{
         width: 100%;
         margin: 30px 0 30px 0 ;
     }
-    a{
-        color: #a97380;
-    }
-    a:hover{
-        background: #b960b2;
-        color: black;
-    }
+
 
     //http://sparkandshine.net/en/insert-images-with-captions-in-markdown/
     p em{
@@ -124,14 +146,14 @@
         box-sizing: border-box;
         list-style-type: square;
         list-style-position: inside;
-        border: 1px solid #b960b2;
+        border: 1px solid lightgray;
         border-radius: 10px;
         padding: .5rem;
     }
     ol{
         box-sizing: border-box;
         list-style-position: inside;
-        border: 1px solid #b960b2;
+        border: 1px solid lightgray;
         border-radius: 10px;
         padding: .5rem;
     }

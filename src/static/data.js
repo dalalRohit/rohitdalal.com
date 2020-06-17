@@ -2,7 +2,7 @@
 const getAllTags=(data) => 
 {
     const allTags={};
-    data.allMdx.edges.filter( (edge) => {
+    data.edges.filter( (edge) => {
         let tags=edge.node.frontmatter.tags;
 
         tags.forEach( (tag) => {
@@ -22,8 +22,8 @@ const getAllTags=(data) =>
 const config={
     about:`Helllo, Nice to see you here <br/>
     I'm a full stack web devloper <br/ >
-    <i class="rohit">I'm avaliable for freelance projects and work</i> <br/>
-    I like to keep things simple and turn them into working things <br/>
+    <b class="rohit">Avaliable for freelance projects and work</b> <br/>
+    I like to keep things simple and turn them into working projects <br/>
     Contact me for any collaboration or just to say Hii ;)
     `
 }

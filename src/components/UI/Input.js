@@ -22,14 +22,14 @@ text-align:center;
 const InputBox=styled.input`
 box-sizing:border-box;
 border:none;
-border-bottom:2px solid darkblue;  
+border-bottom:2px solid golden;  
 width:65%;
 padding:.5em;
 line-height:1.5rem;
 transition: all 0.1s ease;
 
 &:focus{
-    outline:2px solid darkblue;  
+    outline:2px solid plum;  
 }
 `
 
@@ -40,12 +40,15 @@ function Input(props) {
 
     return (
         <InputWrapper>
-            <Label >{label ? label : 'label'}</Label>
+            <Label htmlFor={name} >{label ? label : 'label'}</Label>
             <InputBox
-                required
+                required={true}
                 autoComplete="off"
+                aria-label={label}
+                aria-required="true"
                 type={type}
                 value={value}
+                id={name}
                 name={name}
                 onChange={inputChange}
                 placeholder={`Enter your ${name} here..`}

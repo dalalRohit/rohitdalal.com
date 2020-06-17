@@ -1,17 +1,21 @@
 .footer{
     width: 100%;
-    max-width: 100%;
-    margin-top: auto;
     box-sizing: border-box;
     display: flex;
-    clear: both;
     position: relative;
     bottom: 0;
+    height: 15vh;
+    margin-top: -15vh;
+    clear: both;
+    margin: 0;
+    // border: 1px solid red;
+   
     flex-flow: column;
     p{
-        font-size: 1.35rem;;
+        font-size: 1.35rem;
+        border: none;
+        background: none;
     }
-    border-top: 1px solid #b1b1b1;
 
 
 }
@@ -22,6 +26,11 @@
     margin: 1em;
     a{
         cursor: pointer;
+    }
+    button{
+        border: none;
+        background: none;
+        color: inherit;
     }
 }
 

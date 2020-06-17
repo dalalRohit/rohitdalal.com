@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components';
-import rohit from './../../images/logo.svg';
+import rohit from './../../images/sunglasses.svg';
 import {Link} from 'gatsby';
-import {Link as ScrollLogo} from 'react-scroll';
 
 const Logo=styled.div`
     box-sizing:border-box;
@@ -10,9 +9,9 @@ const Logo=styled.div`
     height:100%;
     display:flex;
     align-items:center;
-    padding:.5em;
+    // padding:.5em;
     img{
-        margin:0 10px 0 10px;
+        margin:0 10px 0 0;
         cursor:pointer;
         width:40px;
         height:40px;
@@ -41,28 +40,15 @@ const Logo=styled.div`
 `
 
 export default function logo(props) {
+    const altTitle="Rohit Dalal | Full Stack developer";
     return (
         <>
-            {
-                props.scroll ? (
-                        <ScrollLogo to="Home" >
-                            <Logo>
-                                <img src={rohit}/>
-                                <p>Rohit Dalal</p>
-                            </Logo>
-                        </ScrollLogo>
-                )
-                :
-                (
-                    <Link to="/">
-                        <Logo>
-                            <img src={rohit}/>
-                            <p>Rohit Dalal</p>
-                        </Logo>
-                    </Link>
-                )
-            }
-            
+            <Link to="/" alt={altTitle} title={altTitle}>
+                <Logo>
+                    <img src={rohit} alt={altTitle} title={altTitle}/>
+                    <p>Rohit Dalal</p>
+                </Logo>
+            </Link>        
         </>
     )
 }

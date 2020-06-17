@@ -1,5 +1,4 @@
 import React,{useRef} from 'react'
-import './../styles/style.scss';
 import PropTypes from 'prop-types';
 export default function Layout(props) {
 

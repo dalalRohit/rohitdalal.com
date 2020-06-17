@@ -17,6 +17,7 @@ const CardDiv=styled.div`
     flex-flow:column;
     align-items:center;
     justify-content:space-around;
+    transition:all 0.2s ease;
 
     h3{
         border-bottom:1px solid plum;
@@ -25,7 +26,7 @@ const CardDiv=styled.div`
         padding:.8rem;
     }
     &:hover{
-        outline:2px solid gray;
+        box-shadow:5px 8px #888888;
     }
 
     button{
@@ -48,7 +49,7 @@ const CardDiv=styled.div`
         })
     }
     render(){
-        const {title,tags,html,desc} = this.props;
+        const {title,html,desc} = this.props;
         return (
             <div>
                 <Modal 

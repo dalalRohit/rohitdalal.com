@@ -15,9 +15,9 @@ const Blogs=(props) => {
                 scrollHeight={20} >
 
                 <Head title="Blogs" info="Rohit Dalal" />
-                <BlogFilter />                 
+                <BlogFilter data={props.data.blogsQuery} />                 
                 <AllBlogs  
-                    margin={true}
+                    // margin={true}
                     blogs={props.data.blogsQuery} />
                     
             </PageLayout>

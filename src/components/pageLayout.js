@@ -2,7 +2,7 @@ import React,{useEffect,useState} from "react"
 import {window} from 'browser-monads';
 import Navbar from './../components/Navbar';
 import Footer from './../components/Footer';
-import './../styles/style.scss';
+import './../styles/main.scss';
 import PropTypes from 'prop-types';
 import ThemeContext from '../context/context'
 
@@ -23,7 +23,7 @@ function PageLayout(props) {
       })
     })
 
-    const {scroll,changeBlog,blogTitle,margin,extraheight,scrollHeight}=props;
+    const {scroll,changeBlog,blogTitle,margin,scrollHeight}=props;
 
     return (
       <ThemeContext.Consumer>
@@ -34,23 +34,34 @@ function PageLayout(props) {
 
 
             return (
-            <div className={x.join(" ")} >
-
-              <Navbar 
-                  scroll={scroll} 
-                  offset={width < 700 ? -33 : -60}
-                  changeBlog={changeBlog}
-                  blogTitle={blogTitle}
-                  // height={extraheight}
-                  scrollHeight={scrollHeight}
-              />
+            <div className={theme.dark ? 'dark' : 'light'} >
               
-              <main className="main-content" style={{marginTop:margin===true ? "7vh" : "0px"}} >
-                {props.children}
-              </main>
-              
-              <Footer />
+              <div className="layout">
 
+                <div className="main">
+                  <Navbar 
+                      scroll={scroll} 
+                      offset={width < 700 ? -33 : -60}
+                      changeBlog={changeBlog}
+                      blogTitle={blogTitle}
+                      scrollHeight={scrollHeight}
+                  />
+                  
+                  <main className="main-content" >
+                    {props.children}
+
+                    {/* <div> BODY </div> */}
+
+                  </main>
+                </div>
+                
+                <footer>
+                  <Footer />
+                </footer>
+
+              </div>
+
+            
             </div>
 
             )

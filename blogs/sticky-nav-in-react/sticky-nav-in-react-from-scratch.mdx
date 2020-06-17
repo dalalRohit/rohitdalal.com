@@ -10,19 +10,13 @@ date: 2020-05-19
 
 
 
-In many modern websites you must have seen this effect of Navigation bar/ Header sticking to the top of the page even if you scroll down the page for your better navigation so you don't have to go up always to choose between links for moving between links. Haven't you?
+In many modern websites you must have seen this effect of Navigation bar/ Header sticking to the top of the page even if you scroll down the page for your better navigation so you don't have to go up always to choose between links for moving between the pages. Haven't you?
 
 If you have and are curious about how does that work, then this post is your go to guide to create that very simple yet beautiful effect/feature for you next project which adds better UX to the page.
-
-We are going to be using <code>react</code> in this tutorial with some little state management. Although, if you are pretty well in Web Technologies, you can convert this logic in any of the framework you like. Totally flexible!
-
-If you are not that comfy with react, don't worry about it. You can just follow along. I have tried to use minimal of technical jargons. Logic is pretty explanatory
 
 What are you  waiting for? Let's get started 🚀
 
  <br/>
-
-<hr/>
 
 
 
@@ -42,7 +36,7 @@ create-react-app sticky-navbar
 
 We are going to delete some of the files created out of the box from create-react-app. After deleting some files, project directory will look like this:
 
-![File structure](./file-structure.png)
+![File structure](./file-structure.PNG)
 
 *Starting file structure*
 
@@ -84,17 +78,13 @@ import Logo from './../img/logo.svg';
 const Navbar=() => {
   return (
     <header className={navbarClasses.join(" ")}>
+          
         <div className="logo">
-          <img src={Logo} alt="Logo" title="Logo" />
+			{/* your logo */}
         </div>
 
         <nav className="navigation">
-            <ul>
-              <li>Home</li>
-              <li>Home</li>
-              <li>Home</li>
-              <li>Home</li>
-            </ul>
+			{/* your navigation */}
         </nav>
         
     </header>
@@ -105,16 +95,13 @@ export default Navbar;
 
 ```
 
-Now, it's time to give some styling to the page. You can have your own set of styling or if you just wanna you use mine, copy below given styles to <code>navbar.scss</code>
-
-I'm using SASS here for styling. If you are not comfortable with SASS, you can use normal CSS3 syntax. Works same!
+Now, it's time to give some styling to the page. You can have your own set of styling or if you just want to use mine, copy below given styles to <code>navbar.scss</code>
 
 ```scss
 //navbar.scss
 
 .navbar{
   width: 100%;
-  max-width: 100%;
   min-height: 6vh;
   box-sizing: border-box;
   display: flex;
@@ -124,43 +111,19 @@ I'm using SASS here for styling. If you are not comfortable with SASS, you can u
   transition: all .7s ease-in;
 }
 
+//IMPORTANT
 .scrolled{
   position: fixed;
   top: 0;
   left: 0;
   background-color: lightblue;
-  width: 80%;
-  margin: 0 10% 0 10%;
 }
 .logo img{
   width: 50px;
 }
 
 .navigation{
-  ul{
-    box-sizing: border-box;
-    list-style-type: none;
-    display: flex;
-    min-height: 6vh;
-    justify-content: flex-end;
-    align-items: center;
-
-    li{
-      text-align: center;
-      padding: .5em;
-      cursor: pointer;
-      &:hover{
-        background-color: plum;
-        color: white;
-      }
-    }
-
-    li a{
-      text-decoration: none;
-      color: inherit;
-    }
-
-  }
+	//your navigation styles
 }
 
 ```
@@ -178,14 +141,19 @@ import React from 'react';
 import './content.scss';
 
 const Content=() => {
-  const data=`<replace-your-long-dummy-text/any content-here>`;
+  const data=(
+  	<div className="box">
+  		<h2>My div content </h2>
+  	</div>
+  );
 
   return (
-    <main className="content">
-      <p id="post1" >{data}</p>
-      <p id="post2" >{data}</p>
-      <p id="post3" >{data}</p>
-      <p id="post4" >{data}</p>
+	<main className="content">
+	    {data}
+	    {data}
+	    {data}
+	    {data}
+	    {data}
     </main>
   )
 }
@@ -222,16 +190,17 @@ After all this setup, our page will look like this:
 
 ### Main Logic 
 
-Now that we have our meat setup for the Sticky navbar, we will add the main Logic to get the upper navbar stick to the top as you scroll down. For this we are going to do little bit of state-management using [React hooks](https://reactjs.org/docs/hooks-intro.html). If you are not aware of react-hooks, don't worry about it. You can use normal state management with classful component too. The logic remains the same. 
+Now that we have our meat setup for the Sticky navbar, we will add the main Logic to get that sticky effect. For this we are going to do little bit of state-management using [React hooks](https://reactjs.org/docs/hooks-intro.html). If you are not aware of react-hooks, don't worry about it. You can use normal state management with classful component too.  
 
-So, the idea is as you scroll down, you check if the scrollTop (i.e. total height you have scrolled from the  top in pixels ) in <code>componentDidMount()</code> or <code>useEffect()</code> and based on some <b>fixed</b> value of that offset, you change the class of navbar to apply styles which hooks it up to the top. Here in my case, as you can see on line 10 of the below code, I'm checking if offset > 200. If that value is greater than 200, I'm setting <code>scrolled </code> to true. This 200px is some fixed offset, which changes according to your application. Now, whenever the user scrolls more than 200px from top, I'm adding "scrolled" to  navbarClasses.
+So, the idea is as you scroll down, you check for the scrollY (i.e. total height you have scrolled from the  top in pixels ) in <code>componentDidMount()</code> or <code>useEffect()</code> using window.scrollY and if that scrolled height is greater than some value, say **200px** in this case, then we change the class of our Navbar to <code>navbar scrolled</code>. Styles for .scrolled is already in your navbar.scss if you have copied my styles. I have used array approach to switch between classes from navbar to navbar scrolled. 
 
 Confused ?
 
 ```jsx
+//Navbar.js
+
 import React,{useEffect} from 'react';
 import './navbar.scss';
-import Logo from './../img/logo.svg';
 
 const Navbar=() => {
   const [scrolled,setScrolled]=React.useState(false);
@@ -245,6 +214,7 @@ const Navbar=() => {
       setScrolled(false);
     }
   }
+   
   useEffect(() => {
     window.addEventListener('scroll',handleScroll)
   })
@@ -254,7 +224,9 @@ const Navbar=() => {
     navbarClasses.push('scrolled');
   }
   
-   /*rest remains the same*/
+   return (
+   	/* rest remains same*/
+   )
 };
 
 export default Navbar;
@@ -263,13 +235,15 @@ export default Navbar;
 
 
 
+In this way, we have successfully created our simple sticky Navbar from scratch.
 
-
-
+If you want to look at the complete code, check my [GitHub ](https://github.com/dalalRohit/sticky-navbar-tutorial) repo.    
 
 ## Conclusion
 
 This was all for this simple demo application. I hope this post was helpful to you and I've solved your problem by explaining it in your words. If you have any queries regarding this post, feel free to ask me personally. I will be happy to answer those on individual level.
 
 Thank you. Have a nice day!
+
+
 

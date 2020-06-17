@@ -11,9 +11,7 @@ const Nav=styled.div`
     left:0rem;
     bottom:0rem;
     min-height:6vh;
-    display:flex;
-    justify-content:space-around;
-    align-items:center;
+    display:none;
     z-index:100;
 
     a{
@@ -24,8 +22,10 @@ const Nav=styled.div`
         font-size:1.1rem;
     }
 
-    @media(min-width:620px){
-        display:none;
+    @media(max-width:620px){
+        display:flex;
+        justify-content:space-around;
+        align-items:center;
     }
 `
 

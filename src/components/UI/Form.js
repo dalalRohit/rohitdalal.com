@@ -4,7 +4,6 @@ import {Button} from '@material-ui/core'
 import styled from 'styled-components';
 import axios from 'axios';
 import Modal from './modal';
-import { useForm } from "react-hook-form";
 
 const FormDiv=styled.div`
     box-sizing:border-box;
@@ -24,12 +23,9 @@ const FormBtn=styled.div`
     margin-top:10px;
 
     button{
-        background:#0ba4b8;
-        color:white;
-        
+        background:#00adb5;        
         &:hover{
-            background:#5a9aa3;
-            color:black;
+            background:#08d9d6;
         }
     }
     button:disabled{
@@ -37,8 +33,8 @@ const FormBtn=styled.div`
     }
 
 `
-// const { register, handleSubmit, watch, errors } = useForm();
-const mailApi='https://rohitmailapi.herokuapp.com/'
+const mailApi='https://rohitmailapi.herokuapp.com/send';
+
 class Form extends Component{
     
     state={
@@ -71,22 +67,24 @@ class Form extends Component{
             return;
         }
         else{
-            axios.post(`${mailApi}send`,{name,email,contact,message},{
+            axios.post(`${mailApi}`,{name,email,contact,message},{
                 'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json',
               })
                 .then( (res) => {
+                    console.log(res);
                     this.setState({
                         status:true,
                         process:false
                     })
                 })
                 .catch( (err) => {
+                    console.log(err);
                     this.setState({
                         status:false,
                         process:false
                     })
-                    alert('Type correct Mail address..')
+                    alert('Email sending failed. Try again please ;)')
                 })
         }
         
@@ -108,16 +106,17 @@ class Form extends Component{
 
         return (
             <FormDiv>
-                <MainForm onSubmit={this.onButtonClick}>
+                <MainForm onSubmit={this.onButtonClick} netlify>
                     <Modal
                         header={this.state.status ? "Mail sent succesfully!" : "Mail failed to deliver ;("}
                         height='20%'
                         show={this.state.status}
                         click={this.modalHandler}>
+                    
                     {
-                    this.state.status ?
-                    <p>You will be contacted soon. <br/> I hope you've given your actual number and mail  ;)</p> :
-                    <p>Mail sending failed ;(</p>
+                        this.state.status ?
+                        <p>You will be contacted soon. <br/> I hope you've given your actual number and mail  ;)</p> :
+                        <p>Mail sending failed ;(</p>
                     }   
 
                     </Modal>
@@ -148,7 +147,8 @@ class Form extends Component{
                                 type="submit"
                                 onClick={this.onButtonClick}
                                 disabled={this.state.process===true ? true : false }
-                                >Shoot Mail</Button>
+                                >{this.state.process===true ? "Sending... " : "Shoot mail" }
+                                </Button>
                         </FormBtn>
                     </div>
     

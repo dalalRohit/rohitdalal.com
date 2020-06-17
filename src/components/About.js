@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Layout from './Layout';
 
-import './../styles/components/about.scss';
 import {config} from './../static/data';
 import Photo from './UI/image';
 import Title from './UI/title';
@@ -14,12 +13,11 @@ export default class About extends Component {
         return (
             <Layout name={name} id={name}>
 
-
                 <Title path={name}>/about</Title>
                 
                 <section className="about">
 
-                    <div className="info">
+                    <div className="myinfo">
                         
                         <div className="my-photo">
                             <Photo fluid={this.props.fluid} />
@@ -51,11 +49,13 @@ export default class About extends Component {
   
                         </div>
                         <div>
-                            <h2>Skills </h2>
+                            <h2>Non-work </h2>
                             <ul>
-                                <li>Responsive web design</li>
-                                <li></li>
-                                <li>Back end</li>
+                                <li>Football <span role="img" aria-label="football">⚽</span> </li>
+                                <li>Music <span role="img" aria-label="music" >🎧 </span> </li>
+                                <li>Coffee <span role="img" aria-label="coffee" >☕ </span> </li>
+                                <li>Sleep <span role="img" aria-label="sleep" >💤 </span> </li>
+                                <li>Chess <span role="img" aria-label="chess" >♟️ </span>  </li>
                             </ul>
   
                         </div>

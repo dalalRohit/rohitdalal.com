@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 
-import  './../styles/components/footer.scss';
 import {IoMdHeart,IoIosArrowUp} from 'react-icons/io';
-import { Link , Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import {  animateScroll as scroll} from 'react-scroll'
 export default class Footer extends Component {
 
     top=() =>{
@@ -10,14 +9,14 @@ export default class Footer extends Component {
     }
     render() {
         return (
-            <footer className="footer">
+            <div className="footer">
                 
                 <div className="first">
                     <p>Rohit Dalal &copy; {new Date().getFullYear()} </p>
 
-                    <a onClick={this.top} alt="Go to top arrow" title="Go to top">
+                    <button onClick={this.top} alt="Go to top arrow" title="Go to top">
                          <IoIosArrowUp size={25}  />
-                    </a>
+                    </button>
                 </div>
 
                 <div className="second">
@@ -25,7 +24,7 @@ export default class Footer extends Component {
                 </div>
 
 
-            </footer>
+            </div>
         )
     }
 }

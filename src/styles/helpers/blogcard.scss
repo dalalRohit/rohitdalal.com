@@ -10,11 +10,16 @@
     justify-content: space-evenly;
     align-items: center;
     max-width: 350px;
+    transition: all 0.2s ease;
     .blogImg{
         box-sizing: border-box;
         // border: 1px solid purple;
         width: 100%;
+        margin-top: 0;
+    }
 
+    &:hover{
+        box-shadow:5px 8px #888888 ;
     }
 }
 .blogTags{
@@ -36,9 +41,10 @@
     align-items: center;
     p{
         margin: 0;
-        color: rgb(11, 164, 184);
         font-size: $body-font-size;
-
+    }
+    a:hover{
+        color: $hover;
     }
 
     
