@@ -24,6 +24,14 @@ module.exports = {
 
   // Plugins array
   plugins: [
+    //analytics
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // replace "UA-XXXXXXXXX-X" with your own Tracking ID
+        trackingId: "UA-147344129-1",
+      },
+    },
 
     // Sharp plugin
     `gatsby-plugin-sharp`,
