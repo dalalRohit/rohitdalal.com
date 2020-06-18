@@ -19,7 +19,7 @@
     }
 
     &:hover{
-        box-shadow:5px 8px #888888 ;
+        box-shadow:5px 5px #888888 ;
     }
 }
 .blogTags{
@@ -44,7 +44,7 @@
         font-size: $body-font-size;
     }
     a:hover{
-        color: $hover;
+        color: $link;
     }
 
     

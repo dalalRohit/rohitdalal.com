@@ -72,7 +72,6 @@ class Form extends Component{
                 'Content-Type': 'application/json',
               })
                 .then( (res) => {
-                    console.log(res);
                     this.setState({
                         status:true,
                         process:false
@@ -122,7 +121,6 @@ class Form extends Component{
                     </Modal>
                     
                     <div style={{textAlign:'center'}} >
-                    <input type="hidden" value="something" />
                         {
         
                             data.map( (input) => {

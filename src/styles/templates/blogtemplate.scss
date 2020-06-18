@@ -99,6 +99,16 @@
     max-width: 100%;
     padding: 1.67em;
 
+    code{
+        background: bisque;
+        border-width: 1px;
+        border-style: solid;
+        border-color: burlywood;
+        border-image: initial;
+        padding: .1rem .2rem;
+        border-radius: 3px;
+        color: black;
+    }
     p a{
         color: $bloglink;
         &:hover{

@@ -47,7 +47,7 @@ const Tags=() => {
             }
         }
     `)
-    const allTags=getAllTags(data);
+    const allTags=getAllTags(data.allMdx);
 
     return (
         <PageLayout  scroll={false} changeBlog={true} >

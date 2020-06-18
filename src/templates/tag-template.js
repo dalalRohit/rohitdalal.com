@@ -23,6 +23,7 @@ export default function Tag(props) {
             scroll={false} 
             changeBlog={true} 
             margin={false}
+            scrollHeight={20}
             >
             
             <Head  title={`Blogs of "${props.pageContext ? props.pageContext.tag : ''}" `} info={"Rohit Dalal"} />

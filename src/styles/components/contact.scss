@@ -48,6 +48,20 @@
     }
 }
 
+.built{
+    width: 100%;
+    margin: 1rem 0 1rem 0;
+    padding: 1rem;
+
+    a{
+        color: $link;
+        &:hover{
+            color: $hover;
+            border-bottom: 1px solid plum;
+        }
+    }
+}
+
 
 
 @media (max-width:700px){

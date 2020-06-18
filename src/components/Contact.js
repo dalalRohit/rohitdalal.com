@@ -22,7 +22,7 @@ export default class Contact extends Component {
 
                 <Title path={name}>/contact</Title>
 
-                <main className="contact">
+                <div className="contact">
                     <div className="form">
                         <div className="msg">
                             <p>Can discuss work,football,coffee ;)</p>
@@ -53,9 +53,16 @@ export default class Contact extends Component {
                                 }))
                             }
                         </div>
+
+                        <div className="built">
+                            <p>Built with <a href="https://www.gatsbyjs.org" target="_blank">Gatsby</a>,
+                            hosted on <a href="https://www.netlify.com" target="_blank">Netlify</a> </p>
+                        </div>
+
                     </div>
-                
-                </main>
+                            
+
+                </div>
 
 
 

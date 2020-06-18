@@ -73,8 +73,12 @@ function PageLayout(props) {
 }
 
 PageLayout.propTypes={
-    scroll:PropTypes.bool,
-    children:PropTypes.node.isRequired
+    scroll:PropTypes.bool, //to show navbar scroll/link
+    children:PropTypes.node.isRequired,
+    scrollHeight:PropTypes.number.isRequired, //after scrollHeight, .scrolled to navbar
+    changeBlog:PropTypes.bool.isRequired, //blog->Blogs
+    blogTitle:PropTypes.string, //blogtitle
+
 }
 
 

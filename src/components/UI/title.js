@@ -9,6 +9,10 @@ const Name=styled.h1`
     a{
         color:inherit;
         text-decoration:none;
+
+        &:hover{
+            color:#3d84a8;
+        }
     }
 
 `

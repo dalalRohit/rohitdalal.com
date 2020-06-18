@@ -7,6 +7,14 @@ import React from 'react';
 
 const components = {
 
+  a:props => {
+    return (
+      <a href={props.href} target="_blank" rel="noopener noreferrer" alt={props.children} title={props.href}>
+        {props.children}
+      </a>
+    )
+  },
+
   aside:props => {
     return (
       <aside className="blog-note">

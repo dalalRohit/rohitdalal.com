@@ -40,7 +40,7 @@ const Logo=styled.div`
 `
 
 export default function logo(props) {
-    const altTitle="Rohit Dalal | Full Stack developer";
+    const altTitle="Rohit Dalal | Full Stack Devloper";
     return (
         <>
             <Link to="/" alt={altTitle} title={altTitle}>

@@ -1,6 +1,7 @@
 const { createRemoteFileNode } = require("gatsby-source-filesystem")
 const path=require('path');
 const {getAllTags}=require('./src/static/data')
+
 if (process.env.NODE_ENV === 'development') {
     process.env.GATSBY_WEBPACK_PUBLICPATH = '/'
 }
