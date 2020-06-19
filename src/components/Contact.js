@@ -26,7 +26,7 @@ export default class Contact extends Component {
                     <div className="form">
                         <div className="msg">
                             <p>Can discuss work,football,coffee ;)</p>
-                            <p>Shoot mail if you want to colaborate <span role="img" aria-label="rocket" >🚀</span> </p>
+                            <p>Shoot mail if you want to collaborate <span role="img" aria-label="rocket" >🚀</span> </p>
                         </div>
                         <Form/>
                     </div>
@@ -38,7 +38,7 @@ export default class Contact extends Component {
                             {
                                 data.map( ( (link) => {
                                     return (
-                                        <li key={Math.random()}>
+                                        <span key={Math.random()}>
                                             <a 
                                                 rel="noopener noreferrer"
                                                 title={`${link.name} | Rohit Dalal` } 
@@ -48,7 +48,7 @@ export default class Contact extends Component {
                                                     
                                                 {link.icon}
                                             </a>
-                                        </li>
+                                        </span>
                                     )
                                 }))
                             }

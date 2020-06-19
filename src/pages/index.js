@@ -1,4 +1,5 @@
 import React from "react"
+import SEO from './../components/seo';
 
 import PageLayout from './../components/pageLayout';
 import {graphql} from 'gatsby';
@@ -19,7 +20,11 @@ const IndexPage = (props) => {
           scrollHeight={200}
           extraheight={false}                
           >
-          <Head title={"Rohit Dalal"} info="Full Stack Web Developer"/>
+          <SEO 
+            title="Rohit Dalal | Full Stack Software Developer"
+            image={props.data.logoQuery.fixed} />
+
+          <Head title={"Rohit Dalal"} info="Full Stack Software Developer"/>
 
           <Home  />
           <About fluid={props.data.imageQuery.fluid}/>
@@ -77,6 +82,14 @@ export const indexBlogQuery=graphql`
           ...GatsbyImageSharpFixed_tracedSVG
         }
       },
+
+      logoQuery:imageSharp(fluid:{originalName:{eq:"icon_512.png"}}){
+        fixed{
+          src,
+          width,
+          height
+        },
+      }
 
   }
 `

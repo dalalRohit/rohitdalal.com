@@ -20,9 +20,9 @@ const getAllTags=(data) =>
 
 
 const config={
-    about:`Helllo, Nice to see you here <br/>
-    I'm a self-taught full stack web devloper <br/ >
-    <b class="rohit">Avaliable for freelance projects and work</b> <br/>
+    about:`Hello, Nice to see you here <br/>
+    I'm a self-taught Full Stack Software Developer <br/ >
+    <b class="rohit">Available for freelance projects and work</b> <br/>
     I like to keep things simple.
     Contact me for any collaboration or just to say Hii ;)
     `

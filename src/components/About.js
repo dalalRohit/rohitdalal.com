@@ -32,7 +32,7 @@ export default class About extends Component {
                         <div>
                             <h2>What I do?</h2>
                             <ul>
-                                <li>Web devlopement</li>
+                                <li>Web development</li>
                                 <li>Front end</li>
                                 <li>Back end</li>
                             </ul>

@@ -4,6 +4,7 @@ import PageLayout from './../components/pageLayout';
 import AllBlogs from './../components/AllBlogs';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
+import SEO from './../components/seo';
 
 const X=styled.div`
     .note{
@@ -25,7 +26,7 @@ export default function Tag(props) {
             margin={false}
             scrollHeight={20}
             >
-            
+            <SEO title={`Blogs of ${props.pageContext.tag} | Rohit Dalal`} />
             <Head  title={`Blogs of "${props.pageContext ? props.pageContext.tag : ''}" `} info={"Rohit Dalal"} />
             <X>
                 <p className="note">Showing all blogs tagged "{props.pageContext.tag}" </p>

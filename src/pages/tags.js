@@ -5,6 +5,7 @@ import {getAllTags} from './../static/data';
 import {useStaticQuery,graphql,Link} from 'gatsby';
 import styled from 'styled-components';
 import {IoMdArrowBack} from 'react-icons/io';
+import SEO from './../components/seo';
 
 const TagsContainer=styled.div`
     width:100%;
@@ -51,6 +52,8 @@ const Tags=() => {
 
     return (
         <PageLayout  scroll={false} changeBlog={true} >
+            <SEO />
+            
             <Head title={"Blogs Categories"} info={"Rohit Dalal"} />
             
             <TagsContainer>

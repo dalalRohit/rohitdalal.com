@@ -4,6 +4,8 @@ import AllBlogs from './../components/AllBlogs';
 import PageLayout from './../components/pageLayout';
 import Head from './../components/helpers/head';
 import BlogFilter from './../components/helpers/BlogFilter';
+import SEO from './../components/seo';
+
 import {graphql} from 'gatsby';
 
 const Blogs=(props) => {
@@ -13,7 +15,10 @@ const Blogs=(props) => {
                 changeBlog={false}
                 margin={true} 
                 scrollHeight={20} >
-
+                  
+                <SEO 
+                  title="Blogs | Rohit Dalal" />
+                  
                 <Head title="Blogs" info="Rohit Dalal" />
                 <BlogFilter data={props.data.blogsQuery} />                 
                 <AllBlogs  

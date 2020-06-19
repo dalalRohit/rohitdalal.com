@@ -1,5 +1,6 @@
 import React from 'react'
 import Head from './../components/helpers/head';
+import SEO from './../components/seo';
 
 import PageLayout from './../components/pageLayout';
 import { window } from 'browser-monads';
@@ -9,10 +10,13 @@ import {IoLogoTwitter,IoMdArrowBack} from 'react-icons/io';
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
 export default function BlogTemplate(props) {
-    const twitterShare=`https://www.twitter.com/intent/tweet?url=${window.location.href}&via=rohitdalal&text=${props.data.mdx.frontmatter.title}`
+    const {frontmatter,featuredImg,body,fields}=props.data.mdx;
+
+    const twitterShare=`https://www.twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&via=rohitdalal&text=${encodeURIComponent(frontmatter.title)}`
     
-    const {frontmatter,body}=props.data.mdx;
-    const {text}=props.data.mdx.fields.readingTime; //reading time
+    const image=featuredImg ? featuredImg.childImageSharp.fixed : null;
+
+    const readingTime=fields.readingTime.text; //reading time
     // const {prevPost,nextPost}=props.pageContext;
     return (
           <PageLayout 
@@ -23,6 +27,13 @@ export default function BlogTemplate(props) {
               extraheight={true}
               scrollHeight={20}
             >
+            
+            <SEO 
+              title={`${frontmatter.title} | Rohit Dalal`}
+              description={body.excerpt} 
+              image={image}
+              postNode={props.data.mdx}
+              postSEO />
 
             <Head title={frontmatter.title} info={"Rohit Dalal"} />
 
@@ -43,7 +54,7 @@ export default function BlogTemplate(props) {
                       <h1>{frontmatter.title}</h1>
                       <span className="meta"> 
                           <time> {frontmatter.date}   </time>
-                          <span>{text}</span>
+                          <span>{readingTime}</span>
                           <a
                           className="twitter" 
                           target="_blank"
@@ -132,11 +143,17 @@ export const query=graphql`
             childImageSharp{
               fluid{
                 ...GatsbyImageSharpFluid
+              },
+              fixed{
+                src,
+                width,
+                height
               }
             }
           }
           body,
-          rawBody
+          rawBody,
+          excerpt(pruneLength: 150),
           fields{
             readingTime{
               text

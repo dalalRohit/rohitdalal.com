@@ -15,7 +15,7 @@ const Home=(props) => {
                     <div className="my-info">
 
                         <div className="brand">
-                            <h1> Namaste, I'm Rohit <span role="img" aria-label="handwave">👋 </span> </h1>
+                            <h1> Namaste, I'm Rohit <span role="img" aria-label="folded hands">🙏 </span> </h1>
                         </div>
 
                         <div className="my-intro">
