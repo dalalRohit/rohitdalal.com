@@ -172,7 +172,7 @@ module.exports = {
         background_color: `#2e3b4c`,
         theme_color: `#134a47`,
 
-        icon:`${__dirname}/src/images/sunglasses.svg`,
+        icon:`${__dirname}/src/images/logo.png`,
         crossOrigin:`use-credentials`,
         display:"standalone",
         scope:"/"

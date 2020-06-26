@@ -67,7 +67,6 @@ export const indexBlogQuery = graphql`
                 }
             }
         }
-
         imageQuery: imageSharp(
             fluid: { originalName: { eq: "rohit-og-min.png" } }
         ) {
@@ -78,7 +77,6 @@ export const indexBlogQuery = graphql`
                 ...GatsbyImageSharpFixed_tracedSVG
             }
         }
-
         logoQuery: imageSharp(fluid: { originalName: { eq: "icon_512.png" } }) {
             fixed {
                 src
