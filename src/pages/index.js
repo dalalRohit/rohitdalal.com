@@ -77,7 +77,7 @@ export const indexBlogQuery = graphql`
                 ...GatsbyImageSharpFixed_tracedSVG
             }
         }
-        logoQuery: imageSharp(fluid: { originalName: { eq: "icon_512.png" } }) {
+        logoQuery: imageSharp(fluid: { originalName: { eq: "logo.png" } }) {
             fixed {
                 src
                 width
