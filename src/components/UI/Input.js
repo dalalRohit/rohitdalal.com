@@ -1,21 +1,24 @@
 import React from 'react'
 import styled from 'styled-components';
-    
+// import TextField from '@material-ui/core/TextField';
+
 const InputWrapper=styled.div`
 box-sizing:border-box;
 width:100%;
 max-width:100%;
 padding:1em;
 display:flex;
+justify-content:space-between;
 align-items:center;
+
 `
 
 const Label=styled.label`
 box-sizing:border-box;
-width:30%;
+width:auto;
+margin:0;
 padding:.5em;
-font-weight:550;
-font-size:1.2rem;
+font-size:1.1rem;
 text-align:center;
 `
 
@@ -35,7 +38,9 @@ transition: all 0.1s ease;
 
 function Input(props) {
 
-
+    const classes={
+        color:'white',
+    }
     const { value,name,label,type,inputChange} = props;
 
     return (
@@ -53,6 +58,18 @@ function Input(props) {
                 onChange={inputChange}
                 placeholder={`Enter your ${name} here..`}
             />
+
+            {/* <TextField 
+                label={label}
+                variant="outlined"
+                type={type}
+                value={value}
+                id={name}
+                name={name}
+                onChange={inputChange}
+                placeholder={`Enter your ${name} here..`}
+     
+            /> */}
         </InputWrapper>
     )
 }

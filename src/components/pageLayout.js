@@ -6,6 +6,12 @@ import './../styles/main.scss';
 import PropTypes from 'prop-types';
 import ThemeContext from '../context/context'
 
+
+if (window) {
+  // eslint-disable-next-line global-require
+  require("smooth-scroll")('a[href*="#"]')
+}
+
 function PageLayout(props) {
     const [width,setWidth]=useState(window.innerWidth);
 

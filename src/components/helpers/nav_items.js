@@ -1,46 +1,28 @@
 import React from 'react'
-
 import {Link} from 'gatsby';
 import PropTypes from 'prop-types';
-import {Link as ScrollLink} from 'react-scroll';
 
 export default function NavItems(props) {
 
     let links=['About',props.changeBlog ? 'Blogs' : 'Blog','Projects','Contact']
     
-    const scrollProps={
-        offset:props.offset,
-        smooth:true,
-        spy:true,
-        duration:300,
-        isDynamic:true,
-    }
 
-    
-    /*
-        //https://stackoverflow.com/questions/44375093/handling-scroll-animation-in-react
-        const click=(link) => {
-            document.querySelector(`#${link}`).scrollIntoView({ behavior: 'smooth' });
-        }
-    */
     return (
         <ul className="ul">
             {
                 links.map( (link) => {
                     return (
-                        <li className="nav-link" key={Math.random()}>
+                        <li className="nav-link hvr-underline-from-left" key={Math.random()}>
                             {
                                 props.scroll ?
                                
-                                <ScrollLink 
-                                    // onClick={() => click(link)}
-                                    {...scrollProps}
-                                    to={link}
-                                    > 
+                                <a href={`#${link}`} className="" aria-label={link} > 
                                     {link} 
-                                </ScrollLink> :
+                                </a> :
                             
-                                <Link  to={link==='Blogs' ? `/${link.toLowerCase()}` : `/#${link}` } >  {link} </Link>
+                                <Link to={link==='Blogs' ? `/${link.toLowerCase()}` : `/#${link}` } >  
+                                    {link} 
+                                </Link>
                             }
                         </li>
                     )

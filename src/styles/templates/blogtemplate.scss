@@ -115,22 +115,6 @@
             border-bottom: 1px solid red;
         }
     }
-    //autolink headers
-    h1 .anchor,h2 .anchor ,h3 .anchor {
-
-        &:hover{
-            background: none;
-            visibility: visible;
-            h1 .anchor svg,h2 .anchor svg,h3 .anchor svg {
-                visibility: visible;
-            }
-        }
-    }
-    h1 .anchor svg,h2 .anchor svg,h3 .anchor svg {
-        fill: $paperclip;
-        margin:0 5px 0 0;
-    }
-
     p{
         margin: 0 0 1.15rem;
         font-size: $body-font-size;
@@ -149,6 +133,8 @@
         display: inherit;
         text-align: center;
         font-size: 90%;
+        font-size: 14px;
+        font-style: italic;
     }
 
 

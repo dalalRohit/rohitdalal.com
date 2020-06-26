@@ -1,6 +1,7 @@
 
 @import '/helpers/variables.scss' ;
 
+
 //Global
 *{
   margin: 0;
@@ -17,7 +18,8 @@ html,body{
   box-sizing: border-box;
   height: 100%;
   width: 100%;
-  font-family: Jost,Roboto,Helvetica Neue, 'Inter', -apple-system, BlinkMacSystemFont, Helvetica, Arial,sans-serif;
+  font-family: 'Inter',Roboto,Helvetica Neue, 'Inter', -apple-system, BlinkMacSystemFont, Helvetica, Arial,
+  // line-height: 1.98em;
 
 }
 
@@ -26,7 +28,7 @@ html,body{
    box-sizing: border-box;
    margin: 0;
    padding: 0;
-   font-weight: lighter;
+   font-weight: bold;
  }
 
 
@@ -54,6 +56,8 @@ a:hover{
   overflow: auto;
   padding-bottom: 15vh; /*height of footer IMP */
   min-height:100vh;
+  // margin-top: 2rem;
+
   // height: 100vh;
 }
 
@@ -64,6 +68,7 @@ a:hover{
   height: 100%;
   position: relative;
   top: 6vh;
+  margin-top: 2rem;
 }
 
 // Page container
@@ -103,7 +108,7 @@ a:hover{
 
 // Tags
 .Tag{
-  max-width: 90px;
+  max-width: 120px;
   text-align: center;
   background: $tag;
   border-radius: 3px;
@@ -113,7 +118,7 @@ a:hover{
   margin: 1em;
 }
 .Tag:hover{
-  outline: 1px solid black;
+  background: $tag-hover;
   border-radius: 3px;
 
 }
@@ -122,13 +127,13 @@ a:hover{
 .dark{
   background-color: #202020;
   color: $dark-text;
-  transition: all 0.2s ease;
+  transition: all 0.2s ease-out;
   height: 100%;
   min-height: 100%;
 }
 
 .light{
-  transition: all 0.2s ease;
+  transition: all 0.2s ease-out;
   color:$light-text;
   background-color: rgb(236, 236, 236);
   height: 100%;

@@ -7,21 +7,21 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 //https://www.gatsbyjs.org/docs/preprocessing-external-images/
-module.exports.createSchemaCustomization = ({ actions }) => {
-    const { createTypes } = actions
-    createTypes(`
-      type Mdx implements Node {
-        frontmatter: frontmatter
-        featuredImg: File @link(from: "featuredImg___NODE")
-      }
-      type frontmatter {
-        title: String!
-        featuredImgUrl: String
-        featuredImgAlt: String
-      }
-    `)
+// module.exports.createSchemaCustomization = ({ actions }) => {
+//     const { createTypes } = actions
+//     createTypes(`
+//       type Mdx implements Node {
+//         frontmatter: frontmatter
+//         featuredImg: File @link(from: "featuredImg___NODE")
+//       }
+//       type frontmatter {
+//         title: String!
+//         featuredImgUrl: String
+//         featuredImgAlt: String
+//       }
+//     `)
   
-}
+// }
 
 
 
@@ -38,21 +38,21 @@ module.exports.onCreateNode = async ({ node, actions,store,cache,createNodeId })
     }
 
     // For all MarkdownRemark nodes that have a featured image url, call createRemoteFileNode
-    if(node.internal.type==='Mdx' && node.frontmatter.featuredImgUrl !== null){
-        let filenode=await createRemoteFileNode({
-            url:node.frontmatter.featuredImgUrl,
-            parentNodeId:node.id,
-            createNode:actions.createNode,
-            createNodeId,
-            cache,
-            store
-        });
+    // if(node.internal.type==='Mdx' && node.frontmatter.featuredImgUrl !== null){
+    //     let filenode=await createRemoteFileNode({
+    //         url:node.frontmatter.featuredImgUrl,
+    //         parentNodeId:node.id,
+    //         createNode:actions.createNode,
+    //         createNodeId,
+    //         cache,
+    //         store
+    //     });
         
-        if(filenode){
-            node.featuredImg___NODE = filenode.id
+    //     if(filenode){
+    //         node.featuredImg___NODE = filenode.id
 
-        }
-    }
+    //     }
+    // }
 
 
 

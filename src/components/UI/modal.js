@@ -40,6 +40,9 @@ const ModalHeader=styled.div`
     background-color:lightgray;
     height:5vh;
     z-index:100;
+    h2{
+        font-weight:400;
+    }
     @media (max-width:620px){
         width:95%;
     }
@@ -55,6 +58,9 @@ const ModalContent=styled.main`
     top:5vh;
     
     //markdown post content styles
+    h2{
+        font-weight:400;
+    }
     .website,.github{
         box-sizing:border-box;
         border:none;

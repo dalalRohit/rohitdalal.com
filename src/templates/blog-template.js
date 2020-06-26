@@ -14,7 +14,7 @@ export default function BlogTemplate(props) {
 
     const twitterShare=`https://www.twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&via=rohitdalal&text=${encodeURIComponent(frontmatter.title)}`
     
-    const image=featuredImg ? featuredImg.childImageSharp.fixed : null;
+    const image=frontmatter.thumbnail ? frontmatter.thumbnail.childImageSharp.fixed : null;
 
     const readingTime=fields.readingTime.text; //reading time
     // const {prevPost,nextPost}=props.pageContext;
@@ -138,22 +138,22 @@ export const query=graphql`
             title
             date(formatString: "MMM Do YYYY"),
             tags,
-          },
-          featuredImg{
-            childImageSharp{
-              fluid{
-                ...GatsbyImageSharpFluid
-              },
-              fixed{
-                src,
-                width,
-                height
+            thumbnail{
+              childImageSharp{
+                fluid{
+                  ...GatsbyImageSharpFluid
+                },
+                fixed{
+                  src,
+                  width,
+                  height
+                }
               }
             }
-          }
+          },
           body,
           rawBody,
-          excerpt(pruneLength: 150),
+          excerpt(pruneLength: 200),
           fields{
             readingTime{
               text

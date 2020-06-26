@@ -1,17 +1,17 @@
-
 @font-face {
-    font-family: "Jost";
-    src: url('./../fonts/Jost/Jost-VariableFont_ital\,wght.ttf');
-}
-
-@font-face {
-font-family: "Roboto";
-src: url('./../fonts/Roboto/Roboto-Regular.ttf');
+    font-family: "Roboto";
+    src: local("Roboto"),
+        url('./../fonts/Roboto/Roboto-Regular.ttf');
+    font-display: swap;
+    letter-spacing: 5px;
 }
 
 
 //Variables
 @import './helpers/variables.scss';
+
+//hover
+@import './hover.scss';
 
 //style.css
 @import './style.scss';
@@ -33,4 +33,3 @@ src: url('./../fonts/Roboto/Roboto-Regular.ttf');
 // Templates
 @import './templates/blogtemplate.scss';
 @import './templates/elements.scss';
-

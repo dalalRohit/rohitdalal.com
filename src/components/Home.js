@@ -20,10 +20,10 @@ const Home=(props) => {
 
                         <div className="my-intro">
                             <p>
-                                Full stack web developer. I develop websites, web-apps.
+                                Full stack web developer. I develop websites, web-apps. <br/>
                                 I also like to write about web-dev, JavaScript in general. <br/>
                                 <Button>
-                                    <Link to="/blogs/" >Read my blogs</Link>
+                                    <Link to="/blogs/" alt="Read my blogs" title="Read my blogs"  >Read my blogs</Link>
                                 </Button>
                             </p>
                         </div>

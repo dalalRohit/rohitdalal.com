@@ -6,32 +6,6 @@ import {getAllTags} from './../../static/data';
 
 export default function BlogFilter(props) {
 
-    // const data=useStaticQuery(graphql`
-    //     query{
-    //         allMdx{
-    //             edges{
-    //                 node{
-    //                     frontmatter{
-    //                         title,
-    //                         slug,
-    //                         tags,
-    //                         date,
-    //                     },
-    //                     featuredImg{
-    //                         childImageSharp{
-    //                             fluid(maxWidth:300,maxHeight:200){
-    //                                 ...GatsbyImageSharpFluid_tracedSVG
-    //                             }
-    //                         }
-                            
-    //                     }
-    //                     excerpt,
-    //                     body
-    //                 }
-    //             }
-    //         },
-    //     }
-    // `)
 
     let allTags=getAllTags(props.data);
 
@@ -40,7 +14,7 @@ export default function BlogFilter(props) {
     return (
         <div className="filter">
             <h1>All blogs</h1>
-            <h3>Filter blogs by categories</h3>
+            <p>Filter blogs by categories</p>
 
             <div className="filtertags">
                 {Object.keys(allTags).map( (tag) => {

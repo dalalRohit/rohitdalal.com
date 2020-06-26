@@ -24,10 +24,12 @@ export default class Contact extends Component {
 
                 <div className="contact">
                     <div className="form">
+
                         <div className="msg">
                             <p>Can discuss work,football,coffee ;)</p>
                             <p>Shoot mail if you want to collaborate <span role="img" aria-label="rocket" >🚀</span> </p>
                         </div>
+                        
                         <Form/>
                     </div>
 
@@ -55,8 +57,8 @@ export default class Contact extends Component {
                         </div>
 
                         <div className="built">
-                            <p>Built with <a href="https://www.gatsbyjs.org" target="_blank">Gatsby</a>,
-                            hosted on <a href="https://www.netlify.com" target="_blank">Netlify</a> </p>
+                            <p>Built with <a href="https://www.gatsbyjs.org" target="_blank" rel="noopener noreferrer" >Gatsby</a>,
+                            hosted on <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer" >Netlify</a> </p>
                         </div>
 
                     </div>

@@ -6,7 +6,7 @@ require('dotenv').config({
 
 const siteMetaData={
   title:"Rohit Dalal | FullStack Software Developer",
-  description: "Rohit Dalal is a self-taught full stack software developer, and writes blogs about Web-development and JavaScript. ",
+  description: "Rohit Dalal is a self-taught Full Stack Software Developer. I develop Websites, Web-Apps, and I also write Technical blogs, related to Web Development.",
   image:'./images/logo_192.png',
   siteLanguage: `en-GB`,
   siteLocale: `en_gb`,
@@ -158,6 +158,9 @@ module.exports = {
     // React helmet
     `gatsby-plugin-react-helmet`,
 
+    //sitemap plugin
+    `gatsby-plugin-sitemap`,
+
   
     // Manifest plugin
     {
@@ -168,18 +171,7 @@ module.exports = {
         start_url: `/`,
         background_color: `#2e3b4c`,
         theme_color: `#134a47`,
-        // icons:[
-        //   {
-        //     "src" : `${__dirname}/src/images/icon_192.png`,
-        //     "type" : `image/png`,
-        //     "sizes" : `192x192`
-        //   },
-        //   {
-        //     "src" : `${__dirname}/src/images/icon_512.png`,
-        //     "type" : `image/png`,
-        //     "sizes" : `512x512`
-        //   }
-        // ],
+
         icon:`${__dirname}/src/images/sunglasses.svg`,
         crossOrigin:`use-credentials`,
         display:"standalone",
@@ -193,6 +185,6 @@ module.exports = {
 
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    `gatsby-plugin-offline`,
+    // `gatsby-plugin-offline`,
   ],
 }

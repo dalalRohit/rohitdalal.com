@@ -2,7 +2,6 @@ import React from 'react'
 import BlogCard from './UI/blog_card';
 import PropTypes from 'prop-types';
 export default function AllBlogs(props) {
-        
     return (
             <div 
                 className="all-blogs"
@@ -10,18 +9,20 @@ export default function AllBlogs(props) {
                 >
                 {
                         props.blogs.edges.map( (edge) => {
+                            const {frontmatter,excerpt,}=edge.node;
+                            const {fluid}=frontmatter.thumbnail.childImageSharp;
+
                             return (
                                 <BlogCard
                                     change={props.change}
                                     key={Math.random()}
-                                    date={edge.node.frontmatter.date}
-                                    slug={edge.node.frontmatter.slug}
-                                    title={edge.node.frontmatter.title}
-                                    excerpt={edge.node.excerpt}
-                                    fluid={edge.node.featuredImg.childImageSharp.fluid}
-                                    fixed={edge.node.featuredImg.childImageSharp.fixed}
+                                    date={frontmatter.date}
+                                    slug={frontmatter.slug}
+                                    title={frontmatter.title}
+                                    excerpt={excerpt}
+                                    fluid={fluid}
                                     time={`${edge.node.fields.readingTime.text} `}
-                                    tags={edge.node.frontmatter.tags}
+                                    tags={frontmatter.tags}
                                 />
                             )
                         })

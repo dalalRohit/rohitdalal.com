@@ -7,7 +7,7 @@
   position: relative;
   // top: 6vh;
   margin: 2rem 7.5% 0 7.5%;
-  height: 40vh;
+  height: 55vh;
   max-width: 100%;
   min-height: calc(100vh - 360px);
   font-size: $body-font-size;
@@ -41,12 +41,11 @@
   width: 100%;
   // margin: 0 15% 0 15%;
   padding: .5rem;
-  // border: 1px solid red;
   text-align: center;
 
   h1{
     font-size: $hero-h1;
-    font-weight: lighter;
+    font-weight: 500;
     margin: 10px;
   }
 
@@ -65,7 +64,7 @@
 .my-intro{
   box-sizing: border-box;
   width: 90%;
-  // margin: 1em 20% 0 20%;
+  margin: 1em 5% 0 5%;
   display: flex;
   padding: .7em;
   justify-content: center;

@@ -50,18 +50,18 @@ export const tagQuery=graphql`
                         title,
                         date(formatString: "YYYY MMMM Do"),
                         slug,
-                        tags
-                    },
-                    featuredImg{
-                        childImageSharp {
-                            fluid(maxWidth: 600) {
-                                ...GatsbyImageSharpFluid
-                            },
-                            fixed(width:290,height:170){
-                                ...GatsbyImageSharpFixed
+                        tags,
+                        thumbnail{
+                            childImageSharp {
+                                fluid(maxWidth: 600) {
+                                    ...GatsbyImageSharpFluid
+                                },
+                                fixed(width:290,height:170){
+                                    ...GatsbyImageSharpFixed
+                                }
                             }
                         }
-                    }
+                    },
                     excerpt,
                     body,
                     fields{

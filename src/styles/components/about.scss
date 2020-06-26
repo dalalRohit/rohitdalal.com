@@ -1,6 +1,6 @@
 // @import './../helpers/variables.scss';
 
-.about{
+.about {
     box-sizing: border-box;
     width: 100%;
     max-width: 100%;
@@ -8,7 +8,8 @@
     gap: 1em;
     display: flex;
     justify-content: space-between;
-    h1{
+
+    h1 {
         font-size: $h1;
     }
 
@@ -19,14 +20,15 @@
     }
 }
 
-.myinfo{
+.myinfo {
     box-sizing: border-box;
     width: 100%;
     display: grid;
-    grid-template-rows: repeat(auto-fit,minmax(50%,1fr));
+    grid-template-rows: repeat(auto-fit, minmax(50%, 1fr));
     gap: 1em;
 }
-.my-photo{
+
+.my-photo {
     box-sizing: border-box;
     width: 100%;
     padding: .7em;
@@ -34,7 +36,7 @@
     height: 100%;
 }
 
-.my-desc{
+.my-desc {
     box-sizing: border-box;
     width: 100%;
     padding: .7em;
@@ -42,42 +44,47 @@
     height: 100%;
     writing-mode: horizontal-tb;
     font-size: 1.35rem;
+    line-height: 2rem;
 
     // content
-    .rohit{
+    .rohit {
         font-size: 1.46rem;
-        font-weight: 500;
-        color: $link;
-        text-decoration: underline;
+        font-weight: 550;
+        border-bottom: 2px solid goldenrod;
+        // text-decoration: underline;
     }
 
 
 }
 
-.my-skills{
+.my-skills {
     width: 100%;
     display: flex;
     flex-flow: column;
     justify-content: space-evenly;
     box-sizing: border-box;
-    h2{
+
+    h2 {
         font-size: 1.35rem;
+        font-weight: 400;
     }
-    ul{
+
+    ul {
         list-style-position: inside;
         list-style-type: square;
         padding: 1rem;
-        li{
-            font-size: 1.35rem;
+
+        li {
+            font-size: 1.25rem;
         }
     }
 
 }
 
-@media (max-width:700px){
+@media (max-width:700px) {
 
 
-    .my-skills{
+    .my-skills {
         padding: 2em;
     }
 }
