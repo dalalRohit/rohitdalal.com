@@ -1,10 +1,19 @@
 import { MDXProvider } from '@mdx-js/react';
 import Code from './src/components/helpers/code';
 import './src/styles/templates/elements.scss';
+import { ThemeProvider } from "./src/context/context"
 
 import React from 'react';
 
 const components = {
+
+  a:props => {
+    return (
+      <a href={props.href} target="_blank" rel="noopener noreferrer" alt={props.children} title={props.href}>
+        {props.children}
+      </a>
+    )
+  },
 
   aside:props => {
     return (
@@ -24,9 +33,12 @@ const components = {
           <Code
             codeString={props.children.trim()}
             language={
-              props.className && props.className.replace('language-', '')
+              matches && matches.groups && matches.groups.lang
+                ? matches.groups.lang
+                : ''
             }
             {...props}
+            
           />
         );
     }
@@ -34,6 +46,12 @@ const components = {
 }
 };
 
-export const wrapRootElement = ({ element }) => (
-    <MDXProvider components={components}>{element}</MDXProvider>
-);
+export const wrapRootElement = (obj) => {
+  return (
+    <ThemeProvider>
+        <MDXProvider components={components}>
+          {obj.element}
+        </MDXProvider>
+    </ThemeProvider>
+  )
+}

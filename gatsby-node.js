@@ -1,20 +1,33 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const { createRemoteFileNode } = require("gatsby-source-filesystem")
+const path=require('path');
 const {getAllTags}=require('./src/static/data')
 
 if (process.env.NODE_ENV === 'development') {
     process.env.GATSBY_WEBPACK_PUBLICPATH = '/'
-  }
+}
+
+//https://www.gatsbyjs.org/docs/preprocessing-external-images/
+// module.exports.createSchemaCustomization = ({ actions }) => {
+//     const { createTypes } = actions
+//     createTypes(`
+//       type Mdx implements Node {
+//         frontmatter: frontmatter
+//         featuredImg: File @link(from: "featuredImg___NODE")
+//       }
+//       type frontmatter {
+//         title: String!
+//         featuredImgUrl: String
+//         featuredImgAlt: String
+//       }
+//     `)
   
-const path=require('path');
-// You can delete this file if you're not using it
-module.exports.onCreateNode = ({ node, actions }) => {
+// }
+
+
+
+module.exports.onCreateNode = async ({ node, actions,store,cache,createNodeId }) => {
     const {  createNodeField } = actions
-    // Transform the new node here and create a new node or
-    // create a new node field.
+
     if(node.internal.type==='Mdx'){
         const slug=path.basename(node. fileAbsolutePath,'.md');
         createNodeField({
@@ -23,6 +36,26 @@ module.exports.onCreateNode = ({ node, actions }) => {
             value:slug
         })
     }
+
+    // For all MarkdownRemark nodes that have a featured image url, call createRemoteFileNode
+    // if(node.internal.type==='Mdx' && node.frontmatter.featuredImgUrl !== null){
+    //     let filenode=await createRemoteFileNode({
+    //         url:node.frontmatter.featuredImgUrl,
+    //         parentNodeId:node.id,
+    //         createNode:actions.createNode,
+    //         createNodeId,
+    //         cache,
+    //         store
+    //     });
+        
+    //     if(filenode){
+    //         node.featuredImg___NODE = filenode.id
+
+    //     }
+    // }
+
+
+
   }
 
   module.exports.createPages= async ({graphql,actions}) => {
@@ -39,7 +72,8 @@ module.exports.onCreateNode = ({ node, actions }) => {
                     node{
                         frontmatter{
                             slug,
-                            tags
+                            tags,
+                            title
                         }
                     }
                 }
@@ -48,7 +82,7 @@ module.exports.onCreateNode = ({ node, actions }) => {
     `);
 
     //Create /tags/${tag} pages
-    const allTags=getAllTags(response.data);
+    const allTags=getAllTags(response.data.allMdx);
     Object.keys(allTags)
         .map( (tag) => {
             createPage({
@@ -60,14 +94,22 @@ module.exports.onCreateNode = ({ node, actions }) => {
             })
         })
 
-        
+    
+    const posts=response.data.allMdx.edges;
+
     //Create /blogs/${slug} pages
-    response.data.allMdx.edges.forEach( (edge) => {
+    posts.forEach( (edge,index) => {
+
+        const previous =index === posts.length - 1 ? null : posts[index + 1];
+        const next = index === 0 ? null : posts[index - 1];
+
         createPage({
             component:blogTemp,
             path:`/blogs/${edge.node.frontmatter.slug}`,
             context:{
-                slug:edge.node.frontmatter.slug
+                slug:edge.node.frontmatter.slug,
+                prevPost:previous,
+                nextPost:next
             }
         })
     })

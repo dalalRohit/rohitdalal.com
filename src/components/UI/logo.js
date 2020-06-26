@@ -1,52 +1,47 @@
-import React from 'react'
-import styled from 'styled-components';
-import {Link} from 'react-scroll';
-import {Link as LinkItem} from 'gatsby';
+import React from "react"
+import styled from "styled-components"
+import icon from "./../../images/logo.png"
+import { Link } from "gatsby"
 
-
-const Name=styled.div`
-    box-sizing:border-box;
-    padding:.25em;
+const Logo = styled.div`
+    box-sizing: border-box;
     display:flex;
     align-items:center;
-    cursor:pointer;
-    letter-spacing:5px;
-
-    a h4{
-        font-size:1.5rem;
-        color:inherit;
-        text-decoration:none;
-        font-weight:480;
-
+    img {
+        height: 35px;
+        width: 35px;
+        margin-right: .7rem;
     }
-
-    @media(max-width:700px){
-        a h4{
-            font-size:1.5rem;
-            font-weight:500;
-            letter-spacing:.7px;
+    p {
+        cursor: pointer;
+        font-size: 1.35rem;
+    }
+    /* mobile */
+    @media screen and (max-width: 620px) {
+        justify-content: flex-start;
+        p {
+            display: none;
+        }
+        img {
+            margin: 0;
         }
     }
+    /* tablet */
+    @media screen and (max-width: 800px) {
+        justify-content: flex-start;
+    }
 `
-export default function Logo(props) {
+
+export default function logo(props) {
+    const altTitle = "Rohit Dalal | Full Stack Devloper"
     return (
-        <Name>
-            {
-                props.scroll ? 
-                <Link 
-                    to="Home"
-                    smooth
-                    duration={300}
-                >
-                 <h4> Rohit Dalal </h4>
-                </Link> :
-                
-                <LinkItem to="/">
-                    <h4>Rohit Dalal</h4>
-                </LinkItem>
-
-            }
-
-        </Name>
+        <>
+            <Link to="/" alt={altTitle} title={altTitle}>
+                <Logo>
+                    <img src={icon} alt={altTitle} title={altTitle} />
+                    <p>Rohit Dalal</p>
+                </Logo>
+            </Link>
+        </>
     )
 }

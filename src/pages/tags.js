@@ -1,27 +1,46 @@
-import React from 'react';
-import Head from './../components/helpers/head';
-import PageLayout from './../components/pageLayout';
-import {getAllTags} from './../static/data';
-import {useStaticQuery,graphql,Link} from 'gatsby';
-import styled from 'styled-components';
+import React from "react"
+import Head from "./../components/helpers/head"
+import PageLayout from "./../components/pageLayout"
+import { getAllTags } from "./../static/data"
+import { useStaticQuery, graphql, Link } from "gatsby"
+import styled from "styled-components"
+import { IoMdArrowBack } from "react-icons/io"
+import SEO from "./../components/seo"
 
-const TagsContainer=styled.div`
-    width:100%;
-    max-width:100%;
-    min-height:70vh;
-    padding:4rem;
+const TagsContainer = styled.div`
+    width: 100%;
+    max-width: 100%;
+    min-height: 70vh;
+    padding: 4rem 0 0 0;
 
-    span{
-        margin:2em;
+    @media (max-width: 620px) {
+        padding: 4rem 0 0 0;
+    }
+    a p {
+        font-size: 1.2rem;
+    }
+
+    .alltags {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 0.1em;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+        span {
+            font-size: 16px;
+        }
+        @media screen and (max-width: 620px) {
+            width: 100%;
+        }
     }
 `
-const Tags=() => {
-    const data=useStaticQuery(graphql`
-        query{
-            allMdx{
-                edges{
-                    node{
-                        frontmatter{
+const Tags = () => {
+    const data = useStaticQuery(graphql`
+        query {
+            allMdx {
+                edges {
+                    node {
+                        frontmatter {
                             tags
                         }
                     }
@@ -29,25 +48,42 @@ const Tags=() => {
             }
         }
     `)
-    const allTags=getAllTags(data);
+    const allTags = getAllTags(data.allMdx)
 
     return (
-        <PageLayout>
+        <PageLayout scroll={false} changeBlog={true} scrollHeight={20}>
+            <SEO />
+
             <Head title={"Blogs Categories"} info={"Rohit Dalal"} />
-            <h1>Check all blogs categories</h1>
-            
+
             <TagsContainer>
-                {Object.keys(allTags)
-                    .map( (tag) => {
+                <Link to={`/blogs/`}>
+                    <p>
+                        {" "}
+                        <IoMdArrowBack /> Check my all blogs{" "}
+                    </p>
+                </Link>
+
+                <h1>Check all blogs categories</h1>
+
+                <div className="alltags">
+                    {Object.keys(allTags).map((tag) => {
                         return (
                             <span className={"Tag"} key={Math.random()}>
-                                <Link to={`/tags/${tag}`}>{tag} {allTags[tag]}</Link>
+                                <Link
+                                    to={`/tags/${tag}`}
+                                    alt={`Show all blogs tagged ${tag}`}
+                                    title={`Show all blogs tagged ${tag}`}
+                                >
+                                    {tag} {allTags[tag]}
+                                </Link>
                             </span>
                         )
                     })}
+                </div>
             </TagsContainer>
         </PageLayout>
     )
-};
+}
 
-export default Tags;
+export default Tags

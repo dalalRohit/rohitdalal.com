@@ -2,22 +2,36 @@ require('dotenv').config({
   path:`.env`
 });
 
-module.exports = {
-  proxy:{
-      prefix:'/api',
-      url:'http://localhost:3000'
-  },
+// const svg=`<svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg>`;
 
+const siteMetaData={
+  title:"Rohit Dalal | FullStack Software Developer",
+  description: "Rohit Dalal is a self-taught Full Stack Software Developer. I develop Websites, Web-Apps, and I also write Technical blogs, related to Web Development.",
+  image:'./images/logo_192.png',
+  siteLanguage: `en-GB`,
+  siteLocale: `en_gb`,
+  twitterUsername: `@dalal_rohit`,
+  author: `Rohit Dalal`,
+  intro:'',
+  siteUrl:`https://www.rohitdalal.com`,
+  keywords:["rohit","dalal","full-stack","software","developer","javascript"]
+}
+
+module.exports = {
   // SiteMetaData
-  siteMetadata: {
-    title: `Rohit Dalal | MERN Stack Developer`,
-    description: ``,
-    author: `Rohit Dalal`,
-    intro:``,
-  },
+  siteMetadata: siteMetaData,
 
   // Plugins array
   plugins: [
+    //analytics
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // replace "UA-XXXXXXXXX-X" with your own Tracking ID
+        trackingId: "UA-147344129-1",
+      },
+    },
+
     // Sharp plugin
     `gatsby-plugin-sharp`,
 
@@ -32,6 +46,7 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+
     //Source filesystem /blogs
     {
       resolve: `gatsby-source-filesystem`,
@@ -49,6 +64,25 @@ module.exports = {
         path: `${__dirname}/blogs`,
       },
     },
+
+
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name:`projects`,
+        path: `${__dirname}/src/posts`,
+      },
+    },
+
+    //Source filesystem /src/images
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name:`images`,
+        path: `${__dirname}/src/posts`,
+      },
+    },
+
 
     //Netlify plugin
     {
@@ -69,9 +103,9 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        extensions: [`.mdx`, `.md`],
+        extensions: [`.mdx`],
         
-        // helper plugins for mdx 
+        // gatsbyRemarkPlugins
         gatsbyRemarkPlugins:[
           `gatsby-plugin-sharp`,
 
@@ -84,18 +118,6 @@ module.exports = {
               maxWidth:700
             }
           },
-
-          //helper plugin to autolink-headers
-          {
-            resolve:`gatsby-remark-autolink-headers`,
-            options:{
-              className:"heading",
-              offsetY:`1000`,
-              maintainCase:false,
-              // icon: `<svg aria-hidden="true" height="20" version="1.1" viewBox="0 0 16 16" width="20"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg>`,
-              elements:[`h1`,`h2`,`h3`],
-            }
-          },
           {
             resolve:'gatsby-source-filesystem',
             options:{
@@ -103,66 +125,66 @@ module.exports = {
               path:`${__dirname}/blogs/`
             }
           },
+   
         ],
-        plugins:[
-          `gatsby-plugin-sharp`,
 
-          `gatsby-transformer-sharp`,
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 700,
-            },
-          },
-
-        ]
 
       },
     },
 
+    //gatsby transformer-remark
+    {
+      resolve:`gatsby-transformer-remark`,
+      options:{
+        plugins:[
+          'gatsby-remark-relative-images',
+
+          {
+            resolve:'gatsby-remark-images',
+            options:{
+              maxWidth:500,
+              linkImagesToOriginal:false,
+
+            }
+          },
+
+        ]
+      }
+    },
+
+    //reading time
+    `gatsby-remark-reading-time`,
+
     // React helmet
     `gatsby-plugin-react-helmet`,
+
+    //sitemap plugin
+    `gatsby-plugin-sitemap`,
+
   
     // Manifest plugin
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Rohit Dalal | Full Stack Devloper`,
+        short_name: `Rohit Dalal`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        background_color: `#2e3b4c`,
+        theme_color: `#134a47`,
+
+        icon:`${__dirname}/src/images/logo.png`,
+        crossOrigin:`use-credentials`,
+        display:"standalone",
+        scope:"/"
+
+
       },
     },
 
-    // Source filesystem plugin /blogs
-    {
-      resolve:'gatsby-source-filesystem',
-      options:{
-        name:'blogs',
-        path:`${__dirname}/blogs/`
-      }
-    },
 
-    //https://www.gatsbyjs.org/docs/add-a-manifest-file/
-    {
-      resolve:`gatsby-plugin-manifest`,
-      options:{
-        name:"Rohit Dalal | MERN Stack Devloper",
-        short_name:"Rohit Dalal",
-        description:"Hello, myself Rohit Dalal. Nice to see you with this PWA ;)",
-        lang:'en',
-        start_url:"/",
-        background_color:"#b1cfff",
-        display:"standalone",
-        icon:"src/images/gatsby-icon.png",
-        crossOrigin:`use-credentials`
-      }
-    },
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    `gatsby-plugin-offline`,
+    // `gatsby-plugin-offline`,
   ],
 }

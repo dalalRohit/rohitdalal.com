@@ -1,0 +1,43 @@
+// @import './../helpers/variables.scss';
+
+.Blogs{
+    width: 100%;
+    box-sizing: border-box;
+    height: 100%;
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
+    gap: 1em;
+
+
+}
+
+.notice{
+    font-size: $body-font-size;
+    line-height: 1.8rem;
+    margin: 1.5rem;
+}
+.note{
+    text-align: center;
+    padding: .1em;
+    p{
+        font-size: 1rem;
+    }
+    button{
+        background: $button;
+        color: black;
+        &:hover{
+            background: $button-hover;
+        }
+    }
+    @media (max-width:$tablet) {
+        margin: 1.5rem 30% 1.5rem 30%;
+
+    }
+    @media(max-width:$mobile) {
+        margin: 1.5rem 30% 1.5rem 30%;
+    }
+}
+
+
+
+

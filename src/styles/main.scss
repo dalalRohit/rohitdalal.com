@@ -1,0 +1,35 @@
+@font-face {
+    font-family: "Roboto";
+    src: local("Roboto"),
+        url('./../fonts/Roboto/Roboto-Regular.ttf');
+    font-display: swap;
+    letter-spacing: 5px;
+}
+
+
+//Variables
+@import './helpers/variables.scss';
+
+//hover
+@import './hover.scss';
+
+//style.css
+@import './style.scss';
+
+// Components
+@import './components/about.scss';
+@import './components/blog.scss';
+@import './components/contact.scss';
+@import './components/footer.scss';
+@import './components/home.scss';
+@import './components/navbar.scss';
+@import './components/projects.scss';
+
+//Helpers
+@import './helpers/allblogs.scss';
+@import './helpers/blogcard.scss';
+@import './helpers/blogfilter.scss';
+
+// Templates
+@import './templates/blogtemplate.scss';
+@import './templates/elements.scss';

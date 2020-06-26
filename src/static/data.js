@@ -1,7 +1,8 @@
+
 const getAllTags=(data) => 
 {
     const allTags={};
-    data.allMdx.edges.filter( (edge) => {
+    data.edges.filter( (edge) => {
         let tags=edge.node.frontmatter.tags;
 
         tags.forEach( (tag) => {
@@ -16,12 +17,17 @@ const getAllTags=(data) =>
     return allTags;
 }
 
+
+
 const config={
-    about:`Hello people, I'm Rohit Dalal. Nice to see you here .<br/>
-    I'm a full stack software devloper, a curious tech enthusiast.
+    about:`Hello, Nice to see you here <br/>
+    I'm a self-taught Full Stack Software Developer <br/ >
+    <b class="rohit">Available for freelance projects and work</b> <br/>
+    I like to keep things simple.
+    Contact me for any collaboration or just to say Hii ;)
     `
 }
 module.exports={
     getAllTags,
-    config
+    config,
 }

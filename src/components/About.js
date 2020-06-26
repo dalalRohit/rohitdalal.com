@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Layout from './Layout';
 
-import classes from './../styles/components/about.module.scss';
 import {config} from './../static/data';
 import Photo from './UI/image';
 import Title from './UI/title';
@@ -14,28 +13,26 @@ export default class About extends Component {
         return (
             <Layout name={name} id={name}>
 
-                <div className="Wrapper" >
-
                 <Title path={name}>/about</Title>
                 
-                <section className={classes.About}>
+                <section className="about">
 
-                    <div className={classes.Info}>
+                    <div className="myinfo">
                         
-                        <div className={classes.Photo}>
+                        <div className="my-photo">
                             <Photo fluid={this.props.fluid} />
                         </div>
                         
-                        <div className={classes.Desc}>
+                        <div className="my-desc">
                             <p dangerouslySetInnerHTML={{__html:config.about}}></p>
                         </div>
                     </div>
 
-                    <div className={classes.Skills}>
+                    <div className="my-skills">
                         <div>
                             <h2>What I do?</h2>
                             <ul>
-                                <li>Web devlopement</li>
+                                <li>Web development</li>
                                 <li>Front end</li>
                                 <li>Back end</li>
                             </ul>
@@ -45,24 +42,26 @@ export default class About extends Component {
                             <h2>Tech Stack </h2>
                             <ul>
                                 <li>React</li>
-                                <li>Express</li>
-                                <li>MongoDB</li>
+                                <li>Node.js / Express</li>
+                                <li>MongoDB </li>
+                                <li>Gatsby </li>
                             </ul>
   
                         </div>
                         <div>
-                            <h2>What I use? </h2>
+                            <h2>Non-work </h2>
                             <ul>
-                                <li>Web devlopement</li>
-                                <li>Front end</li>
-                                <li>Back end</li>
+                                <li>Football <span role="img" aria-label="football">⚽</span> </li>
+                                <li>Music <span role="img" aria-label="music" >🎧 </span> </li>
+                                <li>Coffee <span role="img" aria-label="coffee" >☕ </span> </li>
+                                <li>Sleep <span role="img" aria-label="sleep" >💤 </span> </li>
+                                <li>Chess <span role="img" aria-label="chess" >♟️ </span>  </li>
                             </ul>
   
                         </div>
                     </div>
 
                 </section>
-            </div>
             
             </Layout>
         )

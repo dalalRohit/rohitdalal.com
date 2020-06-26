@@ -1,25 +1,8 @@
 
-$x-small: 720px;
-$small: 800px;
-$medium: 1200px;
-$large: 1300px;
-
-/* Breakpoints */
-$mobile: 620px;
-$tablet: $small;
-$desktop: $medium;
-
-@font-face {
-  font-family: "Jost";
-  src: url('./../fonts/Jost/Jost-VariableFont_ital\,wght.ttf');
-}
-@font-face {
-  font-family: "Roboto";
-  src: url('./../fonts/Roboto/Roboto-Regular.ttf');
-}
+@import '/helpers/variables.scss' ;
 
 
-
+//Global
 *{
   margin: 0;
   padding: 0;
@@ -35,18 +18,19 @@ html,body{
   box-sizing: border-box;
   height: 100%;
   width: 100%;
-  max-width: 100%;
-  min-height: 100%;
-  font-family:Jost, Helvetica Neue, 'Inter', -apple-system, BlinkMacSystemFont, Helvetica, Arial,sans-serif;
+  font-family: 'Inter',Roboto,Helvetica Neue, 'Inter', -apple-system, BlinkMacSystemFont, Helvetica, Arial,
+  // line-height: 1.98em;
 
 }
 
  /* Global styles */
  h1,h2,h3,h4,h5,h6{
+   box-sizing: border-box;
    margin: 0;
    padding: 0;
-   font-weight: lighter;
+   font-weight: bold;
  }
+
 
 a{
   text-decoration:none;
@@ -61,32 +45,49 @@ a:hover{
   text-transform: none;
 }
 
-/* pageLayout  */
+// Layout
 .layout{
-  width: 100%;
-  max-width: 100%;
   box-sizing: border-box;
+  width: 100%;
+  min-height:100%;
+}
+
+.main{
+  overflow: auto;
+  padding-bottom: 15vh; /*height of footer IMP */
+  min-height:100vh;
+  // margin-top: 2rem;
+
+  // height: 100vh;
+}
+
+//main-content
+.main-content{
+  box-sizing: border-box;
+  width: 100%;
   height: 100%;
+  position: relative;
+  top: 6vh;
+  margin-top: 2rem;
 }
 
 // Page container
 .Container{
   box-sizing: border-box;
   width: 85%;
+  max-width: 100%;
   margin: 0 7.5% 0 7.5%;
   max-width: 100%;
-  height: auto;
-  // background-image: url(./../images/svg/Confetti-Doodles.svg);
+  height: 100%;
+  min-height:100% ;
   // background-color: #DCDCDC;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
 
-  @media screen and (max-width:700px) {
+  @media screen and (max-width:$tablet) {
     width: 100%;
     margin: 0;
   }
 }
+
 
 
 //Page component wrapper
@@ -97,55 +98,47 @@ a:hover{
   // border: 1px dashed blue;
   min-height: calc(100vh - 360px);
   padding: 6vh 0 6vh 0;
-  margin: 6vh 0 0 0;
-  p{
-    font-size: 1.3rem;
-  }
+
+}
+.Wrapper:last-child{
+  margin-bottom: 3rem;
 }
 
 
-@media (max-width:$mobile){
-  .Container{
-    width: 100%;
-    background-position: left top;
-  }
-  .Wrapper{
-      width: 100%;
-      margin: 0;
-      padding: 23px 0 6vh 0;
 
-  }
-}
-
-@media (max-width:$tablet){
-  .Container{
-    background-position: left top;
-  }
-  .Wrapper{
-      width: 100%;
-      margin: 0;
-      padding: 23px 0 6vh 0;
-
-  }
-}
-
-
+// Tags
 .Tag{
   max-width: 120px;
   text-align: center;
-  background: lightblue;
-  padding: .12em;
+  background: $tag;
+  border-radius: 3px;
+
+  padding: .2em;
+  color: black;
+  margin: 1em;
 }
 .Tag:hover{
-  outline: 1px solid black;
+  background: $tag-hover;
+  border-radius: 3px;
+
 }
 
-.active{
-  color: darkmagenta;
-  border-bottom: 2px solid plum;
+// Themes
+.dark{
+  background-color: #202020;
+  color: $dark-text;
+  transition: all 0.2s ease-out;
+  height: 100%;
+  min-height: 100%;
 }
 
-
+.light{
+  transition: all 0.2s ease-out;
+  color:$light-text;
+  background-color: rgb(236, 236, 236);
+  height: 100%;
+  min-height: 100%;
+}
 
 
 

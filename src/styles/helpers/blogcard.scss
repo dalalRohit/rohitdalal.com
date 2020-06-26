@@ -1,21 +1,21 @@
+@import './variables.scss';
+
+
 .blogCard{
     box-sizing: border-box;
     width: 80%;
     margin: 0 10% 0 10%;
-    outline: 1px solid lightgray;
     display: flex;
     flex-flow: column;
     justify-content: space-evenly;
     align-items: center;
-
-    &:hover{
-        outline: 2px solid palevioletred;
-    }
+    max-width: 350px;
+    transition: all 0.2s ease;
     .blogImg{
         box-sizing: border-box;
         // border: 1px solid purple;
         width: 100%;
-
+        margin-top: 0;
     }
 }
 .blogTags{
@@ -25,23 +25,22 @@
     // border: 1px solid grey;
     display: flex;
     justify-content: center;
+    span{
+        margin: 0 0 .5rem 0;
+    }
 
 }
 .blogData{
     box-sizing: border-box;
     width: 80%;
     max-width: 100%;
-    // border: 1px olive solid;
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
     p{
-        font-size: 1.2rem;
-        padding: 0.3em;
-        margin: 0;
-        color: darkgoldenrod;
-
+        margin: 0 0 .7rem 0;
+        font-size: $body-font-size;
     }
 
     
@@ -59,12 +58,13 @@
 
 
 // Mobile setup
-@media (max-width:700px){
+@media (max-width:$mobile){
     .blogCard{
         width: 100%;
+        max-width: 100%;
         margin: 0;
         flex-flow: row;
-        justify-content: space-between;
+        justify-content: space-evenly;
     }
     .blogImg{
         width: 100%;
@@ -72,12 +72,14 @@
     }
     .blogData{
         width: 100%;
-        height: 160px;
         margin: 0;
+        min-height: 160px;
+
         flex-flow: column;
         justify-content: space-evenly;
         p{
             font-size: 1rem;
+            text-align: center;
         }
         .dateTime{
             width: 100%;
@@ -92,3 +94,4 @@
         display: none;
     }
 }
+

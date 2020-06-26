@@ -1,14 +1,21 @@
 .footer{
     width: 100%;
-    max-width: 100%;
     box-sizing: border-box;
     display: flex;
+    position: relative;
+    bottom: 0;
+    height: 15vh;
+    margin-top: -15vh;
+    clear: both;
+    margin: 0;
+    // border: 1px solid red;
+   
     flex-flow: column;
-    // border: 2px dashed red;
     p{
-        font-size: 1.35rem;;
+        font-size: 1.35rem;
+        border: none;
+        background: none;
     }
-    background-color: #f2f2f2;
 
 
 }
@@ -20,6 +27,11 @@
     a{
         cursor: pointer;
     }
+    button{
+        border: none;
+        background: none;
+        color: inherit;
+    }
 }
 
 .second{
@@ -30,7 +42,7 @@
 
 @media screen and (max-width:700px) {
     .footer{
-        margin-bottom: 5em;
+        margin-bottom: 3em;
     }
 
     .first{

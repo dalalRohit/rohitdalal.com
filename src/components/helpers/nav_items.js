@@ -1,81 +1,35 @@
 import React from 'react'
-import styled from 'styled-components';
 import {Link} from 'gatsby';
 import PropTypes from 'prop-types';
-import {Link as ScrollLink} from 'react-scroll';
 
-const Li=styled.li`
-    box-sizing:border-box;
-    margin:0;
-    font-size:1.23em;
-    cursor:pointer;
-    a{
-        padding:.2em;
-    }
-    a:hover{
-        border-bottom:2px solid plum;
-    }
-
-`
-const Ul=styled.ul`
-    width:100%;
-    box-sizing:border-box;
-    height:5vh;
-    min-height:5vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    li{
-        list-style-type:none;
-        margin:.4em;
-    }
-
-    @media(max-width:699px){
-        flex-flow:${ props => props.display };
-        margin:0;
-        height:100%;
-        margin-top:0;
-        li{
-            margin:.5em;
-        }
-    }
-`
 export default function NavItems(props) {
 
-    let links=['About',props.changeBlog ? 'blogs' : 'Blog','Projects','Contact']
+    let links=['About',props.changeBlog ? 'Blogs' : 'Blog','Projects','Contact']
     
-    const scrollProps={
-        offset:props.offset,
-        smooth:true,
-        spy:true,
-        duration:500,
-        isDynamic:true,
-        activeClass:"active"
-    }
-
 
     return (
-        <Ul>
+        <ul className="ul">
             {
                 links.map( (link) => {
                     return (
-                        <Li key={Math.random()}>
+                        <li className="nav-link hvr-underline-from-left" key={Math.random()}>
                             {
                                 props.scroll ?
                                
-                                <ScrollLink 
-                                    {...scrollProps}
-                                    to={`${link}`}
-                                    > {link} </ScrollLink> :
+                                <a href={`#${link}`} className="" aria-label={link} > 
+                                    {link} 
+                                </a> :
                             
-                                <Link  to={link==='blogs' ? `/${link}` : `/#${link}` } >  {link} </Link>
+                                <Link to={link==='Blogs' ? `/${link.toLowerCase()}` : `/#${link}` } >  
+                                    {link} 
+                                </Link>
                             }
-                        </Li>
+                        </li>
                     )
                 })
             }
             
-        </Ul>
+        </ul>
     )
 }
 

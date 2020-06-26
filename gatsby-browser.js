@@ -10,7 +10,7 @@ export const onRouteUpdate = ( {location} ) => {
     
         window.scrollTo({
           top: item ,
-        //   behavior: "smooth",
+          // behavior: "smooth",
         })
       }
     

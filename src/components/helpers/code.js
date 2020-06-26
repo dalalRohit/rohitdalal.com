@@ -1,5 +1,6 @@
 import Highlight, { defaultProps } from 'prism-react-renderer';
-import theme from 'prism-react-renderer/themes/github';
+// import theme from 'prism-react-renderer/themes/github';
+import dark from 'prism-react-renderer/themes/dracula';
 import React from 'react';
 import styled from 'styled-components';
 import { copyToClipboard } from './copy-to-clipboard';
@@ -20,14 +21,14 @@ export const Pre = styled.pre`
 const CopyCode = styled.button`
   position: absolute;
   right: 0.25rem;
+  cursor:pointer;
   border: 0;
   border-radius: 3px;
-  padding:.5rem;
+  padding:.25rem;
   opacity: 0.79;
   &:hover {
     opacity: 1;
-    color:plum;
-    background:black;
+    background:darkcyan;
   }
 `;
 
@@ -50,7 +51,7 @@ const Code = ({ codeString, language }) => {
         {...defaultProps}
         code={codeString}
         language={language}
-        theme={theme}
+        theme={dark}
         >
         {({
           className,

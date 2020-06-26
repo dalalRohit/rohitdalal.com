@@ -1,29 +1,31 @@
 import React from 'react'
 import styled from 'styled-components';
-    
+// import TextField from '@material-ui/core/TextField';
+
 const InputWrapper=styled.div`
 box-sizing:border-box;
 width:100%;
 max-width:100%;
 padding:1em;
 display:flex;
+justify-content:space-between;
 align-items:center;
+
 `
 
 const Label=styled.label`
 box-sizing:border-box;
-color:black;
-width:30%;
+width:auto;
+margin:0;
 padding:.5em;
-font-weight:550;
-font-size:1.2rem;
+font-size:1.1rem;
 text-align:center;
 `
 
 const InputBox=styled.input`
 box-sizing:border-box;
 border:none;
-border-bottom:2px solid plum;  
+border-bottom:2px solid golden;  
 width:65%;
 padding:.5em;
 line-height:1.5rem;
@@ -36,21 +38,38 @@ transition: all 0.1s ease;
 
 function Input(props) {
 
-
-    const { value,error,name,label,type,inputChange,theme} = props;
+    const classes={
+        color:'white',
+    }
+    const { value,name,label,type,inputChange} = props;
 
     return (
         <InputWrapper>
-            <Label >{label ? label : 'label'}</Label>
+            <Label htmlFor={name} >{label ? label : 'label'}</Label>
             <InputBox
-                required="Required"
-                autoComplete={"off"}
+                required={true}
+                autoComplete="off"
+                aria-label={label}
+                aria-required="true"
                 type={type}
                 value={value}
+                id={name}
                 name={name}
                 onChange={inputChange}
                 placeholder={`Enter your ${name} here..`}
             />
+
+            {/* <TextField 
+                label={label}
+                variant="outlined"
+                type={type}
+                value={value}
+                id={name}
+                name={name}
+                onChange={inputChange}
+                placeholder={`Enter your ${name} here..`}
+     
+            /> */}
         </InputWrapper>
     )
 }

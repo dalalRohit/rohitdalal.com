@@ -1,0 +1,83 @@
+// Colors
+$light-text:#222831;
+$dark-text:#eeeeee;
+
+
+$button:#73c8cc;
+$button-hover:#0eb4b8;
+
+$link:#3d84a8;
+$link-hover:#ea907a;
+
+$nav-link:$link;
+$nav-link-hover:#f54291;
+
+
+$bloglink: #33a1de;
+
+$heading:#0eb4b8;
+$hover:#fc5185;
+
+$tag:lightgray;
+$tag-hover:darkgray;
+
+$paperclip:$heading;
+
+/* Containers */
+
+$x-small: 720px;
+$small: 800px;
+$medium: 1200px;
+$large: 1300px;
+
+/* Breakpoints */
+
+$mobile: 620px;
+$tablet: $small;
+$desktop: $medium;
+
+$width: 800px;
+
+$font-size: 1rem;
+$body-font-size: 1.25rem;
+$font-style: normal;
+$font-variant: normal;
+$font-weight: normal;
+$font-color: #454545;
+$light-font-color: rgba(0, 0, 0, 0.6);
+$font-family: Helvetica Neue, 'Inter', -apple-system, BlinkMacSystemFont, Helvetica, Arial,
+  sans-serif;
+$line-height: 1.6;
+
+// Headings
+$heading-font-color: $heading;
+$heading-font-weight: 500;
+$heading-font-family: 'Inter', -apple-system, BlinkMacSystemFont, Helvetica, Arial,
+  sans-serif;
+$heading-line-height: 1.3;
+
+// Mobile heading font size
+$hero-h1-mobile:2.2rem;
+$h1-mobile: 1.85rem;
+$h2-mobile: 1.7rem;
+$h3-mobile: 1.5rem;
+$h4-mobile: 1.3rem;
+$h5-mobile: 1.2rem;
+
+// Heading font size
+$hero-h1:3rem;
+$h1: 2.5rem;
+$h2: 2.1rem;
+$h3: 1.85rem;
+$h4: 1.5rem;
+$h5: 1.4rem;
+
+
+/* Code */
+
+$code-color: $font-color;
+$code-size: 14px;
+$code-family: Menlo,Roboto Mono,Courier New,monospace;
+$code-background: transparent;
+
+

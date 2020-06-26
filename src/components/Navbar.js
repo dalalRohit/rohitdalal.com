@@ -1,100 +1,109 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types';
+import React, { Component } from "react"
+import PropTypes from "prop-types"
+import Logo from "./UI/logo"
+import NavItems from "./helpers/nav_items"
 
-import classes from './../styles/components/navbar.module.scss';
-import Logo from './UI/logo';
-import NavItems from './helpers/nav_items';
+import Bottom from "./helpers/Bottom"
+import Scroll from "react-scroll"
+import ThemeContext from "../context/context"
+import { IoIosMoon, IoIosSunny } from "react-icons/io"
 
-import Bottom from './helpers/Bottom';
-import {IoIosMoon,IoIosSunny} from 'react-icons';
-import Scroll from 'react-scroll';
-
-var Element = Scroll.Element;
-var Events = Scroll.Events;
-var scroll = Scroll.animateScroll;
-var scrollSpy = Scroll.scrollSpy;
+var Events = Scroll.Events
+var scrollSpy = Scroll.scrollSpy
 
 export default class Navbar extends Component {
-    state={
-        scrolled:false,
+    state = {
+        scrolled: false,
     }
     componentDidMount() {
-        Events.scrollEvent.register('begin', function () {
-            console.log("begin", arguments);
-        });
-    
-        Events.scrollEvent.register('end', function () {
-            console.log("end", arguments);
-        });
-    
-        scrollSpy.update();
-        window.addEventListener('scroll', this.navOnScroll)
-      }
-    
-    componentWillUnmount() {
-        window.removeEventListener('scroll', this.navOnScroll)
-        Events.scrollEvent.remove('begin');
-        Events.scrollEvent.remove('end');
-    }
-    navOnScroll=() => {
-        const top=window.scrollY > 200 ;
-        if(top === true){
-            this.setState({scrolled:true})
-        }
-        else{
-            this.setState({scrolled:false})
-        }
+        scrollSpy.update()
+        window.addEventListener("scroll", this.navOnScroll)
     }
 
+    componentWillUnmount() {
+        window.removeEventListener("scroll", this.navOnScroll)
+        Events.scrollEvent.remove("begin")
+        Events.scrollEvent.remove("end")
+    }
+    navOnScroll = () => {
+        const top = window.scrollY > this.props.scrollHeight
+        if (top === true) {
+            this.setState({ scrolled: true })
+        } else {
+            this.setState({ scrolled: false })
+        }
+    }
 
     render() {
-        const {display,scroll,changeBlog,offset,blogTitle}=this.props;
+        const { scroll, changeBlog, blogTitle } = this.props
 
-        let navClass=[classes.Wrapper]
-        if(this.state.scrolled){
-            navClass.push(classes.Scrolled);
+        let navClass = ["navbar"]
+        if (this.state.scrolled) {
+            navClass.push("scrolled")
         }
 
-
         return (
-                <div className={navClass.join(" ")}  >
+            <ThemeContext.Consumer>
+                {(theme) => {
+                    const getLogo = () =>
+                        theme.dark ? (
+                            <IoIosSunny size={30} onClick={theme.toggleDark} />
+                        ) : (
+                            <IoIosMoon size={30} onClick={theme.toggleDark} />
+                        )
 
-                    <Logo scroll={scroll} />
-                    
-                    <div className={classes.BlogTitle} style={{display:navClass.length===1 ? 'none' : 'block'}}>
-                        <p>
-                            {blogTitle}
-                        </p>
-                    </div>
-                    
-                    <nav className={classes.Nav}>
-                        
-                        <NavItems
-                            display={display}
-                            scroll={scroll}
-                            changeBlog={changeBlog}
-                            offset={offset}
-                            />
+                    return (
+                        <header
+                            className="header"
+                            style={{
+                                background:
+                                    navClass.length === 1
+                                        ? "inherit"
+                                        : theme.dark
+                                        ? "#131313"
+                                        : "#e7e7e7",
+                            }}
+                        >
+                            <div className={navClass.join(" ")}>
+                                <Logo scroll={scroll} />
 
-                    </nav>
+                                {blogTitle && navClass.length === 2 ? (
+                                    <div className="blogTitle">
+                                        <p>{blogTitle}</p>
+                                    </div>
+                                ) : null}
 
-                    <Bottom 
-                        display={display} 
-                        scroll={scroll} 
-                        changeBlog={changeBlog}
-                        offset={-38}
-                    
-                    />
-            
-                </div>
+                                <nav className="navigation">
+                                    <NavItems
+                                        scroll={scroll}
+                                        changeBlog={changeBlog}
+                                        theme={theme}
+                                    />
+
+                                    {getLogo()}
+                                </nav>
+
+                                <div className="toggle">{getLogo()}</div>
+
+                                {
+                                    <Bottom
+                                        scroll={scroll}
+                                        changeBlog={changeBlog}
+                                        theme={theme}
+                                    />
+                                }
+                            </div>
+                        </header>
+                    )
+                }}
+            </ThemeContext.Consumer>
         )
     }
 }
 
-Navbar.propTypes={
-    display:PropTypes.string, //how to display nav-items . "row"
-    scroll:PropTypes.bool,  //whether to use 'react-scroll' or 'gatsby-link',
-    changeBlog:PropTypes.bool,
-    gradient:PropTypes.bool,
-    offset:PropTypes.number.isRequired
+Navbar.propTypes = {
+    display: PropTypes.string, //how to display nav-items . "row"
+    scroll: PropTypes.bool, //whether to use 'react-scroll' or 'gatsby-link',
+    changeBlog: PropTypes.bool,
+    offset: PropTypes.number.isRequired,
 }
