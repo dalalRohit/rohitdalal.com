@@ -105,5 +105,4 @@ Navbar.propTypes = {
     display: PropTypes.string, //how to display nav-items . "row"
     scroll: PropTypes.bool, //whether to use 'react-scroll' or 'gatsby-link',
     changeBlog: PropTypes.bool,
-    offset: PropTypes.number.isRequired,
 }

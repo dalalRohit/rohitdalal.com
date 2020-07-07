@@ -2,7 +2,6 @@ import React, { Component } from "react"
 import styled from "styled-components"
 import Button from "@material-ui/core/Button"
 import Modal from "./modal"
-import PropTypes from "prop-types"
 
 const CardDiv = styled.div`
   width: 90%;
@@ -12,7 +11,7 @@ const CardDiv = styled.div`
   box-sizing: border-box;
   border: 1px solid lightgray;
   padding: 1em;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -78,6 +77,3 @@ class Card extends Component {
 }
 export default Card
 
-// Card.PropTypes={
-//     title:PropTypes.string
-// }

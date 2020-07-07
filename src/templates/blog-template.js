@@ -10,7 +10,7 @@ import {IoLogoTwitter,IoMdArrowBack} from 'react-icons/io';
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
 export default function BlogTemplate(props) {
-    const {frontmatter,featuredImg,body,fields}=props.data.mdx;
+    const {frontmatter,body,fields}=props.data.mdx;
 
     const twitterShare=`https://www.twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&via=rohitdalal&text=${encodeURIComponent(frontmatter.title)}`
     

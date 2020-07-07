@@ -138,7 +138,7 @@ function SEO(props) {
 
         {
           name: `twitter:card`,
-          content: `summary_large_image`,
+          content: postSEO ? `summary_large_image` : `summary`,
         },
         {
           name: "twitter:site",

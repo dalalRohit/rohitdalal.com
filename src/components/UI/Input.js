@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components';
-// import TextField from '@material-ui/core/TextField';
 
 const InputWrapper=styled.div`
 box-sizing:border-box;
@@ -38,9 +37,6 @@ transition: all 0.1s ease;
 
 function Input(props) {
 
-    const classes={
-        color:'white',
-    }
     const { value,name,label,type,inputChange} = props;
 
     return (
@@ -58,18 +54,6 @@ function Input(props) {
                 onChange={inputChange}
                 placeholder={`Enter your ${name} here..`}
             />
-
-            {/* <TextField 
-                label={label}
-                variant="outlined"
-                type={type}
-                value={value}
-                id={name}
-                name={name}
-                onChange={inputChange}
-                placeholder={`Enter your ${name} here..`}
-     
-            /> */}
         </InputWrapper>
     )
 }
