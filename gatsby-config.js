@@ -35,7 +35,9 @@ module.exports = {
         },
 
         //Netlify
-        `gatsby-plugin-netlify`// Sharp plugin
+        `gatsby-plugin-netlify`,
+        
+        // Sharp plugin
         `gatsby-plugin-sharp`,
 
         // Sharp transformer plugin
