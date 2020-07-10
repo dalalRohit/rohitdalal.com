@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Layout from './Layout';
 
-import {config} from './../static/data';
+import {config} from './../../static/data';
 import Photo from './UI/image';
 import Title from './UI/title';
 

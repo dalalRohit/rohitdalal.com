@@ -1,7 +1,7 @@
 import React from "react"
 import Head from "./../components/helpers/head"
 import PageLayout from "./../components/pageLayout"
-import { getAllTags } from "./../static/data"
+import { getAllTags } from "./../../static/data"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import styled from "styled-components"
 import { IoMdArrowBack } from "react-icons/io"

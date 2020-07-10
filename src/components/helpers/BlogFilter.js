@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'gatsby';
 
-import {getAllTags} from './../../static/data';
+import {getAllTags} from './../../../static/data';
 
 
 export default function BlogFilter(props) {
