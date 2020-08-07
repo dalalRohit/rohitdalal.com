@@ -10,8 +10,13 @@
 
 }
 
+.icon {
+    cursor: pointer;
+}
+
 .toggle {
     display: none;
+
 }
 
 .navbar {
@@ -61,12 +66,13 @@
     p {
         margin: 0;
         padding: 0.5rem;
+        font-size: 15px;
         // font-size: 1.2rem;
     }
 }
 
 //tablet
-@media(max-width:$tablet) {
+@media(max-width:1000px) {
     .navbar {
         width: 100%;
         margin: 0;
@@ -125,6 +131,7 @@
     li {
         list-style-type: none;
         margin: .4em;
+        font-size: 1.1rem;
     }
 
     @media(max-width:700px) {
@@ -150,11 +157,15 @@
         padding: .1em;
     }
 
-    @media screen and (max-width:800px) {
+    &:focus {
+        border-bottom: 1px solid lightgray;
+    }
+
+    @media screen and (max-width:$tablet) {
         font-size: 1.1rem;
     }
 
-    @media screen and (max-width:620px) {
+    @media screen and (max-width:$mobile) {
         font-size: 1rem;
     }
 }
@@ -169,7 +180,9 @@
     left: 0rem;
     bottom: 0rem;
     min-height: 6vh;
-    display: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     z-index: 100;
 
     a {
@@ -180,9 +193,4 @@
         font-size: 1.1rem;
     }
 
-    @media (max-width: 620px) {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    }
 }

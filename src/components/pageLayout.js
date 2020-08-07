@@ -1,57 +1,46 @@
-import React from "react"
-import Navbar from "./../components/Navbar"
-import Footer from "./../components/Footer"
-import "./../styles/main.scss"
-import PropTypes from "prop-types"
-import ThemeContext from "../context/context"
-if (typeof window !== "undefined") {
-  // eslint-disable-next-line global-require
-  require("smooth-scroll")('a[href*="#"]')
-}
+import React from 'react'
+import Navbar from './../components/Navbar'
+import Footer from './../components/Footer'
+import './../styles/main.scss'
+import PropTypes from 'prop-types'
+import ThemeContext from '../context/context'
+import icon from './../images/logo.png'
 function PageLayout(props) {
-    const { scroll, changeBlog, blogTitle, scrollHeight } = props
+  const { scroll, changeBlog, blogTitle, scrollHeight, logo } = props
 
-    return (
-        <ThemeContext.Consumer>
-            {(theme) => {
-                const x = ["layout"]
-                theme.dark ? x.push("dark") : x.push("light")
+  return (
+    <ThemeContext.Consumer>
+      {(theme) => {
+        return (
+          <div className={theme.dark ? 'dark' : 'light'}>
+            <div className="layout">
+              <div className="main">
+                <Navbar
+                  scroll={scroll}
+                  changeBlog={changeBlog}
+                  blogTitle={blogTitle}
+                  scrollHeight={scrollHeight}
+                  logo={logo ? logo : icon}
+                />
 
-                return (
-                    <div className={theme.dark ? "dark" : "light"}>
-                        <div className="layout">
-                            <div className="main">
-                                <Navbar
-                                    scroll={scroll}
-                                    changeBlog={changeBlog}
-                                    blogTitle={blogTitle}
-                                    scrollHeight={scrollHeight}
-                                />
+                <main className="main-content">{props.children}</main>
+              </div>
 
-                                <main className="main-content">
-                                    {props.children}
-
-                                    {/* <div> BODY </div> */}
-                                </main>
-                            </div>
-
-                            <footer>
-                                <Footer />
-                            </footer>
-                        </div>
-                    </div>
-                )
-            }}
-        </ThemeContext.Consumer>
-    )
+              <Footer />
+            </div>
+          </div>
+        )
+      }}
+    </ThemeContext.Consumer>
+  )
 }
 
 PageLayout.propTypes = {
-    scroll: PropTypes.bool, //to show navbar scroll/link
-    children: PropTypes.node.isRequired,
-    scrollHeight: PropTypes.number.isRequired, //after scrollHeight, .scrolled to navbar
-    changeBlog: PropTypes.bool.isRequired, //blog->Blogs
-    blogTitle: PropTypes.string, //blogtitle
+  scroll: PropTypes.bool, //to show navbar scroll/link
+  children: PropTypes.node.isRequired,
+  scrollHeight: PropTypes.number.isRequired, //after scrollHeight, .scrolled to navbar
+  changeBlog: PropTypes.bool.isRequired, //blog->Blogs
+  blogTitle: PropTypes.string, //blogtitle
 }
 
 export default PageLayout

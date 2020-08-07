@@ -1,65 +1,70 @@
-// @import './../helpers/variables.scss';
-
-.contact{
+//----------
+//contact
+//---------
+.contact {
     box-sizing: border-box;
     width: 100%;
     max-width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(49%,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(49%, 1fr));
     gap: 1em;
     font-size: $body-font-size;
 
 }
 
-.form{
+.form {
     box-sizing: border-box;
     width: 100%;
     max-width: 100%;
     height: 100%;
 }
-.msg{
+
+.msg {
     width: 100%;
     padding: 1rem;
     text-align: center;
-    p{
+
+    p {
         margin: 0 0 .4rem 0;
     }
 }
+
 /* SOCIAL */
 
-.social{
+.social {
     box-sizing: border-box;
     width: 100%;
     max-width: 100%;
     height: 100%;
 
-    h2{
+    h2 {
         font-weight: 400;
     }
 }
 
-.icons{
+.icons {
     width: 100%;
     list-style-type: none;
     display: flex;
     justify-content: center;
     text-align: center;
 
-    span{
+    span {
         cursor: pointer;
-        margin: 1em;;
+        margin: 1em;
     }
 }
 
-.built{
+.built {
     width: 100%;
     margin: 1rem 0 1rem 0;
     padding: 1rem;
 
-    a{
+    a {
         color: $link;
-        &:hover{
+
+        &:hover {
             color: $hover;
             border-bottom: 1px solid plum;
         }
@@ -67,16 +72,95 @@
 }
 
 
+//----------
+//form
+//---------
 
-@media (max-width:700px){
-    
-    .Wrapper{
-        width: 100%;
-        margin: 0;
-        padding-top: 5vh;
+.form-div {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+}
+
+.main-form {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    padding: .4em;
+    display: flex;
+    flex-flow: column;
+}
+
+.sent {
+    padding: .3rem;
+    box-sizing: border-box;
+    width: 90%;
+    margin: 0 5% 0 5%;
+    max-width: 100%;
+    background-color: lightgreen;
+    color: black;
+
+    p {
+        font-size: $body-font-size;
+        text-align: center;
     }
 
-    .Social{
-        margin-bottom: 6vh;
+}
+
+.not-sent {
+    padding: .3rem;
+    box-sizing: border-box;
+    width: 90%;
+    margin: 0 5% 0 5%;
+    max-width: 100%;
+    background-color: lightcoral;
+    color: black;
+
+    p {
+        font-size: $body-font-size;
+        text-align: center;
     }
+}
+
+
+//----------
+//form input
+//---------
+.input-wrapper {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // border: 1px solid red;
+}
+
+.label {
+    box-sizing: border-box;
+    margin: 0;
+    font-size: $body-font-size;
+}
+
+.input-box {
+    box-sizing: border-box;
+    // border: 1px solid green;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    width: 80%;
+    padding: .3rem;
+
+    input {
+        box-sizing: border-box;
+        padding: .5rem;
+        width: 90%;
+    }
+}
+
+
+.field-error {
+    font-size: .75rem;
+    color: rgb(240, 122, 44);
 }

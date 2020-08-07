@@ -1,43 +1,91 @@
-// @import './../helpers/variables.scss';
-
-.Blogs{
-    width: 100%;
+//--------------------------
+//blog
+//--------------------------
+.desc {
     box-sizing: border-box;
-    height: 100%;
-    display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
-    gap: 1em;
+    width: 100%;
+    max-width: 100%;
+    // border: 1px solid red;
+    padding: .5rem;
+    margin: 0 0 1rem 0;
 
+    p {
+        font-size: $body-font-size;
+        margin: 0 0 1.2rem 0;
+    }
+}
+
+//---------------------------
+//all-blogs
+//---------------------------
+
+.all-blogs {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1rem;
+
+    @media (max-width:$mobile) {
+        width: 100%;
+        margin: 0;
+    }
 
 }
 
-.notice{
-    font-size: $body-font-size;
-    line-height: 1.8rem;
-    margin: 1.5rem;
+//---------------------------
+//blog-filter
+//---------------------------
+.filter {
+    box-sizing: border-box;
+    width: 85%;
+    margin: 1rem 7.5% 1rem 7.5%;
+    max-width: 100%;
+    padding: .8em;
+
+    @media(max-width:$tablet) {
+        width: 100%;
+        margin: 0;
+    }
+
+    h1 {
+        font-size: $h1;
+        font-weight: 500;
+    }
+
+    p {
+        font-size: $body-font-size;
+    }
 }
-.note{
-    text-align: center;
+
+.form {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: .8em;
+}
+
+.input {
+    width: 70%;
+    margin: 0 30% 0 0;
+}
+
+.filtertags {
+    box-sizing: border-box;
+    width: 80%;
+    max-width: 100%;
     padding: .1em;
-    p{
-        font-size: 1rem;
-    }
-    button{
-        background: $button;
-        color: black;
-        &:hover{
-            background: $button-hover;
-        }
-    }
-    @media (max-width:$tablet) {
-        margin: 1.5rem 30% 1.5rem 30%;
+    display: flex;
+    justify-content: flex-start;
 
-    }
-    @media(max-width:$mobile) {
-        margin: 1.5rem 30% 1.5rem 30%;
+    @media screen and (max-width:$mobile) {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     }
 }
 
 
-
-
+.blogcount {
+    font-size: .89em;
+}

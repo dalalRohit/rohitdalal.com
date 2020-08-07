@@ -1,56 +1,38 @@
 import React from 'react'
-import {useStaticQuery,graphql} from 'gatsby';
-import Card from './UI/card';
-import Title from './UI/title';
-import Layout from './Layout';
+import Card from './UI/card'
+import Title from './UI/title'
+import Layout from './Layout'
+import { projects } from './../../static/data'
 
+const Projects = () => {
+  const name = 'Projects'
 
-const Projects=() => {
-    const name="Projects";
+  return (
+    <Layout name={name} id={name}>
+      <Title path={name}>/projects</Title>
 
-    const data=useStaticQuery(graphql`
-        query{
-            allMarkdownRemark{
-                edges{
-                  node{
-                    frontmatter{
-                      title,
-                      tags,
-                      desc
-                    },
-                    html
-                  }
-                }
-              }
-        }
-    `);
-    
-    return (
-        <Layout name={name} id={name}  >  
-                <Title path={name} >/projects</Title>
-
-                <p className="projNote">My recent work done and many more coming ..</p>
-                <main className="all-projects">
-                    {   
-                        data.allMarkdownRemark.edges.map( (edge) => {
-                            const {title,tags,desc} = edge.node.frontmatter;
-                            const {html}=edge.node;
-                            return (
-                                <Card
-                                    key={Math.random()} 
-                                    title={title}
-                                    tags={tags}
-                                    desc={desc}
-                                    html={html}
-                                />
-                            )
-                        })
-                    }                
-                </main>
-
-        </Layout>
-    )
+      <div className="desc">
+        <p>
+          Collection of my recently done projects.. <br />
+          Many more coming!
+        </p>
+      </div>
+      <section className="all-projects">
+        {projects.map((edge) => {
+          return (
+            <Card
+              key={Math.random()}
+              title={edge.name}
+              tags={edge.tags}
+              desc={edge.desc}
+              link={edge.link ? edge.link : null}
+              github={edge.github ? edge.github : null}
+            />
+          )
+        })}
+      </section>
+    </Layout>
+  )
 }
 
-export default Projects;
-
+export default Projects

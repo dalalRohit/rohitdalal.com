@@ -1,17 +1,17 @@
-.footer{
+.footer {
     width: 100%;
     box-sizing: border-box;
     display: flex;
+    flex-flow: column;
     position: relative;
     bottom: 0;
     height: 15vh;
     margin-top: -15vh;
     clear: both;
     margin: 0;
-    // border: 1px solid red;
-   
-    flex-flow: column;
-    p{
+
+
+    p {
         font-size: 1.35rem;
         border: none;
         background: none;
@@ -20,32 +20,34 @@
 
 }
 
-.first{
+.first {
     display: flex;
     justify-content: space-evenly;
     margin: 1em;
-    a{
+
+    a {
         cursor: pointer;
     }
-    button{
+
+    button {
         border: none;
         background: none;
         color: inherit;
     }
 }
 
-.second{
+.second {
     text-align: center;
     margin: .8em;
 
 }
 
-@media screen and (max-width:700px) {
-    .footer{
-        margin-bottom: 3em;
+@media screen and (max-width:$mobile) {
+    .footer {
+        margin-bottom: 2.7em;
     }
 
-    .first{
+    .first {
         justify-content: space-between;
     }
 }

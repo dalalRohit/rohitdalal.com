@@ -1,80 +1,54 @@
-import React from "react"
-import PropTypes from "prop-types"
-import Helmet from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
-import icon from "./../images/logo.png"
-
+import React from 'react'
+import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
+import { metaData } from './../../static/data'
 function SEO(props) {
-  const {
-    meta,
-    image: metaImage,
-    postSEO,
-    postNode,
-    title: pageTitle,
-  } = props
-
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            description
-            title
-            image
-            siteUrl
-            siteLanguage
-            twitterUsername
-            author
-            keywords
-          }
-        }
-      }
-    `
-  )
+  const { meta, image: metaImage, postSEO, postNode, title: pageTitle } = props
 
   let title
   let description
-  let image = ""
+  let image = ''
   let postURL
+  let icon = props.logo
 
   if (postSEO) {
     const postMeta = postNode.frontmatter
 
-    title = postMeta.title
+    title = `${postMeta.title} | Rohit Dalal`
     description = postMeta.description ? postMeta.description : postNode.excerpt
 
     //swap between postImage and icon for '/blogs' and '/' respectively
     image = metaImage.src
-    postURL = site.siteMetadata.siteUrl + `/blogs/${postMeta.slug}`
+    postURL = metaData.siteUrl + `/blogs/${postMeta.slug}`
   } else {
-    title = pageTitle ? pageTitle : site.siteMetadata.title
-    description = site.siteMetadata.description
+    title = pageTitle ? pageTitle : metaData.title
+    description = metaData.description
     image = metaImage ? metaImage.src : icon
   }
 
-  image = `${site.siteMetadata.siteUrl}${image}`
+  image = `${metaData.siteUrl}${image}`
 
   const schemaOrgJSONLD = [
     {
-      "@context": "http://schema.org",
-      "@type": "WebSite",
-      url: site.siteMetadata.siteUrl,
+      '@context': 'http://schema.org',
+      '@type': 'WebSite',
+      url: metaData.siteUrl,
       name: title,
-      alternateName: "Rohit Dalal",
+      alternateName: 'Rohit Dalal',
     },
   ]
 
   if (postSEO) {
     schemaOrgJSONLD.push(
       {
-        "@context": "http://schema.org",
-        "@type": "BreadcrumbList",
+        '@context': 'http://schema.org',
+        '@type': 'BreadcrumbList',
         itemListElement: [
           {
-            "@type": "ListItem",
+            '@type': 'ListItem',
             position: 1,
             item: {
-              "@id": postURL,
+              '@id': postURL,
               name: title,
               image,
             },
@@ -82,14 +56,14 @@ function SEO(props) {
         ],
       },
       {
-        "@context": "http://schema.org",
-        "@type": "BlogPosting",
+        '@context': 'http://schema.org',
+        '@type': 'BlogPosting',
         url: postURL,
         name: title,
-        alternateName: "Rohit Dalal",
+        alternateName: 'Rohit Dalal',
         headline: title,
         image: {
-          "@type": "ImageObject",
+          '@type': 'ImageObject',
           url: image,
         },
         description,
@@ -100,11 +74,10 @@ function SEO(props) {
   return (
     <Helmet
       htmlAttributes={{
-        lang: "en",
+        lang: 'en',
       }}
       title={title}
       // titleTemplate={`%s | ${title}`}
-
       meta={[
         {
           name: `description`,
@@ -112,28 +85,28 @@ function SEO(props) {
         },
         {
           property: `og:url`,
-          content: postSEO ? postURL : site.siteMetadata.siteUrl,
+          content: postSEO ? postURL : metaData.siteUrl,
         },
         {
           property: `og:title`,
           content: title,
         },
         {
-          property: "og:type",
-          content: postSEO ? "article" : "portfolio",
+          property: 'og:type',
+          content: postSEO ? 'article' : 'portfolio',
         },
         {
           property: `og:description`,
           content: description,
         },
         {
-          property: "og:image",
+          property: 'og:image',
           content: image,
         },
 
         {
-          name: "keywords",
-          content: site.siteMetadata.keywords.join(","),
+          name: 'keywords',
+          content: metaData.keywords.join(','),
         },
 
         {
@@ -141,12 +114,12 @@ function SEO(props) {
           content: postSEO ? `summary_large_image` : `summary`,
         },
         {
-          name: "twitter:site",
-          content: site.siteMetadata.twitterUsername,
+          name: 'twitter:site',
+          content: metaData.twitterUsername,
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.twitterUsername,
+          content: metaData.twitterUsername,
         },
         {
           name: `twitter:title`,
@@ -157,7 +130,7 @@ function SEO(props) {
           content: description,
         },
         {
-          name: "twitter:image",
+          name: 'twitter:image',
           content: image,
         },
       ]
@@ -165,14 +138,14 @@ function SEO(props) {
           metaImage
             ? [
                 {
-                  name: "twitter:card",
-                  content: "summary_large_image",
+                  name: 'twitter:card',
+                  content: 'summary_large_image',
                 },
               ]
             : [
                 {
-                  name: "twitter:card",
-                  content: "summary_large_image",
+                  name: 'twitter:card',
+                  content: 'summary_large_image',
                 },
               ]
         )

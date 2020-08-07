@@ -1,7 +1,12 @@
+/blogs
 /src/images/rohit-og.png
 /src/images/icon_192.png
 /src/images/icon_512.png
-
+/src/projects
+/src/pages/sample.js
+.vscode
+/src/components/UI/backdrop.js
+/src/components/UI/modal.js
 # Logs
 logs
 *.log

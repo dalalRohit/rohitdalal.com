@@ -1,48 +1,46 @@
-import { Link } from "gatsby"
-// import PropTypes from 'prop-types';
-import React from "react"
-import Img from "gatsby-image"
+import { Link } from 'gatsby'
+import React from 'react'
+import Img from 'gatsby-image'
 
 export default function BlogCard(props) {
   const { title, date, fluid, slug, time, tags } = props
 
-  const blogTags = tags.map((t) => {
+  const blogTags = tags.map((tag) => {
     return (
-      <span className="Tag" key={Math.random()}>
+      <span className="category" key={Math.random()}>
         <Link
-          alt={`Show all blogs tagged ${t}`}
-          title={`Show all blogs tagged ${t}`}
-          to={`/tags/${t}`}
+          alt={`Show all blogs tagged ${tag}`}
+          title={`Show all blogs tagged ${tag}`}
+          to={`/tags/${tag}`}
         >
-          {t}
+          {tag}
         </Link>
       </span>
     )
   })
   return (
-    <section className="blogCard ">
+    <article className="blogCard ">
       <header className="blogImg">
         <Link to={`/blogs/${slug}`}>
           <Img fluid={fluid} alt={title} title={title} />
         </Link>
       </header>
 
-      <div className="blogTags">{blogTags}</div>
-
       <div className="blogData">
-        <p>
+        <h2 className="blogTitle">
           <Link alt={title} title={title} to={`/blogs/${slug}`}>
             {title}
           </Link>
-        </p>
+        </h2>
 
         <div className="mobileTags">{blogTags}</div>
 
         <div className="dateTime">
           <span>{date}</span>
+          <div className="blogTags">{blogTags}</div>
           <span>{time}</span>
         </div>
       </div>
-    </section>
+    </article>
   )
 }

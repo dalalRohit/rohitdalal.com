@@ -1,7 +1,7 @@
 // @import './../helpers/variables.scss';
 
 
-.hero{
+.hero {
   box-sizing: border-box;
   width: 85%;
   position: relative;
@@ -36,14 +36,14 @@
 
 
 // Main content
-.my-info{
+.my-info {
   box-sizing: border-box;
   width: 100%;
   // margin: 0 15% 0 15%;
   padding: .5rem;
   text-align: center;
 
-  h1{
+  h1 {
     font-size: $hero-h1;
     font-weight: 500;
     margin: 10px;
@@ -53,7 +53,8 @@
     text-align: unset;
     width: 100%;
     margin: 0;
-    h1{
+
+    h1 {
       font-size: $hero-h1-mobile;
     }
   }
@@ -61,34 +62,25 @@
 
 
 
-.my-intro{
+.my-intro {
   box-sizing: border-box;
   width: 90%;
   margin: 1em 5% 0 5%;
   display: flex;
+  flex-flow: column;
   padding: .7em;
   justify-content: center;
   align-items: center;
-  p{
-    font-size: 1.35rem;
-    margin: 0 0 1.5rem 0;
-    line-height: 2rem;
-  }
-  button{
-    background: $button;
-    margin: 15px 0 15px 0;
-    a{
-      font-size: 1.1rem;
-    }
-    &:hover{
-      background: $button-hover;
-    }
+  // border: 1px solid red;
 
+  p {
+    margin: .2rem;
+    font-size: 1.2rem;
   }
-  @media (max-width:$mobile){
+
+  @media (max-width:$mobile) {
     padding: .4em;
     width: 100%;
     margin: 0;
   }
 }
-

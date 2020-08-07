@@ -1,18 +1,14 @@
-import React from "react"
-import NavItems from "./nav_items"
+import React from 'react'
+import NavItems from './nav_items'
 
 export default function Bottom(props) {
-    const { theme, scroll, display, changeBlog } = props
-    return (
-        <div
-            className="bottom"
-            style={{ backgroundColor: theme.dark ? "#131313" : "#e7e7e7" }}
-        >
-            <NavItems
-                display={display}
-                scroll={scroll}
-                changeBlog={changeBlog}
-            />
-        </div>
-    )
+  const { theme, scroll, display, changeBlog } = props
+  return (
+    <div
+      className="bottom"
+      style={{ backgroundColor: theme.dark ? '#131313' : '#e7e7e7' }}
+    >
+      <NavItems display={display} scroll={scroll} changeBlog={changeBlog} />
+    </div>
+  )
 }

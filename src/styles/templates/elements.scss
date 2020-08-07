@@ -1,8 +1,32 @@
-.blog-note{
+.blog-note {
     width: 100%;
     box-sizing: border-box;
     border-radius: 4px;
-    background-color: #93aa91;
+    background-color: #6be2fa;
     padding: .8rem;
     margin: 10px 0 10px 0;
+    color: black;
+}
+
+.quote {
+    border-left: .25em solid #dfe2e5;
+    color: #6a737d;
+    padding: 0 1em;
+}
+
+.heading {
+    border-bottom: 1px solid darkorange;
+
+    .pin {
+        cursor: pointer;
+        margin: 0 .5rem 0 0;
+        color: inherit;
+        line-height: 1;
+        opacity: 0.12;
+    }
+
+    &:hover .pin {
+        opacity: 1;
+    }
+
 }

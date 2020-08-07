@@ -1,76 +1,65 @@
 import React from 'react'
-import Head from '../components/helpers/head';
-import PageLayout from './../components/pageLayout';
-import AllBlogs from './../components/AllBlogs';
-import { graphql } from 'gatsby';
-import styled from 'styled-components';
-import SEO from './../components/seo';
+import PageLayout from './../components/pageLayout'
+import AllBlogs from './../components/AllBlogs'
+import { graphql } from 'gatsby'
+import styled from 'styled-components'
+import SEO from './../components/seo'
 
-const X=styled.div`
-    .note{
-        width:85%;
-        margin:1rem 7.5% 0 7.5%;
-        font-size:1.4rem;
-
-        @media screen and (max-width:620px){
-            width:100%;
-            margin:0;
-        }
-    }
-`
 export default function Tag(props) {
-    return (
-        <PageLayout 
-            scroll={false} 
-            changeBlog={true} 
-            margin={false}
-            scrollHeight={20}
-            >
-            <SEO title={`Blogs of ${props.pageContext.tag} | Rohit Dalal`} />
-            <Head  title={`Blogs of "${props.pageContext ? props.pageContext.tag : ''}" `} info={"Rohit Dalal"} />
-            <X>
-                <p className="note">Showing all blogs tagged "{props.pageContext.tag}" </p>
-
-                <AllBlogs blogs={props.data.blogQuery}/>
-            </X>
-
-        </PageLayout>
-    )
+  return (
+    <PageLayout
+      scroll={false}
+      changeBlog={true}
+      margin={false}
+      scrollHeight={20}
+      logo={props.data.logo.fixed}
+    >
+      <SEO
+        title={`Blogs of ${props.pageContext.tag} | Rohit Dalal`}
+        logo={props.data.logo.fixed}
+      />
+      <h2 className="tag-note">
+        Showing all blogs of <u>{props.pageContext.tag}</u>
+      </h2>
+      <div className="all-blogs">
+        <AllBlogs blogs={props.data.blogQuery} />
+      </div>
+    </PageLayout>
+  )
 }
 
-export const tagQuery=graphql`
-    query($tag:String)
-    {
-        blogQuery:allMdx(
-            filter:{frontmatter:{tags:{in:[$tag]}}}
-        ){
-            edges{
-                node{
-                    frontmatter{
-                        title,
-                        date(formatString: "YYYY MMMM Do"),
-                        slug,
-                        tags,
-                        thumbnail{
-                            childImageSharp {
-                                fluid(maxWidth: 600) {
-                                    ...GatsbyImageSharpFluid
-                                },
-                                fixed(width:290,height:170){
-                                    ...GatsbyImageSharpFixed
-                                }
-                            }
-                        }
-                    },
-                    excerpt,
-                    body,
-                    fields{
-                        readingTime{
-                            text
-                        }
-                    }
+export const tagQuery = graphql`
+  query($tag: String) {
+    blogQuery: allMdx(filter: { frontmatter: { tags: { in: [$tag] } } }) {
+      edges {
+        node {
+          frontmatter {
+            title
+            date(formatString: "MMM Do YYYY")
+            slug
+            tags
+            thumbnail {
+              childImageSharp {
+                fluid(maxHeight: 250, maxWidth: 400) {
+                  ...GatsbyImageSharpFluid
                 }
+              }
             }
+          }
+          excerpt
+          body
+          fields {
+            readingTime {
+              text
+            }
+          }
         }
+      }
     }
+    logo: imageSharp(fixed: { originalName: { eq: "logo.png" } }) {
+      fixed(width: 35, height: 35) {
+        ...GatsbyImageSharpFixed_tracedSVG
+      }
+    }
+  }
 `

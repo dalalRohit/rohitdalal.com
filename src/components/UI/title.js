@@ -1,6 +1,6 @@
-import React from "react"
-import styled from "styled-components"
-import { Link } from "react-scroll"
+import React from 'react'
+import styled from 'styled-components'
+import { Link } from 'react-scroll'
 
 const Name = styled.h1`
   transition: all 0.3s linear;
@@ -25,8 +25,8 @@ export default function Title(props) {
         duration={200}
         // offset={-60}
       >
-        {" "}
-        {props.children}{" "}
+        {' '}
+        {props.children}{' '}
       </Link>
     </Name>
   )

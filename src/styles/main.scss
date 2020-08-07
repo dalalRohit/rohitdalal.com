@@ -8,7 +8,7 @@
 
 
 //Variables
-@import './helpers/variables.scss';
+@import './variables.scss';
 
 //hover
 @import './hover.scss';
@@ -26,9 +26,7 @@
 @import './components/projects.scss';
 
 //Helpers
-@import './helpers/allblogs.scss';
 @import './helpers/blogcard.scss';
-@import './helpers/blogfilter.scss';
 
 // Templates
 @import './templates/blogtemplate.scss';

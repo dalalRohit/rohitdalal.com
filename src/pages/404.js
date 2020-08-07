@@ -1,30 +1,36 @@
-import React from "react"
-import Head from "./../components/helpers/head"
+import React from 'react'
+import PageLayout from './../components/pageLayout'
+import SEO from '../components/seo'
+import { Link } from 'gatsby'
 
-import SEO from "../components/seo"
-import { Link } from "gatsby"
+const NotFoundPage = (props) => (
+  <PageLayout
+    scroll={false}
+    changeBlog={false}
+    margin={true}
+    scrollHeight={40}
+    logo={props.data.logo.fixed}
+  >
+    <SEO title="404 | Rohit Dalal" logo={props.data.logo.fixed} />
+    <div className="not-found">
+      <h1>404</h1>
+      <p>Page not found</p>
 
-const NotFoundPage = () => (
-    <>
-        <Head title={"404"} info={"Rohit Dalal"} />
-        <SEO />
-        <div
-            style={{
-                display: "flex",
-                flexFlow: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                backgroundColor: "#feded1",
-                height: "100vh",
-            }}
-        >
-            <h1 style={{ fontSize: "10em" }}>404</h1>
-
-            <Link to="/">
-                <h3>Go to see Rohit Dalal's portfolio instead ;) </h3>
-            </Link>
-        </div>
-    </>
+      <p>
+        Go to my <Link to="/">Portfolio</Link>
+      </p>
+    </div>
+  </PageLayout>
 )
+
+export const data = graphql`
+  {
+    logo: imageSharp(fixed: { originalName: { eq: "logo.png" } }) {
+      fixed(width: 35, height: 35) {
+        ...GatsbyImageSharpFixed_tracedSVG
+      }
+    }
+  }
+`
 
 export default NotFoundPage
