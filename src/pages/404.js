@@ -9,9 +9,9 @@ const NotFoundPage = (props) => (
     changeBlog={false}
     margin={true}
     scrollHeight={40}
-    logo={props.data.logo.fixed}
+    // logo={props.data.logo.fixed}
   >
-    <SEO title="404 | Rohit Dalal" logo={props.data.logo.fixed} />
+    <SEO pageTitle="404 | Rohit Dalal" />
     <div className="not-found">
       <h1>404</h1>
       <p>Page not found</p>
@@ -23,14 +23,14 @@ const NotFoundPage = (props) => (
   </PageLayout>
 )
 
-export const data = graphql`
-  {
-    logo: imageSharp(fixed: { originalName: { eq: "logo.png" } }) {
-      fixed(width: 35, height: 35) {
-        ...GatsbyImageSharpFixed_tracedSVG
-      }
-    }
-  }
-`
+// export const data = graphql`
+//   {
+//     logo: imageSharp(fixed: { originalName: { eq: "logo.png" } }) {
+//       fixed(width: 35, height: 35) {
+//         ...GatsbyImageSharpFixed_tracedSVG
+//       }
+//     }
+//   }
+// `
 
 export default NotFoundPage

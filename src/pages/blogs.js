@@ -14,9 +14,9 @@ const Blogs = (props) => {
       changeBlog={false}
       margin={true}
       scrollHeight={20}
-      logo={props.data.logo.fixed}
+      // logo={props.data.logo.fixed}
     >
-      <SEO title="Blogs | Rohit Dalal" logo={props.data.logo.fixed} />
+      <SEO pageTitle="Blogs | Rohit Dalal" />
 
       <BlogFilter data={props.data.blogsQuery} />
       <div className="all-blogs">

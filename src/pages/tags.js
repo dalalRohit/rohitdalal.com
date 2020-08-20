@@ -37,13 +37,8 @@ const Tags = (props) => {
   const allTags = getAllTags(props.data.tags)
 
   return (
-    <PageLayout
-      scroll={false}
-      changeBlog={true}
-      scrollHeight={20}
-      logo={props.data.logo.fixed}
-    >
-      <SEO title={`All tags | Rohit Dalal`} logo={props.data.logo.fixed} />
+    <PageLayout scroll={false} changeBlog={true} scrollHeight={20}>
+      <SEO title={`All tags | Rohit Dalal`} />
 
       <TagsContainer>
         <Link to={`/blogs/`}>
@@ -84,11 +79,6 @@ export const data = graphql`
             tags
           }
         }
-      }
-    }
-    logo: imageSharp(fixed: { originalName: { eq: "logo.png" } }) {
-      fixed(width: 35, height: 35) {
-        ...GatsbyImageSharpFixed_tracedSVG
       }
     }
   }

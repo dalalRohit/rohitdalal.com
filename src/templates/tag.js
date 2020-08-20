@@ -1,9 +1,9 @@
 import React from 'react'
-import PageLayout from './../components/pageLayout'
-import AllBlogs from './../components/AllBlogs'
+import PageLayout from '../components/pageLayout'
+import AllBlogs from '../components/AllBlogs'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
-import SEO from './../components/seo'
+import SEO from '../components/seo'
 
 export default function Tag(props) {
   return (
@@ -12,12 +12,9 @@ export default function Tag(props) {
       changeBlog={true}
       margin={false}
       scrollHeight={20}
-      logo={props.data.logo.fixed}
+      // logo={props.data.logo.fixed}
     >
-      <SEO
-        title={`Blogs of ${props.pageContext.tag} | Rohit Dalal`}
-        logo={props.data.logo.fixed}
-      />
+      <SEO pageTitle={`Blogs of ${props.pageContext.tag} | Rohit Dalal`} />
       <h2 className="tag-note">
         Showing all blogs of <u>{props.pageContext.tag}</u>
       </h2>
@@ -54,11 +51,6 @@ export const tagQuery = graphql`
             }
           }
         }
-      }
-    }
-    logo: imageSharp(fixed: { originalName: { eq: "logo.png" } }) {
-      fixed(width: 35, height: 35) {
-        ...GatsbyImageSharpFixed_tracedSVG
       }
     }
   }

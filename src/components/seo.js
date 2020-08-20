@@ -1,40 +1,33 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { metaData } from './../../static/data'
-function SEO(props) {
-  const { meta, image: metaImage, postSEO, postNode, title: pageTitle } = props
 
-  let title
-  let description
-  let image = ''
-  let postURL
-  let icon = props.logo
+const SEO = ({ pageTitle, postSEO, postNode, pageDescription }) => {
+  let image = metaData.image,
+    postURL,
+    title,
+    description
 
   if (postSEO) {
-    const postMeta = postNode.frontmatter
-
-    title = `${postMeta.title} | Rohit Dalal`
-    description = postMeta.description ? postMeta.description : postNode.excerpt
-
-    //swap between postImage and icon for '/blogs' and '/' respectively
-    image = metaImage.src
-    postURL = metaData.siteUrl + `/blogs/${postMeta.slug}`
+    const meta = postNode.frontmatter
+    title = meta.title
+    description = postNode.excerpt
+    image = meta.thumbnail.childImageSharp.fixed.src
+    postURL = `${metaData.siteUrl}/blogs/${meta.slug}`
   } else {
-    title = pageTitle ? pageTitle : metaData.title
-    description = metaData.description
-    image = metaImage ? metaImage.src : icon
+    title = metaData.title
+    description = pageDescription || metaData.description
   }
 
   image = `${metaData.siteUrl}${image}`
-
+  //JSONLD
   const schemaOrgJSONLD = [
     {
       '@context': 'http://schema.org',
       '@type': 'WebSite',
       url: metaData.siteUrl,
       name: title,
-      alternateName: 'Rohit Dalal',
+      alternateName: metaData.author,
     },
   ]
 
@@ -50,7 +43,7 @@ function SEO(props) {
             item: {
               '@id': postURL,
               name: title,
-              image,
+              image: image,
             },
           },
         ],
@@ -72,106 +65,30 @@ function SEO(props) {
   }
 
   return (
-    <Helmet
-      htmlAttributes={{
-        lang: 'en',
-      }}
-      title={title}
-      // titleTemplate={`%s | ${title}`}
-      meta={[
-        {
-          name: `description`,
-          content: description,
-        },
-        {
-          property: `og:url`,
-          content: postSEO ? postURL : metaData.siteUrl,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: 'og:type',
-          content: postSEO ? 'article' : 'portfolio',
-        },
-        {
-          property: `og:description`,
-          content: description,
-        },
-        {
-          property: 'og:image',
-          content: image,
-        },
+    <Helmet title={pageTitle}>
+      <meta name="description" content={description} />
+      <meta name="image" content={image} />
 
-        {
-          name: 'keywords',
-          content: metaData.keywords.join(','),
-        },
-
-        {
-          name: `twitter:card`,
-          content: postSEO ? `summary_large_image` : `summary`,
-        },
-        {
-          name: 'twitter:site',
-          content: metaData.twitterUsername,
-        },
-        {
-          name: `twitter:creator`,
-          content: metaData.twitterUsername,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: description,
-        },
-        {
-          name: 'twitter:image',
-          content: image,
-        },
-      ]
-        .concat(
-          metaImage
-            ? [
-                {
-                  name: 'twitter:card',
-                  content: 'summary_large_image',
-                },
-              ]
-            : [
-                {
-                  name: 'twitter:card',
-                  content: 'summary_large_image',
-                },
-              ]
-        )
-        .concat(meta)}
-    >
       <script type="application/ld+json">
         {JSON.stringify(schemaOrgJSONLD)}
       </script>
+
+      <meta property="og:url" content={postSEO ? postURL : metaData.siteUrl} />
+      {postSEO && <meta property="og:type" content="article" />}
+      <meta property="og:title" content={title} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={image} />
+
+      <meta
+        name="twitter:card"
+        content={postSEO ? 'summary_large_image' : 'summary'}
+      />
+      <meta name="twitter:creator" content={metaData.twitterUsername} />
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={image} />
     </Helmet>
   )
-}
-
-SEO.defaultProps = {
-  meta: [],
-}
-
-SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
-  image: PropTypes.shape({
-    src: PropTypes.string,
-    height: PropTypes.number,
-    width: PropTypes.number,
-  }),
 }
 
 export default SEO

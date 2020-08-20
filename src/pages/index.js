@@ -17,12 +17,9 @@ const IndexPage = (props) => {
       margin={false}
       scrollHeight={50}
       extraheight={false}
-      logo={props.data.logo.fixed}
+      // logo={props.data.logo.fixed}
     >
-      <SEO
-        title="Rohit Dalal | Full Stack Software Developer"
-        logo={props.data.logo.fixed}
-      />
+      <SEO pageTitle="Rohit Dalal | Full Stack Software Developer" />
 
       <Home />
       <About fluid={props.data.imageQuery.fluid} />
@@ -70,11 +67,6 @@ export const data = graphql`
     ) {
       fluid(maxWidth: 400, quality: 100) {
         ...GatsbyImageSharpFluid_tracedSVG
-      }
-    }
-    logo: imageSharp(fixed: { originalName: { eq: "logo.png" } }) {
-      fixed(width: 35, height: 35) {
-        ...GatsbyImageSharpFixed_tracedSVG
       }
     }
   }

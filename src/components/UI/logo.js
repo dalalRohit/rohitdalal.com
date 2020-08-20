@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import Img from 'gatsby-image'
-
+// import Img from 'gatsby-image'
+import icon from './../../images/logo.png'
 const Logo = styled.div`
   box-sizing: border-box;
   display: flex;
@@ -34,9 +34,11 @@ export default function logo(props) {
   return (
     <Link to="/" alt={altTitle} title={altTitle}>
       <Logo>
-        {props.fixed ? (
+        {/* {props.fixed ? (
           <Img fixed={props.fixed} alt={altTitle} title={altTitle} />
-        ) : null}
+        ) : null} */}
+
+        <img src={icon} alt="Rohit Dalal" width="35px" height="35px" />
         <p>Rohit Dalal</p>
       </Logo>
     </Link>

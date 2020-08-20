@@ -59,24 +59,15 @@ const content = {
 }
 
 const metaData = {
-  title: 'Rohit Dalal | FullStack Software Developer',
+  title: 'Rohit Dalal | Full Stack Software Developer',
   description:
     'Rohit Dalal is a self-taught Full Stack Software Developer. I develop Websites, Web-Apps, and I also write Technical blogs, related to Web Development.',
-  image: './images/logo_192.png',
+  image: '/logo.png',
   siteLanguage: `en-GB`,
   siteLocale: `en_gb`,
-  twitterUsername: `@dalal_rohit`,
+  twitterUsername: `dalal__rohit`,
   author: `Rohit Dalal`,
-  intro: '',
-  siteUrl: `https://www.rohitdalal.com`,
-  keywords: [
-    'rohit',
-    'dalal',
-    'full-stack',
-    'software',
-    'developer',
-    'javascript',
-  ],
+  siteUrl: `https://rohitdalal.com`,
 }
 
 const getSlugFromHeadings = (id) => {

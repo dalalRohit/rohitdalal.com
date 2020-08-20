@@ -1,21 +1,12 @@
 import React from 'react'
-// import { Link } from 'gatsby'
+import { Link } from 'gatsby'
 import { MDXProvider } from '@mdx-js/react'
 import { ThemeProvider } from './src/context/context'
-// import { AiOutlinePaperClip } from 'react-icons/ai'
+import { AiOutlinePaperClip } from 'react-icons/ai'
 
 import Code from './src/components/helpers/code'
 import './src/styles/templates/elements.scss'
-// import { getSlugFromHeadings } from './static/data'
-
-if (typeof window !== 'undefined') {
-  // eslint-disable-next-line global-require
-  require('smooth-scroll')('a[href*="#"]', {
-    offset: 46,
-    updateURL: true,
-    speed: 200,
-  })
-}
+import { getSlugFromHeadings } from './static/data'
 
 const components = {
   blockquote: (props) => {
@@ -24,6 +15,7 @@ const components = {
   em: (props) => {
     return <em>{props.children}</em>
   },
+
   /*
   h2: (props) => {
     let id = getSlugFromHeadings(props.children)
@@ -54,6 +46,7 @@ const components = {
     )
   },
   */
+
   a: (props) => {
     return (
       <a

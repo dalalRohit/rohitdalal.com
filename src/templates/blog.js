@@ -3,22 +3,19 @@ import { graphql, Link } from 'gatsby'
 import { IoLogoTwitter, IoMdArrowBack } from 'react-icons/io'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { window } from 'browser-monads'
-import ThemeContext from './../context/context'
-import PageLayout from './../components/pageLayout'
-import SEO from './../components/seo'
+import ThemeContext from '../context/context'
+import PageLayout from '../components/pageLayout'
+import SEO from '../components/seo'
 // import TOC from './../components/UI/toc'
 
-import './../styles/templates/blogtemplate.scss'
-
 export default function BlogTemplate(props) {
-  const { frontmatter, body, fields, headings } = props.data.blog
+  const blog = props.data.blog
+
+  const { frontmatter, body, fields, headings, excerpt } = blog
+
   const twitterShare = `https://www.twitter.com/intent/tweet?url=${encodeURIComponent(
     window.location.href
   )}&via=rohitdalal&text=${encodeURIComponent(frontmatter.title)}`
-
-  const image = frontmatter.thumbnail
-    ? frontmatter.thumbnail.childImageSharp.fixed
-    : null
 
   const readingTime = fields.readingTime.text //reading time
   const { prevPost, nextPost } = props.pageContext
@@ -34,15 +31,13 @@ export default function BlogTemplate(props) {
             margin={true}
             extraheight={true}
             scrollHeight={20}
-            logo={props.data.logo.fixed}
+            // logo={props.data.logo.fixed}
           >
             <SEO
-              title={`${frontmatter.title} | Rohit Dalal`}
-              description={body.excerpt}
-              image={image}
+              pageTitle={`${frontmatter.title} | Rohit Dalal`}
+              pageDescription={excerpt}
               postNode={props.data.blog}
               postSEO
-              logo={props.data.logo.fixed}
             />
 
             <div className="blog">
@@ -169,10 +164,13 @@ export const data = graphql`
         }
       }
     }
+  }
+`
+
+/*
     logo: imageSharp(fixed: { originalName: { eq: "logo.png" } }) {
       fixed(width: 35, height: 35) {
         ...GatsbyImageSharpFixed_tracedSVG
       }
     }
-  }
-`
+*/

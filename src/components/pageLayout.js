@@ -4,9 +4,17 @@ import Footer from './../components/Footer'
 import './../styles/main.scss'
 import PropTypes from 'prop-types'
 import ThemeContext from '../context/context'
-import icon from './../images/logo.png'
+
+if (typeof window !== 'undefined') {
+  // eslint-disable-next-line global-require
+  require('smooth-scroll')('a[href*="#"]', {
+    offset: 46,
+    updateURL: true,
+    speed: 200,
+  })
+}
 function PageLayout(props) {
-  const { scroll, changeBlog, blogTitle, scrollHeight, logo } = props
+  const { scroll, changeBlog, blogTitle, scrollHeight } = props
 
   return (
     <ThemeContext.Consumer>
@@ -20,7 +28,6 @@ function PageLayout(props) {
                   changeBlog={changeBlog}
                   blogTitle={blogTitle}
                   scrollHeight={scrollHeight}
-                  logo={logo ? logo : icon}
                 />
 
                 <main className="main-content">{props.children}</main>
