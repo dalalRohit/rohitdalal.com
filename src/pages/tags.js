@@ -1,38 +1,10 @@
 import React from 'react'
-import PageLayout from './../components/pageLayout'
+import PageLayout from './../components/layout/pageLayout'
+
 import { getAllTags } from './../../static/data'
 import { graphql, Link } from 'gatsby'
-import styled from 'styled-components'
-import { IoMdArrowBack } from 'react-icons/io'
 import SEO from './../components/seo'
 
-const TagsContainer = styled.div`
-  width: 100%;
-  max-width: 100%;
-  min-height: 70vh;
-  padding: 4rem 0 0 0;
-
-  @media (max-width: 620px) {
-    padding: 4rem 0 0 0;
-  }
-  a p {
-    font-size: 1.2rem;
-  }
-
-  .alltags {
-    box-sizing: border-box;
-    width: 100%;
-    padding: 0.1em;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
-    span {
-      font-size: 16px;
-    }
-    @media screen and (max-width: 620px) {
-      width: 100%;
-    }
-  }
-`
 const Tags = (props) => {
   const allTags = getAllTags(props.data.tags)
 
@@ -40,20 +12,13 @@ const Tags = (props) => {
     <PageLayout scroll={false} changeBlog={true} scrollHeight={20}>
       <SEO title={`All tags | Rohit Dalal`} />
 
-      <TagsContainer>
-        <Link to={`/blogs/`}>
-          <p>
-            {' '}
-            <IoMdArrowBack /> Check my all blogs{' '}
-          </p>
-        </Link>
-
+      <div className="tags-container">
         <h1>Check all blogs categories</h1>
 
-        <div className="alltags">
+        <div className="all-categories">
           {Object.keys(allTags).map((tag) => {
             return (
-              <span className={'Tag'} key={Math.random()}>
+              <span className="category" key={Math.random()}>
                 <Link
                   to={`/tags/${tag}`}
                   alt={`Show all blogs tagged ${tag}`}
@@ -65,7 +30,7 @@ const Tags = (props) => {
             )
           })}
         </div>
-      </TagsContainer>
+      </div>
     </PageLayout>
   )
 }

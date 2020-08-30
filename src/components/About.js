@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import Layout from './Layout'
+import Layout from './layout/Layout'
 
 import { content } from './../../static/data'
 import Photo from './UI/image'
-import Title from './UI/title'
 
 export default class About extends Component {
   render() {
@@ -17,15 +16,13 @@ export default class About extends Component {
     ]
     return (
       <Layout name={name} id={name}>
-        <Title path={name}>/about</Title>
+        <h1 className="title">/about</h1>
 
         <section className="about">
           <div className="myinfo">
-            <div className="my-photo">
-              <Photo fluid={this.props.fluid} />
-            </div>
+            <Photo />
 
-            <div className="my-desc">
+            <div className="my-desc" data-aos="zoom-in">
               <p
                 dangerouslySetInnerHTML={{
                   __html: content.about,

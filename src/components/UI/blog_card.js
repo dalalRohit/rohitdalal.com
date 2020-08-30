@@ -19,7 +19,7 @@ export default function BlogCard(props) {
     )
   })
   return (
-    <article className="blogCard ">
+    <article className="blogCard hvr-grow">
       <header className="blogImg">
         <Link to={`/blogs/${slug}`}>
           <Img fluid={fluid} alt={title} title={title} />

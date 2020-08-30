@@ -1,15 +1,15 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Title from './UI/title'
-import Layout from './Layout'
-import AllBlogs from './AllBlogs'
+import Layout from './layout/Layout'
+
+import AllBlogs from './helpers/AllBlogs'
 
 export default function Blog(props) {
   const name = 'Blog'
 
   return (
     <Layout name={name} id={name}>
-      <Title path={`${name}`}>/blog</Title>
+      <h1 className="title">/blog</h1>
 
       <div className="desc">
         <p>

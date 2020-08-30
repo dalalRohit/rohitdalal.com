@@ -8,12 +8,11 @@ const Home = (props) => {
 
   return (
     <Element name={name} id={name}>
-      <div className="hero">
+      <div className="hero" data-aos="zoom-in-up">
         <div className="my-info">
           <div className="brand">
             <h1>
-              {' '}
-              Namaste, I'm Rohit{' '}
+              Namaste, I'm Rohit
               <span
                 role="img"
                 aria-label="folded hands"
@@ -30,7 +29,6 @@ const Home = (props) => {
             <p>
               I also like to write about Web-Dev, JavaScript in general. <br />
             </p>
-            {/* <p> */}
             <Link
               className="button"
               to="/blogs/"
@@ -39,7 +37,6 @@ const Home = (props) => {
             >
               Read my blogs
             </Link>
-            {/* </p> */}
           </div>
         </div>
       </div>

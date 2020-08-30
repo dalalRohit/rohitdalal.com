@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import SEO from './../components/seo'
-import PageLayout from './../components/pageLayout'
+import PageLayout from './../components/layout/pageLayout'
 import Home from './../components/Home'
 import About from './../components/About'
 import Projects from './../components/Projects'
@@ -17,13 +17,12 @@ const IndexPage = (props) => {
       margin={false}
       scrollHeight={50}
       extraheight={false}
-      // logo={props.data.logo.fixed}
     >
       <SEO pageTitle="Rohit Dalal | Full Stack Software Developer" />
 
       <Home />
-      <About fluid={props.data.imageQuery.fluid} />
-      <Blog blogs={props.data.indexBlogQuery} />
+      <About />
+      <Blog blogs={props.data.allMdx} />
       <Projects />
       <Contact />
     </PageLayout>
@@ -31,11 +30,8 @@ const IndexPage = (props) => {
 }
 
 export const data = graphql`
-  {
-    indexBlogQuery: allMdx(
-      limit: 3
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
+  query {
+    allMdx(limit: 3, sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
           frontmatter {
@@ -60,13 +56,6 @@ export const data = graphql`
             }
           }
         }
-      }
-    }
-    imageQuery: imageSharp(
-      fluid: { originalName: { eq: "rohit-og-min.png" } }
-    ) {
-      fluid(maxWidth: 400, quality: 100) {
-        ...GatsbyImageSharpFluid_tracedSVG
       }
     }
   }

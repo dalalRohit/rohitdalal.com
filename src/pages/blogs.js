@@ -1,7 +1,7 @@
 import React from 'react'
 
-import AllBlogs from './../components/AllBlogs'
-import PageLayout from './../components/pageLayout'
+import AllBlogs from './../components/helpers/AllBlogs'
+import PageLayout from './../components/layout/pageLayout'
 import BlogFilter from './../components/helpers/BlogFilter'
 import SEO from './../components/seo'
 
@@ -14,7 +14,6 @@ const Blogs = (props) => {
       changeBlog={false}
       margin={true}
       scrollHeight={20}
-      // logo={props.data.logo.fixed}
     >
       <SEO pageTitle="Blogs | Rohit Dalal" />
 
@@ -53,11 +52,6 @@ export const blogsQuery = graphql`
             }
           }
         }
-      }
-    }
-    logo: imageSharp(fixed: { originalName: { eq: "logo.png" } }) {
-      fixed(width: 35, height: 35) {
-        ...GatsbyImageSharpFixed_tracedSVG
       }
     }
   }

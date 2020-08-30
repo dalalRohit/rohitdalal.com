@@ -84,7 +84,7 @@ class Form extends Component {
                   <p>You will be contacted soon.</p>
                 </div>
               ) : null}
-              <div className="form-div">
+              <div className="form-div" data-aos="zoom-in">
                 <form
                   className="main-form"
                   onSubmit={formProps.handleSubmit}

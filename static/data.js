@@ -54,8 +54,7 @@ const content = {
     I'm a self-taught Full Stack Software Developer <br/ >
     <b class="rohit">Available for Freelance Projects and Work</b> <br/>
     I like to keep things simple.
-    Contact me for any collaboration or just to say Hii ;)
-    `,
+    Contact me for any collaboration or just to say Hii`,
 }
 
 const metaData = {

@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from './UI/card'
-import Title from './UI/title'
-import Layout from './Layout'
+import Layout from './layout/Layout'
+
 import { projects } from './../../static/data'
 
 const Projects = () => {
@@ -9,7 +9,7 @@ const Projects = () => {
 
   return (
     <Layout name={name} id={name}>
-      <Title path={name}>/projects</Title>
+      <h1 className="title">/projects</h1>
 
       <div className="desc">
         <p>

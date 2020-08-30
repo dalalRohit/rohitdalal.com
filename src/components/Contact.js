@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Title from './UI/title'
-import Layout from './Layout'
+import Layout from './layout/Layout'
+
 import Form from './UI/Form'
 import {
   FaLinkedinIn,
@@ -43,7 +43,7 @@ export default class Contact extends Component {
     ]
     return (
       <Layout name={name} id={name}>
-        <Title path={name}>/contact</Title>
+        <h1 className="title">/contact</h1>
 
         <div className="contact">
           <div className="form">

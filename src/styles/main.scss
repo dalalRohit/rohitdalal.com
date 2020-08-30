@@ -6,6 +6,8 @@
     letter-spacing: 5px;
 }
 
+//AOS
+@import './../../node_modules/aos/src/sass/aos.scss';
 
 //Variables
 @import './variables.scss';
@@ -16,7 +18,7 @@
 //style.css
 @import './style.scss';
 
-// Components
+// Page Components
 @import './components/about.scss';
 @import './components/blog.scss';
 @import './components/contact.scss';

@@ -1,19 +1,32 @@
 import React from 'react'
 import Img from 'gatsby-image'
+import { StaticQuery, graphql } from 'gatsby'
 
-export default function Image(props) {
+export default function Image() {
   return (
     <div className="image">
-      <Img
-        alt={'Rohit Dalal | Full Stack Software Developer'}
-        title={'Rohit Dalal | Full Stack Software Developer'}
-        style={{
-          margin: '1.5rem',
-          maxWidth: '100%',
-          maxHeight: 'calc(60vh - 5rem)',
+      <StaticQuery
+        query={graphql`
+          query {
+            logo: file(relativePath: { eq: "photo.png" }) {
+              childImageSharp {
+                fluid(maxWidth: 400, quality: 100) {
+                  ...GatsbyImageSharpFluid_tracedSVG
+                }
+              }
+            }
+          }
+        `}
+        render={(data) => {
+          return data.logo ? (
+            <Img
+              alt={'Rohit Dalal | Full Stack Software Developer'}
+              title={'Rohit Dalal | Full Stack Software Developer'}
+              className="rohit-photo"
+              fluid={data.logo.childImageSharp.fluid}
+            />
+          ) : null
         }}
-        imgStyle={{ objectFit: 'contain' }}
-        fluid={props.fluid}
       />
     </div>
   )

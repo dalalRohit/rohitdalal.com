@@ -150,15 +150,15 @@
     margin: 0;
     cursor: pointer;
     font-size: 1.15rem;
-    color: inherit;
     border-radius: 2px;
+    opacity: .8;
 
     a {
-        padding: .1em;
-    }
+        padding: 0 .4rem 0 .4rem;
 
-    &:focus {
-        border-bottom: 1px solid lightgray;
+        &:hover {
+            opacity: 1;
+        }
     }
 
     @media screen and (max-width:$tablet) {
@@ -176,6 +176,7 @@
     box-sizing: border-box;
     width: 100%;
     position: fixed;
+    display: none;
     right: 0rem;
     left: 0rem;
     bottom: 0rem;
@@ -193,4 +194,38 @@
         font-size: 1.1rem;
     }
 
+    @media screen and (max-width:$mobile) {
+        display: block;
+    }
+
+}
+
+.brand-logo {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+
+    p {
+        cursor: pointer;
+        font-size: 1.25rem;
+        margin: 0 0 0 0.7rem;
+    }
+
+    /* mobile */
+    @media screen and (max-width: $mobile) {
+        justify-content: flex-start;
+
+        p {
+            display: none;
+        }
+
+        img {
+            margin: 0;
+        }
+    }
+
+    /* tablet */
+    @media screen and (max-width: $tablet) {
+        justify-content: flex-start;
+    }
 }

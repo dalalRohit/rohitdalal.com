@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import Logo from './UI/logo'
 import NavItems from './helpers/nav_items'
 
@@ -17,7 +16,6 @@ export default class Navbar extends Component {
 
   state = {
     scrolled: false,
-    width: typeof window !== 'undefined' ? window.innerWidth : 0,
   }
   navOnScroll = () => {
     const top = window.scrollY > this.props.scrollHeight
@@ -28,26 +26,11 @@ export default class Navbar extends Component {
     }
   }
   componentDidMount() {
-    this._isMounted = true
-
-    scrollSpy.update()
     if (typeof window !== 'undefined') {
       window.addEventListener('scroll', this.navOnScroll)
-
-      window.addEventListener('resize', () => {
-        this.setState({
-          width: window.innerWidth,
-        })
-
-        return () => {
-          window.removeEventListener('resize', () => {
-            this.setState({
-              width: window.innerWidth,
-            })
-          })
-        }
-      })
     }
+    this._isMounted = true
+    scrollSpy.update()
   }
 
   componentWillMount() {
@@ -59,7 +42,7 @@ export default class Navbar extends Component {
   }
 
   render() {
-    const { scroll, changeBlog, blogTitle } = this.props
+    const { scroll, changeBlog, blogTitle, logo } = this.props
 
     let navClass = ['navbar']
     if (this.state.scrolled) {
@@ -68,36 +51,23 @@ export default class Navbar extends Component {
 
     return (
       <ThemeContext.Consumer>
-        {(theme) => {
+        {({ dark, toggleDark, width }) => {
           const getLogo = () =>
-            theme.dark ? (
-              <IoIosSunny
-                className="icon"
-                size={30}
-                onClick={theme.toggleDark}
-              />
+            dark ? (
+              <IoIosSunny className="icon" size={30} onClick={toggleDark} />
             ) : (
-              <IoIosMoon
-                className="icon"
-                size={30}
-                onClick={theme.toggleDark}
-              />
+              <IoIosMoon className="icon" size={30} onClick={toggleDark} />
             )
-
           return (
             <header
               className="header"
               style={{
                 background:
-                  navClass.length === 1
-                    ? 'inherit'
-                    : theme.dark
-                    ? '#131313'
-                    : '#fff',
+                  navClass.length === 1 ? 'inherit' : dark ? '#131313' : '#fff',
               }}
             >
               <div className={navClass.join(' ')}>
-                <Logo fixed={this.props.logo} scroll={scroll} />
+                <Logo fixed={logo} scroll={scroll} />
 
                 {blogTitle && navClass.length === 2 ? (
                   <div className="blogTitle">
@@ -106,23 +76,15 @@ export default class Navbar extends Component {
                 ) : null}
 
                 <nav className="navigation">
-                  <NavItems
-                    scroll={scroll}
-                    changeBlog={changeBlog}
-                    theme={theme}
-                  />
+                  <NavItems scroll={scroll} changeBlog={changeBlog} />
 
                   {getLogo()}
                 </nav>
 
                 <div className="toggle">{getLogo()}</div>
 
-                {this.state.width < 620 ? (
-                  <Bottom
-                    scroll={scroll}
-                    changeBlog={changeBlog}
-                    theme={theme}
-                  />
+                {width <= 620 ? (
+                  <Bottom scroll={scroll} changeBlog={changeBlog} dark={dark} />
                 ) : null}
               </div>
             </header>
@@ -131,10 +93,4 @@ export default class Navbar extends Component {
       </ThemeContext.Consumer>
     )
   }
-}
-
-Navbar.propTypes = {
-  display: PropTypes.string, //how to display nav-items . "row"
-  scroll: PropTypes.bool, //whether to use 'react-scroll' or 'gatsby-link',
-  changeBlog: PropTypes.bool,
 }

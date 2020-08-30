@@ -3,7 +3,7 @@ import React from 'react'
 const Card = (props) => {
   const { title, desc, link, github } = props
   return (
-    <div className="proj-card">
+    <div className="proj-card" data-aos="fade-in">
       <div className="proj-meta">
         <p>{title}</p>
       </div>

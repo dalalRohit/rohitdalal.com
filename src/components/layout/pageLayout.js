@@ -1,11 +1,13 @@
 import React from 'react'
-import Navbar from './../components/Navbar'
-import Footer from './../components/Footer'
-import './../styles/main.scss'
-import PropTypes from 'prop-types'
-import ThemeContext from '../context/context'
+import Navbar from './../Navbar'
+import Footer from './../Footer'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+import './../../styles/main.scss'
+import ThemeContext from './../../context/context'
 
 if (typeof window !== 'undefined') {
+  AOS.init()
   // eslint-disable-next-line global-require
   require('smooth-scroll')('a[href*="#"]', {
     offset: 46,
@@ -40,14 +42,6 @@ function PageLayout(props) {
       }}
     </ThemeContext.Consumer>
   )
-}
-
-PageLayout.propTypes = {
-  scroll: PropTypes.bool, //to show navbar scroll/link
-  children: PropTypes.node.isRequired,
-  scrollHeight: PropTypes.number.isRequired, //after scrollHeight, .scrolled to navbar
-  changeBlog: PropTypes.bool.isRequired, //blog->Blogs
-  blogTitle: PropTypes.string, //blogtitle
 }
 
 export default PageLayout

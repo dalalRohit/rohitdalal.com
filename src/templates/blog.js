@@ -4,7 +4,7 @@ import { IoLogoTwitter, IoMdArrowBack } from 'react-icons/io'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { window } from 'browser-monads'
 import ThemeContext from '../context/context'
-import PageLayout from '../components/pageLayout'
+import PageLayout from './../components/layout/pageLayout'
 import SEO from '../components/seo'
 // import TOC from './../components/UI/toc'
 
@@ -28,10 +28,8 @@ export default function BlogTemplate(props) {
             scroll={false}
             changeBlog={true}
             blogTitle={frontmatter.title}
-            margin={true}
             extraheight={true}
             scrollHeight={20}
-            // logo={props.data.logo.fixed}
           >
             <SEO
               pageTitle={`${frontmatter.title} | Rohit Dalal`}
@@ -44,12 +42,11 @@ export default function BlogTemplate(props) {
               {/* blog metadata tags,title,date,share */}
               <div className="info">
                 <div className="back">
-                  <Link to={`/blogs/`}>
-                    <p>
-                      {' '}
-                      <IoMdArrowBack /> go to all blogs{' '}
-                    </p>
-                  </Link>
+                  <p>
+                    <Link to={`/blogs/`}>
+                      <IoMdArrowBack size={20} /> go to all blogs
+                    </Link>
+                  </p>
                 </div>
 
                 <div className="metadata">
@@ -81,12 +78,6 @@ export default function BlogTemplate(props) {
                   })}
                 </div>
               </div>
-
-              {/* {headings.length ? (
-                <aside className="side">
-                  <TOC links={headings} />
-                </aside>
-              ) : null} */}
 
               {/* Main blog content */}
               <article className="article">
@@ -166,11 +157,3 @@ export const data = graphql`
     }
   }
 `
-
-/*
-    logo: imageSharp(fixed: { originalName: { eq: "logo.png" } }) {
-      fixed(width: 35, height: 35) {
-        ...GatsbyImageSharpFixed_tracedSVG
-      }
-    }
-*/

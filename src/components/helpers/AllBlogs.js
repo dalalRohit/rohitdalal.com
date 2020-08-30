@@ -1,5 +1,5 @@
 import React from 'react'
-import BlogCard from './UI/blog_card'
+import BlogCard from './../UI/blog_card'
 export default function AllBlogs(props) {
   return (
     <>

@@ -1,6 +1,3 @@
-// @import './../helpers/variables.scss';
-
-
 .hero {
   box-sizing: border-box;
   width: 85%;
@@ -15,6 +12,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-repeat: no-repeat;
+  background-position: 0 0;
 
   //tablet
   @media screen and (max-width:$tablet) {

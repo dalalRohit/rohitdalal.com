@@ -1,8 +1,7 @@
 import React from 'react'
-import PageLayout from '../components/pageLayout'
-import AllBlogs from '../components/AllBlogs'
+import PageLayout from './../components/layout/pageLayout'
+import AllBlogs from '../components/helpers/AllBlogs'
 import { graphql } from 'gatsby'
-import styled from 'styled-components'
 import SEO from '../components/seo'
 
 export default function Tag(props) {
@@ -15,7 +14,7 @@ export default function Tag(props) {
       // logo={props.data.logo.fixed}
     >
       <SEO pageTitle={`Blogs of ${props.pageContext.tag} | Rohit Dalal`} />
-      <h2 className="tag-note">
+      <h2 className="tag-header">
         Showing all blogs of <u>{props.pageContext.tag}</u>
       </h2>
       <div className="all-blogs">

@@ -1,7 +1,7 @@
-@import './variables.scss';
+//------------------
+//Global Styles
+//------------------
 
-
-//Global
 * {
   margin: 0;
   padding: 0;
@@ -22,7 +22,6 @@ body {
   scroll-padding: 46;
 }
 
-/* Global styles */
 h1,
 h2,
 h3,
@@ -50,7 +49,9 @@ a:hover {
   text-transform: none;
 }
 
-// Layout
+//-------------
+// PageLayout.js Styles
+//-------------
 .layout {
   box-sizing: border-box;
   width: 100%;
@@ -65,7 +66,6 @@ a:hover {
 
 }
 
-//main-content
 .main-content {
   box-sizing: border-box;
   width: 100%;
@@ -75,7 +75,9 @@ a:hover {
   margin-top: 2rem;
 }
 
-// Page container
+//-------------
+// Layout.js styles
+//-------------
 .Container {
   box-sizing: border-box;
   width: 85%;
@@ -91,9 +93,6 @@ a:hover {
   }
 }
 
-
-
-//Page component wrapper
 .Wrapper {
   box-sizing: border-box;
   width: 100%;
@@ -107,9 +106,26 @@ a:hover {
   margin-bottom: 3rem;
 }
 
+.title {
+  transition: all 0.3s linear;
+  font-size: 2.2em;
+  font-weight: 400;
+  margin: 0 0 1.2rem 0;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      color: #3d84a8;
+    }
+  }
+}
 
 
-// Tags
+//-------------
+// Tags related styles
+//-------------
 .category {
   text-align: center;
   background: $tag;
@@ -125,8 +141,6 @@ a:hover {
   }
 }
 
-
-
 .all-categories {
   box-sizing: border-box;
   display: grid;
@@ -136,7 +150,7 @@ a:hover {
 
 }
 
-.tag-note {
+.tag-header {
   box-sizing: border-box;
   width: 90%;
   margin: 1rem 5% 1rem 5%;
@@ -144,27 +158,28 @@ a:hover {
   text-align: center;
 }
 
-.note {
-  margin: 0 0 1rem 0;
-}
-
-// Themes
+//------------
+// Global Themes
+//------------
 .dark {
   background-color: #202020;
   color: $dark-text;
-  transition: all 0.2s ease-out;
+  transition: all 0.2s ease;
   height: 100%;
   min-height: 100%;
 }
 
 .light {
-  transition: all 0.2s ease-out;
+  transition: all 0.2s ease;
   color: $light-text;
-  // background-color: rgb(236, 236, 236);
   height: 100%;
   min-height: 100%;
 }
 
+
+//-----------------
+//404 page styles
+//-----------------
 .not-found {
   width: 80%;
   margin: 1rem 10% 0 10%;
@@ -190,7 +205,15 @@ a:hover {
   }
 }
 
+
+.active {
+  color: darkmagenta;
+}
+
+
+//--------------
 // button
+//--------------
 .button {
   width: auto;
   max-width: 180px;
@@ -212,5 +235,43 @@ a:hover {
   &:disabled {
     cursor: not-allowed;
     background-color: lightgrey;
+  }
+}
+
+
+
+
+//----------------
+//tags.js styles
+//----------------
+
+.tags-container {
+  width: 100%;
+  max-width: 100%;
+  min-height: 70vh;
+  padding: 4rem 0 0 0;
+
+  @media (max-width: 620px) {
+    padding: 4rem 0 0 0;
+  }
+
+  a p {
+    font-size: 1.2rem;
+  }
+
+  .alltags {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.1em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+
+    span {
+      font-size: 16px;
+    }
+
+    @media screen and (max-width: 620px) {
+      width: 100%;
+    }
   }
 }
