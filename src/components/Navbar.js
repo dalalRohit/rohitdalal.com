@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Logo from './UI/logo'
 import NavItems from './helpers/nav_items'
-
+import { Link } from 'gatsby'
 import Bottom from './helpers/Bottom'
 import Scroll from 'react-scroll'
 import ThemeContext from '../context/context'
@@ -42,8 +42,7 @@ export default class Navbar extends Component {
   }
 
   render() {
-    const { scroll, changeBlog, blogTitle, logo } = this.props
-
+    const { scroll, changeBlog, blogTitle, logo, slug } = this.props
     let navClass = ['navbar']
     if (this.state.scrolled) {
       navClass.push('scrolled')
@@ -71,7 +70,13 @@ export default class Navbar extends Component {
 
                 {blogTitle && navClass.length === 2 ? (
                   <div className="blogTitle">
-                    <p>{blogTitle}</p>
+                    <Link
+                      to={`/blogs/${this.props.slug}`}
+                      alt="Go to the start"
+                      title="Go to the start"
+                    >
+                      <p>{blogTitle}</p>
+                    </Link>
                   </div>
                 ) : null}
 

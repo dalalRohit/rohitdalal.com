@@ -10,13 +10,11 @@ if (typeof window !== 'undefined') {
   AOS.init()
   // eslint-disable-next-line global-require
   require('smooth-scroll')('a[href*="#"]', {
-    offset: 46,
-    updateURL: true,
     speed: 200,
   })
 }
 function PageLayout(props) {
-  const { scroll, changeBlog, blogTitle, scrollHeight } = props
+  const { scroll, changeBlog, blogTitle, scrollHeight, slug } = props
 
   return (
     <ThemeContext.Consumer>
@@ -30,6 +28,7 @@ function PageLayout(props) {
                   changeBlog={changeBlog}
                   blogTitle={blogTitle}
                   scrollHeight={scrollHeight}
+                  slug={slug}
                 />
 
                 <main className="main-content">{props.children}</main>

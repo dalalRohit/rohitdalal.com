@@ -48,14 +48,19 @@ const components = {
   */
 
   a: (props) => {
-    return (
+    return props.className !== 'clip before' ? (
       <a
+        {...props}
         href={props.href}
         target="_blank"
         rel="noopener noreferrer"
-        alt={props.children}
-        title={props.href}
+        alt={props['aria-label']}
+        title={props['aria-label']}
       >
+        {props.children}
+      </a>
+    ) : (
+      <a {...props} href={props.href}>
         {props.children}
       </a>
     )
@@ -93,7 +98,9 @@ const components = {
 export const wrapRootElement = (obj) => {
   return (
     <ThemeProvider>
-      <MDXProvider components={components}>{obj.element}</MDXProvider>
+      <MDXProvider disableParentContext={true} components={components}>
+        {obj.element}
+      </MDXProvider>
     </ThemeProvider>
   )
 }

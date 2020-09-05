@@ -6,30 +6,7 @@ if (process.env.NODE_ENV === 'development') {
   process.env.GATSBY_WEBPACK_PUBLICPATH = '/'
 }
 
-//https://www.gatsbyjs.org/docs/preprocessing-external-images/
-// module.exports.createSchemaCustomization = ({ actions }) => {
-//     const { createTypes } = actions
-//     createTypes(`
-//       type Mdx implements Node {
-//         frontmatter: frontmatter
-//         featuredImg: File @link(from: "featuredImg___NODE")
-//       }
-//       type frontmatter {
-//         title: String!
-//         featuredImgUrl: String
-//         featuredImgAlt: String
-//       }
-//     `)
-
-// }
-
-module.exports.onCreateNode = async ({
-  node,
-  actions,
-  store,
-  cache,
-  createNodeId,
-}) => {
+module.exports.onCreateNode = async ({ node, actions }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === 'Mdx') {
@@ -40,23 +17,6 @@ module.exports.onCreateNode = async ({
       value: slug,
     })
   }
-
-  // For all MarkdownRemark nodes that have a featured image url, call createRemoteFileNode
-  // if(node.internal.type==='Mdx' && node.frontmatter.featuredImgUrl !== null){
-  //     let filenode=await createRemoteFileNode({
-  //         url:node.frontmatter.featuredImgUrl,
-  //         parentNodeId:node.id,
-  //         createNode:actions.createNode,
-  //         createNodeId,
-  //         cache,
-  //         store
-  //     });
-
-  //     if(filenode){
-  //         node.featuredImg___NODE = filenode.id
-
-  //     }
-  // }
 }
 
 module.exports.createPages = async ({ graphql, actions }) => {
@@ -67,7 +27,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
 
   const response = await graphql(`
     query {
-      allMdx {
+      allMdx(sort: { fields: frontmatter___date, order: DESC }) {
         edges {
           node {
             frontmatter {
@@ -96,8 +56,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
   const posts = response.data.allMdx.edges
   //Create /blogs/${slug} pages
   posts.forEach((edge, index) => {
-    // const previous = index === posts.length - 1 ? null : posts[index + 1]
-    // const next = index === 0 ? null : posts[index - 1]
     const previous = index === 0 ? null : posts[index - 1]
     const next = index === posts.length - 1 ? null : posts[index + 1]
 
