@@ -62,7 +62,11 @@ export default class Navbar extends Component {
               className="header"
               style={{
                 background:
-                  navClass.length === 1 ? 'inherit' : dark ? '#131313' : '#fff',
+                  navClass.length === 1
+                    ? 'inherit'
+                    : dark
+                    ? '#131313'
+                    : '#f2f2f2',
               }}
             >
               <div className={navClass.join(' ')}>

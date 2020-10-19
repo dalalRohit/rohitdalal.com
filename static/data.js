@@ -50,11 +50,10 @@ const projects = [
   },
 ]
 const content = {
-  about: `Hello, Nice to see you here <br/>
-    I'm a self-taught Full Stack Software Developer <br/ >
-    <b class="rohit">Available for Freelance Projects and Work</b> <br/>
-    I like to keep things simple.
-    Contact me for any collaboration or just to say Hii`,
+  about: `Hello, Nice to see you here. <br/>
+    I'm a Self-taught Full Stack Software Developer. <br/ >
+    <b class="rohit">Available for Freelance Projects and Work</b>. <br/>
+    Contact me for any collaboration or just to say Hello !`,
 }
 
 const metaData = {
@@ -66,7 +65,8 @@ const metaData = {
   siteLocale: `en_gb`,
   twitterUsername: `dalal__rohit`,
   author: `Rohit Dalal`,
-  siteUrl: `https://rohitdalal.com`,
+  siteUrl: `https://www.rohitdalal.com`,
+  siteLogo: '/logo.png',
 }
 
 const getSlugFromHeadings = (id) => {

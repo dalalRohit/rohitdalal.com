@@ -13,8 +13,8 @@ function Input(props) {
       <div className="input-box">
         <input
           className="input"
-          required={true}
-          autoComplete="off"
+          required
+          autoComplete="none"
           aria-label={label}
           aria-required="true"
           type={type}

@@ -1,10 +1,9 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { metaData } from './../../static/data'
-import logo from './../images/logo.png'
 
 const SEO = ({ pageTitle, postSEO, postNode, pageDescription }) => {
-  let image = logo,
+  let image = metaData.siteLogo,
     postURL,
     title,
     description

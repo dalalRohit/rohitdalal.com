@@ -16,11 +16,11 @@ class Form extends Component {
     this.setState({
       process: true,
     })
-    var { name, email, contact, message } = values
+    var { name, email, message } = values
     axios
       .post(
         `${mailApi}`,
-        { name, email, contact, message },
+        { name, email, message },
         {
           'Access-Control-Allow-Origin': '*',
           'Content-Type': 'application/json',
@@ -44,7 +44,6 @@ class Form extends Component {
     const data = [
       { id: 1, label: 'Name', name: 'name', type: 'text' },
       { id: 2, label: 'Email', name: 'email', type: 'email' },
-      { id: 3, label: 'Contact', name: 'contact', type: 'tel' },
       {
         id: 4,
         label: 'Message',
@@ -57,7 +56,6 @@ class Form extends Component {
     const schema = Yup.object().shape({
       name: Yup.string().required('How do I call you?'),
       email: Yup.string().email('Invalid email').required('No E-mail?'),
-      contact: Yup.string().min(10).required('How do I contact you?'),
       message: Yup.string().required('Say Hii atleast ;( '),
     })
 
@@ -66,7 +64,6 @@ class Form extends Component {
         initialValues={{
           name: '',
           email: '',
-          contact: '',
           message: '',
         }}
         validationSchema={schema}
