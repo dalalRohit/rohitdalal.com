@@ -19,17 +19,23 @@ class Form extends Component {
     this.setState({
       process: true,
     })
-    var { name, email, message } = values
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'contact', ...values }),
+      body: encode({ 'form-name': 'contact-form', ...values }),
     })
       .then(() => {
-        this.setState({ process: false })
-        alert('Success!')
+        this.setState({ process: false, status: true })
+        console.log('Success!')
       })
-      .catch((error) => alert(error))
+      .catch((error) => {
+        this.setState({
+          process: false,
+          status: false,
+        })
+
+        console.log(error)
+      })
   }
   render() {
     const data = [
