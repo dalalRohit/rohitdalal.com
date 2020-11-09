@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import Input from './Input'
-import axios from 'axios'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
 
-const mailApi = 'https://rohitmailapi.herokuapp.com/send'
+const encode = (data) => {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&')
+}
 
 class Form extends Component {
   state = {
@@ -17,28 +20,16 @@ class Form extends Component {
       process: true,
     })
     var { name, email, message } = values
-    axios
-      .post(
-        `${mailApi}`,
-        { name, email, message },
-        {
-          'Access-Control-Allow-Origin': '*',
-          'Content-Type': 'application/json',
-        }
-      )
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({ 'form-name': 'contact', ...values }),
+    })
       .then(() => {
-        this.setState({
-          status: true,
-          process: false,
-        })
+        this.setState({ process: false })
+        alert('Success!')
       })
-      .catch(() => {
-        this.setState({
-          status: false,
-          process: false,
-        })
-        alert('Email sending failed. Try again please ;)')
-      })
+      .catch((error) => alert(error))
   }
   render() {
     const data = [
@@ -83,6 +74,10 @@ class Form extends Component {
               ) : null}
               <div className="form-div" data-aos="zoom-in">
                 <form
+                  name="contact-form"
+                  method="POST"
+                  data-netlify="true"
+                  netlify-honeypot="bot-field"
                   className="main-form"
                   onSubmit={formProps.handleSubmit}
                   autoComplete="off"
@@ -103,6 +98,11 @@ class Form extends Component {
                         />
                       )
                     })}
+                    <input
+                      type="hidden"
+                      name="form-name"
+                      value="contact-form"
+                    />
 
                     <button
                       type="submit"
