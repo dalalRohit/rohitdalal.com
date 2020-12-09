@@ -26,15 +26,12 @@ class Form extends Component {
     })
       .then(() => {
         this.setState({ process: false, status: true })
-        console.log('Success!')
       })
       .catch((error) => {
         this.setState({
           process: false,
           status: false,
         })
-
-        console.log(error)
       })
   }
   render() {
@@ -64,8 +61,9 @@ class Form extends Component {
           message: '',
         }}
         validationSchema={schema}
-        onSubmit={(values) => {
+        onSubmit={(values, { resetForm }) => {
           this.handleForm(values)
+          resetForm()
         }}
       >
         {(formProps) => {

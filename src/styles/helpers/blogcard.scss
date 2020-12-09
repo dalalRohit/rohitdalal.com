@@ -1,128 +1,125 @@
 .blogCard {
-    box-sizing: border-box;
-    width: 80%;
-    margin: 0 10% 0 10%;
-    height: 100%;
-    display: flex;
-    flex-flow: column;
-    justify-content: space-evenly;
-    align-items: center;
-    border-radius: 9px;
-    max-width: 300px;
-    border: 1px solid rgba(211, 211, 211, 0.507);
+  box-sizing: border-box;
+  width: 80%;
+  margin: 0 10% 0 10%;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 9px;
+  max-width: 300px;
+  border: 1px solid rgba(211, 211, 211, 0.507);
 
-    .blogImg {
-        box-sizing: border-box;
-        width: 100%;
-        height: 100%;
-    }
+  .blogImg {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 1rem 0 1rem 0;
+  }
 }
 
 .blogData {
-    box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  // border: 1px solid red;
+  margin: 0.4rem 0 0.4rem 0;
+
+  .blogTitle {
+    margin: 0.5rem 0 0.7rem 0;
+    text-align: center;
+    font-weight: 600;
+    font-size: $body-font-size;
+    word-wrap: break-word;
+
+    a:hover {
+      color: $bloglink;
+    }
+  }
+
+  .dateTime {
     width: 100%;
-    max-width: 100%;
-    height: 100%;
     display: flex;
-    flex-flow: column;
     justify-content: space-between;
     align-items: center;
-    // border: 1px solid red;
-    margin: .4rem 0 .4rem 0;
+    font-size: 0.9rem;
+    height: auto;
+    // border: 1px solid darkcyan;
+    margin: 0 0.2rem 0.4rem 0.2rem;
 
-    .blogTitle {
-        margin: 0.5rem 0 .7rem 0;
-        text-align: center;
-        font-weight: 600;
-        font-size: $body-font-size;
-        word-wrap: break-word;
-
-        a:hover {
-            color: $bloglink;
-        }
+    span {
+      font-size: 0.8rem;
     }
-
-
-    .dateTime {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-size: .9rem;
-        height: auto;
-        // border: 1px solid darkcyan;
-        margin: 0 .2rem .4rem .2rem;
-
-        span {
-            font-size: .8rem;
-        }
-    }
+  }
 }
 
 .blogTags {
+  box-sizing: border-box;
+  margin: 0 0 0 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  span {
     box-sizing: border-box;
-    margin: 0 0 0 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-
-    span {
-        box-sizing: border-box;
-        margin: 0;
-    }
-
+    margin: 0;
+  }
 }
-
 
 .mobileTags {
-    display: none;
+  display: none;
 }
 
-
 // Mobile setup
-@media (max-width:$mobile) {
-    .blogCard {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-        flex-flow: row;
-        justify-content: space-evenly;
+@media (max-width: $mobile) {
+  .blogCard {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    flex-flow: row;
+    justify-content: space-evenly;
+  }
+
+  .blogImg {
+    width: 98%;
+    height: 98%;
+    margin: 0 0.2rem 0 0;
+  }
+
+  .blogData {
+    width: 100%;
+    margin: 0;
+
+    flex-flow: column;
+    justify-content: space-evenly;
+
+    p {
+      font-size: 1rem;
+      text-align: center;
     }
 
-    .blogImg {
-        width: 98%;
-        height: 98%;
-        margin: 0 .2rem 0 0;
+    .dateTime {
+      width: 100%;
+      font-size: 0.9em;
+      margin: 0.4rem 0 0 0;
     }
 
-    .blogData {
-        width: 100%;
-        margin: 0;
-
-        flex-flow: column;
-        justify-content: space-evenly;
-
-        p {
-            font-size: 1rem;
-            text-align: center;
-        }
-
-        .dateTime {
-            width: 100%;
-            font-size: .9em;
-            margin: .4rem 0 0 0;
-        }
-
-        .mobileTags {
-            display: block;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-        }
+    .mobileTags {
+      display: block;
+      width: 100%;
+      display: flex;
+      justify-content: center;
     }
+  }
 
-    .blogTags {
-        display: none;
-    }
+  .blogTags {
+    display: none;
+  }
 }

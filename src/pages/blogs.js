@@ -18,9 +18,7 @@ const Blogs = (props) => {
       <SEO pageTitle="Blogs | Rohit Dalal" />
 
       <BlogFilter data={props.data.blogsQuery} />
-      <div className="all-blogs">
-        <AllBlogs blogs={props.data.blogsQuery} />
-      </div>
+      <AllBlogs blogs={props.data.blogsQuery} fit="auto-fit" />
     </PageLayout>
   )
 }

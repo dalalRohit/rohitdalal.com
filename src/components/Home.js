@@ -2,6 +2,7 @@ import React from 'react'
 
 import { Element } from 'react-scroll'
 import { Link } from 'gatsby'
+import hands from './../images/hands.png'
 
 const Home = (props) => {
   const name = 'Home'
@@ -13,14 +14,11 @@ const Home = (props) => {
           <div className="brand">
             <h1>
               Namaste, I'm Rohit
-              <span
-                role="img"
-                aria-label="folded hands"
+              <img
                 alt={`Namaste | folded hands`}
                 title={`Namaste | folded hands`}
-              >
-                🙏{' '}
-              </span>{' '}
+                src={hands}
+              />
             </h1>
           </div>
 

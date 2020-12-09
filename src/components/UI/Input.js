@@ -6,9 +6,11 @@ function Input(props) {
 
   return (
     <div className="input-wrapper">
-      <label className="label" htmlFor={name} id={name}>
-        {label ? label : 'label'}
-      </label>
+      <div>
+        <label className="label" htmlFor={name} id={name}>
+          {label ? label : 'label'}
+        </label>
+      </div>
 
       <div className="input-box">
         <input

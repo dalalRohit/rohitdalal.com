@@ -18,7 +18,7 @@ export default class Navbar extends Component {
     scrolled: false,
   }
   navOnScroll = () => {
-    const top = window.scrollY > this.props.scrollHeight
+    const top = window.scrollY > this.props.scrollHeight + 70
     if (top === true) {
       this.setState({ scrolled: true })
     } else {
@@ -42,7 +42,7 @@ export default class Navbar extends Component {
   }
 
   render() {
-    const { scroll, changeBlog, blogTitle, logo, slug } = this.props
+    const { scroll, changeBlog, blogTitle, slug } = this.props
     let navClass = ['navbar']
     if (this.state.scrolled) {
       navClass.push('scrolled')
@@ -51,11 +51,23 @@ export default class Navbar extends Component {
     return (
       <ThemeContext.Consumer>
         {({ dark, toggleDark, width }) => {
-          const getLogo = () =>
+          const getThemeToggle = () =>
             dark ? (
-              <IoIosSunny className="icon" size={30} onClick={toggleDark} />
+              <IoIosSunny
+                alt="Toggle Theme"
+                title="Toggle Theme"
+                className="icon"
+                size={30}
+                onClick={toggleDark}
+              />
             ) : (
-              <IoIosMoon className="icon" size={30} onClick={toggleDark} />
+              <IoIosMoon
+                alt="Toggle Theme"
+                title="Toggle Theme"
+                className="icon"
+                size={30}
+                onClick={toggleDark}
+              />
             )
           return (
             <header
@@ -70,7 +82,7 @@ export default class Navbar extends Component {
               }}
             >
               <div className={navClass.join(' ')}>
-                <Logo fixed={logo} scroll={scroll} />
+                <Logo scroll={scroll} />
 
                 {blogTitle && navClass.length === 2 ? (
                   <div className="blogTitle">
@@ -84,13 +96,15 @@ export default class Navbar extends Component {
                   </div>
                 ) : null}
 
-                <nav className="navigation">
-                  <NavItems scroll={scroll} changeBlog={changeBlog} />
+                {width > 620 ? (
+                  <nav className="navigation">
+                    <NavItems scroll={scroll} changeBlog={changeBlog} />
 
-                  {getLogo()}
-                </nav>
+                    {getThemeToggle()}
+                  </nav>
+                ) : null}
 
-                <div className="toggle">{getLogo()}</div>
+                <div className="toggle">{getThemeToggle()}</div>
 
                 {width <= 620 ? (
                   <Bottom scroll={scroll} changeBlog={changeBlog} dark={dark} />

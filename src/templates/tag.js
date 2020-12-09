@@ -11,15 +11,12 @@ export default function Tag(props) {
       changeBlog={true}
       margin={false}
       scrollHeight={20}
-      // logo={props.data.logo.fixed}
     >
       <SEO pageTitle={`Blogs of ${props.pageContext.tag} | Rohit Dalal`} />
       <h2 className="tag-header">
         Showing all blogs of <u>{props.pageContext.tag}</u>
       </h2>
-      <div className="all-blogs">
-        <AllBlogs blogs={props.data.blogQuery} />
-      </div>
+      <AllBlogs blogs={props.data.blogQuery} fit="auto-fill" />
     </PageLayout>
   )
 }

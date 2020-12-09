@@ -22,7 +22,7 @@ export default class About extends Component {
           <div className="myinfo">
             <Photo />
 
-            <div className="my-desc" data-aos="zoom-in">
+            <div className="my-desc">
               <p
                 dangerouslySetInnerHTML={{
                   __html: content.about,
@@ -35,9 +35,9 @@ export default class About extends Component {
             <div>
               <h2>What I do?</h2>
               <ul>
-                <li>Web development</li>
-                <li>Front end</li>
-                <li>Back end</li>
+                <li>Websites / Web-apps</li>
+                <li>Full Stack Apps</li>
+                <li>Web Design</li>
               </ul>
             </div>
 
@@ -46,8 +46,8 @@ export default class About extends Component {
               <ul>
                 <li>React</li>
                 <li>Node.js / Express</li>
-                <li>MongoDB </li>
-                <li>Gatsby </li>
+                <li>MongoDB / PostgreSQL</li>
+                <li>Gatsby / Next.js</li>
               </ul>
             </div>
             <div>

@@ -10,6 +10,9 @@ module.exports = {
   // SiteMetaData
   siteMetadata: metaData,
 
+  flags: {
+    PRESERVE_WEBPACK_CACHE: true,
+  },
   // Plugins array
   plugins: [
     //analytics
@@ -48,6 +51,13 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `assets`,
+        path: `${__dirname}/static`,
       },
     },
 

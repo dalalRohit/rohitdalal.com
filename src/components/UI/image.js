@@ -10,7 +10,7 @@ export default function Image() {
           query {
             logo: file(relativePath: { eq: "photo.png" }) {
               childImageSharp {
-                fluid(maxWidth: 400, quality: 100) {
+                fluid(maxWidth: 350, quality: 100) {
                   ...GatsbyImageSharpFluid_tracedSVG
                 }
               }

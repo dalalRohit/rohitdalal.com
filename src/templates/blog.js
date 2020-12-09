@@ -5,12 +5,11 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { window } from 'browser-monads'
 import PageLayout from './../components/layout/pageLayout'
 import SEO from '../components/seo'
-// import TOC from './../components/UI/toc'
 
 export default function BlogTemplate(props) {
   const blog = props.data.blog
 
-  const { frontmatter, body, fields, headings, excerpt } = blog
+  const { frontmatter, body, fields, excerpt } = blog
 
   const twitterShare = `https://www.twitter.com/intent/tweet?url=${encodeURIComponent(
     window.location.href
@@ -39,11 +38,11 @@ export default function BlogTemplate(props) {
         {/* blog metadata tags,title,date,share */}
         <div className="info">
           <div className="back">
-            <p>
-              <Link to={`/blogs/`}>
-                <IoMdArrowBack size={20} /> go to all blogs
-              </Link>
-            </p>
+            <Link to={`/blogs/`}>
+              <p>
+                <IoMdArrowBack size={24} /> go to all blogs
+              </p>
+            </Link>
           </div>
 
           <div className="metadata">

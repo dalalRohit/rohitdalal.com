@@ -1,12 +1,9 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import { MDXProvider } from '@mdx-js/react'
 import { ThemeProvider } from './src/context/context'
-import { AiOutlinePaperClip } from 'react-icons/ai'
 
 import Code from './src/components/helpers/code'
 import './src/styles/templates/elements.scss'
-import { getSlugFromHeadings } from './static/data'
 
 const components = {
   blockquote: (props) => {

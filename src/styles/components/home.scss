@@ -16,39 +16,46 @@
   background-position: 0 0;
 
   //tablet
-  @media screen and (max-width:$tablet) {
+  @media screen and (max-width: $tablet) {
     width: 100%;
     margin: 0;
     height: 60vh;
   }
 
   //mobile
-  @media screen and (max-width:$mobile) {
+  @media screen and (max-width: $mobile) {
     width: 100%;
     // top: 6.1vh;
     margin: 0;
     height: 50vh;
-
   }
 }
-
-
 
 // Main content
 .my-info {
   box-sizing: border-box;
   width: 100%;
-  // margin: 0 15% 0 15%;
-  padding: .5rem;
+  // padding: 0.5rem;
   text-align: center;
 
   h1 {
     font-size: $hero-h1;
     font-weight: 500;
-    margin: 10px;
   }
 
-  @media (max-width:$mobile) {
+  .brand {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    text-align: center;
+  }
+  .brand img {
+    margin: 0 0 0 0.4rem;
+    width: 40px;
+    height: 40x;
+  }
+
+  @media (max-width: $mobile) {
     text-align: unset;
     width: 100%;
     margin: 0;
@@ -59,26 +66,24 @@
   }
 }
 
-
-
 .my-intro {
   box-sizing: border-box;
   width: 90%;
   margin: 1em 5% 0 5%;
   display: flex;
   flex-flow: column;
-  padding: .7em;
+  padding: 0.7em;
   justify-content: center;
   align-items: center;
   // border: 1px solid red;
 
   p {
-    margin: .2rem;
-    font-size: 1.2rem;
+    margin: 0.2rem;
+    font-size: $body-font-size;
   }
 
-  @media (max-width:$mobile) {
-    padding: .4em;
+  @media (max-width: $mobile) {
+    padding: 0.4em;
     width: 100%;
     margin: 0;
   }

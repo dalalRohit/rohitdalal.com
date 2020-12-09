@@ -6,6 +6,14 @@
     letter-spacing: 5px;
 }
 
+@font-face {
+    font-family: "Poppins";
+    src: local("Poppins"),
+        url('./../fonts/Poppins/Poppins-Regular.ttf');
+    font-display: swap;
+    letter-spacing: 5px;
+}
+
 //AOS
 @import './../../node_modules/aos/src/sass/aos.scss';
 
@@ -22,7 +30,6 @@
 @import './components/about.scss';
 @import './components/blog.scss';
 @import './components/contact.scss';
-@import './components/footer.scss';
 @import './components/home.scss';
 @import './components/navbar.scss';
 @import './components/projects.scss';

@@ -85,27 +85,6 @@ export default class Contact extends Component {
                 )
               })}
             </div>
-
-            <div className="built">
-              <p>
-                Built with{' '}
-                <a
-                  href="https://www.gatsbyjs.org"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Gatsby
-                </a>
-                , hosted on{' '}
-                <a
-                  href="https://www.netlify.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Netlify
-                </a>{' '}
-              </p>
-            </div>
           </div>
         </div>
       </Layout>

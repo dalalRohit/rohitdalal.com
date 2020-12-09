@@ -1,227 +1,213 @@
 .header {
-    box-sizing: border-box;
-    width: 100%;
-    max-width: 100%;
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 100;
-    height: 6vh;
-
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  height: 6vh;
 }
 
 .icon {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .toggle {
-    display: none;
-
+  display: none;
 }
 
 .navbar {
-    width: 85%;
-    margin: 2rem 7.5% 0 7.5%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: all 0.1s ease;
-    height: 6vh;
-    position: relative;
-    top: 0;
+  width: 85%;
+  margin: 2rem 7.5% 0 7.5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.1s ease;
+  height: 6vh;
+  position: relative;
+  top: 0;
 }
 
 .navigation {
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 100%;
-    margin: 0;
-    padding: 0;
-    height: 6vh;
-
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 6vh;
 }
 
 .scrolled {
-    z-index: 1000;
-    width: 85%;
-    max-width: 100%;
-    margin: 0 7.5% 0 7.5%;
-    left: 0;
-    top: 0;
-    height: 6vh;
-
+  z-index: 1000;
+  width: 85%;
+  max-width: 100%;
+  margin: 0 7.5% 0 7.5%;
+  left: 0;
+  top: 0;
+  height: 6vh;
+  max-height: 6vh;
 }
 
-
 .blogTitle {
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-
-    p {
-        margin: 0;
-        padding: 0.5rem;
-        text-decoration: underline;
-    }
+  p {
+    margin: 0;
+    padding: 0.5rem;
+    text-decoration: underline;
+  }
 }
 
 //tablet
-@media(max-width:1000px) {
-    .navbar {
-        width: 100%;
-        margin: 0;
-    }
+@media (max-width: 1000px) {
+  .navbar {
+    width: 100%;
+    margin: 0;
+  }
 
-    .scrolled {
-        margin: 0;
-    }
+  .scrolled {
+    margin: 0;
+  }
 
-    .blogTitle {
-        p {
-            font-size: 14px;
-        }
+  .blogTitle {
+    p {
+      font-size: 14px;
     }
+  }
 }
 
 // mobile
-@media(max-width:$mobile) {
+@media (max-width: $mobile) {
+  .navigation {
+    display: none;
+  }
 
-    .navigation {
-        display: none;
+  .navbar {
+    width: 100%;
+    margin: 0;
+  }
+
+  .scrolled {
+    margin: 0;
+  }
+
+  .blogTitle {
+    p {
+      padding: 0;
     }
+  }
 
-    .navbar {
-        width: 100%;
-        margin: 0;
-    }
-
-    .scrolled {
-        margin: 0;
-    }
-
-    .blogTitle {
-        p {
-            padding: 0;
-        }
-
-    }
-
-    .toggle {
-        display: block;
-    }
+  .toggle {
+    display: block;
+  }
 }
-
 
 // nav_items styles
 .ul {
-    width: 100%;
-    box-sizing: border-box;
-    height: 6vh;
-    min-height: 6vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  height: 6vh;
+  min-height: 6vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  li {
+    list-style-type: none;
+    margin: 0 0.2em 0 0.2em;
+  }
+
+  @media (max-width: $mobile) {
+    margin: 0;
+    height: 100%;
 
     li {
-        list-style-type: none;
-        margin: 0 .2em 0 .2em;
-        font-size: 1.1rem;
+      margin: 0 0.1em 0 0.1em;
     }
-
-    @media(max-width:$mobile) {
-        margin: 0;
-        height: 100%;
-        margin-top: 0;
-
-        li {
-            margin: .5em;
-        }
-    }
+  }
 }
 
 .nav-link {
-    box-sizing: border-box;
-    margin: 0;
-    cursor: pointer;
-    font-size: 1.15rem;
-    border-radius: 2px;
-    opacity: .8;
+  box-sizing: border-box;
+  margin: 0;
+  cursor: pointer;
+  font-size: 1.15rem;
+  border-radius: 2px;
+  opacity: 0.8;
 
-    a {
-        padding: 0 .4rem 0 .4rem;
+  a {
+    padding: 0 0.4rem 0 0.4rem;
 
-        &:hover {
-            opacity: 1;
-        }
+    &:hover {
+      opacity: 1;
     }
+  }
 
-    @media screen and (max-width:$tablet) {
-        font-size: 1.1rem;
-    }
+  @media screen and (max-width: $tablet) {
+    font-size: 1.1rem;
+  }
 
-    @media screen and (max-width:$mobile) {
-        font-size: 1rem;
-    }
+  @media screen and (max-width: $mobile) {
+    font-size: 1rem;
+  }
 }
-
 
 //bottom
 .bottom {
-    box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  position: fixed;
+  display: none;
+  right: 0rem;
+  left: 0rem;
+  bottom: 0rem;
+  min-height: 6vh;
+  a {
+    text-decoration: none;
+    text-align: center;
     width: 100%;
-    position: fixed;
-    display: none;
-    right: 0rem;
-    left: 0rem;
-    bottom: 0rem;
-    min-height: 6vh;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    z-index: 100;
+    padding: 1em;
+  }
 
-    a {
-        text-decoration: none;
-        text-align: center;
-        width: 100%;
-        padding: 1em;
-    }
-
-    @media screen and (max-width:$mobile) {
-        display: block;
-    }
-
+  @media screen and (max-width: $mobile) {
+    display: block;
+  }
 }
 
 .brand-logo {
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+
+  p {
+    cursor: pointer;
+    font-size: $body-font-size;
+    margin: 0 0 0 0.7rem;
+  }
+  img {
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: $tablet) {
+    justify-content: flex-start;
 
     p {
-        cursor: pointer;
-        font-size: $body-font-size;
-        margin: 0 0 0 0.7rem;
+      display: none;
     }
 
-    @media screen and (max-width: $tablet) {
-        justify-content: flex-start;
-
-        p {
-            display: none;
-        }
-
-        img {
-            margin: 0;
-        }
+    img {
+      margin: 0;
     }
+  }
 
-    /* tablet */
-    @media screen and (max-width: $tablet) {
-        justify-content: flex-start;
-    }
+  /* tablet */
+  @media screen and (max-width: $tablet) {
+    justify-content: flex-start;
+  }
 }

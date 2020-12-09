@@ -20,9 +20,7 @@ export default function Blog(props) {
           Read my blogs
         </Link>
       </div>
-      <div className="all-blogs">
-        <AllBlogs blogs={props.blogs} />
-      </div>
+      <AllBlogs blogs={props.blogs} fit="auto-fit" />
     </Layout>
   )
 }
