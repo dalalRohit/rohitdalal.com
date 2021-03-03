@@ -9,7 +9,7 @@ const Home = (props) => {
 
   return (
     <Element name={name} id={name}>
-      <div className="hero" data-aos="zoom-in-up">
+      <div className="hero">
         <div className="my-info">
           <div className="brand">
             <h1>

@@ -28,7 +28,7 @@ export const tagQuery = graphql`
         node {
           frontmatter {
             title
-            date(formatString: "MMM Do YYYY")
+            date(formatString: "MMM Do YY")
             slug
             tags
             thumbnail {

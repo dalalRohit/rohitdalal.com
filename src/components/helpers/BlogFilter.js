@@ -1,6 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
-
+import Chip from './../UI/chip'
 import { getAllTags } from './../../../static/data'
 
 export default function BlogFilter(props) {
@@ -13,13 +12,7 @@ export default function BlogFilter(props) {
 
       <section className="all-categories">
         {Object.keys(allTags).map((tag) => {
-          return (
-            <span className="category" key={Math.random()}>
-              <Link to={`/tags/${tag}`}>
-                {tag} <span className="blogcount">{allTags[tag]}</span>
-              </Link>
-            </span>
-          )
+          return <Chip tag={tag} count={allTags[tag]} />
         })}
       </section>
     </div>

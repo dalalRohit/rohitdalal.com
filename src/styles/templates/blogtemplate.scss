@@ -74,6 +74,13 @@
     box-sizing: border-box;
     font-size: $body-font-size;
     padding: 0.5rem 0 0.5rem 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    &:hover {
+      color: hotpink;
+    }
   }
 
   .metadata {

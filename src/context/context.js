@@ -3,6 +3,7 @@ import React from 'react'
 const defaultState = {
   dark: false,
   toggleDark: () => {},
+  width: typeof window !== 'undefined' ? window.innerWidth : 0,
 }
 
 const ThemeContext = React.createContext(defaultState)

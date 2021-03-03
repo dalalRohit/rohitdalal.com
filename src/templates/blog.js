@@ -5,6 +5,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { window } from 'browser-monads'
 import PageLayout from './../components/layout/pageLayout'
 import SEO from '../components/seo'
+import Chip from '../components/UI/chip'
 
 export default function BlogTemplate(props) {
   const blog = props.data.blog
@@ -37,13 +38,9 @@ export default function BlogTemplate(props) {
       <div className="blog">
         {/* blog metadata tags,title,date,share */}
         <div className="info">
-          <div className="back">
-            <Link to={`/blogs/`}>
-              <p>
-                <IoMdArrowBack size={24} /> go to all blogs
-              </p>
-            </Link>
-          </div>
+          <Link className="back" to={`/blogs/`}>
+            <IoMdArrowBack size={30} /> go to all blogs
+          </Link>
 
           <div className="metadata">
             <h1>{frontmatter.title}</h1>
@@ -64,13 +61,7 @@ export default function BlogTemplate(props) {
 
           <div className="all-categories">
             {frontmatter.tags.map((tag) => {
-              return (
-                <span className="category" key={Math.random()}>
-                  <Link to={`/tags/${tag}`} key={Math.random()}>
-                    {tag}
-                  </Link>
-                </span>
-              )
+              return <Chip tag={tag} />
             })}
           </div>
         </div>
@@ -124,7 +115,7 @@ export const data = graphql`
       frontmatter {
         slug
         title
-        date(formatString: "MMM Do YYYY")
+        date(formatString: "MMM Do YY")
         tags
         thumbnail {
           childImageSharp {

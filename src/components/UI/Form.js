@@ -76,7 +76,7 @@ class Form extends Component {
                   <p>You will be contacted soon.</p>
                 </div>
               ) : null}
-              <div className="form-div" data-aos="zoom-in">
+              <div className="form-div">
                 <form
                   name="contact-form"
                   method="POST"

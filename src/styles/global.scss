@@ -1,3 +1,25 @@
+//Scrollbar
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(180, 186, 190, 0.781);
+}
+
+/* Works on Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  height: 5px;
+  background: rgba(180, 186, 190, 0.781);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #121212;
+  border-radius: 20px;
+  border: 2px solid rgba(180, 186, 190, 0.781);
+}
+
 //------------------
 //Global Styles
 //------------------
@@ -20,7 +42,6 @@ body {
   width: 100%;
   font-family: 'Poppins', 'Inter', Roboto, Helvetica Neue, 'Inter',
     -apple-system, BlinkMacSystemFont, Helvetica, Arial;
-  scroll-padding: 46;
 }
 
 h1,
@@ -123,19 +144,29 @@ a:hover {
 //-------------
 // Tags related styles
 //-------------
-.category {
+.chip {
+  box-sizing: border-box;
   text-align: center;
-  background: $tag;
-  padding: 0.3rem;
-  color: black;
-  margin: 0;
+  padding: 0.15rem;
+  color: inherit;
+  border: 1px solid $tag;
+  border-radius: 5px;
   max-width: 100px;
+  margin: 0 0.5rem 0 0;
 
   a {
     &:hover {
       color: $link;
     }
   }
+
+  &:hover {
+    border: 1px solid hotpink;
+  }
+}
+
+.chipcount {
+  font-size: 0.89rem;
 }
 
 .all-categories {
@@ -159,7 +190,7 @@ a:hover {
 //------------
 .dark {
   color: $dark-text;
-  transition: all 0.2s ease;
+  transition: all 0.2s ease-in;
   height: 100%;
   min-height: 100%;
   background-image: url(./../images/background-dark.svg);
@@ -169,7 +200,7 @@ a:hover {
 }
 
 .light {
-  transition: all 0.2s ease;
+  transition: all 0.2s ease-in;
   color: $light-text;
   height: 100%;
   min-height: 100%;

@@ -1,21 +1,16 @@
 @font-face {
-    font-family: "Roboto";
-    src: local("Roboto"),
-        url('./../fonts/Roboto/Roboto-Regular.ttf');
-    font-display: swap;
-    letter-spacing: 5px;
+  font-family: 'Roboto';
+  src: local('Roboto'), url('./../fonts/Roboto/Roboto-Regular.ttf');
+  font-display: swap;
+  letter-spacing: 5px;
 }
 
 @font-face {
-    font-family: "Poppins";
-    src: local("Poppins"),
-        url('./../fonts/Poppins/Poppins-Regular.ttf');
-    font-display: swap;
-    letter-spacing: 5px;
+  font-family: 'Poppins';
+  src: local('Poppins'), url('./../fonts/Poppins/Poppins-Regular.ttf');
+  font-display: swap;
+  letter-spacing: 5px;
 }
-
-//AOS
-@import './../../node_modules/aos/src/sass/aos.scss';
 
 //Variables
 @import './variables.scss';
@@ -23,8 +18,8 @@
 //hover
 @import './hover.scss';
 
-//style.css
-@import './style.scss';
+//Global
+@import './global.scss';
 
 // Page Components
 @import './components/about.scss';
@@ -35,7 +30,7 @@
 @import './components/projects.scss';
 
 //Helpers
-@import './helpers/blogcard.scss';
+@import './components/blogcard.scss';
 
 // Templates
 @import './templates/blogtemplate.scss';

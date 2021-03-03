@@ -31,7 +31,7 @@ export const blogsQuery = graphql`
           frontmatter {
             title
             published
-            date(formatString: "MMM Do YYYY")
+            date(formatString: "MMM Do YY")
             slug
             tags
             thumbnail {

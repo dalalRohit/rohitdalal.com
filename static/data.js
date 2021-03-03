@@ -53,7 +53,7 @@ const content = {
   about: `Hello, Nice to see you here. <br/>
     I'm a Self-taught Full Stack Software Developer. <br/ >
     <b class="rohit">Available for Freelance Projects and Work</b>. <br/>
-    Contact me for any collaboration or just to say Hello !`,
+    Contact me for any collaboration or just to say Hii`,
 }
 
 const metaData = {

@@ -3,7 +3,7 @@ require('dotenv').config({
 })
 
 //blogs for dev, posts for prod
-const render = 'posts'
+const render = process.env.NODE_ENV === 'production' ? 'posts' : 'blogs'
 const { metaData } = require('./static/data')
 
 module.exports = {

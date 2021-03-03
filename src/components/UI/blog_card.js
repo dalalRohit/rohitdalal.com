@@ -1,30 +1,26 @@
+import React, { useContext } from 'react'
 import { Link } from 'gatsby'
-import React from 'react'
 import Img from 'gatsby-image'
+import Chip from './../UI/chip'
+
+import Context from './../../context/context'
 
 export default function BlogCard(props) {
+  const { width } = useContext(Context)
   const { title, date, fluid, slug, time, tags } = props
 
   const blogTags = tags.map((tag) => {
-    return (
-      <span className="category" key={Math.random()}>
-        <Link
-          alt={`Show all blogs tagged ${tag}`}
-          title={`Show all blogs tagged ${tag}`}
-          to={`/tags/${tag}`}
-        >
-          {tag}
-        </Link>
-      </span>
-    )
+    return <Chip tag={tag} />
   })
   return (
-    <article className="blogCard hvr-grow">
-      <header className="blogImg">
-        <Link to={`/blogs/${slug}`}>
-          <Img fluid={fluid} alt={title} title={title} />
-        </Link>
-      </header>
+    <article className="blogCard">
+      {width > 620 ? (
+        <header className="blogImg">
+          <Link to={`/blogs/${slug}`}>
+            <Img fluid={fluid} alt={title} title={title} />
+          </Link>
+        </header>
+      ) : null}
 
       <div className="blogData">
         <h2 className="blogTitle">
