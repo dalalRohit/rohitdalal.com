@@ -24,7 +24,7 @@
     "gatsby-remark-reading-time": "^1.1.0",
     "gatsby-source-filesystem": "^2.10.0",
     "gatsby-transformer-sharp": "^2.11.0",
-    "node-sass": "^5.0.0",
+    "node-sass": "^7.0.0",
     "prism-react-renderer": "^1.1.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
